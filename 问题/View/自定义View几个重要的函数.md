@@ -24,3 +24,14 @@
 
   <b>一般来说，自定义View在大多数情况下都有替代方案，利用图片或者组合动画来实现，但是使用后者可能会造成内存耗费过大，制作麻烦更诸多问题。</b>
   
+##  二.几个重要的函数
+
+### 1.构造函数
+  View的构造函数有四种重载分别如下
+```
+  public void SloopView(Context context) {}
+  public void SloopView(Context context, AttributeSet attrs) {}
+  public void SloopView(Context context, AttributeSet attrs, int defStyle) {}
+  public void SloopView(Context context, AttributeSet attrs, int defStyle, int defRes) {}
+```
+  
