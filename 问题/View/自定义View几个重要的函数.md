@@ -8,7 +8,7 @@
 
 ## 一.自定义View分类
 
-我自己将自定义View分为了两类：
+### 我自己将自定义View分为了两类：
   
 ###  1.自定义ViewGroup
   
@@ -22,7 +22,7 @@
   
   例如：定义一个支持自动加载网络图片的ImageViewView，或制作一种特殊的动画效果。
 
-  <b>一般来说，自定义View在大多数情况下都有替代方案，利用图片或者组合动画来实现，但是使用后者可能会造成内存耗费过大，制作麻烦更诸多问题。</b>
+  <b>一般来说，自定义View在大多数情况下都有替代方案，利用图片或者组合动画来实现，但是使用后者可能会面临内存耗费过大，制作麻烦更诸多问题。</b>
   
 ##  二.几个重要的函数
 
@@ -31,7 +31,25 @@
 ```
   public void SloopView(Context context) {}
   public void SloopView(Context context, AttributeSet attrs) {}
-  public void SloopView(Context context, AttributeSet attrs, int defStyle) {}
-  public void SloopView(Context context, AttributeSet attrs, int defStyle, int defRes) {}
+  public void SloopView(Context context, AttributeSet attrs, int defStyleAttr) {}
+  public void SloopView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {}
 ```
+  可以看出，关于View构造函数的参数有多有少，先排除几个不常用的，留下常用的再细细研究。
   
+  有四个参数的构造函数在API21的时候才添加上，我们一般不使用，排除。
+  
+有三个参数的构造函数中第三个参数是默认的Style，只有在明确调用的时候才会生效，这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，以系统中的ImageButton为例说明：
+```
+    public ImageButton(Context context, AttributeSet attrs) {
+        this(context, attrs, com.android.internal.R.attr.imageButtonStyle);
+    }
+
+    public ImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
+        this(context, attrs, defStyleAttr, 0);  //此处调了四个参数的构造函数无视即可
+    }
+```
+<b>注意：即使你再View中使用了Style这个属性也不会调用三个参数的构造函数，所调用的依旧是两个参数的构造函数。</b>  
+
+由于三个参数的构造函数我们一般也用不上，排除。
+
+
