@@ -52,4 +52,18 @@
 
 由于三个参数的构造函数我们一般也用不上，排除。
 
+排除了两个之后，只剩下一个参数的构造函数和两个参数的构造函数，他们的详情如下：
+```
+  //一般在直接New一个View的时候调用，没有参数。
+  public void SloopView(Context context) {}
+  
+  //一般在layout文件中使用的时候会调用，关于它的所有属性(包括自定义属性)都会包含在attrs中传递进来。
+  public void SloopView(Context context, AttributeSet attrs) {}
+```
+关于构造函数先讲这么多，关于如何自定义属性和如何取出和使用attrs中的内容，在后面会详细讲解，目前只需要知道这两个构造函数在何时调用即可。
+
+如果你想了解更多，可以参考以下文章：<br/>
+[Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
+[android view构造函数研究](http://blog.csdn.net/z103594643/article/details/6755017)<br/>
+[Android View构造方法第三参数使用方法详解](http://blog.csdn.net/mybeta/article/details/39993449)<br/>
 
