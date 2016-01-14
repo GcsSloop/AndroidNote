@@ -28,7 +28,7 @@
 
 ### 1.构造函数
   View的构造函数有四种重载分别如下
-```
+``` java
   public void SloopView(Context context) {}
   public void SloopView(Context context, AttributeSet attrs) {}
   public void SloopView(Context context, AttributeSet attrs, int defStyleAttr) {}
@@ -39,7 +39,7 @@
   有四个参数的构造函数在API21的时候才添加上，我们一般不使用，排除。
   
 有三个参数的构造函数中第三个参数是默认的Style，只有在明确调用的时候才会生效，这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，以系统中的ImageButton为例说明：
-```
+``` java
     public ImageButton(Context context, AttributeSet attrs) {
         this(context, attrs, com.android.internal.R.attr.imageButtonStyle);
     }
@@ -53,7 +53,7 @@
 由于三个参数的构造函数我们一般也用不上，排除。
 
 排除了两个之后，只剩下一个参数的构造函数和两个参数的构造函数，他们的详情如下：
-```
+``` java
   //一般在直接New一个View的时候调用，没有参数。
   public void SloopView(Context context) {}
   
