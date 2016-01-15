@@ -20,7 +20,7 @@
   
   在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View。
   
-  例如：定义一个支持自动加载网络图片的ImageViewView，或制作一种特殊的动画效果。
+  例如：定义一个支持自动加载网络图片的ImageView，或制作一种特殊的动画效果。
 
   <b>一般来说，自定义View在大多数情况下都有替代方案，利用图片或者组合动画来实现，但是使用后者可能会面临内存耗费过大，制作麻烦更诸多问题。</b>
   
@@ -52,9 +52,9 @@
 
 由于三个参数的构造函数我们一般也用不上，排除。
 
-排除了两个之后，只剩下一个参数的构造函数和两个参数的构造函数，他们的详情如下：
+排除了两个之后，只剩下一个参数和两个参数的构造函数，他们的详情如下：
 ``` java
-  //一般在直接New一个View的时候调用，没有参数。
+  //一般在直接New一个View的时候调用。
   public void SloopView(Context context) {}
   
   //一般在layout文件中使用的时候会调用，关于它的所有属性(包括自定义属性)都会包含在attrs中传递进来。
@@ -66,4 +66,6 @@
 [Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
 [android view构造函数研究](http://blog.csdn.net/z103594643/article/details/6755017)<br/>
 [Android View构造方法第三参数使用方法详解](http://blog.csdn.net/mybeta/article/details/39993449)<br/>
+
+### 2.测量View大小
 
