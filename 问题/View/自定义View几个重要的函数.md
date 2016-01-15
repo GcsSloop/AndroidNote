@@ -4,7 +4,7 @@
 
 ### 作者微博: [@攻城师sloop](http://weibo.com/5459430586)
 
-作为一个有有(hui)追(zhuang)求(B)的程序员，肯定想做一些让人眼前一亮的程序效果，但是系统提供的那些一般很难满足，为了梦(zhuang)想(B)就必须要学习一些自定义View。下面我们就了解一些自定义View相关的东西。
+作为一个<b>有(hui)追(zhuang)求(B)</b>的程序员，肯定想做一些让人眼前一亮的程序效果，但是系统提供的那些一般很难满足，为了<b>梦(zhuang)想(B)</b>就必须要学习一些自定义View。下面我们就了解一些自定义View相关的东西。
 
 ## 一.自定义View分类
 
@@ -34,9 +34,9 @@
   public void SloopView(Context context, AttributeSet attrs, int defStyleAttr) {}
   public void SloopView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {}
 ```
-  可以看出，关于View构造函数的参数有多有少，先排除几个不常用的，留下常用的再细细研究。
+  可以看出，关于View构造函数的参数有多有少，先排除几个不常用的，留下常用的再研究。
   
-  有四个参数的构造函数在API21的时候才添加上，我们一般不使用，排除。
+  <b>有四个参数的构造函数在API21的时候才添加上，我一般不使用，暂不考虑。</b>
   
 有三个参数的构造函数中第三个参数是默认的Style，这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，且只有在明确调用的时候才会生效，以系统中的ImageButton为例说明：
 ``` java
@@ -52,7 +52,7 @@
 ```
 <b>注意：即使你在View中使用了Style这个属性也不会调用三个参数的构造函数，所调用的依旧是两个参数的构造函数。</b>  
 
-由于三个参数的构造函数我们一般也用不上，排除。
+<b>由于三个参数的构造函数第三个参数一般不用，暂不考虑，第三个参数的具体用法会在以后用到的时候详细介绍。</b>
 
 排除了两个之后，只剩下一个参数和两个参数的构造函数，他们的详情如下：
 ``` java
@@ -61,6 +61,18 @@
   
   //一般在layout文件中使用的时候会调用，关于它的所有属性(包括自定义属性)都会包含在attrs中传递进来。
   public void SloopView(Context context, AttributeSet attrs) {}
+```
+以下方法调用的是<b>一个参数</b>的构造函数：
+``` java
+  //在Avtivity中
+  SloopView view = new SloopView(this);
+```
+以下方法调用的是<b>两个参数</b>的构造函数：
+``` xml
+  //在layout文件中 - 格式为： 包名.View名
+  <com.sloop.study.SloopView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
 ```
 关于构造函数先讲这么多，关于如何自定义属性和使用attrs中的内容，在后面会详细讲解，目前只需要知道这两个构造函数在何时调用即可。
 
