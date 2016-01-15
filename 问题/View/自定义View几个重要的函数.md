@@ -12,13 +12,13 @@
   
 ###  1.自定义ViewGroup
   
-  自定义ViewGroup是利用现有的组件根据特定的布局方式来组成新的组件，一般继承自ViewGroup或各种Layout。
+  自定义ViewGroup一般是利用现有的组件根据特定的布局方式来组成新的组件，大多继承自ViewGroup或各种Layout，包含有子View。
   
   例如：一个应用内的底部导航条中的条目，一般都是上面为图标，下面是文字，那么这两个就可以用自定义ViewGroup组合成为一个Veiw，提供两个属性分别用来设置文字和图片即可，这样使用起来会方便很多。
     
 ###  2.自定义View
   
-  在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View。
+  在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View，不包含子View。
   
   例如：定义一个支持自动加载网络图片的ImageView，或制作一种特殊的动画效果。
 
@@ -80,7 +80,7 @@
 
 ========
 
-### 2.测量View大小
+### 2.测量View大小(onMeasure)
 #### 为什么要测量View大小？
   View的大小不仅由自身所决定，同时也会受到父控件的影响，为了我们的控件能更好的适应各种情况，所有我们一般会自己进行测量。
 
@@ -125,11 +125,66 @@ AT_MOST     | 10 | 000000000000000000001111011000
 
 ======
 
-### 3.确定View大小
-  在测量完View之后一般来说
+### 3.确定View大小(onSizeChanged)
+  这个函数在视图大小发生改变时调用：
+  
+  Q: 在测量完View并使用setMeasuredDimension函数之后View的大小基本上已经确定了，那么为什么还要再次确定View的大小呢？
+  
+  A: 这是因为View的大小不仅由View本身控制，而且受父控件的影响，所以我们在确定View大小的时候最好使用系统提供的onSizeChanged回调函数。
+
+onSizeChanged如下：
+``` java
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
+```
+可以看出，它又四个参数，分别为 宽度，高度，上一次宽度，上一次高度。
+
+这个函数比较简单，我们只需关注 宽度(w), 高度(h) 即可，这两个参数就是View最终的大小。
+
+=========
+
+### 4.确定子View布局(onLayout)
+
+  确定布局的函数是onLayout，它用于确定子View的位置，在自定义ViewGroup的时候会用到，暂时略过， 这个函数会在讲解自定义ViewGroup的时候会详细讲解。
+  
+========
+
+### 5.绘制内容(onDraw)
+ 
+ onDraw是实际绘制的部分，也就是我们真正关心的部分，使用的是Canvas绘图。
+``` java
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+    }
+```
+关于Canvas绘图另分一章吧，本来想写一些关于Canvas基本操作的的，可是篇幅太长了QAQ， 留个尾巴下一篇再写吧，毕竟Canvas绘图也是一个比较庞大的东西，也不是三言两语就能讲明白的，就到这里吧。
+
+### 6.对外提供操作方法和监听回调
+  自定义完View之后，一般会对外暴露一些接口，用于操作View的相关属性，控制View的状态等，或者需要监听View的变化，具体还是稍后再讲吧(继续挖坑)。
 
 
+************
 
+## 重点知识梳理
+
+### 自定义View分类
+类别 | 继承自 | 特点
+--- | --- | ---
+ViewGroup | ViewGroup xxLayout等  | 包含子View
+View      | View SurfaceView 其他 | 不包含子View
+
+### 自定义View流程：
+步骤 | 关键字 | 详解
+--- | --- | ---
+1 | 构造函数      | 了解在不同情况下会调用哪个构造函数
+2 | onMeasure     | 测量View的大小
+3 | onSizeChanged | 确定View大小
+4 | onLayout      | 确定子View布局(自定义View包含子View时有用)
+5 | onDraw        | 实际绘制内容
+6 | 提供接口      | 对外提供接口用于控制View或监听View某些状态。
 
 关于构造函数，如果你想了解更多，可以参考以下文章：<br/>
 [Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
