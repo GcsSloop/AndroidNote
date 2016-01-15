@@ -41,14 +41,16 @@
 有三个参数的构造函数中第三个参数是默认的Style，这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，且只有在明确调用的时候才会生效，以系统中的ImageButton为例说明：
 ``` java
     public ImageButton(Context context, AttributeSet attrs) {
+        //调用了三个参数的构造函数，明确指定第三个参数
         this(context, attrs, com.android.internal.R.attr.imageButtonStyle);
     }
 
     public ImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);  //此处调了四个参数的构造函数无视即可
+        //此处调了四个参数的构造函数，无视即可
+        this(context, attrs, defStyleAttr, 0); 
     }
 ```
-<b>注意：即使你再View中使用了Style这个属性也不会调用三个参数的构造函数，所调用的依旧是两个参数的构造函数。</b>  
+<b>注意：即使你在View中使用了Style这个属性也不会调用三个参数的构造函数，所调用的依旧是两个参数的构造函数。</b>  
 
 由于三个参数的构造函数我们一般也用不上，排除。
 
@@ -62,7 +64,7 @@
 ```
 关于构造函数先讲这么多，关于如何自定义属性和使用attrs中的内容，在后面会详细讲解，目前只需要知道这两个构造函数在何时调用即可。
 
-如果你想了解更多，可以参考以下文章：<br/>
+关于构造函数，如果你想了解更多，可以参考以下文章：<br/>
 [Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
 [android view构造函数研究](http://blog.csdn.net/z103594643/article/details/6755017)<br/>
 [Android View构造方法第三参数使用方法详解](http://blog.csdn.net/mybeta/article/details/39993449)<br/>
