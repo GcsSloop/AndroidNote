@@ -8,7 +8,7 @@
 
 ## 一.自定义View分类
 
-### 我自己将自定义View分为了两类：
+### 我将自定义View分为了两类：
   
 ###  1.自定义ViewGroup
   
@@ -60,7 +60,7 @@
   //一般在layout文件中使用的时候会调用，关于它的所有属性(包括自定义属性)都会包含在attrs中传递进来。
   public void SloopView(Context context, AttributeSet attrs) {}
 ```
-关于构造函数先讲这么多，关于如何自定义属性和如何取出和使用attrs中的内容，在后面会详细讲解，目前只需要知道这两个构造函数在何时调用即可。
+关于构造函数先讲这么多，关于如何自定义属性和使用attrs中的内容，在后面会详细讲解，目前只需要知道这两个构造函数在何时调用即可。
 
 如果你想了解更多，可以参考以下文章：<br/>
 [Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
