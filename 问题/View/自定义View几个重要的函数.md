@@ -162,6 +162,8 @@ onSizeChanged如下：
 ```
 关于Canvas绘图另分一章吧，本来想写一些关于Canvas基本操作的的，可是篇幅太长了QAQ， 留个尾巴下一篇再写吧，毕竟Canvas绘图也是一个比较庞大的东西，也不是三言两语就能讲明白的，就到这里吧。
 
+======
+
 ### 6.对外提供操作方法和监听回调
   自定义完View之后，一般会对外暴露一些接口，用于操作View的相关属性，控制View的状态等，或者需要监听View的变化，具体还是稍后再讲吧(继续挖坑)。
 
@@ -186,6 +188,9 @@ View      | View SurfaceView 其他 | 不包含子View
 5 | onDraw        | 实际绘制内容
 6 | 提供接口      | 对外提供接口用于控制View或监听View某些状态。
 
+
+## 参考资料：
+
 关于构造函数，如果你想了解更多，可以参考以下文章：<br/>
 [Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
 [android view构造函数研究](http://blog.csdn.net/z103594643/article/details/6755017)<br/>
@@ -201,9 +206,7 @@ View      | View SurfaceView 其他 | 不包含子View
 [Android中View的绘制过程 onMeasure方法简述](http://www.cnblogs.com/mengdd/p/3332882.html)<br/>
 [onMeasureとonLayoutについて理解する](http://qiita.com/naodroid/items/d685a0113342edbb7587)<br/>
 
-[]()<br/>
-[]()<br/>
-[]()<br/>
+
 
 
 
