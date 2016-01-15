@@ -82,4 +82,15 @@
 [Android View构造方法第三参数使用方法详解](http://blog.csdn.net/mybeta/article/details/39993449)<br/>
 
 ### 2.测量View大小
-
+测量View大小使用的是onMeasure函数，函数中有两个参数，我们可以从这两个参数取出宽高的相关数据，如下：
+``` java
+   @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int widthsize = MeasureSpec.getSize(widthMeasureSpec);      //取出宽度的确切数值
+        int widthmode = MeasureSpec.getMode(widthMeasureSpec);      //取出宽度的测量模式
+        
+        int heightsize = MeasureSpec.getSize(heightMeasureSpec);    //取出高度的确切数值
+        int heightmode = MeasureSpec.getMode(heightMeasureSpec);    //取出高度的测量模式
+    }
+```
+使用MeasureSpec.getSize()获取的是一个精确数值，在用指定了大小或者使用match_parent, fill_parent的时候可以直接获取数值。
