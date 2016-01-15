@@ -38,7 +38,7 @@
   
   有四个参数的构造函数在API21的时候才添加上，我们一般不使用，排除。
   
-有三个参数的构造函数中第三个参数是默认的Style，只有在明确调用的时候才会生效，这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，以系统中的ImageButton为例说明：
+有三个参数的构造函数中第三个参数是默认的Style，这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，且只有在明确调用的时候才会生效，以系统中的ImageButton为例说明：
 ``` java
     public ImageButton(Context context, AttributeSet attrs) {
         this(context, attrs, com.android.internal.R.attr.imageButtonStyle);
