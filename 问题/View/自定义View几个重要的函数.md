@@ -76,11 +76,6 @@
 ```
 关于构造函数先讲这么多，关于如何自定义属性和使用attrs中的内容，在后面会详细讲解，目前只需要知道这两个构造函数在何时调用即可。
 
-关于构造函数，如果你想了解更多，可以参考以下文章：<br/>
-[Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
-[android view构造函数研究](http://blog.csdn.net/z103594643/article/details/6755017)<br/>
-[Android View构造方法第三参数使用方法详解](http://blog.csdn.net/mybeta/article/details/39993449)<br/>
-
 ### 2.测量View大小
 #### 为什么要测量View大小？
   View的大小不仅由自身所决定，同时也会受到父控件的影响，为了我们的控件能更好的适应各种情况，所有我们一般会自己进行测量。
@@ -101,19 +96,53 @@
 
 在int类型的32位二进制位中，31-30这两位表示模式,29~0这三十位表示宽和高的实际值。
 
-其中模式一共有三种， 被定义在 Android 中的 View 类的一个内部类View.MeasureSpec中：
+#### 模式一共有三种， 被定义在 Android 中的 View 类的一个内部类View.MeasureSpec中：
 
 模式 | 二进制数值 | 描述 
 --- | --- | --- 
 UNSPECIFIED | 00 | 默认值，父控件没有给子view任何限制，子View可以设置为任意大小。
-EXACTLY | 01 | 表示父控件已经确切的决定了子View的大小。 
-AT_MOST | 10 | 父控件未指定子控件大小，
-```
-UNSPECIFIED：表示，。------二进制表示：00
-EXACTLY：表示父控件给子view一个具体的值，子view要设置成这些值的大小。------二进制表示：01
-AT_MOST：表示父控件个子view一个最大的特定值，而子view不能超过这个值的大小。------二进制表示：10
-```
+EXACTLY     | 01 | 表示父控件已经确切的指定了子View的大小。 
+AT_MOST     | 10 | 表示子View具体大小没有尺寸限制，但是存在上限，上限一般为父View大小。
+
+#### 关于 onMeasure中的参数(widthMeasureSpec, heightMeasureSpec)在不同模式下是这样的：
+以数值1080(二进制为: 1111011000)为例：
+
+名称 | 模式 | 实际数值
+--- | --- | ---
+UNSPECIFIED | 00 | 000000000000000000001111011000
+EXACTLY     | 01 | 000000000000000000001111011000
+AT_MOST     | 10 | 000000000000000000001111011000
+
+
+
+
 MeasureSpec.getSize()获取的是一个精确数值，在用指定了大小或者使用match_parent, fill_parent的时候可以直接获取数值。
 MeasureSpec.getMode()获取的是测量模式，模式一共有三种，如下：
+
+
+
+
+关于构造函数，如果你想了解更多，可以参考以下文章：<br/>
+[Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
+[android view构造函数研究](http://blog.csdn.net/z103594643/article/details/6755017)<br/>
+[Android View构造方法第三参数使用方法详解](http://blog.csdn.net/mybeta/article/details/39993449)<br/>
+
+关于测量函数，你想了解更多可以参考以下文章：<br/>
+[View](http://developer.android.com/reference/android/view/View.html)<br/>
+[View.MeasureSpec](http://developer.android.com/reference/android/view/View.MeasureSpec.html)<br/>
+[onMeasure，MeasureSpec源码 流程 思路详解](http://blog.csdn.net/a396901990/article/details/36475213)<br/>
+<br/>
+[Android 自定义View onMeasure方法的实现](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1102/1891.html)<br/>
+[Android API指南(二)自定义控件02之 onMeasure](http://wangkuiwu.github.io/2014/06/20/View-OnMeasure/)<br/>
+[Android中View的绘制过程 onMeasure方法简述](http://www.cnblogs.com/mengdd/p/3332882.html)<br/>
+[onMeasureとonLayoutについて理解する](http://qiita.com/naodroid/items/d685a0113342edbb7587)<br/>
+
+[]()<br/>
+[]()<br/>
+[]()<br/>
+
+
+
+
 
 
