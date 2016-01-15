@@ -82,7 +82,11 @@
 [Android View构造方法第三参数使用方法详解](http://blog.csdn.net/mybeta/article/details/39993449)<br/>
 
 ### 2.测量View大小
-测量View大小使用的是onMeasure函数，函数中有两个参数，我们可以从这两个参数取出宽高的相关数据，如下：
+#### 为什么要测量View大小？
+  View的大小不仅由自身所决定，同时也会受到父控件的影响，为了我们的控件能更好的适应各种情况，所有我们一般会自己进行测量。
+
+#### 测量View使用的函数
+测量View大小使用的是onMeasure函数，我们可以从这两个参数取出宽高的相关数据：
 ``` java
    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -93,4 +97,23 @@
         int heightmode = MeasureSpec.getMode(heightMeasureSpec);    //取出高度的测量模式
     }
 ```
-使用MeasureSpec.getSize()获取的是一个精确数值，在用指定了大小或者使用match_parent, fill_parent的时候可以直接获取数值。
+从上面可以看出 onMeasure 函数中有 widthMeasureSpec 和 heightMeasureSpec 这两个 int 类型的参数， 毫无疑问他们是和宽高相关的， <b>但它们其实不是宽和高， 而是由宽、高和各自方向上对应的模式来合成的一个值：</b>
+
+在int类型的32位二进制位中，31-30这两位表示模式,29~0这三十位表示宽和高的实际值。
+
+其中模式一共有三种， 被定义在 Android 中的 View 类的一个内部类View.MeasureSpec中：
+
+模式 | 二进制数值 | 描述 
+--- | --- | --- 
+UNSPECIFIED | 00 | 默认值，父控件没有给子view任何限制，子View可以设置为任意大小。
+EXACTLY | 01 | 表示父控件已经确切的决定了子View的大小。 
+AT_MOST | 10 | 父控件未指定子控件大小，
+```
+UNSPECIFIED：表示，。------二进制表示：00
+EXACTLY：表示父控件给子view一个具体的值，子view要设置成这些值的大小。------二进制表示：01
+AT_MOST：表示父控件个子view一个最大的特定值，而子view不能超过这个值的大小。------二进制表示：10
+```
+MeasureSpec.getSize()获取的是一个精确数值，在用指定了大小或者使用match_parent, fill_parent的时候可以直接获取数值。
+MeasureSpec.getMode()获取的是测量模式，模式一共有三种，如下：
+
+
