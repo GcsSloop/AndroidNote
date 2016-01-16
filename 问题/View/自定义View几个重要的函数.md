@@ -8,7 +8,7 @@
 
 ## 一.自定义View分类
 
-### 我将自定义View分为了两类：
+### 我将自定义View分为了两类(只是我自己的分类)：
   
 ###  1.自定义ViewGroup
   
@@ -81,8 +81,8 @@
 ========
 
 ### 2.测量View大小(onMeasure)
-#### 为什么要测量View大小？
-  View的大小不仅由自身所决定，同时也会受到父控件的影响，为了我们的控件能更好的适应各种情况，所有我们一般会自己进行测量。
+#### Q: 为什么要测量View大小？
+#### A: View的大小不仅由自身所决定，同时也会受到父控件的影响，为了我们的控件能更好的适应各种情况，所有我们一般会自己进行测量。
 
 #### 测量View使用的函数
 测量View大小使用的是onMeasure函数，我们可以从这两个参数取出宽高的相关数据：
@@ -128,9 +128,8 @@ AT_MOST     | 10 | 000000000000000000001111011000
 ### 3.确定View大小(onSizeChanged)
   这个函数在视图大小发生改变时调用：
   
-  Q: 在测量完View并使用setMeasuredDimension函数之后View的大小基本上已经确定了，那么为什么还要再次确定View的大小呢？
-  
-  A: 这是因为View的大小不仅由View本身控制，而且受父控件的影响，所以我们在确定View大小的时候最好使用系统提供的onSizeChanged回调函数。
+#### Q: 在测量完View并使用setMeasuredDimension函数之后View的大小基本上已经确定了，那么为什么还要再次确定View的大小呢？
+#### A: 这是因为View的大小不仅由View本身控制，而且受父控件的影响，所以我们在确定View大小的时候最好使用系统提供的onSizeChanged回调函数。
 
 onSizeChanged如下：
 ``` java
@@ -145,9 +144,29 @@ onSizeChanged如下：
 
 =========
 
-### 4.确定子View布局(onLayout)
+### 4.确定子View布局位置(onLayout)
 
-  确定布局的函数是onLayout，它用于确定子View的位置，在自定义ViewGroup的时候会用到，暂时略过， 这个函数会在讲解自定义ViewGroup的时候会详细讲解。
+  <b>确定布局的函数是onLayout，它用于确定子View的位置，在自定义ViewGroup中会用到，他调用的是子View的layout函数。</b>
+  
+  不过关于View的layout函数我们一般无需关注，因为在一般情况下我们只需关注View自身的坐标系即可，除非View状态与在父VIew所处位置相关。
+  
+  在自定义ViewGroup中，onLayout一般是循环取出子View，然后经过计算得出各个子View位置的坐标值，然后用以下函数设置子View位置。
+``` java
+  child.layout(l, t, r, b);
+```
+四个参数分别为：
+
+名称 |  说明 | 对应的函数
+--- | ---  | ---
+l | View左侧距父View左侧的距离 | getLeft();
+t | View顶部距父View顶部的距离 | getTop();
+r | View右侧距父View左侧的距离 | getRight();
+b | View底部距父View顶部的距离 | getBottom(); 
+具体可以参考 [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md) 这篇文章:
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/Art/%E5%9D%90%E6%A0%87%E7%B3%BB5.png)
+
+  PS：关于onLayout这个函数在讲解自定义ViewGroup的时候会详细讲解。
+  
   
 ========
 
@@ -170,36 +189,36 @@ onSizeChanged如下：
 
 ************
 
-## 重点知识梳理
+## 三.重点知识梳理
 
 ### 自定义View分类
+PS ：实际上ViewGroup是View的一个子类。
+
 类别 | 继承自 | 特点
 --- | --- | ---
 ViewGroup | ViewGroup xxLayout等  | 包含子View
 View      | View SurfaceView 其他 | 不包含子View
 
 ### 自定义View流程：
-步骤 | 关键字 | 详解
+步骤 | 关键字 | 作用
 --- | --- | ---
-1 | 构造函数      | 了解在不同情况下会调用哪个构造函数
+1 | 构造函数      | View初始化
 2 | onMeasure     | 测量View的大小
 3 | onSizeChanged | 确定View大小
 4 | onLayout      | 确定子View布局(自定义View包含子View时有用)
 5 | onDraw        | 实际绘制内容
-6 | 提供接口      | 对外提供接口用于控制View或监听View某些状态。
+6 | 提供接口      | 控制View或监听View某些状态。
 
 
 ## 参考资料：
-
-关于构造函数，如果你想了解更多，可以参考以下文章：<br/>
+[View](http://developer.android.com/reference/android/view/View.html)<br/>
+[ViewGroup](http://developer.android.com/reference/android/view/ViewGroup.html)
+[View.MeasureSpec](http://developer.android.com/reference/android/view/View.MeasureSpec.html)<br/>
+[onMeasure，MeasureSpec源码 流程 思路详解](http://blog.csdn.net/a396901990/article/details/36475213)<br/>
+<br/>
 [Android中自定义样式与View的构造函数中的第三个参数defStyle的意义](http://www.cnblogs.com/angeldevil/p/3479431.html) <br/>
 [android view构造函数研究](http://blog.csdn.net/z103594643/article/details/6755017)<br/>
 [Android View构造方法第三参数使用方法详解](http://blog.csdn.net/mybeta/article/details/39993449)<br/>
-
-关于测量函数，你想了解更多可以参考以下文章：<br/>
-[View](http://developer.android.com/reference/android/view/View.html)<br/>
-[View.MeasureSpec](http://developer.android.com/reference/android/view/View.MeasureSpec.html)<br/>
-[onMeasure，MeasureSpec源码 流程 思路详解](http://blog.csdn.net/a396901990/article/details/36475213)<br/>
 <br/>
 [Android 自定义View onMeasure方法的实现](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1102/1891.html)<br/>
 [Android API指南(二)自定义控件02之 onMeasure](http://wangkuiwu.github.io/2014/06/20/View-OnMeasure/)<br/>
