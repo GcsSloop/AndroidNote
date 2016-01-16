@@ -223,9 +223,6 @@ View      | View SurfaceView 其他 | 不包含子View
 [Android 自定义View onMeasure方法的实现](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1102/1891.html)<br/>
 [Android API指南(二)自定义控件02之 onMeasure](http://wangkuiwu.github.io/2014/06/20/View-OnMeasure/)<br/>
 [Android中View的绘制过程 onMeasure方法简述](http://www.cnblogs.com/mengdd/p/3332882.html)<br/>
-[onMeasureとonLayoutについて理解する](http://qiita.com/naodroid/items/d685a0113342edbb7587)<br/>
-
-
 
 
 
