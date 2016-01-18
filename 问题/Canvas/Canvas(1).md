@@ -16,6 +16,29 @@ Canvas可以说是一大利器(用于2D绘图)，因为涉及到的东西比较�
 
 ## 二.Canvas基础
 Canvas我们可以称之为画布，在上面绘制各种东西。
-```
-  
-```
+
+绘制的<b>基本形状</b>由<b>Canvas</b>确定，但绘制出来的<b>颜色,具体效果</b>则由<b>Paint</b>确定。
+
+本次内容仅简单讲解Canvas所能绘制的基本内容，对Paint有一点涉及但不会涉及太多，关于Paint的更多用法会在以后详细想介绍，下面开始正题：
+
+### Canvas的基本内容：
+
+Canvas的常用操作如下：
+
+操作类型 | 相关API | 备注
+--- | --- | ---
+绘制颜色 | drawColor, drawRGB, drawARGB | [安卓自定义View基础-颜色](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/%E9%A2%9C%E8%89%B2.md)
+绘制图片 | drawBitmap, drawPicture, drawBitmapMesh | drawBitmapMesh为带形变的绘制Bitmap
+绘制文本 | drawText, 	drawPosText, drawTextOnPath, drawTextRun | 依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字、
+绘制基本形状 | drawPoint, drawLine, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
+绘制路径 | drawPath | 绘制贝塞尔曲线需要用到该函数
+绘制定点 | drawVertices |  
+剪裁画布 | clipPath, 	clipRect, clipRegion(API21时废弃) | 设置画布的显示区域
+
+变换Canvas：save、restore、translate、scale、rotate、concat(Matrix matrix)、setMatrix(Matrix matrix)
+
+
+
+
+
+
