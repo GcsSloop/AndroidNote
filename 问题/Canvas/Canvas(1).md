@@ -30,12 +30,14 @@ Canvas的常用操作如下：
 绘制颜色 | drawColor, drawRGB, drawARGB | 使用单一颜色填充整个画布<br/> 相关 : [安卓自定义View基础-颜色](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/%E9%A2%9C%E8%89%B2.md)
 绘制基本形状 | drawPoint, drawLine, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
 绘制图片 | drawBitmap, drawPicture | 
-绘制文本 | drawText, 	drawPosText, drawTextOnPath, drawTextRun | 依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字、
+绘制文本 | drawText, 	drawPosText, drawTextOnPath | 依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字
 绘制路径 | drawPath | 绘制贝塞尔曲线需要用到该函数
-画布剪裁 | clipPath, 	clipRect, clipRegion(API21时废弃) | 设置画布的显示区域
-画布形变 | drawVertices, drawBitmapMesh | 直接对画布作用、 只对绘制的Bitmap作用
+顶点操作 | drawVertices, drawBitmapMesh | 通过顶点可以使图像形变，drawVertices直接对画布作用、 drawBitmapMesh只对绘制的Bitmap作用
+画布剪裁 | clipPath, 	clipRect | 设置画布的显示区域
+画布快照 | save, restore | 两者一般成对使用，save是保存当前状态，restore是回滚到上一次保存的状态
+画布形变 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、倾斜
+Matrix(矩阵)操作 | getMatrix, setMatrix, concat | 实际画布的位移，缩放等最根本都是操作的Matrix，只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
 
-变换Canvas：save、restore、translate、scale、rotate、concat(Matrix matrix)、setMatrix(Matrix matrix)
 
 
 
