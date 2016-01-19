@@ -2,7 +2,7 @@
 ### 讲解安卓中的Canvas基础内容。
 ### 作者微博: [@攻城师sloop](http://weibo.com/5459430586)
 
-上一次我们了解自定义View的流程，以及几个重要的相关函数，不过，这些东西依旧还是理论，只能用来了解一下原理，并不能<b>拿来(zhuang)用(B)</b>, 这一次我们就了解一些<b>能(zhaung)用(B)</b>的东西。
+上一次我们了解自定义View的流程，以及几个重要的相关函数，不过，这些东西依旧还是理论，并不能<b>拿来(zhuang)用(B)</b>, 这一次我们就了解一些<b>能(zhaung)用(B)</b>的东西。
 关于本文，我们先了解Canvas的基本用法，再学习一个能拿来装逼(就是看起来很牛逼，但是没卵用)的东西。
 
 ## 一.Canvas简介
@@ -27,13 +27,13 @@ Canvas的常用操作如下：
 
 操作类型 | 相关API | 备注
 --- | --- | ---
-绘制颜色 | drawColor, drawRGB, drawARGB | [安卓自定义View基础-颜色](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/%E9%A2%9C%E8%89%B2.md)
-绘制图片 | drawBitmap, drawPicture, drawBitmapMesh | drawBitmapMesh为带形变的绘制Bitmap
-绘制文本 | drawText, 	drawPosText, drawTextOnPath, drawTextRun | 依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字、
+绘制颜色 | drawColor, drawRGB, drawARGB | 使用单一颜色填充整个画布<br/> 相关 : [安卓自定义View基础-颜色](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/%E9%A2%9C%E8%89%B2.md)
 绘制基本形状 | drawPoint, drawLine, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
+绘制图片 | drawBitmap, drawPicture | 
+绘制文本 | drawText, 	drawPosText, drawTextOnPath, drawTextRun | 依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字、
 绘制路径 | drawPath | 绘制贝塞尔曲线需要用到该函数
-绘制定点 | drawVertices |  
-剪裁画布 | clipPath, 	clipRect, clipRegion(API21时废弃) | 设置画布的显示区域
+画布剪裁 | clipPath, 	clipRect, clipRegion(API21时废弃) | 设置画布的显示区域
+画布形变 | drawVertices, drawBitmapMesh | 直接对画布作用、 只对绘制的Bitmap作用
 
 变换Canvas：save、restore、translate、scale、rotate、concat(Matrix matrix)、setMatrix(Matrix matrix)
 
