@@ -49,6 +49,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
   canvas.drawColor(Color.BLUE); //绘制蓝色
 ```
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawColor.jpeg" width = "270" height = "480" alt="title" align=center />  
   
 #### 创建画笔：
 要想绘制内容，首先需要先创建一个画笔，如下：
@@ -83,6 +84,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ```
 关于坐标原点默认在左上角，水平向右为x轴增大方向，竖直向下为y轴增大方向。更多参考这里 [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md)
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawPoint.jpeg" width = "270" height = "480" alt="title" align=center />  
 #### 绘制直线：
 绘制直线需要两个点，初始点和结束点，同样绘制直线也可以绘制一条或者绘制一组：
 ```
@@ -93,6 +95,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
         },mPaint);
 ```
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawLine.jpeg" width = "270" height = "480" alt="title" align=center />  
 #### 绘制矩形：
 
 #### 绘制圆角矩形：
