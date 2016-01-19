@@ -38,7 +38,7 @@ Matrix(矩阵)操作 | getMatrix, setMatrix, concat | 实际画布的位移，�
 
 PS： Canvas常用方法在上面表格中基本全部列出了，当然还存在一些其他的方法未列出，具体可以官方文档 [Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)
 
-从上表可以看出，Canvas的可用操作还是有很多的，限于篇幅，本文仅讲解 绘制颜色， 绘制基本形状，简要介绍画布形变操作，最后会利用以上知识做一个小实例用来练(zhaung)手(B)。
+从上表可以看出，Canvas的可用操作还是有很多的，限于篇幅，本文仅讲解 绘制颜色， 绘制基本形状，简要介绍画布形变操作，最后会利用以上知识做一个小实例用来<b>练(zhaung)手(B)</b>，其余内容会在以后的文章中更加详细的介绍。
 
 ******
 ### Canvas基础示例：
@@ -73,7 +73,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 在创建完画笔之后，就可以在Canvas中绘制各种内容了。
 
 #### 绘制点：
-绘制点可以绘制一个点，也可以绘制一组点，如下：
+可以绘制一个点，也可以绘制一组点，如下：
 ```
         canvas.drawPoint(200, 200, mPaint);     //在坐标(200,200)位置绘制一个点
         canvas.drawPoints(new float[]{          //绘制一组点，坐标位置由float数组指定
@@ -89,7 +89,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 绘制直线需要两个点，初始点和结束点，同样绘制直线也可以绘制一条或者绘制一组：
 ```
         canvas.drawLine(300,300,500,600,mPaint);    // 在坐标(300,300)(500,600)之间绘制一条直线
-        canvas.drawLines(new float[]{               // 绘制一组线 每四数字确定一条线
+        canvas.drawLines(new float[]{               // 绘制一组线 每四数字(两个点的坐标)确定一条线
                 100,200,200,200,
                 100,300,200,300
         },mPaint);
@@ -97,8 +97,45 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawLine.jpeg" width = "270" height = "480" alt="title" align=center />  
 #### 绘制矩形：
+确定确定一个矩形最少需要四个数据，就是对角线的两个点的坐标值，通常我们会采用<b>左上角</b>和<b>右下角</b>的两个点的坐标(当然了右上和左下也可以)，像这样：
+
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/Art/%E5%9D%90%E6%A0%87%E7%B3%BB5.png)
+
+关于绘制矩形，Canvas提供了<b>三种重载</b>方法，第一种就是提供<b>四个数值(对角线两个点的坐标)来确定一个矩形</b>进行绘制。
+其余两种是先将矩形封装为<b>Rect</b>或<b>RectF</b>(实际上仍然是用两个坐标点来确定的矩形)，然后传递给Canvas绘制，如下：
+```
+        // 第一种
+        canvas.drawRect(100,100,800,400,mPaint);
+
+        // 第二种
+        Rect rect = new Rect(100,100,800,400);
+        canvas.drawRect(rect,mPaint);
+
+        // 第三种
+        RectF rectF = new RectF(100,100,800,400);
+        canvas.drawRect(rectF,mPaint);
+```
+以上三种方法所绘制出来的结果是完全一样的。
+
+
+
+看到这里,相信很多观众会产生一个疑问，<b>为什么会有Rect和RectF两种？两者有什么区别吗？</b>
+
+答案当然是存在区别的，两种最大的区别就是<b>精度不同</b>，<b>Rect</b>是<b>int(整形)</b>的，而<b>RectF</b>则是<b>float(单精度浮点型)</b>的。当然了除了精度不同，两种提供的方法也稍微存在差别，在这里我们暂时无需关注，想了解更多参见官方文档 [Rect](http://developer.android.com/reference/android/graphics/Rect.html) 和 [RectF](http://developer.android.com/reference/android/graphics/RectF.html)
 
 #### 绘制圆角矩形：
+绘制圆角矩形也提供了两种重载方式，如下：
+```
+        // 第一种
+        RectF rectF = new RectF(100,100,800,400);
+        canvas.drawRoundRect(rectF,30,30,mPaint);
+        
+        // 第二种
+        canvas.drawRoundRect(100,100,800,400,30,30,mPaint);
+```
+上面两种方法绘制效果也是一样的，但鉴于第二种方法在API21的时候才添加上，所以我们一般使用的都是第一种。
+
+
 
 #### 绘制椭圆：
 
