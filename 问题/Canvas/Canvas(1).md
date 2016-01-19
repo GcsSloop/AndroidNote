@@ -135,7 +135,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ```
 上面两种方法绘制效果也是一样的，但鉴于第二种方法在API21的时候才添加上，所以我们一般使用的都是第一种。
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawRoundRect.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawRoundRect1.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
 下面简单解析一下圆角矩形的几个必要的参数的意思。
 
