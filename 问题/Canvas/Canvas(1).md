@@ -34,16 +34,30 @@ Canvas我们可以称之为画布，在上面绘制各种东西。
 画布剪裁 | clipPath, 	clipRect | 设置画布的显示区域
 画布快照 | save, restore | 两者一般成对使用，save是保存当前状态，restore是回滚到上一次保存的状态
 画布形变 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、倾斜<br/> 相关： [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md)    [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
-Matrix(矩阵)操作 | getMatrix, setMatrix, concat | 实际画布的位移，缩放等都是操作的图像矩阵Matrix，只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
+Matrix(矩阵)操作 | getMatrix, setMatrix, concat | 实际画布的位移，缩放等操作的都是图像矩阵Matrix，只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
 
 PS： Canvas常用方法在上面表格中基本全部列出了，当然还存在一些其他的方法未列出，具体可以官方文档 [Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)
 
 从上表可以看出，Canvas的可用操作还是有很多的，限于篇幅，本文仅讲解 绘制颜色， 绘制基本形状，简要介绍画布形变操作，最后会利用以上知识做一个小实例用来练(zhaung)手(B)。
 
+******
 ### Canvas基础示例：
 
 #### 绘制颜色：
   
+#### 绘制点：
+
+#### 绘制线：
+
+#### 绘制矩形：
+
+#### 绘制圆角矩形：
+
+#### 绘制椭圆：
+
+#### 绘制圆：
+
+#### 绘制圆弧：
 
 
 
