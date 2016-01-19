@@ -117,7 +117,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ```
 以上三种方法所绘制出来的结果是完全一样的。
 
-
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawRect.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
 看到这里,相信很多观众会产生一个疑问，<b>为什么会有Rect和RectF两种？两者有什么区别吗？</b>
 
@@ -135,7 +135,9 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ```
 上面两种方法绘制效果也是一样的，但鉴于第二种方法在API21的时候才添加上，所以我们一般使用的都是第一种。
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawRoundRect.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
+下面简单解析一下圆角矩形的几个必要的参数的意思。
 
 #### 绘制椭圆：
 
