@@ -6,7 +6,7 @@
 关于本文，我们先了解Canvas的基本用法，再学习一个能拿来装逼(就是看起来很牛逼，但是没卵用)的东西。
 
 ## 一.Canvas简介
-Canvas可以说是一大利器(用于2D绘图)，因为涉及到的东西比较基础。
+Canvas可以说是一大利器(在2D绘图方面)，因为涉及到的东西比较基础。
 
 <b>比较基础的东西一般有两大特点:<br/>
   1.可操作性强：由于这些是构成上层的基础，所以可操作性必然十分强大。<br/>
@@ -26,7 +26,7 @@ Canvas我们可以称之为画布，在上面绘制各种东西。
 操作类型 | 相关API | 备注
 --- | --- | ---
 绘制颜色 | drawColor, drawRGB, drawARGB | 使用单一颜色填充整个画布<br/> 相关 : [安卓自定义View基础-颜色](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/%E9%A2%9C%E8%89%B2.md)
-绘制基本形状 | drawPoint, drawLine, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
+绘制基本形状 | drawPoint, drawPoints, drawLine, drawLines, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
 绘制图片 | drawBitmap, drawPicture | 绘制位图和图片
 绘制文本 | drawText, 	drawPosText, drawTextOnPath | 依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字
 绘制路径 | drawPath | 绘制贝塞尔曲线需要用到该函数
@@ -44,10 +44,54 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ### Canvas基础示例：
 
 #### 绘制颜色：
-  
-#### 绘制点：
+绘制颜色是填充整个画布，常用于绘制底色。
+```
+  canvas.drawColor(Color.BLUE); //绘制蓝色
+```
 
-#### 绘制线：
+  
+#### 创建画笔：
+要想绘制内容，首先需要先创建一个画笔，如下：
+```
+  // 1.创建一个画笔
+  private Paint mPaint = new Paint();
+  
+  // 2.初始化画笔
+    private void initPaint() {
+        mPaint.setColor(Color.BLACK);       //设置画笔颜色
+        mPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
+        mPaint.setStrokeWidth(10f);         //设置画笔宽度为10px
+    }
+  
+  // 3.在构造函数中初始化
+    public SloopView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initPaint();
+    }
+```
+在创建完画笔之后，就可以在Canvas中绘制各种内容了。
+
+#### 绘制点：
+绘制点可以绘制一个点，也可以绘制一组点，如下：
+```
+        canvas.drawPoint(200, 200, mPaint);     //在坐标(200,200)位置绘制一个点
+        canvas.drawPoints(new float[]{          //绘制一组点，坐标位置由float数组指定
+                500,500,
+                500,600,
+                500,700
+        },mPaint);
+```
+关于坐标原点默认在左上角，水平向右为x轴增大方向，竖直向下为y轴增大方向。更多参考这里 [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md)
+
+#### 绘制直线：
+绘制直线需要两个点，初始点和结束点，同样绘制直线也可以绘制一条或者绘制一组：
+```
+        canvas.drawLine(300,300,500,600,mPaint);    // 在坐标(300,300)(500,600)之间绘制一条直线
+        canvas.drawLines(new float[]{               // 绘制一组线 每四数字确定一条线
+                100,200,200,200,
+                100,300,200,300
+        },mPaint);
+```
 
 #### 绘制矩形：
 
