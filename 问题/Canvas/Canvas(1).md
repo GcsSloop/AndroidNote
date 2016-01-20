@@ -195,7 +195,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 
 ![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/Oval.png)
 
-PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那么绘制出来的实际上就是一个圆，在这里就不做演示了。
+PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那么绘制出来的实际上就是一个圆。
 
 ******
 #### 绘制圆：
@@ -248,6 +248,7 @@ useCenter   // 是否使用中心
 ```
 上述代码实际上是绘制了一个起始角度为0度，扫过90度的圆弧，两者的区别就是是否使用了中心点，结果如下：
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawArc1.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
 可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则相当于是扇形减去了一个三角形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
 
@@ -273,6 +274,8 @@ useCenter   // 是否使用中心
         mPaint.setColor(Color.BLUE);
         canvas.drawArc(rectF2,0,90,true,mPaint);
 ```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawArc2.jpeg" width = "270" height = "480" alt="title" align=center /> 
+
 ******
 #### 简要介绍Paint
 看了上面这么多，相信有一部分人会产生一个疑问，如果我想绘制一个圆，只要边不要里面的颜色怎么办？
@@ -308,7 +311,9 @@ FILL_AND_STROKE       //描边加填充
         canvas.drawCircle(200, 800, 100, paint);
 ```
 
-一图胜千言啊，通过以上实验我们可以比较明显的看出三种模式的区别，如果只需要边缘不需要填充内容的话只需要设置模式为描边(STROKE)即可。
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/paintStyle.jpeg" width = "270" height = "480" alt="title" align=center /> 
+
+一图胜千言，通过以上实验我们可以比较明显的看出三种模式的区别，如果只需要边缘不需要填充内容的话只需要设置模式为描边(STROKE)即可。
 
 其实关于Paint的内容也是有不少的，这些只是冰山一角，在以后会详细的讲解Paint内容。
 
@@ -322,6 +327,8 @@ save | 保存当前画布状态
 restore | 回滚到上一次保存的状态
 translate | 相对于当前位置位移
 rotate | 旋转
+
+******
 
 
 
