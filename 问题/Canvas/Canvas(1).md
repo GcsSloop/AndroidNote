@@ -209,7 +209,7 @@ PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那
 
 ******
 #### 绘制圆弧：
-绘制圆弧相比以上内容就比较难以理解了，而且部分知识点需要以上内容作为基础，为了理解这个比较神奇的东西，我们先看一下他需要的几个参数：
+绘制圆弧相比以上内容就比较神奇一点了，为了理解这个比较神奇的东西，我们先看一下他需要的几个参数：
 ``` java
 // 第一种
 public void drawArc(@NonNull RectF oval, float startAngle, float sweepAngle, boolean useCenter, @NonNull Paint paint){}
@@ -224,4 +224,105 @@ startAngle  // 开始角度
 sweepAngle  // 扫过角度
 useCenter   // 是否使用中心
 ```
+通过字面意思我们基本能猜测出来前两个参数(startAngle， aweepAngel)的作用，就是确定角度的起始位置和角度实际大小， 而角度的结束角度实际上就是起始角度加上角度大小(startAngle, sweepAngle). 不过第三个参数是干嘛的？试一下就知道了,上代码：
+```
+        RectF rectF = new RectF(100,100,800,400);
+        // 绘制背景矩形
+        mPaint.setColor(Color.GRAY);
+        canvas.drawRect(rectF,mPaint);
+
+        // 绘制圆弧
+        mPaint.setColor(Color.BLUE);
+        canvas.drawArc(rectF,0,90,false,mPaint);
+
+        //-------------------------------------
+
+        RectF rectF2 = new RectF(100,600,800,900);
+        // 绘制背景矩形
+        mPaint.setColor(Color.GRAY);
+        canvas.drawRect(rectF2,mPaint);
+
+        // 绘制圆弧
+        mPaint.setColor(Color.BLUE);
+        canvas.drawArc(rectF2,0,90,true,mPaint);
+```
+上述代码实际上是绘制了一个起始角度为0度，扫过90度的圆弧，两者的区别就是是否使用了中心点，结果如下：
+
+
+可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则相当于是扇形减去了一个三角形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
+
+相比于使用椭圆，我们通常还是使用正圆比较多的，使用正圆展示一下效果：
+```
+        RectF rectF = new RectF(100,100,800,400);
+        // 绘制背景矩形
+        mPaint.setColor(Color.GRAY);
+        canvas.drawRect(rectF,mPaint);
+
+        // 绘制圆弧
+        mPaint.setColor(Color.BLUE);
+        canvas.drawArc(rectF,0,90,false,mPaint);
+
+        //-------------------------------------
+
+        RectF rectF2 = new RectF(100,600,800,900);
+        // 绘制背景矩形
+        mPaint.setColor(Color.GRAY);
+        canvas.drawRect(rectF2,mPaint);
+
+        // 绘制圆弧
+        mPaint.setColor(Color.BLUE);
+        canvas.drawArc(rectF2,0,90,true,mPaint);
+```
+******
+#### 简要介绍Paint
+看了上面这么多，相信有一部分人会产生一个疑问，如果我想绘制一个圆，只要边不要里面的颜色怎么办？
+
+很简单，在一开始我们就说过，绘制的<b>基本形状</b>由<b>Canvas</b>确定，但绘制出来的<b>颜色,具体效果</b>则由<b>Paint</b>确定。
+
+如果你注意到了的话，在一开始我们设置画笔样式的时候是这样的：
+``` java
+  mPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
+```
+这也是为了展示方便，容易看出效果，所以设置了模式为填充，实际上画笔有三种模式，如下：
+``` java
+STROKE                //描边
+FILL                  //填充
+FILL_AND_STROKE       //描边加填充
+```
+为了区分三者效果我们做如下实验：
+```
+        Paint paint = new Paint();
+        paint.setColor(Color.BLUE);
+        paint.setStrokeWidth(40);     //为了实验效果明显特异，特地设置描边宽度非常大
+
+        // 描边
+        paint.setStyle(Paint.Style.STROKE);
+        canvas.drawCircle(200,200,100,paint);
+
+        // 填充
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawCircle(200,500,100,paint);
+
+        // 描边加填充
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        canvas.drawCircle(200, 800, 100, paint);
+```
+
+一图胜千言啊，通过以上实验我们可以比较明显的看出三种模式的区别，如果只需要边缘不需要填充内容的话只需要设置模式为描边(STROKE)即可。
+
+其实关于Paint的内容也是有不少的，这些只是冰山一角，在以后会详细的讲解Paint内容。
+
+******
+#### 简要介绍画布的操作：
+其实到这里本篇的正文已经算是完了，不过为了能制作出来一点像样的东西，需要先了解一下后面会用到的画布的操作：
+
+相关操作 | 简要介绍
+--- | ---
+save | 保存当前画布状态
+restore | 回滚到上一次保存的状态
+translate | 相对于当前位置位移
+rotate | 旋转
+
+
+
 
