@@ -45,7 +45,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 
 #### 绘制颜色：
 绘制颜色是填充整个画布，常用于绘制底色。
-```
+``` java
   canvas.drawColor(Color.BLUE); //绘制蓝色
 ```
 
@@ -54,7 +54,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ******
 #### 创建画笔：
 要想绘制内容，首先需要先创建一个画笔，如下：
-```
+``` java
   // 1.创建一个画笔
   private Paint mPaint = new Paint();
   
@@ -76,7 +76,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ******
 #### 绘制点：
 可以绘制一个点，也可以绘制一组点，如下：
-```
+``` java
         canvas.drawPoint(200, 200, mPaint);     //在坐标(200,200)位置绘制一个点
         canvas.drawPoints(new float[]{          //绘制一组点，坐标位置由float数组指定
                 500,500,
@@ -90,7 +90,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ******
 #### 绘制直线：
 绘制直线需要两个点，初始点和结束点，同样绘制直线也可以绘制一条或者绘制一组：
-```
+``` java
         canvas.drawLine(300,300,500,600,mPaint);    // 在坐标(300,300)(500,600)之间绘制一条直线
         canvas.drawLines(new float[]{               // 绘制一组线 每四数字(两个点的坐标)确定一条线
                 100,200,200,200,
@@ -107,7 +107,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 
 关于绘制矩形，Canvas提供了<b>三种重载</b>方法，第一种就是提供<b>四个数值(对角线两个点的坐标)来确定一个矩形</b>进行绘制。
 其余两种是先将矩形封装为<b>Rect</b>或<b>RectF</b>(实际上仍然是用两个坐标点来确定的矩形)，然后传递给Canvas绘制，如下：
-```
+``` java
         // 第一种
         canvas.drawRect(100,100,800,400,mPaint);
 
@@ -130,7 +130,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ******
 #### 绘制圆角矩形：
 绘制圆角矩形也提供了两种重载方式，如下：
-```
+``` java
         // 第一种
         RectF rectF = new RectF(100,100,800,400);
         canvas.drawRoundRect(rectF,30,30,mPaint);
@@ -157,7 +157,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 在此图之中，外部灰色的矩形表示我们确定的矩形，而用红色圈住的 A、B 两个点是我们用来确定这个矩形的两个重要参数,而用红线标注的 rx 与 ry 就是两个半径，也就是相比绘制矩形多出来的那两个参数。
 
 <b>我们了解到原理后，就可以为所欲为了，通过计算可知我们上次绘制的矩形宽度为700，高度为300，当你让 rx大于350， ry大于150 时奇迹就出现了，你会发现圆角矩形变成了一个椭圆</b>，他们画出来是这样的(为了方便确认我更改了画笔颜色，同时绘制出了矩形和圆角矩形)：
-```
+``` java
         // 矩形
         RectF rectF = new RectF(100,100,800,400);  
         
@@ -179,7 +179,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ******
 #### 绘制椭圆：
 相对于绘制圆角矩形，绘制椭圆就简单的多了，因为他只需要一个矩形就能绘制出一个与矩形内切的椭圆。
-```
+``` java
         // 第一种
         RectF rectF = new RectF(100,100,800,400);
         canvas.drawOval(rectF,mPaint);
@@ -209,6 +209,19 @@ PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那
 
 ******
 #### 绘制圆弧：
-
-
+绘制圆弧相比以上内容就比较难以理解了，而且部分知识点需要以上内容作为基础，为了理解这个比较神奇的东西，我们先看一下他需要的几个参数：
+``` java
+// 第一种
+public void drawArc(@NonNull RectF oval, float startAngle, float sweepAngle, boolean useCenter, @NonNull Paint paint){}
+    
+// 第二种
+public void drawArc(float left, float top, float right, float bottom, float startAngle,
+            float sweepAngle, boolean useCenter, @NonNull Paint paint) {}
+```
+从上面可以看出，相比于绘制椭圆，绘制圆弧还多了三个参数：
+``` java
+startAngle  // 开始角度
+sweepAngle  // 扫过角度
+useCenter   // 是否使用中心
+```
 
