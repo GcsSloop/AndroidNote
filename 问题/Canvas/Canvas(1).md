@@ -150,17 +150,52 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 答案是<b>圆心</b>和<b>半径</b>，其中<b>圆心用于确定位置</b>，而<b>半径用于确定大小</b>。<br/>
 <b>由于矩形位置已经确定，所以他的边角位置肯定也是确定的，那么确定位置这个参数就可以省略了，只需要用半径就能描述一个圆弧了。</b><br/>
 呃，你说半径只需要一个参数，这里有两个唉。<br/>
-好吧，让你发现了，这里圆角矩形的角实际上不是一个正圆的圆弧，而是椭圆的圆弧，这里的两个参数实际上是椭圆的两个半径(长半径和短半径)，他们看起来个如下图：<br/>
+好吧，让你发现了，<b>这里圆角矩形的角实际上不是一个正圆的圆弧，而是椭圆的圆弧，这里的两个参数实际上是椭圆的两个半径</b>(长半径和短半径)，他们看起来个如下图：<br/>
 
 ![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/RoundRect.png)
 
 在此图之中，外部灰色的矩形表示我们确定的矩形，而用红色圈住的 A、B 两个点是我们用来确定这个矩形的两个重要参数,而用红线标注的 rx 与 ry 就是两个半径，也就是相比绘制矩形多出来的那两个参数。
 
-我们了解到原理后，就可以为所欲为了，通过计算可知我们上次绘制的矩形宽度为700，高度为300，当你把让 rx大于350， ry大于150 时奇迹就 出现了，他们画出来是这样的(为了方便确认我更改了画笔颜色，同时绘制出了矩形和圆角矩形)：
+<b>我们了解到原理后，就可以为所欲为了，通过计算可知我们上次绘制的矩形宽度为700，高度为300，当你让 rx大于350， ry大于150 时奇迹就出现了，你会发现圆角矩形变成了一个椭圆</b>，他们画出来是这样的(为了方便确认我更改了画笔颜色，同时绘制出了矩形和圆角矩形)：
+```
+        // 矩形
+        RectF rectF = new RectF(100,100,800,400);  
+        
+        // 绘制背景矩形
+        mPaint.setColor(Color.GRAY);
+        canvas.drawRect(rectF,mPaint);
+        
+        // 绘制圆角矩形
+        mPaint.setColor(Color.BLUE);
+        canvas.drawRoundRect(rectF,700,400,mPaint);
+```
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawRoundRect3.jpeg" width = "270" height = "480" alt="title" align=center /> 
+
+其中灰色部分是我们所选定的矩形，而里面的圆角矩形则变成了一个椭圆，<b>实际上在rx为宽度的一半，ry为高度的一半时，刚好是一个椭圆，通过上面我们分析的原理推算一下就能得到，而当rx大于宽度的一半，ry大于高度的一半时，实际上是无法计算的圆弧的，所以drawRoundRect对大于该数值的参数进行了修正，凡是大于一半的参数均按照一半来处理。</b>
+
+好了圆角矩形就分析这么多吧。
 
 ******
 #### 绘制椭圆：
+相对于绘制圆角矩形，绘制椭圆就简单的多了，因为他只需要一个矩形就能绘制出一个与矩形内切的椭圆。
+```
+        // 第一种
+        RectF rectF = new RectF(100,100,800,400);
+        canvas.drawOval(rectF,mPaint);
+
+        // 第二种
+        canvas.drawOval(100,100,800,400,mPaint);
+```
+同样，以上两种方法效果完全一样，但一般使用第一种。
+
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawOval.jpeg" width = "270" height = "480" alt="title" align=center /> 
+
+绘制椭圆实际上就是绘制一个矩形调度内切椭圆，原理如下，就不多说了：
+
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/Oval.png" width = "270" height = "480" alt="title" align=center /> 
+
+PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那么绘制出来的实际上就是一个圆，在这里就不做演示了。
 
 ******
 #### 绘制圆：
