@@ -193,12 +193,19 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 
 绘制椭圆实际上就是绘制一个矩形调度内切椭圆，原理如下，就不多说了：
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/Oval.png" width = "270" height = "480" alt="title" align=center /> 
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/Oval.png)
 
 PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那么绘制出来的实际上就是一个圆，在这里就不做演示了。
 
 ******
 #### 绘制圆：
+绘制圆形比较简单，因为圆形只需要圆心和半径，如下：
+```
+    canvas.drawCircle(500,500,400,mPaint);  // 绘制一个圆心坐标在(500,500)，半径为400 的圆。
+```
+绘制圆形有四个参数，前两个是圆心，第三个是半径，最后一个是画笔。
+
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawCircle.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
 ******
 #### 绘制圆弧：
