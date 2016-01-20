@@ -51,6 +51,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawColor.jpeg" width = "270" height = "480" alt="title" align=center />  
   
+******
 #### 创建画笔：
 要想绘制内容，首先需要先创建一个画笔，如下：
 ```
@@ -72,6 +73,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ```
 在创建完画笔之后，就可以在Canvas中绘制各种内容了。
 
+******
 #### 绘制点：
 可以绘制一个点，也可以绘制一组点，如下：
 ```
@@ -85,6 +87,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 关于坐标原点默认在左上角，水平向右为x轴增大方向，竖直向下为y轴增大方向。更多参考这里 [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md)
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawPoint.jpeg" width = "270" height = "480" alt="title" align=center />  
+******
 #### 绘制直线：
 绘制直线需要两个点，初始点和结束点，同样绘制直线也可以绘制一条或者绘制一组：
 ```
@@ -96,6 +99,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 ```
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawLine.jpeg" width = "270" height = "480" alt="title" align=center />  
+******
 #### 绘制矩形：
 确定确定一个矩形最少需要四个数据，就是对角线的两个点的坐标值，通常我们会采用<b>左上角</b>和<b>右下角</b>的两个点的坐标(当然了右上和左下也可以)，像这样：
 
@@ -123,6 +127,7 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 
 答案当然是存在区别的，两种最大的区别就是<b>精度不同</b>，<b>Rect</b>是<b>int(整形)</b>的，而<b>RectF</b>则是<b>float(单精度浮点型)</b>的。当然了除了精度不同，两种提供的方法也稍微存在差别，在这里我们暂时无需关注，想了解更多参见官方文档 [Rect](http://developer.android.com/reference/android/graphics/Rect.html) 和 [RectF](http://developer.android.com/reference/android/graphics/RectF.html)
 
+******
 #### 绘制圆角矩形：
 绘制圆角矩形也提供了两种重载方式，如下：
 ```
@@ -139,10 +144,28 @@ PS： Canvas常用方法在上面表格中基本全部列出了，当然还存�
 
 下面简单解析一下圆角矩形的几个必要的参数的意思。
 
+很明显可以看出，第二种方法前四个参数和第一种方法的RectF作用是一样的，都是为了确定一个矩形，最后一个参数Paint是画笔，无需多说，与矩形相比，圆角矩形多出来了两个参数<b>rx</b> 和 <b>ry</b>，这两个参数是干什么的呢？
+
+稍微分析一下，既然是圆角矩形，他的角肯定是圆弧，<b>我们用什么一般用什么确定一个圆弧呢？</b><br/>
+答案是<b>圆心</b>和<b>半径</b>，其中<b>圆心用于确定位置</b>，而<b>半径用于确定大小</b>。<br/>
+<b>由于矩形位置已经确定，所以他的边角位置肯定也是确定的，那么确定位置这个参数就可以省略了，只需要用半径就能描述一个圆弧了。</b><br/>
+呃，你说半径只需要一个参数，这里有两个唉。<br/>
+好吧，让你发现了，这里圆角矩形的角实际上不是一个正圆的圆弧，而是椭圆的圆弧，这里的两个参数实际上是椭圆的两个半径(长半径和短半径)，他们看起来个如下图：<br/>
+
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/RoundRect.png)
+
+在此图之中，外部灰色的矩形表示我们确定的矩形，而用红色圈住的 A、B 两个点是我们用来确定这个矩形的两个重要参数,而用红线标注的 rx 与 ry 就是两个半径，也就是相比绘制矩形多出来的那两个参数。
+
+我们了解到原理后，就可以为所欲为了，通过计算可知我们上次绘制的矩形宽度为700，高度为300，当你把让 rx大于350， ry大于150 时奇迹就 出现了，他们画出来是这样的(为了方便确认我更改了画笔颜色，同时绘制出了矩形和圆角矩形)：
+
+
+******
 #### 绘制椭圆：
 
+******
 #### 绘制圆：
 
+******
 #### 绘制圆弧：
 
 
