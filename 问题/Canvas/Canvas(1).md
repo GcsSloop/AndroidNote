@@ -320,7 +320,6 @@ FILL_AND_STROKE       //描边加填充
 ******
 ## 小示例
 
-******
 ### 简要介绍画布的操作：
 
 相关操作 | 简要介绍
@@ -333,6 +332,7 @@ rotate | 旋转
 ### 制作一个饼状图
 在展示百分比数据的时候经常会用到饼状图，像这样：
 
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/pie.png)
 
 #### 简单分析
 其实根据我们上面的知识已经能自己制作一个饼状图了。不过制作东西最重要的不是制作结果，而是制作思路。
@@ -481,6 +481,7 @@ PS: 其中在更改了数据需要重绘界面时要调用invalidate()这个函�
 
 #### 效果图
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/pieView.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
 
 ## 总结：
@@ -490,6 +491,8 @@ PS: 其中在更改了数据需要重绘界面时要调用invalidate()这个函�
   
 ## 参考资料：
 
-
+[View](http://developer.android.com/reference/android/view/View.html)<br/>
+[Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
+[Android Canvas绘图详解](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2012/1212/703.html)<br/>
 
 
