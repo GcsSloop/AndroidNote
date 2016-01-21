@@ -318,8 +318,10 @@ FILL_AND_STROKE       //描边加填充
 其实关于Paint的内容也是有不少的，这些只是冰山一角，在以后会详细的讲解Paint内容。
 
 ******
-#### 简要介绍画布的操作：
-其实到这里本篇的正文已经算是完了，不过为了能制作出来一点像样的东西，需要先了解一下后面会用到的画布的操作：
+## 小示例
+
+******
+### 简要介绍画布的操作：
 
 相关操作 | 简要介绍
 --- | ---
@@ -328,8 +330,159 @@ restore | 回滚到上一次保存的状态
 translate | 相对于当前位置位移
 rotate | 旋转
 
-******
+### 制作一个饼状图
+在展示百分比数据的时候经常会用到饼状图，像这样：
+
+
+#### 简单分析
+其实根据我们上面的知识已经能自己制作一个饼状图了。不过制作东西最重要的不是制作结果，而是制作思路。
+相信我贴上代码大家一看就立刻明白了，非常简单的东西。不过嘛，咱们还是想了解一下制作思路：
+
+先分析，饼状图的构成，非常明显，饼状图就是一个又一个的扇形构成的，每个扇形都有不同的颜色，对应的有名字，数据和百分比。
+
+经以上信息可以得出饼状图的最基本数据应包括<b> 名字 数据值 百分比 对应的角度 颜色</b>。
+
+用户关心的数据 ： 名字 数据值 百分比
+需要程序计算的数据： 百分比 对应的角度
+其中颜色这一项可以用户指定也可以用程序指定(我们这里采用程序指定)。
+
+#### 封装数据：
+``` java
+public class PieData {
+    // 用户关心数据
+    private String name;        // 名字
+    private float value;        // 数值
+    private float percentage;   // 百分比
+    
+    // 非用户关心数据
+    private int color = 0;      // 颜色
+    private float angle = 0;    // 角度
+
+    public PieData(@NonNull String name, @NonNull float value) {
+        this.name = name;
+        this.value = value;
+    }
+}
+```
+PS: 以上省略了get set方法
+
+#### 自定义View：
+先按照自定义View流程梳理一遍：
+步骤 | 关键字 | 作用
+--- | --- | ---
+1 | 构造函数      | 初始化(初始化画笔Paint)
+2 | onMeasure     | 测量View的大小(暂时不用关心)
+3 | onSizeChanged | 确定View大小(记录当前View的宽高)
+4 | onLayout      | 确定子View布局(不关心)
+5 | onDraw        | 实际绘制内容(绘制饼状图)
+6 | 提供接口      | 提供接口(提供设置数据的接口)
+
+代码如下：
+``` java
+public class PieView extends View {
+    // 颜色表
+    private int[] mColors = {0xFFCCFF00, 0xFF6495ED, 0xFFE32636, 0xFF800000, 0xFF808000, 0xFFFF8C69, 0xFF808080,
+            0xFFE6B800, 0xFF7CFC00};
+    // 饼状图初始绘制角度
+    private float mStartAngle = 0;
+    // 数据
+    private ArrayList<PieData> mData;
+    // 宽高
+    private int mWidth, mHeight;
+    // 画笔
+    private Paint mPaint = new Paint();
+
+    public PieView(Context context) {
+        this(context, null);
+    }
+
+    public PieView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setAntiAlias(true);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        mWidth = w;
+        mHeight = h;
+
+
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (null == mData)
+            return;
+        float currentStartAngle = mStartAngle;        // 当前起始角度
+        canvas.translate(mWidth / 2, mHeight / 2);  // 将画布坐标原点移动到中心位置
+        float r = (float) (Math.min(mWidth, mHeight) / 2 * 0.8); // 饼状图半径
+        RectF rect = new RectF(-r, -r, r, r);                       // 饼状图绘制区域
+
+        for (int i = 0; i < mData.size(); i++) {
+            PieData pie = mData.get(i);
+            mPaint.setColor(pie.getColor());
+            canvas.drawArc(rect, currentStartAngle, pie.getAngle(), true, mPaint);
+            currentStartAngle += pie.getAngle();
+        }
+
+    }
+
+    // 设置起始角度
+    public void setStartAngle(int mStartAngle) {
+        this.mStartAngle = mStartAngle;
+        invalidate();   // 刷新
+    }
+
+    // 设置数据
+    public void setData(ArrayList<PieData> mData) {
+        this.mData = mData;
+        initDate(mData);
+        invalidate();   // 刷新
+    }
+
+    // 初始化数据
+    private void initDate(ArrayList<PieData> mData) {
+        if (null == mData || mData.size() == 0)   // 数据有问题 直接返回
+            return;
+
+        float sumValue = 0;
+        for (int i = 0; i < mData.size(); i++) {
+            PieData pie = mData.get(i);
+
+            sumValue += pie.getValue();       //计算数值和
+
+            int j = i % mColors.length;       //设置颜色
+            pie.setColor(mColors[j]);
+        }
+
+        float sumAngle = 0;
+        for (int i = 0; i < mData.size(); i++) {
+            PieData pie = mData.get(i);
+
+            float percentage = pie.getValue() / sumValue;   // 百分比
+            float angle = percentage * 360;                 // 对应的角度
+
+            pie.setPercentage(percentage);                  // 记录百分比
+            pie.setAngle(angle);                            // 记录角度大小
+            sumAngle += angle;
+
+            Log.i("angle", "" + pie.getAngle());
+        }
+    }
+}
+```
+PS: 其中在更改了数据需要重绘界面时要调用invalidate()这个函数。
+
+#### 效果图
 
 
 
+## 总结：
+  本次偷懒了一点，最后的饼状图并没有绘制完整，以后会补上未完成的部分的。
+  
+  其实自定义View只要按照流程一步步的走，还是比较容易的。不过里面自然也是有不少坑的，这个坑还是自己踩过印象会比较深，建议大家不要直接copy源码，自己亲手写一遍体验一下。
+  
 
