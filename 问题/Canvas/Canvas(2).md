@@ -6,8 +6,8 @@
 
 相比于上一次绘制简单的图形，这次的内容会稍微有趣一点点，相信大家看完之后会对Canvas更加了解,能够制作一些<b>更(geng)加(neng)炫(zhuang)酷(B)</b>的东西出来。
 
-## Canvas常用操作
-为了更加方便，我把上次的表格搬过来了。
+## 一.Canvas常用操作
+为了方便，我把上次的表格搬过来了。
 
 操作类型 | 相关API | 备注
 --- | --- | ---
@@ -19,5 +19,12 @@
 顶点操作 | drawVertices, drawBitmapMesh | 通过对顶点操作可以使图像形变，drawVertices直接对画布作用、 drawBitmapMesh只对绘制的Bitmap作用
 画布剪裁 | clipPath,    clipRect | 设置画布的显示区域
 画布快照 | save, restore | 两者一般成对使用，save是保存当前状态，restore是回滚到上一次保存的状态
-画布形变 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、倾斜<br/> 相关： [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md)    [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
+画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、倾斜<br/> 相关： [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md)    [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
 Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放等操作的都是图像矩阵Matrix，只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
+
+******
+## 二.Canvas基本操作
+上次呢我们了解了绘制颜色和绘制基本形状，这次会了解绘制图片，绘制文字和绘制路径。然后比较详细的讲解画布变换相关操作。
+
+
+
