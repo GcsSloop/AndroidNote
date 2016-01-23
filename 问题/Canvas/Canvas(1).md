@@ -224,7 +224,7 @@ startAngle  // 开始角度
 sweepAngle  // 扫过角度
 useCenter   // 是否使用中心
 ```
-通过字面意思我们基本能猜测出来前两个参数(startAngle， aweepAngel)的作用，就是确定角度的起始位置和角度实际大小， 而角度的结束角度实际上就是起始角度加上角度大小(startAngle, sweepAngle). 不过第三个参数是干嘛的？试一下就知道了,上代码：
+通过字面意思我们基本能猜测出来前两个参数(startAngle， sweepAngel)的作用，就是确定角度的起始位置和角度实际大小， 而角度的结束角度实际上就是起始角度加上角度大小(startAngle, sweepAngle). 不过第三个参数是干嘛的？试一下就知道了,上代码：
 ```
         RectF rectF = new RectF(100,100,800,400);
         // 绘制背景矩形
@@ -250,7 +250,7 @@ useCenter   // 是否使用中心
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawArc1.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
-可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则相当于是扇形减去了一个三角形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
+可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则相是圆弧起始点和结束点之间的连线加上圆弧围成的图形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
 
 相比于使用椭圆，我们通常还是使用正圆比较多的，使用正圆展示一下效果：
 ```
