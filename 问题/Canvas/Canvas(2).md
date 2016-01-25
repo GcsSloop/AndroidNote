@@ -47,15 +47,19 @@ translate 是干什么用的呢？
 ```
         // 省略了创建画笔的代码
         
-        
+        // 在坐标原点绘制一个黑色圆形
         mPaint.setColor(Color.BLACK);
         canvas.translate(200,200);
         canvas.drawCircle(0,0,100,mPaint);
 
+        // 在坐标原点绘制一个蓝色圆形
         mPaint.setColor(Color.BLUE);
         canvas.translate(200,200);
         canvas.drawCircle(0,0,100,mPaint);
 ```
+
+
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/translate.jpg" width = "270" height = "480" alt="title" align=center />  
 
 我们首先将坐标系移动一段距离，绘制一个圆形，之后再移动一段距离，你会发现，两次移动是叠加的。
 不是是每次都基于左上角的(0,0)点移动一段距离，而是基于当前位置再移动一段距离。
