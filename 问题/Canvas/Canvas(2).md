@@ -74,6 +74,43 @@ translate 是干什么用的呢？
 ```
 这两个方法中前两个参数是相同的分别为x轴和y轴的缩放比例(1.0代表不变，大于1代表放大，小于1代表缩小)，而第二种方法比前一种多了两个参数。
 
+多出来的两个参数是干什么的？ 当然是控制缩放中心位置的。
+
+如果在缩放时稍微注意一下就会发现<b>缩放的中心默认为坐标原点</b>，如下：
+```
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
+
+        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+        canvas.drawRect(rect,mPaint);
+
+        canvas.scale(0.5f,0.5f);                // 画布缩放
+
+        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+        canvas.drawRect(rect,mPaint);
+```
+(为了更加直观，我添加了一个坐标系，可以比较明显的看出，缩放中心就是坐标原点)
+
+接下来我们使用第二种方法让缩放中心位置稍微改变一下，如下：
+```
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
+
+        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+        canvas.drawRect(rect,mPaint);
+
+        canvas.scale(0.5f,0.5f,200,0);          // 画布缩放  <-- 缩放中心向右偏移了200个单位
+
+        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+        canvas.drawRect(rect,mPaint);
+```
+(图中用箭头指示的就是缩放中心。)
+
+
 
 #### ⑶旋转(rotate)
 
