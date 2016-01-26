@@ -185,6 +185,27 @@ translate 是干什么用的呢？
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate2.jpg" width = "270" height = "480" alt="title" align=center />  
 
+<b>好吧，旋转也是可叠加的</b>
+```
+     canvas.rotate(180);
+     canvas.rotate(20);
+```
+调用两次旋转，则实际的旋转角度为180+20=200度。
+
+为了演示这一个效果，我做了一个不明觉厉的东西：
+```
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        canvas.drawCircle(0,0,400,mPaint);          // 绘制两个圆形
+        canvas.drawCircle(0,0,380,mPaint);
+
+        for (int i=0; i<=360; i+=10){               // 绘制圆形之间的连接线
+            canvas.drawLine(0,380,0,400,mPaint);
+            canvas.rotate(10);
+        }
+```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate3.jpg" width = "270" height = "480" alt="title" align=center />  
 
 *****
 #### ⑷倾斜(skew)
