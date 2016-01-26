@@ -60,7 +60,6 @@ translate 是干什么用的呢？
         canvas.drawCircle(0,0,100,mPaint);
 ```
 
-
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/translate.jpg" width = "270" height = "480" alt="title" align=center />  
 
 我们首先将坐标系移动一段距离绘制一个圆形，之后再移动一段距离绘制一个圆形，两次移动是叠加的。
@@ -93,6 +92,8 @@ translate 是干什么用的呢？
 ```
 (为了更加直观，我添加了一个坐标系，可以比较明显的看出，缩放中心就是坐标原点)
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale1.jpg" width = "270" height = "480" alt="title" align=center />  
+
 接下来我们使用第二种方法让缩放中心位置稍微改变一下，如下：
 ```
         // 将坐标系原点移动到画布正中心
@@ -110,9 +111,52 @@ translate 是干什么用的呢？
 ```
 (图中用箭头指示的就是缩放中心。)
 
-
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale2.jpg" width = "270" height = "480" alt="title" align=center />  
 
 #### ⑶旋转(rotate)
+和缩放一样，旋转同样提供了两种方法。
+```
+  public void rotate (float degrees)
+  
+  public final void rotate (float degrees, float px, float py)
+```
+和缩放一样，第二种方法多出来的两个参数依旧是控制旋转中心点的。
+
+默认的旋转中心依旧是坐标原点：
+```
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
+
+        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+        canvas.drawRect(rect,mPaint);
+
+        canvas.rotate(180);                     // 旋转180度 <-- 默认旋转中心为原点
+
+        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+        canvas.drawRect(rect,mPaint);
+```
+
+
+改变旋转中心位置：
+```
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
+
+        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+        canvas.drawRect(rect,mPaint);
+
+        canvas.rotate(180,200,0);               // 旋转180度 <-- 旋转中心向右偏移200个单位
+
+        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+        canvas.drawRect(rect,mPaint);
+```
+
+
+改变旋转中心的位置
 
 #### ⑷倾斜(skew)
 
