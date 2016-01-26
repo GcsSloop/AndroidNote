@@ -41,7 +41,7 @@ translate 是干什么用的呢？
 
 不同的坐标系对于描述一个图形的难度实际上是不同的，就拿上图来说，假设蓝色矩形为屏幕，左侧状态为默认的坐标系，右侧为将坐标原点移动到屏幕中心的坐标系，要在屏幕中心绘制一个圆形，在左侧的坐标系中，你需要计算出圆心的位置和半径，而右侧只需知道半径即可。
 
-合理的使用画布操作可以帮助你用更容易理解的方式更加迅速的创作你想要的效果，这也是画布操作存在的原因。
+<b>合理的使用画布操作可以帮助你用更容易理解的方式创作你想要的效果，这也是画布操作存在的原因。</b>
 
 下面对几种画布操作详细讲解。
 
@@ -165,6 +165,32 @@ translate 是干什么用的呢？
 
 *****
 #### ⑷倾斜(skew)
+skew这里翻译为倾斜，有的地方也叫错切。
+
+倾斜只提供了一种方法：
+```
+  public void skew (float sx, float sy)
+```
+<b>参数含义：<br/>
+float sx:将画布在x方向上倾斜相应的角度，sx倾斜角度的tan值，<br/>
+float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的tan值.</b>
+
+示例：
+```
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        RectF rect = new RectF(0,0,200,200);   // 矩形区域
+
+        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+        canvas.drawRect(rect,mPaint);
+
+        canvas.skew(1,0);                       // 在x轴倾斜45度 <-- tan45 = 1
+
+        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+        canvas.drawRect(rect,mPaint);
+```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/skew.jpg" width = "270" height = "480" alt="title" align=center />  
 
 *****
 #### ⑸快照(save)和回滚(restore)
