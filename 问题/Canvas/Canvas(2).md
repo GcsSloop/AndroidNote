@@ -116,6 +116,29 @@ translate 是干什么用的呢？
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale2.jpg" width = "270" height = "480" alt="title" align=center />  
 
+<b>PS:和位移(translate)一样，缩放也是可以叠加的。</b>
+```
+   canvas.scale(0.5f,0.5f);
+   canvas.scale(0.5f,0.5f);
+```
+调用两次缩放到0.5则实际缩放为0.5x0.5=0.25
+
+下面我们利用叠加效果制作一个有趣的图形。
+```
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        RectF rect = new RectF(-400,-400,400,400);   // 矩形区域
+
+        for (int i=0; i<=20; i++)
+        {
+            canvas.scale(0.9f,0.9f);
+            canvas.drawRect(rect,mPaint);
+        }
+```
+
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale3.jpg" width = "270" height = "480" alt="title" align=center />  
+
 *****
 #### ⑶旋转(rotate)
 和缩放一样，旋转同样提供了两种方法。
