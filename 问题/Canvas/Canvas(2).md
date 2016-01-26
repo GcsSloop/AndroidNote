@@ -26,6 +26,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 ## 二.Canvas基本操作
 上次呢我们了解了绘制颜色和绘制基本形状，这次会了解画布变换，绘制图片，绘制文字和绘制路径。
 
+*****
 ### 1.画布操作
 #### 为什么要有画布操作？
 画布操作可以帮助我们用更加容易理解的方式制作图形，如果你之前看过绘制太极和Canvas(1)最后的实例，你就会发现其中就有对translate的运用。
@@ -44,8 +45,9 @@ translate 是干什么用的呢？
 
 下面对几种画布操作详细讲解。
 
+*****
 #### ⑴位移(translate)
- <b>请注意，位移是基于当前位置移动，而不是基于屏幕左上角的物理位置移动</b>，如下：
+ <b>请注意，位移是基于当前位置移动，而不是每次基于屏幕左上角的(0,0)点移动</b>，如下：
 ```
         // 省略了创建画笔的代码
         
@@ -62,8 +64,9 @@ translate 是干什么用的呢？
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/translate.jpg" width = "270" height = "480" alt="title" align=center />  
 
-我们首先将坐标系移动一段距离绘制一个圆形，之后再移动一段距离绘制一个圆形，两次移动是叠加的。
+我们首先将坐标系移动一段距离绘制一个圆形，之后再移动一段距离绘制一个圆形，<b>两次移动是叠加的</b>。
 
+*****
 #### ⑵缩放(scale)
 缩放提供了两个方法，如下：
 ```
@@ -113,6 +116,7 @@ translate 是干什么用的呢？
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale2.jpg" width = "270" height = "480" alt="title" align=center />  
 
+*****
 #### ⑶旋转(rotate)
 和缩放一样，旋转同样提供了两种方法。
 ```
@@ -138,6 +142,7 @@ translate 是干什么用的呢？
         canvas.drawRect(rect,mPaint);
 ```
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate1.jpg" width = "270" height = "480" alt="title" align=center />  
 
 改变旋转中心位置：
 ```
@@ -155,10 +160,12 @@ translate 是干什么用的呢？
         canvas.drawRect(rect,mPaint);
 ```
 
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate2.jpg" width = "270" height = "480" alt="title" align=center />  
 
-改变旋转中心的位置
 
+*****
 #### ⑷倾斜(skew)
 
+*****
 #### ⑸快照(save)和回滚(restore)
 
