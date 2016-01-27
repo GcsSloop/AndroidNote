@@ -24,7 +24,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 ******
 ## 二.Canvas基本操作
-上次呢我们了解了绘制颜色和绘制基本形状，这次会了解画布变换，绘制图片，绘制文字和绘制路径。
+上次呢我们了解了绘制颜色和绘制基本形状，这次会了解画布变换相关操作。
 
 *****
 ### 1.画布操作
@@ -267,26 +267,68 @@ A：画布的操作是不可逆的，而且很多画布操作会影响后续的�
 
 相关API | 简介
 --- | ---
-save | 将Canvas当前全部状态保存放入栈中
-saveLayerXxx | 新建一个图层放入栈中
-restore | 弹出栈顶最近在状态或图层进行恢复
-restoreToCount| 弹出指定位置以上所有的状态并按照指定位置状态进行恢复
+save | 把当前的画布的状态进行保存，然后放入特定的栈中
+saveLayerXxx | 新建一个图层，并放入特定的栈中
+restore | 把栈中最顶层的画布状态取出来，并按照这个状态恢复当前的画布
+restoreToCount| 弹出指定位置及其以上所有的状态，并按照指定位置的状态进行恢复
 getSaveCount | 获取栈中内容的数量(即保存次数)
 
-关于状态保存和恢复内容也有不少，不过暂不展开，今天只了解比较基础常用的操作，其余内容以后会详细讲解：
+下面对其中的一些概念和方法进行分析：
 
-<b>
-save()：把当前的画布的状态进行保存，然后放入特定的栈中。<br/>
-restore()：把栈中最顶层的画布状态取出来，并按照这个状态恢复当前的画布。<br/>
+##### 状态栈：
+其实这个栈我也不知道叫什么名字，暂时叫做状态栈吧，它看起来像下面这样：
+
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/stack1.png)
+
+这个栈可以存储画布状态和图层状态。
+
+<b>Q：什么是画布和图层？<br/>
+A：实际上我们看到的画布是由多个图层构成的，如下图(图片来自网络)：<br/>
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/layer.png)<br/>
+实际上我们之前讲解的绘制操作和画布操作都是在默认图层上进行的。<br/>
+在通常情况下，使用默认图层就可满足需求，但是如果需要绘制比较复杂的内容，如地图(地图可以有多个地图层叠加而成，比如：政区层，道路层，兴趣点层)等，则分图层绘制比较好一些。<br/>
+你可以把这些图层看做是一层一层的玻璃板，你在每层的玻璃板上绘制内容，然后把这些玻璃板叠在一起看就是最终效果。
 </b>
 
-通常来说，save和restore是成对使用的，如下：
+##### SaveFlag
+这个暂时放在这里，下面马上就会用到。
+
+数据类型 | 名称 | 简介
+--- | --- | ---
+int |	ALL_SAVE_FLAG	              | 默认，保存全部状态
+int	| CLIP_SAVE_FLAG	             | 保存剪辑区
+int	| CLIP_TO_LAYER_SAVE_FLAG	    | 剪裁区作为图层保存
+int	| FULL_COLOR_LAYER_SAVE_FLAG	 | 保存图层的全部色彩通道
+int	| HAS_ALPHA_LAYER_SAVE_FLAG	  | 保存图层的alpha(不透明度)通道
+int	| MATRIX_SAVE_FLAG	           | Matrix信息(translate, rotate, scale, skew)保存
+
+##### save
+save 有两种方法：
 ```
-      save();        //保存状态
-      具体操作;      //具体操作过程
-      restore();     //回复之前状态
+  public int save ()
+  
+  public int save (int saveFlags)
 ```
-当然了，你可以多次save和restore。
+可以看到第二种方法比第一种多了一个saveFlags参数，这个saveFlags参数可以参考上面表格中的内容。
+
+每调用一次save方法，都会在栈顶添加一条状态信息。
+
+#### saveLayerXxx
+saveLayerXxx有比较多的方法：
+```
+// 无图层alpha(不透明度)通道
+public int saveLayer (RectF bounds, Paint paint)
+public int saveLayer (RectF bounds, Paint paint, int saveFlags)
+public int saveLayer (float left, float top, float right, float bottom, Paint paint)
+public int saveLayer (float left, float top, float right, float bottom, Paint paint, int saveFlags)
+
+// 有图层alpha(不透明度)通道
+public int saveLayerAlpha (RectF bounds, int alpha)
+public int saveLayerAlpha (RectF bounds, int alpha, int saveFlags)
+public int saveLayerAlpha (float left, float top, float right, float bottom, int alpha)
+public int saveLayerAlpha (float left, float top, float right, float bottom, int alpha, int saveFlags)
+```
+<b>注意：这种方法会让你花费更多的时间去渲染图像(图层多了相互之间叠加会导致计算量成倍增长)，使用前请谨慎，如果可能，尽量避免使用。</b>
 
 
 
