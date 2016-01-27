@@ -48,7 +48,7 @@ translate 是干什么用的呢？
 *****
 #### ⑴位移(translate)
  <b>请注意，位移是基于当前位置移动，而不是每次基于屏幕左上角的(0,0)点移动</b>，如下：
-```
+``` java
         // 省略了创建画笔的代码
         
         // 在坐标原点绘制一个黑色圆形
@@ -69,7 +69,7 @@ translate 是干什么用的呢？
 *****
 #### ⑵缩放(scale)
 缩放提供了两个方法，如下：
-```
+``` java
  public void scale (float sx, float sy)
 
  public final void scale (float sx, float sy, float px, float py)
@@ -79,7 +79,7 @@ translate 是干什么用的呢？
 多出来的两个参数是干什么的？ 当然是控制缩放中心位置的。
 
 如果在缩放时稍微注意一下就会发现<b>缩放的中心默认为坐标原点</b>，如下：
-```
+``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -98,7 +98,7 @@ translate 是干什么用的呢？
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale1.jpg" width = "270" height = "480" alt="title" align=center />  
 
 接下来我们使用第二种方法让缩放中心位置稍微改变一下，如下：
-```
+``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -117,14 +117,14 @@ translate 是干什么用的呢？
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale2.jpg" width = "270" height = "480" alt="title" align=center />  
 
 <b>PS:和位移(translate)一样，缩放也是可以叠加的。</b>
-```
+``` java
    canvas.scale(0.5f,0.5f);
    canvas.scale(0.5f,0.1f);
 ```
 调用两次缩放则 x轴实际缩放为0.5x0.5=0.25 y轴实际缩放为0.5x0.1=0.05
 
 下面我们利用这一特性制作一个有趣的图形。
-```
+``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -142,7 +142,7 @@ translate 是干什么用的呢？
 *****
 #### ⑶旋转(rotate)
 旋转提供了两种方法：
-```
+``` java
   public void rotate (float degrees)
   
   public final void rotate (float degrees, float px, float py)
@@ -150,7 +150,7 @@ translate 是干什么用的呢？
 和缩放一样，第二种方法多出来的两个参数依旧是控制旋转中心点的。
 
 默认的旋转中心依旧是坐标原点：
-```
+``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -168,7 +168,7 @@ translate 是干什么用的呢？
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate1.jpg" width = "270" height = "480" alt="title" align=center />  
 
 改变旋转中心位置：
-```
+``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -186,14 +186,14 @@ translate 是干什么用的呢？
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate2.jpg" width = "270" height = "480" alt="title" align=center />  
 
 <b>好吧，旋转也是可叠加的</b>
-```
+``` java
      canvas.rotate(180);
      canvas.rotate(20);
 ```
 调用两次旋转，则实际的旋转角度为180+20=200度。
 
 为了演示这一个效果，我做了一个不明觉厉的东西：
-```
+``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -212,7 +212,7 @@ translate 是干什么用的呢？
 skew这里翻译为倾斜，有的地方也叫错切。
 
 倾斜只提供了一种方法：
-```
+``` java
   public void skew (float sx, float sy)
 ```
 <b>参数含义：<br/>
@@ -220,7 +220,7 @@ float sx:将画布在x方向上倾斜相应的角度，sx倾斜角度的tan值�
 float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的tan值.</b>
 
 示例：
-```
+``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -237,7 +237,7 @@ float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的ta
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/skew1.jpg" width = "270" height = "480" alt="title" align=center />  
 
 <b>如你所想，倾斜也是可叠加的，不过请注意，调用次序不同绘制结果也会不同</b>
-```
+``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -257,12 +257,53 @@ float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的ta
 
 *****
 #### ⑸快照(save)和回滚(restore)
-画布的操作是不可逆的，而且很多画布操作会影响后续的步骤，例如第一个例子，坐标系的移动，两个圆形都是在坐标原点绘制的，而因为坐标系的移动绘制出来的实际绘制不相同。
 
-为了方便，所以一般会使用save函数和restore函数对画布的一些状态进行保存和回滚。
+<b>
+Q: 为什存在快照与回滚<br/>
+A：画布的操作是不可逆的，而且很多画布操作会影响后续的步骤，例如第一个例子，两个圆形都是在坐标原点绘制的，而因为坐标系的移动绘制出来的实际位置不同。所以会使用save()和restore()对画布的一些状态进行保存和回滚。
+</b>
+
+<b>与之相关的API:</b>
+
+相关API | 简介
+--- | ---
+public int save () | 保存Canvas当前全部状态(放入状态栈栈顶，返回值为在栈中的位置)
+public int save (int saveFlags) | 根据saveFlags选择性的保存某些状态(放入状态栈栈顶，返回值为在栈中的位置)
+public void restore () | 取出最近一次保存(栈顶)的状态进行恢复
+public void restoreToCount (int saveCount) | 取出第saveCount次保存的状态进行恢复
+public int getSaveCount () | 获取保存的次数(即状态栈中保存状态的数量)
+
+<b>可以保存和恢复的内容:</b>
+
+状态 | 简介
+--- | ---
+translate | 位移
+scale | 缩放
+rotate | 旋转
+skew | 倾斜(错切)
+concat |  矩阵相乘
+clipRect, clipPath | 画布剪裁
+
+虽然上面写了很多，不过一般最常用的两个是下面的两个：
+
+<b>
+save()：把当前的画布的状态进行保存，然后放入特定的栈中。<br/>
+restore()：把栈中最顶层的画布状态取出来，并按照这个状态恢复当前的画布。<br/>
+</b>
+
+通常来说，save和restore是成对使用的，如下：
 ```
-save()：把当前的画布的状态进行保存，然后放入特定的栈中；
-restore()：把栈中最顶层的画布状态取出来，并按照这个状态恢复当前的画布。
+      save();        //保存状态
+      具体操作;      //具体操作过程
+      restore();     //回复之前状态
+```
+当然了，你可以多次save和restore。
+
+你可以通过<b>canvas.getSaveCount()</b>来获取保存的次数：
+```
+它的返回值最小为1，代表Canvas最初的默认状态。
+每调用一次save()它的数值会加1
+每调用一次restore()它的数值会减1(当数值为1时不变)
 ```
 
 
