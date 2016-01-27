@@ -119,11 +119,11 @@ translate 是干什么用的呢？
 <b>PS:和位移(translate)一样，缩放也是可以叠加的。</b>
 ```
    canvas.scale(0.5f,0.5f);
-   canvas.scale(0.5f,0.5f);
+   canvas.scale(0.5f,0.1f);
 ```
-调用两次缩放到0.5则实际缩放为0.5x0.5=0.25
+调用两次缩放则 x轴实际缩放为0.5x0.5=0.25 y轴实际缩放为0.5x0.1=0.05
 
-下面我们利用叠加效果制作一个有趣的图形。
+下面我们利用这一特性制作一个有趣的图形。
 ```
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
@@ -234,7 +234,26 @@ float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的ta
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/skew.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/skew1.jpg" width = "270" height = "480" alt="title" align=center />  
+
+<b>如你所想，倾斜也是可叠加的，不过请注意，调用次序不同绘制结果也会不同</b>
+```
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        RectF rect = new RectF(0,0,200,200);   // 矩形区域
+
+        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+        canvas.drawRect(rect,mPaint);
+
+        canvas.skew(1,0);                       // 在x轴倾斜45度 <-- tan45 = 1
+        canvas.skew(0,1);                       // 在y轴倾斜45度 <-- tan45 = 1
+
+        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+        canvas.drawRect(rect,mPaint);
+```
+
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/skew2.jpg" width = "270" height = "480" alt="title" align=center />  
 
 *****
 #### ⑸快照(save)和回滚(restore)
