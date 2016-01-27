@@ -315,7 +315,7 @@ save 有两种方法：
 
 #### saveLayerXxx
 saveLayerXxx有比较多的方法：
-```
+``` java
 // 无图层alpha(不透明度)通道
 public int saveLayer (RectF bounds, Paint paint)
 public int saveLayer (RectF bounds, Paint paint, int saveFlags)
@@ -328,7 +328,7 @@ public int saveLayerAlpha (RectF bounds, int alpha, int saveFlags)
 public int saveLayerAlpha (float left, float top, float right, float bottom, int alpha)
 public int saveLayerAlpha (float left, float top, float right, float bottom, int alpha, int saveFlags)
 ```
-<b>注意：这种方法会让你花费更多的时间去渲染图像(图层多了相互之间叠加会导致计算量成倍增长)，使用前请谨慎，如果可能，尽量避免使用。</b>
+<b>注意：saveLayerXxx方法会让你花费更多的时间去渲染图像(图层多了相互之间叠加会导致计算量成倍增长)，使用前请谨慎，如果可能，尽量避免使用。</b>
 
 
 
