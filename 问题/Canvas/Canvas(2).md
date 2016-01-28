@@ -290,8 +290,7 @@ A：实际上我们看到的画布是由多个图层构成的，如下图(图片
 你可以把这些图层看做是一层一层的玻璃板，你在每层的玻璃板上绘制内容，然后把这些玻璃板叠在一起看就是最终效果。
 </b>
 
-##### SaveFlag
-这个暂时放在这里，下面马上就会用到。
+##### SaveFlags
 
 数据类型 | 名称 | 简介
 --- | --- | ---
@@ -305,13 +304,15 @@ int	| MATRIX_SAVE_FLAG	           | Matrix信息(translate, rotate, scale, skew)
 ##### save
 save 有两种方法：
 ```
+  // 保存全部状态
   public int save ()
   
+  // 根据saveFlags参数保存一部分状态
   public int save (int saveFlags)
 ```
-可以看到第二种方法比第一种多了一个saveFlags参数，这个saveFlags参数可以参考上面表格中的内容。
+可以看到第二种方法比第一种多了一个saveFlags参数，使用这个参数可以只保存一部分状态，更加灵活，这个saveFlags参数具体可参考上面表格中的内容。
 
-每调用一次save方法，都会在栈顶添加一条状态信息。
+每调用一次save方法，都会在栈顶添加一条状态信息，以上面状态栈图片为例，再调用一次save则会在第5次上面载添加一条状态。
 
 #### saveLayerXxx
 saveLayerXxx有比较多的方法：
@@ -329,6 +330,25 @@ public int saveLayerAlpha (float left, float top, float right, float bottom, int
 public int saveLayerAlpha (float left, float top, float right, float bottom, int alpha, int saveFlags)
 ```
 <b>注意：saveLayerXxx方法会让你花费更多的时间去渲染图像(图层多了相互之间叠加会导致计算量成倍增长)，使用前请谨慎，如果可能，尽量避免使用。</b>
+
+使用saveLayerXxx方法，也会将图层状态也放入状态栈中，同样使用restore方法进行恢复。
+
+这个暂时不过多讲述，如果以后用到详细讲解。(因为这里面东西也有不少啊QAQ)
+
+##### restore
+状态回滚，就是从栈顶取出一个状态然后根据内容进行恢复。
+
+同样以上面状态栈图片为例，调用一次restore方法则将状态栈中第5次取出，根据里面保存的状态进行状态恢复。
+
+##### restoreToCount
+弹出指定位置以及以上所有状态，并根据指定位置状态进行恢复。
+
+以上面状态栈图片为例，如果调用restoreToCount(2) 则会弹出 2 3 4 5 的状态，并根据第2次保存的状态进行恢复。
+
+##### getSaveCount
+获取保存的次数，即状态栈中保存状态的数量，以上面状态栈图片为例，使用该函数的返回值为5。
+
+不过请注意，该函数的最小返回值为1，即使弹出了所有的状态，返回值依旧为1，代表默认状态。
 
 
 
