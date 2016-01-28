@@ -8,7 +8,8 @@
 ## 问题列表
  问题 | 描述
  --- | ---
- [Canvas(1)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md) | Canvas基础一
+[Canvas(2)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(2).md) | 画布操作
+ [Canvas(1)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md) | 颜色与基本图形
  [View几个重要的函数](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/View/%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E7%9A%84%E5%87%BD%E6%95%B0.md) | 自定义View流程与重要的函数
  [颜色](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/%E9%A2%9C%E8%89%B2.md) | 介绍安卓中颜色相关问题
  [安卓屏幕坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md) | 安卓中的坐标与数学坐标系之间的差别
