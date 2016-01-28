@@ -299,7 +299,7 @@ int	| CLIP_SAVE_FLAG	             | 保存剪辑区
 int	| CLIP_TO_LAYER_SAVE_FLAG	    | 剪裁区作为图层保存
 int	| FULL_COLOR_LAYER_SAVE_FLAG	 | 保存图层的全部色彩通道
 int	| HAS_ALPHA_LAYER_SAVE_FLAG	  | 保存图层的alpha(不透明度)通道
-int	| MATRIX_SAVE_FLAG	           | Matrix信息(translate, rotate, scale, skew)保存
+int	| MATRIX_SAVE_FLAG	           | 保存Matrix信息(translate, rotate, scale, skew)
 
 ##### save
 save 有两种方法：
