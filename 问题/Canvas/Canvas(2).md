@@ -303,7 +303,7 @@ int	| MATRIX_SAVE_FLAG	           | Matrix信息(translate, rotate, scale, skew)
 
 ##### save
 save 有两种方法：
-```
+``` java
   // 保存全部状态
   public int save ()
   
@@ -352,7 +352,7 @@ public int saveLayerAlpha (float left, float top, float right, float bottom, int
 
 ##### 常用格式
 虽然关于状态的保存和回滚啰嗦了不少，不过大多数情况下只需要记住下面的步骤就可以了：
-```
+``` java
    save();      //保存状态
    ...          //具体操作
    restore();   //回滚到之前的状态
@@ -372,15 +372,17 @@ public int saveLayerAlpha (float left, float top, float right, float bottom, int
 
 这次就先讲这么多吧。
 
+<b>PS: 由于本人英文水平有限，某些地方可能存在误解或词语翻译不准确，如果你对此有疑问可以提交Issues进行反馈。</b>
+
 ******
 ## 四.参考资料
 
-[]()<br/>
-[]()<br/>
-[]()<br/>
-[]()<br/>
-[]()<br/>
-[]()<br/>
+[Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
+[canvas变换与操作](http://blog.csdn.net/harvic880925/article/details/39080931)<br/>
+[Canvas之translate、scale、rotate、skew方法讲解](http://blog.csdn.net/tianjian4592/article/details/45234419)<br/>
+[Canvas的save(),saveLayer()和restore()浅谈](http://www.cnblogs.com/liangstudyhome/p/4143498.html)<br/>
+[Graphics->Layers](http://www.programgo.com/article/72302404062/;jsessionid=8E62016408BFFB21D46F9C878A49D8EE)<br/>
+[AndroidのCanvasを使いこなす](http://tech.recruit-mp.co.jp/mobile/remember_canvas1/)<br/>
 []()<br/>
 []()<br/>
 
