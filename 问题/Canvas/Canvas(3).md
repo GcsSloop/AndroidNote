@@ -72,3 +72,14 @@ A Picture records drawing calls (via the canvas returned by beginRecording) and 
 
 了解了Picture的概念之后，我们再了解一下Picture的相关方法。
 
+相关方法 | 简介
+--- | ---
+public int getWidth () | 获取宽度
+public int getHeight () | 获取高度
+public Canvas beginRecording (int width, int height) | 开始录制 (返回一个Canvas，在Canvas中所有的绘制都会存储在Picture中)
+public void endRecording () | 结束录制
+public void draw (Canvas canvas) | 将Picture中内容绘制到Canvas中
+public static Picture createFromStream (InputStream stream) | (已废弃)通过输入流创建一个Picture
+public void writeToStream (OutputStream stream) | (已废弃)将Picture中内容写出到输出流中
+
+
