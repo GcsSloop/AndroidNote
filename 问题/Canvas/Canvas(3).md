@@ -39,7 +39,7 @@ public void drawPicture (Picture picture, RectF dst)
 ```
 关于drawPicture还是挺让人费解的，不过嘛，我们慢慢研究一下它的用途。
 
-既然是drawPicture就要了解一下什么是Picture。 顾名思义，Picture的意思是图片。
+既然是drawPicture就要了解一下什么是**Picture**。 顾名思义，Picture的意思是图片。
 
 不过嘛，我觉得这么用图片这个名词解释Picture是不合适的，为何这么说？请看其官方文档对[Picture](http://developer.android.com/reference/android/graphics/Picture.html)的解释：
 
@@ -81,5 +81,59 @@ public void endRecording () | 结束录制
 public void draw (Canvas canvas) | 将Picture中内容绘制到Canvas中
 public static Picture createFromStream (InputStream stream) | (已废弃)通过输入流创建一个Picture
 public void writeToStream (OutputStream stream) | (已废弃)将Picture中内容写出到输出流中
+
+上面表格中基本上已经列出了Picture的所有方法，其中getWidth和getHeight没什么好说的，最后两个已经废弃也自然就不用关注了，排除了这些方法之后，只剩三个方法了，接下来我们就比较详细的了解一下：
+
+**很明显，beginRecording 和 endRecording 是成对使用的，一个开始录制，一个是结束录制，两者之间的操作将会存储在Picture中。**
+
+#### 使用示例：
+
+**准备工作**
+``` java 
+    // 1.创建画笔
+    private Picture mPicture = new Picture();
+    
+---------------------------------------------------------------
+    
+    // 2.录制内容
+    private void recording() {
+        // 开始录制 (接收返回值Canvas)
+        Canvas canvas = mPicture.beginRecording(500, 500);
+        // 创建一个画笔
+        Paint paint = new Paint();
+        paint.setColor(Color.BLUE);
+        paint.setStyle(Paint.Style.FILL);
+
+        // 在Canvas中具体操作
+        // 位移
+        canvas.translate(250,250);
+        // 绘制一个圆
+        canvas.drawCircle(0,0,100,mPaint);
+
+        mPicture.endRecording();
+    }
+    
+---------------------------------------------------------------
+
+    // 3.在使用前调用(我在构造函数中调用了)
+      public Canvas3(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        
+        recording();    // 调用录制
+    }
+
+```
+
+** 具体使用 **
+Picture虽然方法就那么几个，但是具体使用起来还是分很多情况的，总体上可以分为三种：
+
+_1.使用Picture提供的draw方法绘制。_
+
+_2.使用Canvas提供的drawPicture方法绘制。_
+
+_3.将Picture压缩成位图Bitmap然后绘制。_
+
+
+
 
 
