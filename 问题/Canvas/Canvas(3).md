@@ -68,6 +68,7 @@ A Picture records drawing calls (via the canvas returned by beginRecording) and 
 我们把Canvas绘制点，线，矩形等诸多操作用Picture录制下来，下次需要的时候拿来就能用，使用Picture相比于再次调用绘图API，开销是比较小的，也就是说对于重复的操作可以更加省时省力。
 </b>
 
-<b>PS：你可以吧Picture看作是一个录制Canvas操作的录像机。</b>
+<b>PS：你可以把Picture看作是一个录制Canvas操作的录像机。</b>
 
+了解了Picture的概念之后，我们再了解一下Picture的相关方法。
 
