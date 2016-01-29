@@ -37,7 +37,7 @@ public void drawPicture (Picture picture, Rect dst)
 
 public void drawPicture (Picture picture, RectF dst)
 ```
-关于drawPicture还是挺让人费解的，不过嘛，我们慢慢研究一下他的用途。
+关于drawPicture还是挺让人费解的，不过嘛，我们慢慢研究一下它的用途。
 
 既然是drawPicture就要了解一下什么是Picture。 顾名思义，Picture的意思是图片。
 
@@ -49,11 +49,11 @@ A Picture records drawing calls (via the canvas returned by beginRecording) and 
 
 好吧，我知道大部分人对这段鸟语是看不懂的，至于为什么要放在这里，仅仅是为了显得更加专业(偷笑)。
 
-<b>那下面我就对这段不明觉厉的鸟语用通俗的话翻译一下:</b>
+<b>下面我就对这段不明觉厉的鸟语用通俗的话翻译一下:</b>
 
 某一天小萌想在朋友面前显摆一下，于是在单杠上来了一个后空翻,动作姿势请参照下图：
 
-朋友都说 恩，很不错。 想再看一遍(〃ω〃)。ヽ(〃∀〃)ﾉ。⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
+朋友都说 恩，很不错。 想再看一遍 (〃ω〃)。ヽ(〃∀〃)ﾉ。⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
 
 于是小萌又来了一遍，如是几次之后，小萌累的吐血三升。
 
@@ -62,8 +62,8 @@ A Picture records drawing calls (via the canvas returned by beginRecording) and 
 小萌深深的被自己的机智折服了，然后Picture就诞生啦。(╯‵□′)╯︵┻━┻掀桌，坑爹呢，这剧情跳跃也忒大了吧。
 
 <b>
-好吧，言归正传，这次我们了解的Picture和上文中的录像功能是类似的，只不过我们Picture所录的是Canvas的内容。<br/>
-我们把Canvas绘制点，线，矩形等诸多操作用Picture录制下来，下次需要的时候拿来就能用，使用Picture相比于再次调用绘图API，开销是比较小的。
+好吧，言归正传，这次我们了解的Picture和上文中的录像功能是类似的，只不过我们Picture录的是Canvas中绘制的内容。<br/>
+我们把Canvas绘制点，线，矩形等诸多操作用Picture录制下来，下次需要的时候拿来就能用，使用Picture相比于再次调用绘图API，开销是比较小的，也就是说对于重复的操作可以更加省时省力。
 </b>
 
 
