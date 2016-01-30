@@ -121,19 +121,19 @@ public void writeToStream (OutputStream stream) | (已废弃)将Picture中内容
 
 Picture虽然方法就那么几个，但是具体使用起来还是分很多情况的，总体上可以分为四种：
 
-_1.使用Picture提供的draw方法绘制。_
+序号 | 简介
+--- | ---
+1 | 使用Picture提供的draw方法绘制。
+2 | 使用Canvas提供的drawPicture方法绘制。
+3 | 将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。
+4 | 将Picture绘制到位图Bitmap，使用用Bitmap进行其他操作。
 
-_2.使用Canvas提供的drawPicture方法绘制。_
 
-_3.将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。_
-
-_4.将Picture绘制到位图Bitmap，使用用Bitmap进行其他操作。_
-
-先分析几种方法主要区别：
+以上几种方法主要区别：
 
 主要区别 | 分类 | 简介
 --- | --- | ---
-矢量图与位图 | 1,2,3为矢量图<br/>4是位图 | **位图:** 也叫做点阵图，删格图象，像素图，最小单位由象素构成，缩放会失真。<br/> **矢量图:** 也叫做向量图，由坐标和运算得出，缩放不失真。
+矢量图与位图 | 1,2,3为矢量图<br/>4是位图 | **矢量图:** 也叫做向量图，由坐标和运算得出，缩放不失真。<br/> **位图:** 也叫做点阵图，删格图象，像素图，最小单位由象素构成，缩放会失真。
 是否对Canvas有影响 | 1有影响<br/>2,3,4不影响 | 此处指绘制完成后是否会影响Canvas的状态(Matrix clip等)
 可操作性强弱 | 1可操作性较弱<br/>2,3,4可操作性较强 | 此处的可操作性可以简单理解为对绘制结果可控程度。
 是否可以保存成文件 | 1,2,3不可以<br/>4可以 | 此处指保存成文件后可以被任意其他程序使用,即保存为通用格式。
