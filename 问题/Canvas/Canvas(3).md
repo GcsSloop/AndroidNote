@@ -119,27 +119,66 @@ public void writeToStream (OutputStream stream) | (已废弃)将Picture中内容
 
 **具体使用:**
 
-Picture虽然方法就那么几个，但是具体使用起来还是分很多情况的，总体上可以分为四种：
+Picture虽然方法就那么几个，但是具体使用起来还是分很多情况的，总体上可以分为以下几种：
 
 序号 | 简介
 --- | ---
 1 | 使用Picture提供的draw方法绘制。
 2 | 使用Canvas提供的drawPicture方法绘制。
 3 | 将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。
-4 | 将Picture绘制到位图Bitmap，使用用Bitmap进行其他操作。
 
 
 以上几种方法主要区别：
 
 主要区别 | 分类 | 简介
 --- | --- | ---
-矢量图与位图 | 1,2,3为矢量图<br/>4是位图 | **矢量图:** 也叫做向量图，由坐标和运算得出，缩放不失真。<br/> **位图:** 也叫做点阵图，删格图象，像素图，最小单位由象素构成，缩放会失真。
-是否对Canvas有影响 | 1有影响<br/>2,3,4不影响 | 此处指绘制完成后是否会影响Canvas的状态(Matrix clip等)
-可操作性强弱 | 1可操作性较弱<br/>2,3,4可操作性较强 | 此处的可操作性可以简单理解为对绘制结果可控程度。
-是否可以保存成文件 | 1,2,3不可以<br/>4可以 | 此处指保存成文件后可以被任意其他程序使用,即保存为通用格式。
+是否对Canvas有影响 | 1有影响<br/>2,3不影响 | 此处指绘制完成后是否会影响Canvas的状态(Matrix clip等)
+可操作性强弱 | 1可操作性较弱<br/>2,3可操作性较强 | 此处的可操作性可以简单理解为对绘制结果可控程度。
 
 几种方法简介和主要区别我知道的就这么多了，接下来对于各种使用方法一一详细介绍：
 
-** 1.使用Picture提供的draw方法绘制:**
+**1.使用Picture提供的draw方法绘制:**
+```
+        // 将Picture中的内容绘制在Canvas上
+        mPicture.draw(canvas);  
+```
+
+![]()
+
+**PS：这种方法在比较低版本的系统上绘制后可能会影响Canvas状态，所以这种方法一般不会使用。**
+
+**2.使用Canvas提供的drawPicture方法绘制**
+
+drawPicture有三种方法：
+```
+public void drawPicture (Picture picture)
+
+public void drawPicture (Picture picture, Rect dst)
+
+public void drawPicture (Picture picture, RectF dst)
+```
+和使用Picture的draw方法不同，Canvas的drawPicture不会影响Canvas状态。
+
+**简单示例:**
+``` java
+    canvas.drawPicture(mPicture,new RectF(0,0,mPicture.getWidth(),200));
+```
+ 
+ ![]()
+ 
+ **PS:对照上一张图片，可以比较明显的看出，绘制的内容根据选区进行了缩放。 **
+
+**3.将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。**
+```
+        // 包装成为Drawable
+        PictureDrawable drawable = new PictureDrawable(mPicture);
+        // 设置绘制区域 -- 注意此处所绘制的实际内容不会缩放，而是相当于剪裁
+        drawable.setBounds(0,0,250,mPicture.getHeight());
+        // 绘制
+        drawable.draw(canvas);
+```
+
+**PS:此处这种区域相当于设置显示区域，而实际绘制不会根据该区域进行缩放。**
+
 
 
