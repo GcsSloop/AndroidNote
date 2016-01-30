@@ -28,7 +28,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 绘制有两种方法，drawPicture 和 drawBitmap,接下来我们一一了解。
 
-### drawPicture
+### (1)drawPicture
 
 关于drawPicture一开始还是挺让人费解的，不过嘛，我们接下来慢慢研究一下它的用途。
 
@@ -101,7 +101,7 @@ public void writeToStream (OutputStream stream) | (已废弃)将Picture中内容
         // 位移
         canvas.translate(250,250);
         // 绘制一个圆
-        canvas.drawCircle(0,0,100,mPaint);
+        canvas.drawCircle(0,0,100,paint);
 
         mPicture.endRecording();
     }
@@ -138,5 +138,8 @@ Picture虽然方法就那么几个，但是具体使用起来还是分很多情�
 可操作性强弱 | 1可操作性较弱<br/>2,3,4可操作性较强 | 此处的可操作性可以简单理解为对绘制结果可控程度。
 是否可以保存成文件 | 1,2,3不可以<br/>4可以 | 此处指保存成文件后可以被任意其他程序使用,即保存为通用格式。
 
+几种方法简介和主要区别我知道的就这么多了，接下来对于各种使用方法一一详细介绍：
+
+** 1.使用Picture提供的draw方法绘制:**
 
 
