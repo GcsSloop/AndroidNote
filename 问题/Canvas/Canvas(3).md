@@ -143,7 +143,7 @@ Picture虽然方法就那么几个，但是具体使用起来还是分很多情�
         mPicture.draw(canvas);  
 ```
 
-![]()
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawPicture1.jpg" width = "270" height = "480"/>  
 
 **PS：这种方法在比较低版本的系统上绘制后可能会影响Canvas状态，所以这种方法一般不会使用。**
 
@@ -164,7 +164,7 @@ public void drawPicture (Picture picture, RectF dst)
     canvas.drawPicture(mPicture,new RectF(0,0,mPicture.getWidth(),200));
 ```
  
- ![]()
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawPicture2.jpg" width = "270" height = "480"/>  
  
  **PS:对照上一张图片，可以比较明显的看出，绘制的内容根据选区进行了缩放。 **
 
@@ -178,7 +178,9 @@ public void drawPicture (Picture picture, RectF dst)
         drawable.draw(canvas);
 ```
 
-**PS:此处setBounds相当于剪裁显示区域，而不会根据该区域进行缩放。**
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawPicture3.jpg" width = "270" height = "480"/>  
+
+**PS:此处setBounds相当于剪裁显示区域，并非根据该区域进行缩放。**
 
 ### (2)drawBitmap
 如果你了解过矢量图和位图，你就会发现，其实上面讲的Picture和矢量图非常类似，而Bitmap就是位图，两者区别如下：
