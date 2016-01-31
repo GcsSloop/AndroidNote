@@ -30,6 +30,8 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 ### (1)drawPicture
 
+> **注意：在使用Picture之前请关闭硬件加速，以免引起不必要的问题，如何关闭请参考这里： [Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
+
 关于drawPicture一开始还是挺让人费解的，不过嘛，我们接下来慢慢研究一下它的用途。
 
 既然是drawPicture就要了解一下什么是**Picture**。 顾名思义，Picture的意思是图片。
@@ -182,6 +184,8 @@ public void drawPicture (Picture picture, RectF dst)
 
 **PS:此处setBounds相当于剪裁显示区域，并非根据该区域进行缩放。**
 
+> **注意：在使用Picture之前请关闭硬件加速，以免引起不必要的问题，如何关闭请参考这里： [Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
+
 ### (2)drawBitmap
 如果你了解过矢量图和位图，你就会发现，其实上面讲的Picture和矢量图非常类似，而Bitmap就是位图，两者区别如下：
 
@@ -189,6 +193,8 @@ public void drawPicture (Picture picture, RectF dst)
 --- | ---
  **矢量图:** | 也叫做向量图，由坐标和运算得出，缩放不失真。
  **位图:** | 也叫做点阵图，删格图象，像素图，最小单位由象素构成，缩放会失真。
+
+ > 其实一开始知道要讲Bitmap我是拒绝的，为什么呢？因为Bitmap就是很多问题的根源啊有木有，Bitmap可能导致内存不足，内存泄露，ListView中的复用混乱等诸多问题。想完美的掌控Bitmap还真不是一件容易的事情。限于篇幅本文对于Bitmap不会过多的展开，只讲解一些常用的功能，关于Bitmap详细内容，以后开专题讲解QAQ。
  
  既然要绘制Bitmap，就要先获取一个Bitmap，那么如何获取呢？
  
@@ -208,7 +214,7 @@ public void drawPicture (Picture picture, RectF dst)
 
 **Q:如果你比较细心，你就会发现上面有一个PictureDrawable，这里又有一个BitmapDrawable，两者是否有某种联系？**<br/>
 
-**A:答案是肯定的**,Drawable用于标记一个可绘制对象，除了以上的两种，还有ColorDrawable, LayerDrawable, NinePatchDrawable 等等一系列东西。相关内容也有很多，如果有时间以后会专门用一篇文章对Drawable讲解，本文不过多展开，你只需要知道**带有Drawable都是可绘制的类型**就可以了。
+**A:答案是肯定的**,Drawable用于标记一个可绘制对象，除了以上的两种，还有ColorDrawable, LayerDrawable, NinePatchDrawable 等等一系列东西。相关内容也有很多，如果有时间以后会专门用一篇文章对Drawable讲解，本文不过多展开，只需要知道**带有Drawable后缀都是可绘制的类型**就可以了。
 
 
 
