@@ -200,4 +200,15 @@ public void drawPicture (Picture picture, RectF dst)
   2 | 通过BitmapFactory获取
   3 | 通过BitmapDrawable获取
   
+第一种方式只能创建空白的Bitmap，创建完成之后可以在上面绘制内容。
+
+第二种方式可以从程序内资源文件，内存卡文件，字符流等诸多地方获取Bitmap。
+
+第三种方式 BitmapDrawable本身就是Bitmap的一个包装类，包含有绘制方法，如果仅仅作为一个获取Bitmap的工具实在是大材小用了。
+
+如果你比较细心，你就会发现上面有一个PictureDrawable，这里又有一个BitmapDrawable，两者是否有某种联系？
+
+答案是肯定的。
+
+
 
