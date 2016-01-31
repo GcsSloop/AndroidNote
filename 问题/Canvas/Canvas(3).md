@@ -187,6 +187,9 @@ public void drawPicture (Picture picture, RectF dst)
 > **注意：在使用Picture之前请关闭硬件加速，以免引起不必要的问题，如何关闭请参考这里： [Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
 
 ### (2)drawBitmap
+
+ > 其实一开始知道要讲Bitmap我是拒绝的，为什么呢？因为Bitmap就是很多问题的根源啊有木有，Bitmap可能导致内存不足，内存泄露，ListView中的复用混乱等诸多问题。想完美的掌控Bitmap还真不是一件容易的事情。限于篇幅**本文对于Bitmap不会过多的展开，只讲解一些常用的功能**，关于Bitmap详细内容，以后开专题讲解QAQ。
+
 如果你了解过矢量图和位图，你就会发现，其实上面讲的Picture和矢量图非常类似，而Bitmap就是位图，两者区别如下：
 
 类型 | 简介 
@@ -194,7 +197,7 @@ public void drawPicture (Picture picture, RectF dst)
  **矢量图:** | 也叫做向量图，由坐标和运算得出，缩放不失真。
  **位图:** | 也叫做点阵图，删格图象，像素图，最小单位由象素构成，缩放会失真。
 
- > 其实一开始知道要讲Bitmap我是拒绝的，为什么呢？因为Bitmap就是很多问题的根源啊有木有，Bitmap可能导致内存不足，内存泄露，ListView中的复用混乱等诸多问题。想完美的掌控Bitmap还真不是一件容易的事情。限于篇幅本文对于Bitmap不会过多的展开，只讲解一些常用的功能，关于Bitmap详细内容，以后开专题讲解QAQ。
+
  
  既然要绘制Bitmap，就要先获取一个Bitmap，那么如何获取呢？
  
