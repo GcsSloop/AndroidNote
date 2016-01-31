@@ -190,5 +190,14 @@ public void drawPicture (Picture picture, RectF dst)
  **矢量图:** | 也叫做向量图，由坐标和运算得出，缩放不失真。
  **位图:** | 也叫做点阵图，删格图象，像素图，最小单位由象素构成，缩放会失真。
  
+ 既然要绘制Bitmap，就要先获取一个Bitmap，那么如何获取呢？
  
+ 获取Bitmap有多种方法：
+ 
+ 序号 | 获取方式
+ --- | ---
+  1 | 通过Bitmap创建(空白位图)
+  2 | 通过BitmapFactory获取
+  3 | 通过BitmapDrawable获取
+  
 
