@@ -213,11 +213,9 @@ public void drawPicture (Picture picture, RectF dst)
 
 第二种方式可以从程序内资源文件，内存卡文件，字符流等诸多地方获取Bitmap。
 
-第三种方式 BitmapDrawable本身就是Bitmap的一个包装类，包含有绘制方法，如果仅仅作为一个获取Bitmap的工具实在是大材小用了。
+第三种方式中的BitmapDrawable是Bitmap的一个包装类，本身就包含有绘制等诸多方法。
 
-**Q:如果你比较细心，你就会发现上面有一个PictureDrawable，这里又有一个BitmapDrawable，两者是否有某种联系？**<br/>
 
-**A:答案是肯定的**,Drawable用于标记一个可绘制对象，除了以上的两种，还有ColorDrawable, LayerDrawable, NinePatchDrawable 等等一系列东西。相关内容也有很多，如果有时间以后会专门用一篇文章对Drawable讲解，本文不过多展开，只需要知道**带有Drawable后缀都是可绘制的类型**就可以了。
 
 
 
