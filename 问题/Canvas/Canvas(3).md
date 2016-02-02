@@ -234,6 +234,7 @@ public void drawPicture (Picture picture, RectF dst)
 > 2. 由于各种原因，BitmapDrawable中很多比较方便的创建方法都废掉了，而且使用BitmapFactory并不比使用BitmapDrawable麻烦。<br/>
 > 3. 使用BitmapDrawable很难预防OOM(Out Of Memory 申请内存过大)，而合理使用BitmapFactory基本上可以避免OOM的产生。<br/>
 
+**PS：关于Drawable相关内容，以后会专门进行讲解，此处仅仅提及一下。**
 
 
 
