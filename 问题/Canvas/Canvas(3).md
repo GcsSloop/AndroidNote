@@ -209,11 +209,20 @@ public void drawPicture (Picture picture, RectF dst)
   2 | 通过BitmapFactory获取
   3 | 通过BitmapDrawable获取
   
-第一种方式只能创建空白的Bitmap，创建完成之后可以在上面绘制内容。
+上面三种方法中，第2种和第3中获取的位图是不可操作的(只读)，只能用来画在画布上，而不能更改其中的内容。<br/>
+第1种方法创建出来的是可以进行操作的，但是其中没有内容。
 
-第二种方式可以从程序内资源文件，内存卡文件，字符流等诸多地方获取Bitmap。
+**一般来说，我们想要读取一张图片并且对其中的内容进行修改，会进行如下操作：**
 
-第三种方式中的BitmapDrawable是Bitmap的一个包装类，本身就包含有绘制等诸多方法。
+步骤 | 说明
+--- | ---
+1 | 使用BitmapFactory或BitmapDrawable读取一张图片，创建一个只读的Bitmap
+2 | 使用Bitmap的creatXxx方法创建一个与第1步大小相同的空白Bitmap
+3 | 将第1步中的只读Bitmap绘制到第2步的空白Bitmap上
+4 | 对Bitmap进行操作
+
+**PS： 如果直接对只读的Bitmap操作会报异常(java.lang.IllegalStateException)**
+
 
 
 
