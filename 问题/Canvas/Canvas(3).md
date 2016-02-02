@@ -246,6 +246,7 @@ public void drawPicture (Picture picture, RectF dst)
         InputStream is = mContext.getResources().openRawResource(R.drawable.bitmap);
         BitmapDrawable drawable = new BitmapDrawable(is);
         Bitmap bitmap = drawable.getBitmap();
+        is.close();
         
         // 第2种
         BitmapDrawable drawable = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.bitmap);
@@ -258,6 +259,7 @@ public void drawPicture (Picture picture, RectF dst)
         InputStream is = mContext.getResources().openRawResource(R.raw.bitmap);
         BitmapDrawable drawable = new BitmapDrawable(is);
         Bitmap bitmap = drawable.getBitmap();
+        is.close();
 ```
 
 **assets:**
@@ -267,6 +269,7 @@ public void drawPicture (Picture picture, RectF dst)
             InputStream is = mContext.getAssets().open("bitmap.png");
             BitmapDrawable drawable = new BitmapDrawable(is);
             bitmap = drawable.getBitmap();
+            is.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -284,6 +287,7 @@ public void drawPicture (Picture picture, RectF dst)
         // 此处省略了获取网络输入流的代码
         BitmapDrawable drawable = new BitmapDrawable(is);
         Bitmap bitmap = drawable.getBitmap();
+        is.close();
 ```
 > **注意：由于网络涉及的内容比较多，例如访问延时，读取延时，不能在主线程运行，异步回调，http与https，网速影响等等等一系列问题，不是本文在重点，故略过，有兴趣请自行查阅。**
 
