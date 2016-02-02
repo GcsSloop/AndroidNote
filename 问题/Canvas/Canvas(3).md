@@ -226,7 +226,7 @@ public void drawPicture (Picture picture, RectF dst)
 
 接下来我们将会按照上面的5个步骤逐一讲解其中的要点和坑。
 
-#### 获取图片
+#### [1]获取图片
 很多文章中提到获取图片，都会提到一种使用创建BitmapDrawable的方法来获取一个Bitmap。<br/>
 <br/>
 我觉得这种方法是不太科学的，原因如下：<br/>
@@ -236,13 +236,56 @@ public void drawPicture (Picture picture, RectF dst)
 
 **PS：关于Drawable相关内容，以后会专门进行讲解，此处仅仅提及一下。**
 
-通过BitmapDrawable获取Bitmap(如果仅仅为了获取Bitmap，不推荐该方法，建议使用BitmapFactory):
+******
+##### 通过BitmapDrawable获取Bitmap:
+> PS:如果仅仅为了获取Bitmap，不推荐该方法，建议使用BitmapFactory
 
-文件来源 | 获取代码
---- | ---
-drawable | BitmapDrawable drawable = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.bitmap);<br/>Bitmap bitmap = drawable.getBitmap();
-mipmap | BitmapDrawable drawable = (BitmapDrawable) mContext.getResources().getDrawable(R.mipmap.bitmap);<br/>Bitmap bitmap = drawable.getBitmap();
-raw | InputStream is = mContext.getResources().openRawResource(R.raw.bitmap);<br/>BitmapDrawable drawable = new BitmapDrawable(is);<br/>Bitmap bitmap = drawable.getBitmap();
+**drawable/mipmap**
+``` java
+        // 第1种
+        InputStream is = mContext.getResources().openRawResource(R.drawable.bitmap);
+        BitmapDrawable drawable = new BitmapDrawable(is);
+        Bitmap bitmap = drawable.getBitmap();
+        
+        // 第2种
+        BitmapDrawable drawable = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.bitmap);
+        Bitmap bitmap = drawable.getBitmap();
+```
+> **注意： 使用第1种和使用第2中方法最后获取到的Bitmap大小可能不同，因为直接使用InputStream读取的是图片原始大小，而使用其他方式获取则是系统自动缩放之后的大小，以下同理，将不再赘述。**
 
+**raw**
+``` java
+        InputStream is = mContext.getResources().openRawResource(R.raw.bitmap);
+        BitmapDrawable drawable = new BitmapDrawable(is);
+        Bitmap bitmap = drawable.getBitmap();
+```
 
+**assets**
+``` java
+        Bitmap bitmap=null;
+        try {
+            InputStream is = mContext.getAssets().open("bitmap.png");
+            BitmapDrawable drawable = new BitmapDrawable(is);
+            bitmap = drawable.getBitmap();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+```
+
+**内存卡文件**
+``` java
+        BitmapDrawable drawable = new BitmapDrawable("/sdcard/bitmap.png");
+        Bitmap bitmap = drawable.getBitmap();
+```
+> **注意： 记得添加内存卡读写权限，另外此方法使用之前需要检查文件是否存在，如果不加检查，文件不存在会让程序直接crash掉。**
+
+**网络文件**
+``` java
+        // 此处省略了获取网络输入流的代码
+        BitmapDrawable drawable = new BitmapDrawable(is);
+        Bitmap bitmap = drawable.getBitmap();
+```
+> **注意：由于网络涉及的内容比较多，例如访问延时，读取延时，不能在主线程运行，异步回调，http与https，网速影响等等等一系列问题，不是本文在重点，故略过，有兴趣请自行查阅。**
+
+******
 
