@@ -216,13 +216,23 @@ public void drawPicture (Picture picture, RectF dst)
 
 步骤 | 说明
 --- | ---
-1 | 使用BitmapFactory或BitmapDrawable读取一张图片，创建一个只读的Bitmap
-2 | 使用Bitmap的creatXxx方法创建一个与第1步大小相同的空白Bitmap
-3 | 将第1步中的只读Bitmap绘制到第2步的空白Bitmap上
-4 | 对Bitmap进行操作
+1 | 获取图片。使用BitmapFactory或BitmapDrawable获取一个只读的Bitmap。
+2 | 创建图片。使用Bitmap的creatXxx方法创建一个与第1步大小相同的空白Bitmap。
+3 | 复制图片。将第1步中的只读Bitmap绘制到第2步的空白Bitmap上。
+4 | 具体操作。对Bitmap进行操作。
+5 | 保存图片。保存Bitmap到文件。
 
 **PS： 如果直接对只读的Bitmap操作会报异常(java.lang.IllegalStateException)**
 
+接下来我们将会按照上面的5个步骤逐一讲解其中的要点和坑。
+
+#### 获取图片
+很多文章中提到获取图片，都会提到一种使用创建BitmapDrawable的方法来获取一个Bitmap。<br/>
+<br/>
+我觉得这种方法是不太科学的，原因如下：<br/>
+> 1. Drawable对象本身就是一种包装类，主要的作用是为**不同类型**的**可绘制对象**(Color Bitmap Layer等等)提供一套**相同的操作方法(接口)**，隐藏不同类型对象底层实现的一些差异，如果仅仅用来获取一个Bitmap实在是大材小用。<br/>
+> 2. 由于各种原因，BitmapDrawable中很多比较方便的创建方法都废掉了，而且使用BitmapFactory并不比使用BitmapDrawable麻烦。<br/>
+> 3. 使用BitmapDrawable很难预防OOM(Out Of Memory 申请内存过大)，而合理使用BitmapFactory基本上可以避免OOM的产生。<br/>
 
 
 
