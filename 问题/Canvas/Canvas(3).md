@@ -237,10 +237,10 @@ public void drawPicture (Picture picture, RectF dst)
 **PS：关于Drawable相关内容，以后会专门进行讲解，此处仅仅提及一下。**
 
 ******
-##### 通过BitmapDrawable获取Bitmap:
+##### 通过BitmapDrawable从不同位置获取Bitmap:
 > PS:如果仅仅为了获取Bitmap，不推荐该方法，建议使用BitmapFactory
 
-**drawable/mipmap**
+**drawable/mipmap:**
 ``` java
         // 第1种
         InputStream is = mContext.getResources().openRawResource(R.drawable.bitmap);
@@ -253,14 +253,14 @@ public void drawPicture (Picture picture, RectF dst)
 ```
 > **注意： 使用第1种和使用第2中方法最后获取到的Bitmap大小可能不同，因为直接使用InputStream读取的是图片原始大小，而使用其他方式获取则是系统自动缩放之后的大小，以下同理，将不再赘述。**
 
-**raw**
+**raw:**
 ``` java
         InputStream is = mContext.getResources().openRawResource(R.raw.bitmap);
         BitmapDrawable drawable = new BitmapDrawable(is);
         Bitmap bitmap = drawable.getBitmap();
 ```
 
-**assets**
+**assets:**
 ``` java
         Bitmap bitmap=null;
         try {
@@ -272,14 +272,14 @@ public void drawPicture (Picture picture, RectF dst)
         }
 ```
 
-**内存卡文件**
+**内存卡文件:**
 ``` java
         BitmapDrawable drawable = new BitmapDrawable("/sdcard/bitmap.png");
         Bitmap bitmap = drawable.getBitmap();
 ```
 > **注意： 记得添加内存卡读写权限，另外此方法使用之前需要检查文件是否存在，如果不加检查，文件不存在会让程序直接crash掉。**
 
-**网络文件**
+**网络文件:**
 ``` java
         // 此处省略了获取网络输入流的代码
         BitmapDrawable drawable = new BitmapDrawable(is);
