@@ -236,6 +236,13 @@ public void drawPicture (Picture picture, RectF dst)
 
 **PS：关于Drawable相关内容，以后会专门进行讲解，此处仅仅提及一下。**
 
+通过BitmapDrawable获取Bitmap(如果仅仅为了获取Bitmap，不推荐该方法，建议使用BitmapFactory):
+
+文件来源 | 获取代码
+--- | ---
+drawable | BitmapDrawable drawable = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.bitmap);<br/>Bitmap bitmap = drawable.getBitmap();
+mipmap | BitmapDrawable drawable = (BitmapDrawable) mContext.getResources().getDrawable(R.mipmap.bitmap);<br/>Bitmap bitmap = drawable.getBitmap();
+raw | InputStream is = mContext.getResources().openRawResource(R.raw.bitmap);<br/>BitmapDrawable drawable = new BitmapDrawable(is);<br/>Bitmap bitmap = drawable.getBitmap();
 
 
 
