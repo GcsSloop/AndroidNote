@@ -200,7 +200,7 @@ public void drawPicture (Picture picture, RectF dst)
   2 | 通过BitmapDrawable获取    | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap
   3 | 通过BitmapFactory获取     | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap
   
-通常来说，我们绘制Bitmap都是读取已有的图片装换为Bitmap绘制到Canvas上。<br/>
+**通常来说，我们绘制Bitmap都是读取已有的图片转换为Bitmap绘制到Canvas上。**<br/>
 很明显，第1种方式不能满足我们的要求，暂时排除。<br/>
 第2种方式虽然也可满足我们的要求，但是我不推荐使用这种方式，至于为什么在后续详细讲解Bitmap的时候会说明，(_就是不告诉你，有本事你咬我啊_),暂时排除。<br/>
 第3种方法我们会比较详细的说明一下如何从各个位置获取图片。<br/>
