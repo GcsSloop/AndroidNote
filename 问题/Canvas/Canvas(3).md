@@ -324,8 +324,11 @@ public void drawPicture (Picture picture, RectF dst)
         is.close();
 ```
 
-**PS：相比于使用BitmapDrawable获取Bitmap，使用BitmapFactory是不是显得更加简单，专业的事情还是要交给专业的人士去干比较好。关于如何优雅的加载大图不是本文重点，暂时略过，在后续文章Bitmap中会详细讲解。**
-
-
+**PS：相比于使用BitmapDrawable获取Bitmap，使用BitmapFactory是不是显得更加简单，专业的事情还是要交给专业的人士去干比较好。关于如何优雅的加载大图防止OOM不是本文重点，暂且略过，在后续文章Bitmap中会详细讲解。**
 
 ****
+
+#### [2]创建空白图片
+**PS: 如果不需要对图片进行修改只是绘制到画布上可以跳过第2步和第3步。**
+
+
