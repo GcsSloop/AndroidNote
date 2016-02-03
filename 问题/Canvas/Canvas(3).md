@@ -296,25 +296,36 @@ public void drawPicture (Picture picture, RectF dst)
 ##### 通过BitmapFactory从不同位置获取Bitmap:
 > 看名字就知道是专业人士，个人建议使用BitmapFactory来获取图片。
 
-**drawable/mipmap/raw**
+**drawable/mipmap/raw:**
 ```
         Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(),R.raw.bitmap);
 ```
-**assets**
+**assets:**
 ```
         Bitmap bitmap=null;
         try {
             InputStream is = mContext.getAssets().open("bitmap.png");
             bitmap = BitmapFactory.decodeStream(is);
+            is.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 ```
 
-**内存卡文件**
+**内存卡文件:**
 ```
     Bitmap bitmap = BitmapFactory.decodeFile("/sdcard/bitmap.png");
 ```
+
+**网络文件:**
+```
+        // 此处省略了获取网络输入流的代码
+        Bitmap bitmap = BitmapFactory.decodeStream(is);
+        is.close();
+```
+
+**PS：相比于使用BitmapDrawable获取Bitmap，使用BitmapFactory是不是显得更加简单，专业的事情还是要交给专业的人士去干比较好。关于如何优雅的加载大图不是本文重点，暂时略过，在后续文章Bitmap中会详细讲解。**
+
 
 
 ****
