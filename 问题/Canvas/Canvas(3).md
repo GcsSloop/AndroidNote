@@ -190,145 +190,17 @@ public void drawPicture (Picture picture, RectF dst)
 
  > 其实一开始知道要讲Bitmap我是拒绝的，为什么呢？因为Bitmap就是很多问题的根源啊有木有，Bitmap可能导致内存不足，内存泄露，ListView中的复用混乱等诸多问题。想完美的掌控Bitmap还真不是一件容易的事情。限于篇幅**本文对于Bitmap不会过多的展开，只讲解一些常用的功能**，关于Bitmap详细内容，以后开专题讲解QAQ。
 
-如果你了解过矢量图和位图，你就会发现，其实上面讲的Picture和矢量图非常类似，而Bitmap就是位图，两者区别如下：
-
-类型 | 简介 
---- | ---
- **矢量图:** | 也叫做向量图，由坐标和运算得出，缩放不失真。
- **位图:** | 也叫做点阵图，删格图象，像素图，最小单位由象素构成，缩放会失真。
-
-
- 
  既然要绘制Bitmap，就要先获取一个Bitmap，那么如何获取呢？
  
- 获取Bitmap有多种方法：
+ **获取Bitmap方式:**
  
- 序号 | 获取方式
- --- | ---
-  1 | 通过Bitmap创建(空白位图)
-  2 | 通过BitmapFactory获取
-  3 | 通过BitmapDrawable获取
+ 序号 | 获取方式 | 备注
+ --- | --- | ---
+  1 | 通过Bitmap创建            | 复制一个已有的Bitmap(_新Bitmap状态和原有的一致_) 或者 创建一个空白的Bitmap(_内容可改变_)
+  2 | 通过BitmapFactory获取     | 获取一个内容不可变的Bitmap
+  3 | 通过BitmapDrawable获取    | 获取一个内容不可变的Bitmap
   
-上面三种方法中，第2种和第3中获取的位图是不可操作的(只读)，只能用来画在画布上，而不能更改其中的内容。<br/>
-第1种方法创建出来的是可以进行操作的，但是其中没有内容。
 
-**一般来说，我们想要读取一张图片并且对其中的内容进行修改，会按如下步骤进行操作：**
 
-步骤 | 说明
---- | ---
-1 | 获取图片。使用BitmapFactory或BitmapDrawable获取一个只读的Bitmap。
-2 | 创建图片。使用Bitmap的creatXxx方法创建一个与第1步大小相同的空白Bitmap。
-3 | 复制图片。将第1步中的只读Bitmap绘制到第2步的空白Bitmap上。
-4 | 具体操作。对Bitmap进行操作。
-5 | 保存图片。保存Bitmap到文件。
-
-**PS： 如果直接对只读的Bitmap操作会报异常(java.lang.IllegalStateException)**
-
-接下来我们将会按照上面的5个步骤逐一讲解其中的要点和坑。
-
-#### [1]获取图片
-很多文章中提到获取图片，都会提到一种使用创建BitmapDrawable的方法来获取一个Bitmap。<br/>
-<br/>
-我觉得这种方法是不太科学的，原因如下：<br/>
-> 1. Drawable对象本身就是一种包装类，主要的作用是为**不同类型**的**可绘制对象**(Color Bitmap Layer等等)提供一套**相同的操作方法(接口)**，隐藏不同类型对象底层实现的一些差异，如果仅仅用来获取一个Bitmap实在是大材小用。<br/>
-> 2. 由于各种原因，BitmapDrawable中很多比较方便的创建方法都废掉了，而且使用BitmapFactory并不比使用BitmapDrawable麻烦。<br/>
-> 3. 使用BitmapDrawable很难预防OOM(Out Of Memory 申请内存过大)，而合理使用BitmapFactory基本上可以避免OOM的产生。<br/>
-
-**PS：关于Drawable相关内容，以后会专门进行讲解，此处仅仅提及一下。**
-
-******
-##### 通过BitmapDrawable从不同位置获取Bitmap:
-> PS:如果仅仅为了获取Bitmap，不推荐该方法，建议使用BitmapFactory
-
-**drawable/mipmap:**
-``` java
-        // 第1种
-        InputStream is = mContext.getResources().openRawResource(R.drawable.bitmap);
-        BitmapDrawable drawable = new BitmapDrawable(is);
-        Bitmap bitmap = drawable.getBitmap();
-        is.close();
-        
-        // 第2种
-        BitmapDrawable drawable = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.bitmap);
-        Bitmap bitmap = drawable.getBitmap();
-```
-> **注意： 使用第1种和使用第2中方法最后获取到的Bitmap大小可能不同，因为直接使用InputStream读取的是图片原始大小，而使用其他方式获取则是系统自动缩放之后的大小，以下同理，将不再赘述。**
-
-**raw:**
-``` java
-        InputStream is = mContext.getResources().openRawResource(R.raw.bitmap);
-        BitmapDrawable drawable = new BitmapDrawable(is);
-        Bitmap bitmap = drawable.getBitmap();
-        is.close();
-```
-
-**assets:**
-``` java
-        Bitmap bitmap=null;
-        try {
-            InputStream is = mContext.getAssets().open("bitmap.png");
-            BitmapDrawable drawable = new BitmapDrawable(is);
-            bitmap = drawable.getBitmap();
-            is.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-```
-
-**内存卡文件:**
-``` java
-        BitmapDrawable drawable = new BitmapDrawable("/sdcard/bitmap.png");
-        Bitmap bitmap = drawable.getBitmap();
-```
-> **注意： 记得添加内存卡读写权限，另外此方法使用之前需要检查文件是否存在，如果不加检查，文件不存在会让程序直接crash掉。**
-
-**网络文件:**
-``` java
-        // 此处省略了获取网络输入流的代码
-        BitmapDrawable drawable = new BitmapDrawable(is);
-        Bitmap bitmap = drawable.getBitmap();
-        is.close();
-```
-> **注意：由于网络涉及的内容比较多，例如访问延时，读取延时，不能在主线程运行，异步回调，http与https，网速影响等等等一系列问题，不是本文在重点，故略过，有兴趣请自行查阅。**
-
-******
-
-##### 通过BitmapFactory从不同位置获取Bitmap:
-> 看名字就知道是专业人士，个人建议使用BitmapFactory来获取图片。
-
-**drawable/mipmap/raw:**
-```
-        Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(),R.raw.bitmap);
-```
-**assets:**
-```
-        Bitmap bitmap=null;
-        try {
-            InputStream is = mContext.getAssets().open("bitmap.png");
-            bitmap = BitmapFactory.decodeStream(is);
-            is.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-```
-
-**内存卡文件:**
-```
-    Bitmap bitmap = BitmapFactory.decodeFile("/sdcard/bitmap.png");
-```
-
-**网络文件:**
-```
-        // 此处省略了获取网络输入流的代码
-        Bitmap bitmap = BitmapFactory.decodeStream(is);
-        is.close();
-```
-
-**PS：相比于使用BitmapDrawable获取Bitmap，使用BitmapFactory是不是显得更加简单，专业的事情还是要交给专业的人士去干比较好。关于如何优雅的加载大图防止OOM不是本文重点，暂且略过，在后续文章Bitmap中会详细讲解。**
-
-****
-
-#### [2]创建空白图片
-**PS: 如果不需要对图片进行修改只是绘制到画布上可以跳过第2步和第3步。**
-
+**不过嘛，本次重点是讲解绘制Bitmap的方法，所以某些地方不会讲的过于详细，不然就喧宾夺主了。**
 
