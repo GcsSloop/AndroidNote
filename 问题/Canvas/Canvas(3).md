@@ -205,7 +205,39 @@ public void drawPicture (Picture picture, RectF dst)
 第2种方式虽然也可满足我们的要求，但是我不推荐使用这种方式，至于为什么在后续详细讲解Drawable的时候会说明,暂时排除。<br/>
 第3种方法我们会比较详细的说明一下如何从各个位置获取图片。<br/>
 
+#### 通过BitmapFactory从不同位置获取Bitmap:
 
+**资源文件(drawable/mipmap/raw):**
+```
+        Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(),R.raw.bitmap);
+```
+**资源文件(assets):**
+```
+        Bitmap bitmap=null;
+        try {
+            InputStream is = mContext.getAssets().open("bitmap.png");
+            bitmap = BitmapFactory.decodeStream(is);
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+```
+
+**内存卡文件:**
+```
+    Bitmap bitmap = BitmapFactory.decodeFile("/sdcard/bitmap.png");
+```
+
+**网络文件:**
+```
+        // 此处省略了获取网络输入流的代码
+        Bitmap bitmap = BitmapFactory.decodeStream(is);
+        is.close();
+```
+
+**PS：相比于使用BitmapDrawable获取Bitmap，使用BitmapFactory是不是显得更加简单，专业的事情还是要交给专业的人士去干比较好。关于如何优雅的加载大图防止OOM不是本文重点，暂且略过，在后续文章Bitmap中会详细讲解。**
+
+****
 
 
 
