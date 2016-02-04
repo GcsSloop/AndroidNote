@@ -270,4 +270,33 @@ PS:图片左上角位置默认为坐标原点。
 
 第三种方法比较有意思，上面多了两个矩形区域(src,dst),这两个矩形选区是干什么用的？
 
+名称 | 作用
+--- | ---
+Rect src | 指定绘制图片的区域
+Rect dst <br/>RectF dst | 指定图片在屏幕上绘制的区域
+
+示例：
+```
+        // 将画布坐标系移动到画布中央
+        canvas.translate(mWidth/2,mHeight/2);
+
+        // 指定图片绘制区域(左上角的四分之一)
+        Rect src = new Rect(0,0,bitmap.getWidth()/2,bitmap.getHeight()/2);
+
+        // 指定图片在屏幕上显示的区域
+        Rect dst = new Rect(0,0,200,400);
+
+        // 绘制图片
+        canvas.drawBitmap(bitmap,src,dst,null);
+```
+
+**详解：**
+
+上面是以绘制该图为例，用src指定了图片绘制部分的区域，即下图中红色方框标注的区域。
+
+
+然后用dst指定了绘制在屏幕上的绘制，即下图中蓝色方框标注的区域，图片宽高会根据指定的区域自动进行缩放。
+
+
+
 
