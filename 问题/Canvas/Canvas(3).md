@@ -273,7 +273,7 @@ PS:图片左上角位置默认为坐标原点。
 名称 | 作用
 --- | ---
 Rect src | 指定绘制图片的区域
-Rect dst <br/>RectF dst | 指定图片在屏幕上绘制的区域
+Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 
 示例：
 ```
@@ -289,14 +289,15 @@ Rect dst <br/>RectF dst | 指定图片在屏幕上绘制的区域
         // 绘制图片
         canvas.drawBitmap(bitmap,src,dst,null);
 ```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap3.jpg" width = "270" height = "480"/> 
 
 **详解：**
 
 上面是以绘制该图为例，用src指定了图片绘制部分的区域，即下图中红色方框标注的区域。
 
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap4.jpg)
 
 然后用dst指定了绘制在屏幕上的绘制，即下图中蓝色方框标注的区域，图片宽高会根据指定的区域自动进行缩放。
-
-
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap5.jpg" width = "270" height = "480"/> 
 
 
