@@ -251,15 +251,22 @@ public void drawPicture (Picture picture, RectF dst)
 ```
 
 第一种方法中后两个参数(matrix, paint)是在绘制的时候对图片进行一些改变，如果只是需要将图片内容绘制出来只需要如下操作就可以了：
+
+PS:图片左上角位置默认为坐标原点。
 ```
     canvas.drawBitmap(bitmap,new Matrix(),new Paint());
 ```
 > 关于Matrix和Paint暂时略过吧，一展开又是啰啰嗦嗦一大段，反正挖坑已经是常态了，大家应该也习惯了(PAP).
 
-第二种方法就是在绘制时指定了图片左上角的位置：
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap1.jpg" width = "270" height = "480"/> 
+
+第二种方法就是在绘制时指定了图片左上角距离坐标原点的距离：
+
+> **注意：此处指定的是与坐标原点的距离，并非是与屏幕顶部和左侧的距离。**
 ```
-    canvas.drawBitmap(bitmap,200,200,new Paint());
+    canvas.drawBitmap(bitmap,200,500,new Paint());
 ```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap2.jpg" width = "270" height = "480"/> 
 
 第三种方法比较有意思，上面多了两个矩形区域(src,dst),这两个矩形选区是干什么用的？
 
