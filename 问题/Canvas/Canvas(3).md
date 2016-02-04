@@ -237,7 +237,32 @@ public void drawPicture (Picture picture, RectF dst)
 
 **PS：相比于使用BitmapDrawable获取Bitmap，使用BitmapFactory是不是显得更加简单，专业的事情还是要交给专业的人士去干比较好。关于如何优雅的加载大图防止OOM不是本文重点，暂且略过，在后续文章Bitmap中会详细讲解。**
 
-****
+既然已经获得到了Bitmap，那么就开始本文的重点了，将Bitmap绘制到画布上。
+#### 绘制Bitmap：
+在这之前我们还是先预览一下drawBitmap的常用方法：
+```
+    // 第一种
+    public void drawBitmap (Bitmap bitmap, Matrix matrix, Paint paint)
+    
+    // 第二种
+    public void drawBitmap (Bitmap bitmap, float left, float top, Paint paint)
+    
+    // 第三种
+    public void drawBitmap (Bitmap bitmap, Rect src, Rect dst, Paint paint)
+    public void drawBitmap (Bitmap bitmap, Rect src, RectF dst, Paint paint)
+```
 
+第一种方法中后两个参数(matrix, paint)是在绘制的时候对图片进行一些改变，如果只是需要将图片内容绘制出来只需要如下操作就可以了：
+```
+    canvas.drawBitmap(bitmap,new Matrix(),new Paint());
+```
+> 关于Matrix和Paint暂时略过吧，一展开又是啰啰嗦嗦一大段，反正挖坑已经是常态了，大家应该也习惯了(PAP).
+
+第二种方法就是在绘制时指定了图片左上角的位置：
+```
+    canvas.drawBitmap(bitmap,200,200,new Paint());
+```
+
+第三种方法比较有意思，上面多了两个矩形区域(src,dst),这两个矩形选区是干什么用的？
 
 
