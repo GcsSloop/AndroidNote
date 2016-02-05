@@ -300,4 +300,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 然后用dst指定了绘制在屏幕上的绘制，即下图中蓝色方框标注的区域，图片宽高会根据指定的区域自动进行缩放。
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap5.jpg" width = "270" height = "480"/> 
 
+## 2.绘制文字
+
+## 3.绘制路径
 
