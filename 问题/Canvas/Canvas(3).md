@@ -328,8 +328,6 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 
 [_点击此处查看源码_](https://github.com/GcsSloop/AndroidNote/issues/10)
 
-
-
 ## 2.绘制文字
 
 ## 3.绘制路径
