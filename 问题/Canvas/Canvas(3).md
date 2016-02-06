@@ -331,18 +331,18 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 ## 2.绘制文字
 依旧预览一下相关常用方法：
 ``` java
-        // 第一类
-        public void drawText (String text, float x, float y, Paint paint)
-        public void drawText (CharSequence text, int start, int end, float x, float y, Paint paint)
-        public void drawText (char[] text, int index, int count, float x, float y, Paint paint)
-        public void drawText (String text, int start, int end, float x, float y, Paint paint)
-        
-        // 第二类
-        public void drawPosText (String text, float[] pos, Paint paint)
-        public void drawPosText (char[] text, int index, int count, float[] pos, Paint paint)
-        
-        // 第三类
-        public void drawTextOnPath (String text, Path path, float hOffset, float vOffset, Paint paint)
-        public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint)
+    // 第一类
+    public void drawText (String text, float x, float y, Paint paint)
+    public void drawText (CharSequence text, int start, int end, float x, float y, Paint paint)
+    public void drawText (char[] text, int index, int count, float x, float y, Paint paint)
+    public void drawText (String text, int start, int end, float x, float y, Paint paint)
+    
+    // 第二类
+    public void drawPosText (String text, float[] pos, Paint paint)
+    public void drawPosText (char[] text, int index, int count, float[] pos, Paint paint)
+    
+    // 第三类
+    public void drawTextOnPath (String text, Path path, float hOffset, float vOffset, Paint paint)
+    public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint)
 ```
 
