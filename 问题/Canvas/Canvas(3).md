@@ -346,8 +346,9 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
     public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint)
 ```
 
-绘制文字部分大致可以分为三大类：
+绘制文字部分大致可以分为三类：
 
-第一类只能指定文本左上角位置。
-
+第一类只能指定文本左上角位置。<br/>
+第二类可以分别指定每个文字的位置。<br/>
+第三类是指定一个路径，根据路径绘制文字。<br/>
 
