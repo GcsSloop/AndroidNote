@@ -140,7 +140,7 @@ Picture虽然方法就那么几个，但是具体使用起来还是分很多情�
 几种方法简介和主要区别我知道的就这么多了，接下来对于各种使用方法一一详细介绍：
 
 **1.使用Picture提供的draw方法绘制:**
-```
+``` java
         // 将Picture中的内容绘制在Canvas上
         mPicture.draw(canvas);  
 ```
@@ -152,7 +152,7 @@ Picture虽然方法就那么几个，但是具体使用起来还是分很多情�
 **2.使用Canvas提供的drawPicture方法绘制**
 
 drawPicture有三种方法：
-```
+``` java
 public void drawPicture (Picture picture)
 
 public void drawPicture (Picture picture, Rect dst)
@@ -208,11 +208,11 @@ public void drawPicture (Picture picture, RectF dst)
 #### 通过BitmapFactory从不同位置获取Bitmap:
 
 **资源文件(drawable/mipmap/raw):**
-```
+``` java
         Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(),R.raw.bitmap);
 ```
 **资源文件(assets):**
-```
+``` java
         Bitmap bitmap=null;
         try {
             InputStream is = mContext.getAssets().open("bitmap.png");
@@ -224,12 +224,12 @@ public void drawPicture (Picture picture, RectF dst)
 ```
 
 **内存卡文件:**
-```
+``` java
     Bitmap bitmap = BitmapFactory.decodeFile("/sdcard/bitmap.png");
 ```
 
 **网络文件:**
-```
+``` java
         // 此处省略了获取网络输入流的代码
         Bitmap bitmap = BitmapFactory.decodeStream(is);
         is.close();
@@ -238,7 +238,7 @@ public void drawPicture (Picture picture, RectF dst)
 既然已经获得到了Bitmap，那么就开始本文的重点了，将Bitmap绘制到画布上。
 #### 绘制Bitmap：
 依照惯例先预览一下drawBitmap的常用方法：
-```
+``` java
     // 第一种
     public void drawBitmap (Bitmap bitmap, Matrix matrix, Paint paint)
     
@@ -253,7 +253,7 @@ public void drawPicture (Picture picture, RectF dst)
 第一种方法中后两个参数(matrix, paint)是在绘制的时候对图片进行一些改变，如果只是需要将图片内容绘制出来只需要如下操作就可以了：
 
 PS:图片左上角位置默认为坐标原点。
-```
+``` java
     canvas.drawBitmap(bitmap,new Matrix(),new Paint());
 ```
 > 关于Matrix和Paint暂时略过吧，一展开又是啰啰嗦嗦一大段，反正挖坑已经是常态了，大家应该也习惯了(PAP).
@@ -263,7 +263,7 @@ PS:图片左上角位置默认为坐标原点。
 第二种方法就是在绘制时指定了图片左上角距离坐标原点的距离：
 
 > **注意：此处指定的是与坐标原点的距离，并非是与屏幕顶部和左侧的距离。**
-```
+``` java
     canvas.drawBitmap(bitmap,200,500,new Paint());
 ```
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap2.jpg" width = "270" height = "480"/> 
@@ -276,7 +276,7 @@ Rect src | 指定绘制图片的区域
 Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 
 示例：
-```
+``` java
         // 将画布坐标系移动到画布中央
         canvas.translate(mWidth/2,mHeight/2);
 
