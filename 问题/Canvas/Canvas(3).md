@@ -22,7 +22,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 ******
 # 二.Canvas基本操作详解
 
-上次讲解了画布相关的一些操作，这次讲解绘制图片 文字 路径等一些基本操作。
+上次讲解了画布相关的一些操作，这次讲解绘制图片 文字 等一些基本操作。
 
 ## 1.绘制图片
 
@@ -310,7 +310,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 
 然而这和我们有什么关系呢？我们又不做游戏开发。
 
-确实，虽然我们不做游戏开发，但是在某些时候我们需要制作一些炫酷的效果，这些效果因为太复杂了用代码很难实现或者渲染效率不高。这时候很多人就会想起帧动画，将动画分解成一张一张的图片然后使用帧动画制作出来，这种实现方式的确比较简单，但是一个动画效果的图片有十几到几十张，一个应用里面来几个这样炫酷的动画效果就会导致资源文件出现一大堆，想找其中的某一张资源图片简直就是灾难啊有木有。但是把同一个动画效果的所有资源图片整理到一张图片上，会大大的减少资源文件数量，方便管理，妈妈再也不怕我找不到资源文件了。
+确实，我们不做游戏开发，但是在某些时候我们需要制作一些炫酷的效果，这些效果因为太复杂了用代码很难实现或者渲染效率不高。这时候很多人就会想起帧动画，将动画分解成一张一张的图片然后使用帧动画制作出来，这种实现方式的确比较简单，但是一个动画效果的图片有十几到几十张，一个应用里面来几个这样炫酷的动画效果就会导致资源文件出现一大堆，想找其中的某一张资源图片简直就是灾难啊有木有。但是把同一个动画效果的所有资源图片整理到一张图片上，会大大的减少资源文件数量，方便管理，妈妈再也不怕我找不到资源文件了。
 
 **下面是利用drawBitmap第三种方法制作的一个简单示例：**
 
@@ -329,6 +329,20 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 [_点击此处查看源码_](https://github.com/GcsSloop/AndroidNote/issues/10)
 
 ## 2.绘制文字
-
-## 3.绘制路径
+依旧预览一下相关常用方法：
+``` java
+        // 第一类
+        public void drawText (String text, float x, float y, Paint paint)
+        public void drawText (CharSequence text, int start, int end, float x, float y, Paint paint)
+        public void drawText (char[] text, int index, int count, float x, float y, Paint paint)
+        public void drawText (String text, int start, int end, float x, float y, Paint paint)
+        
+        // 第二类
+        public void drawPosText (String text, float[] pos, Paint paint)
+        public void drawPosText (char[] text, int index, int count, float[] pos, Paint paint)
+        
+        // 第三类
+        public void drawTextOnPath (String text, Path path, float hOffset, float vOffset, Paint paint)
+        public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint)
+```
 
