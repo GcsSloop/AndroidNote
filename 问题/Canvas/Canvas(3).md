@@ -260,9 +260,9 @@ PS:图片左上角位置默认为坐标原点。
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap1.jpg" width = "270" height = "480"/> 
 
-第二种方法就是在绘制时指定了图片左上角距离坐标原点的距离：
+第二种方法就是在绘制时指定了图片左上角的坐标(距离坐标原点的距离)：
 
-> **注意：此处指定的是与坐标原点的距离，并非是与屏幕顶部和左侧的距离。**
+> **注意：此处指定的是与坐标原点的距离，并非是与屏幕顶部和左侧的距离, 虽然默认状态下两者是重合的，但是也请注意分别两者的不同。**
 ``` java
     canvas.drawBitmap(bitmap,200,500,new Paint());
 ```
@@ -345,4 +345,9 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
     public void drawTextOnPath (String text, Path path, float hOffset, float vOffset, Paint paint)
     public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint)
 ```
+
+绘制文字部分大致可以分为三大类：
+
+第一类只能指定文本左上角位置。
+
 
