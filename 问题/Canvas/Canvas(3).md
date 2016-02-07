@@ -333,9 +333,10 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 ``` java
     // 第一类
     public void drawText (String text, float x, float y, Paint paint)
+    public void drawText (String text, int start, int end, float x, float y, Paint paint)
     public void drawText (CharSequence text, int start, int end, float x, float y, Paint paint)
     public void drawText (char[] text, int index, int count, float x, float y, Paint paint)
-    public void drawText (String text, int start, int end, float x, float y, Paint paint)
+
     
     // 第二类
     public void drawPosText (String text, float[] pos, Paint paint)
