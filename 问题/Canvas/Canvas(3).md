@@ -352,3 +352,18 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 第二类可以分别指定每个文字的位置。<br/>
 第三类是指定一个路径，根据路径绘制文字。<br/>
 
+通过上面常用方法的参数也可看出，绘制文字也是需要画笔的，而且文字的大小,颜色,字体,对齐方式都是由画笔控制的。
+
+不过嘛这里仅简单介绍几种常用方法(反正挖坑多了也不怕)，具体在讲解Paint时再着重讲解。
+
+**Paint文本相关常用方法表**
+
+标题 | 相关方法 | 备注
+--- | --- | ---
+色彩 | setColor setARGB setAlpha | 设置颜色，透明度
+大小 | setTextSize | 设置文本字体大小
+字体 | setTypeface | 设置或清除字体样式
+样式 | setStyle | 填充(FILL),描边(STROKE),填充加描边(FILL_AND_STROKE)
+对齐 | setTextAlign | 左对齐(LEFT),居中对齐(CENTER),右对齐(RIGHT)
+
+
