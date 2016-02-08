@@ -368,4 +368,8 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 
 为了绘制文本，我们先创建一个文本画笔：
 ``` java
+        Paint textPaint = new Paint();          // 创建画笔
+        textPaint.setColor(Color.BLACK);        // 设置颜色
+        textPaint.setStyle(Paint.Style.FILL);   // 设置样式
+        textPaint.setTextSize(50);              // 设置字体大小
 ```
