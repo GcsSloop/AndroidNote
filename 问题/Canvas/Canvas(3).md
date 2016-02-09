@@ -365,6 +365,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 字体 | setTypeface | 设置或清除字体样式
 样式 | setStyle | 填充(FILL),描边(STROKE),填充加描边(FILL_AND_STROKE)
 对齐 | setTextAlign | 左对齐(LEFT),居中对齐(CENTER),右对齐(RIGHT)
+测量 | measureText | 测量文本大小(注意，请在设置完文本各项参数后调用)
 
 为了绘制文本，我们先创建一个文本画笔：
 ``` java
@@ -373,3 +374,18 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
         textPaint.setStyle(Paint.Style.FILL);   // 设置样式
         textPaint.setTextSize(50);              // 设置字体大小
 ```
+
+### 第一类
+第一类可以指定文本开始的位置，可以截取文本中部分内容进行绘制。
+
+很明显，其中x，y两个参数是指定文本绘制的起始位置,示例：
+``` java
+
+        // 文本(要绘制的内容)
+        String str = "ABCDEFGHIJK";
+
+        // 参数分别为 (文本 x轴坐标 y轴坐标 画笔)
+        canvas.drawText(str,200,500,textPaint);
+```
+
+
