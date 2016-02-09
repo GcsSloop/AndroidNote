@@ -345,6 +345,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
     public void drawTextOnPath (String text, Path path, float hOffset, float vOffset, Paint paint)
     public void drawTextOnPath (char[] text, int index, int count, Path path, float hOffset, float vOffset, Paint paint)
 ```
+> PS 其中的CharSequence和String的区别可以到这里看看. [->戳这里<-](https://github.com/GcsSloop/AndroidNote/issues/16)
 
 绘制文字部分大致可以分为三类：
 
@@ -387,5 +388,5 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
         // 参数分别为 (文本 x轴坐标 y轴坐标 画笔)
         canvas.drawText(str,200,500,textPaint);
 ```
-
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText1.jpg" width = "270" height = "480"/>  
 
