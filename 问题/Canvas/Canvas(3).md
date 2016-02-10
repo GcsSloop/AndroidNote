@@ -376,7 +376,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
         textPaint.setTextSize(50);              // 设置字体大小
 ```
 
-### 第一类
+### 第一类(drawText)
 第一类可以指定文本开始的位置，可以截取文本中部分内容进行绘制。
 
 很明显，其中x，y两个参数是指定文本绘制的起始位置,示例：
@@ -427,7 +427,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 ```
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText3.jpg" width = "270" height = "480"/>  
 
-### 第二类
+### 第二类(drawPosText)
 
 通过和第一类比较，我们可以发现，第二类中没有指定x，y坐标的参数，而是出现了这样一个参数**float[] pos**。
 
@@ -460,7 +460,7 @@ public void drawPosText (char[] text, int index, int count, float[] pos, Paint p
 ```
 和上面一样，就是从字符数组中切出来一段进行绘制，相信以诸位看官的聪明才智一眼就看出来了，我这里就不多说了，真的不是我偷懒啊(ˉ▽￣～) ~~
 
-### 第三类
+### 第三类(drawTextOnPath)
 
 第三类要用到path这个大杀器，作为一个厉害角色怎么能这么轻易露脸呢，先保持一下神秘感，也就是说，下回再和大家见面喽。
 
