@@ -390,3 +390,37 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 ```
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText1.jpg" width = "270" height = "480"/>  
 
+当然啦，除了能指定绘制文本的起始位置，还能只取出文本中的一部分内容进行绘制。
+
+截取文本中的一部分，对于String和CharSequence来说只指定字符串下标start和end位置(**注意：0<= start < end < str.length()**)
+
+对于上面的字符串的下标来说来说是这样的:
+
+字符 | A | B | C | D | E | F | G | H | I | J | K
+  ---|---|---|---|---|---|---|---|---|---|---|---
+下标 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+
+假设我我们指定star为1，end为3，那么最终截取的字符串就是"BC"。
+
+一般来说，**使用start和end指定的区间是前闭后开的，即包含start指定的下标，而不包含end指定的下标**，故[1,3)最后获取到的下标只有 下标1 和 下标2 的字符，就是"BC".
+
+示例：
+``` java 
+        // 文本(要绘制的内容)
+        String str = "ABCDEFGHIJK";
+        // 参数分别为 (字符串 开始截取位置 结束截取位置 x轴坐标 y轴坐标 画笔)
+        canvas.drawText(str,1,3,200,500,textPaint);
+```
+
+另外，对于字符数组char[]我们截取字符串使用起始位置(index)和长度(count)来确定。
+
+同样，我们指定index为1，count为3，那么最终截取到的字符串是"BCD".
+
+其实就是从下标位置为1处向后数3位就是截取到的字符串，示例：
+``` java
+        // 字符数组(要绘制的内容)
+        char[] chars = "ABCDEFGHIJK".toCharArray();
+        
+        // 参数为 (字符数组 起始坐标 截取长度 x轴坐标 y轴坐标 画笔)
+        canvas.drawText(chars,1,3,200,500,textPaint);
+```
