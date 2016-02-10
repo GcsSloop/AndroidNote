@@ -411,6 +411,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
         // 参数分别为 (字符串 开始截取位置 结束截取位置 x轴坐标 y轴坐标 画笔)
         canvas.drawText(str,1,3,200,500,textPaint);
 ```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText2.jpg" width = "270" height = "480"/>  
 
 另外，对于字符数组char[]我们截取字符串使用起始位置(index)和长度(count)来确定。
 
@@ -424,3 +425,5 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
         // 参数为 (字符数组 起始坐标 截取长度 x轴坐标 y轴坐标 画笔)
         canvas.drawText(chars,1,3,200,500,textPaint);
 ```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText3.jpg" width = "270" height = "480"/>  
+
