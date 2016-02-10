@@ -394,7 +394,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 
 截取文本中的一部分，对于String和CharSequence来说只指定字符串下标start和end位置(**注意：0<= start < end < str.length()**)
 
-对于上面的字符串的下标来说来说是这样的:
+以上一个例子使用的字符串为例，它的下标是这样的(wait，我为啥要说这个，算了，不管了，就这样吧(๑•́ ₃ •̀๑)):
 
 字符 | A | B | C | D | E | F | G | H | I | J | K
   ---|---|---|---|---|---|---|---|---|---|---|---
@@ -426,4 +426,29 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
         canvas.drawText(chars,1,3,200,500,textPaint);
 ```
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText3.jpg" width = "270" height = "480"/>  
+
+### 第二类
+
+通过和第一类比较，我们可以发现，第二类中没有指定x，y坐标的参数，而是出现了这样一个参数**float[] pos**。
+
+好吧，这个名为pos的浮点型数组就是指定坐标的，至于为啥要用数组嘛，因为这家伙野心比较大，想给每个字符都指定一个位置。
+
+示例：
+``` java
+        String str = "SLOOP";
+
+        canvas.drawPosText(str,new float[]{
+                100,100,    // 第一个字符位置
+                200,200,    // 第二个字符位置
+                300,300,    // ...
+                400,400,
+                500,500
+        },textPaint);
+```
+
+不过嘛，虽然虽然这个方法也比较容易理解，但是关于这个方法我个人是不推荐使用的，因为坑比较的，主要有一下几点：
+
+
+
+
 
