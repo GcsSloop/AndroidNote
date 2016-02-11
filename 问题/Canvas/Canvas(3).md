@@ -476,9 +476,9 @@ public void drawPosText (char[] text, int index, int count, float[] pos, Paint p
 
 # 四.参考资料
 
-![Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
-![Bitmap](http://developer.android.com/reference/android/graphics/Bitmap.html)<br/>
-![Paint](http://developer.android.com/reference/android/graphics/Paint.html)<br/>
-![Android ApiDemo 笔记（一）Content与Graphics](http://blog.csdn.net/wufenglong/article/details/5596402)<br/>
+[Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
+[Bitmap](http://developer.android.com/reference/android/graphics/Bitmap.html)<br/>
+[Paint](http://developer.android.com/reference/android/graphics/Paint.html)<br/>
+[Android ApiDemo 笔记（一）Content与Graphics](http://blog.csdn.net/wufenglong/article/details/5596402)<br/>
 
 
