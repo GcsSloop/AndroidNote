@@ -464,11 +464,21 @@ public void drawPosText (char[] text, int index, int count, float[] pos, Paint p
 
 第三类要用到path这个大杀器，作为一个厉害角色怎么能这么轻易露脸呢，先保持一下神秘感，也就是说，下回再和大家见面喽。
 
-# 三.补坑
+# 三.总结
 
-在前面我们制作过一个叫做饼状图的东东，不过是个不完整的，这次就加上文本绘制制作一个完整版的拿来装逼。
+学会了图片和文字绘制，对于大部分自定义View都能制作了，可以去看看这位大神制作的作品，尝试模仿一下[一个绚丽的loading动效分析与实现！](http://blog.csdn.net/tianjian4592/article/details/44538605)
 
-# 四.总结
+![](http://img.blog.csdn.net/20150322173842391?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
-# 五.参考资料
+(,,• ₃ •,,)
+
+<b>PS: 由于本人英文水平有限，某些地方可能存在误解或词语翻译不准确，如果你对此有疑问可以提交Issues进行反馈。</b>
+
+# 四.参考资料
+
+![Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
+![Bitmap](http://developer.android.com/reference/android/graphics/Bitmap.html)<br/>
+![Paint](http://developer.android.com/reference/android/graphics/Paint.html)<br/>
+![Android ApiDemo 笔记（一）Content与Graphics](http://blog.csdn.net/wufenglong/article/details/5596402)<br/>
+
 
