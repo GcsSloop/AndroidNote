@@ -445,6 +445,7 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
                 500,500
         },textPaint);
 ```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText4.jpg" width = "270" height = "480"/>  
 
 不过嘛，虽然虽然这个方法也比较容易理解，但是关于这个方法我个人是不推荐使用的，因为坑比较的，主要有一下几点：
 
