@@ -127,6 +127,34 @@ translate 是干什么用的呢？
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale2.jpg" width = "270" height = "480" alt="title" align=center />  
 
+前面两个示例缩放的数值都是正数，按照表格中的说明，**当缩放比例为负数的时候会根据缩放中心轴进行翻转**，下面我们就来实验一下：
+
+``` java
+        // 将坐标系原点移动到画布正中心
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+        RectF rect = new RectF(0,0,400,-400);   // 矩形区域
+
+        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+        canvas.drawRect(rect,mPaint);
+
+
+        canvas.scale(-0.5f,-0.5f);          // 画布缩放  <-- 缩放中心向右偏移了200个单位
+
+        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+        canvas.drawRect(rect,mPaint);
+```
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale3.jpg" width="270" height="480"/>  
+
+> 为了效果明显，这次我不仅添加了坐标系而且对矩形中几个重要的点进行了标注，具有相同字母标注的点是一一对应的。
+
+由于本次未对缩放中心进行偏移，所有默认的缩放中心就是坐标原点，缩放中心轴就是x轴和y轴。
+
+本次缩放可以看做是先根据缩放中心(坐标原点)缩放到原来的0.5倍，然后分别按照x轴和y轴进行翻转。
+
+``` java
+```
+
 <b>PS:和位移(translate)一样，缩放也是可以叠加的。</b>
 ``` java
    canvas.scale(0.5f,0.5f);
@@ -148,7 +176,7 @@ translate 是干什么用的呢？
         }
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale3.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale5.jpg" width = "270" height = "480" alt="title" align=center />  
 
 *****
 #### ⑶旋转(rotate)
