@@ -38,16 +38,18 @@ rXxx方法 | rMoveTo rLineTo rQuadTo rCubicTo | **不带r的方法是基于原�
 
 关于Path的作用先简单地说这么多，具体的我们接下来慢慢研究。
 
-## Path含义(sloop个人版, 非官方)
+## Path含义
 
-  简单介绍完path的作用，按照套路当然要讲一下Path是什么了，Path在中文中一般翻译做**路径**，但是路径到底是什么鬼，在不同的地方定义是完全是不同的，在网络中指从起点到终点经过的所有路由，在文件系统中指文件从根目录到当前文件的文件结构，在生活中指经过的道路。在绘图中指用绘图工具创建的任意形状曲线。
-  
-**那这里的Path到底是什么呢？**
-  
-  Path是一个大神器，逼格也比较高，干脆就叫做**逼格拉斯之剑**吧，(这TM是什么鬼(￣▽￣)")<br/>
-  
-  不开玩笑了，咱们正式的定义一下什么是Path：<br/>
-    **Path是一条曲线，我们经常用这条曲线勾勒图形图像的轮廓，所以我们也称之为“轮廓线”。Path有开闭之分，封闭的路径只所有曲线最后首位相接连接成一个封闭的区域，而开放的路径就是没有闭合形成封闭区域。**
+**官方介绍：**
+
+_The Path class encapsulates compound (multiple contour) geometric paths consisting of straight line segments, quadratic curves, and cubic curves. It can be drawn with canvas.drawPath(path, paint), either filled or stroked (based on the paint's Style), or it can be used for clipping or to draw text on a path._
+
+> 嗯，没错依旧是拿来装逼的，如果你看不懂的话，不用担心，其实并没有什么卵用。
+
+**通俗翻译：**
+
+**Path是封装了由直线和曲线(二次，三次贝塞尔曲线)构成的几何路径。你能用Canvas中的drawPath来把这条路径画出来(同样支持Paint的不同绘制模式)，也可以用于剪裁画布和根据路径绘制文字。**
+
   
 封闭路径 | 开放路径
  --- | ---
