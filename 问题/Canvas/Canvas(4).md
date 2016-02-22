@@ -12,12 +12,13 @@
 --- | --- | ---
 移动起点 | moveTo | 移动下一次绘制的起点坐标
 连接直线 | lineTo | 添加上一个点到当前点之间的直线到Path
+闭合路径 | close  | 连接第一个点连接到最后一个点，形成一个闭合区域
 贝塞尔曲线 | quadTo cubicTo | 分别为二次和三次贝塞尔曲线的方法
 rXxx方法 | rMoveTo rLineTo rQuadTo rCubicTo | 和上面方法类似，**上面方法是基于原点的坐标系，rXxx方法是基于当前点偏移**
-添加图形 | addXxx | 添加基本形状(矩形 圆形 圆弧等)到Path
+添加内容 | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)
 布尔操作 | op | 对两个Path进行布尔运算(即取集、并集等操作)
 填充模式 | setFillType getFillType | 设置和获取填充模式
-闭合路径 | close  | 连接第一个点连接到最后一个点，形成一个闭合区域
+
 重置Path | reset rewind | 清除Path中的内容
 矩阵操作 | transform | 矩阵变换
 
