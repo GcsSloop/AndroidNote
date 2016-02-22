@@ -16,9 +16,9 @@
 贝塞尔曲线 | quadTo cubicTo | 分别为二次和三次贝塞尔曲线的方法
 rXxx方法 | rMoveTo rLineTo rQuadTo rCubicTo | 和上面方法类似，**上面方法是基于原点的坐标系，rXxx方法是基于当前点偏移**
 添加内容 | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)
+计算边界 | computeBounds | 计算Path的边界
 布尔操作 | op | 对两个Path进行布尔运算(即取集、并集等操作)
 填充模式 | setFillType getFillType | 设置和获取填充模式
-
 重置Path | reset rewind | 清除Path中的内容
 矩阵操作 | transform | 矩阵变换
 
