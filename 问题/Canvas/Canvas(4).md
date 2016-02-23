@@ -68,6 +68,26 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f19mncfcirj305i02j744.jpg)
 
+### 第1组: moveTo、 setLastPoint、 lineTo 和 close
+  
+  由于Path的有些知识点无法单独来讲，所以本次采取了一次讲一组方法。
+  
+  按照惯例，先创建画笔：
+  
+``` java
+        Paint mPaint = new Paint();             // 创建画笔
+        mPaint.setColor(Color.BLACK);           // 画笔颜色 - 黑色
+        mPaint.setStyle(Paint.Style.STROKE);    // 填充模式 - 描边
+        mPaint.setStrokeWidth(10);              // 边框宽度 - 10
+```
+  
+  **lineTo：**
+  
+  首先讲解的的LineTo，为啥先讲解这个呢？
+  
+  是因为moveTo、 setLastPoint、 close都无法直接看到效果啊的有木有，借助具有具现化效果的lineTo才能让这些方法现出原形。
+  
+  
   
 ## 贝塞尔曲线
 
