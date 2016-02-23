@@ -85,7 +85,7 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
   
   首先讲解的的LineTo，为啥先讲解这个呢？
   
-  是因为moveTo、 setLastPoint、 close都无法直接看到效果啊的有木有，借助有具现化效果的lineTo才能让这些方法现出原形。
+  是因为moveTo、 setLastPoint、 close都无法直接看到效果，借助有具现化效果的lineTo才能让这些方法现出原形。
   
 方法预览：
 
