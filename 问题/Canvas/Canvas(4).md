@@ -46,9 +46,9 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 
 > 嗯，没错依旧是拿来装逼的，如果你看不懂的话，不用担心，其实并没有什么卵用。
 
-**通俗翻译：**
+**通俗解释(sloop个人版)：**
 
-**Path是封装了由直线和曲线(二次，三次贝塞尔曲线)构成的几何路径。你能用Canvas中的drawPath来把这条路径画出来(同样支持Paint的不同绘制模式)，也可以用于剪裁画布和根据路径绘制文字。**
+**Path是封装了由直线和曲线(二次，三次贝塞尔曲线)构成的几何路径。你能用Canvas中的drawPath来把这条路径画出来(同样支持Paint的不同绘制模式)，也可以用于剪裁画布和根据路径绘制文字。我们有时会用Path来描述一个图像的轮廓，所以也会称为轮廓线(轮廓线仅是Path的一种使用方法，两者并不等价)**
 
 
 另外路径有开放和封闭的区别。
@@ -70,9 +70,9 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 
 ### 第1组: moveTo、 setLastPoint、 lineTo 和 close
   
-  由于Path的有些知识点无法单独来讲，所以本次采取了一次讲一组方法。
+由于Path的有些知识点无法单独来讲，所以本次采取了一次讲一组方法。
   
-  按照惯例，先创建画笔：
+按照惯例，先创建画笔：
   
 ``` java
         Paint mPaint = new Paint();             // 创建画笔
@@ -81,12 +81,26 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
         mPaint.setStrokeWidth(10);              // 边框宽度 - 10
 ```
   
-  **lineTo：**
+**lineTo：**
   
   首先讲解的的LineTo，为啥先讲解这个呢？
   
-  是因为moveTo、 setLastPoint、 close都无法直接看到效果啊的有木有，借助具有具现化效果的lineTo才能让这些方法现出原形。
+  是因为moveTo、 setLastPoint、 close都无法直接看到效果啊的有木有，借助有具现化效果的lineTo才能让这些方法现出原形。
   
+方法预览：
+
+```
+public void lineTo (float x, float y)
+```
+
+lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾名思义就是一条线。
+
+俗话(数学书上)说，两点确定一条直线，但是看参数明显只给了一个点的坐标吧(这不按常理出牌啊)。
+
+再仔细一看，这个lineTo除了line外还有一个to呢，to翻译过来就是“至”，到某个地方的意思，**lineTo难道是指从某个点到参数坐标点之间连一条线？**
+
+没错，你猜对了，但是这某个点又是哪里呢？ 
+
   
   
 ## 贝塞尔曲线
