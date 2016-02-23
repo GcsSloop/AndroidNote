@@ -64,7 +64,7 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 
 ## Path使用方法详解
 
-前面扯了一大堆概念性的东西。接下来就开始实战了，请诸位看官准备好瓜子花生爆米花，坐下了慢慢观看。
+前面扯了一大堆概念性的东西。接下来就开始实战了，请诸位看官准备好瓜子、花生、爆米花，坐下来慢慢观看。
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f19mncfcirj305i02j744.jpg)
 
