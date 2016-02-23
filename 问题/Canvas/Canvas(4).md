@@ -50,12 +50,17 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 
 **Path是封装了由直线和曲线(二次，三次贝塞尔曲线)构成的几何路径。你能用Canvas中的drawPath来把这条路径画出来(同样支持Paint的不同绘制模式)，也可以用于剪裁画布和根据路径绘制文字。**
 
+
+另外路径有开放和封闭的区别。
   
-封闭路径 | 开放路径
- --- | ---
- ![](http://ww4.sinaimg.cn/thumbnail/005Xtdi2jw1f0zx9g9gggj30f00aiwek.jpg) | ![](http://ww1.sinaimg.cn/thumbnail/005Xtdi2jw1f0zxg8ilpxj30f00aimx8.jpg)
+图像 | 名称 | 备注
+ --- | --- | ---
+ ![](http://ww4.sinaimg.cn/thumbnail/005Xtdi2jw1f0zx9g9gggj30f00aiwek.jpg) | 封闭路径 | 首尾相接形成了一个封闭区域
+ ![](http://ww1.sinaimg.cn/thumbnail/005Xtdi2jw1f0zxg8ilpxj30f00aimx8.jpg) | 开放路径 | 没有首位相接形成封闭区域
   
 > 这个是我随便画的，仅为展示一下区别，请无视我灵魂画师一般的绘图水准。
+
+**与Path相关的还有一些比较神奇的概念，不过暂且不说，等接下来需要用到的时候再详细说明。**
 
 ## Path使用方法详解
 
