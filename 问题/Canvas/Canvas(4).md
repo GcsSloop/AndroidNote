@@ -99,9 +99,22 @@ lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾�
 
 再仔细一看，这个lineTo除了line外还有一个to呢，to翻译过来就是“至”，到某个地方的意思，**lineTo难道是指从某个点到参数坐标点之间连一条线？**
 
-没错，你猜对了，但是这某个点又是哪里呢？ 
+没错，你猜对了，但是这某个点又是哪里呢？
 
-  
+前面我们提到过Path可以用来描述一个图像的轮廓，图像的轮廓通常都是用一条线构成的，所以这里的某个点就是上次操作结束的点，如果没有进行过操作则默认点为坐标原点。
+
+那么我们就来试一下：
+
+``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心(宽高数据在onSizeChanged中获取)
+
+        Path path = new Path();                     // 创建Path
+
+        path.lineTo(200, 200);                      // lineTo
+
+        canvas.drawPath(path, mPaint);              // 绘制Path
+```
+
   
 ## 贝塞尔曲线
 
