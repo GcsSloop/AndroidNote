@@ -11,8 +11,8 @@
 
 作用 | 相关方法 | 备注
 --- | --- | ---
-移动起点 | moveTo | 移动下一次绘制的起点坐标
-设置终点 | setLastPoint | 设置之前绘制的最后一个点位置，如果在绘制之前调用，效果和moveTo相同
+移动起点 | moveTo | 移动下一次操作的起点位置
+设置终点 | setLastPoint | 设置之前操作的最后一个点位置，如果在绘制之前调用，效果和moveTo相同
 连接直线 | lineTo | 添加上一个点到当前点之间的直线到Path
 闭合路径 | close  | 连接第一个点连接到最后一个点，形成一个闭合区域
 重置路径 | reset, rewind | 清除Path中的内容(**reset相当于重置到new Path阶段，rewind会保留Path的数据结构**)
@@ -125,7 +125,27 @@ lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾�
 
 **moveTo 和 setLastPoint：**
 
+这两个方法虽然在作用上有相似之处，但实际上却是完全不同的两个东东，具体参照下表：
 
+方法名 | 简介  | 是否影响之前的操作 | 是否影响之后操作
+--- | --- | --- | ---
+moveTo | 移动下一次操作的起点位置 | 否 | 是
+setLastPoint | 设置之前操作的最后一个点位置 | 是 | 是
+
+废话不多说，直接上代码：
+``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+
+        Path path = new Path();                     // 创建Path
+
+        path.lineTo(200, 200);                      // lineTo
+
+        path.moveTo(200,100);                       // moveTo
+
+        path.lineTo(200,0);                         // lineTo
+
+        canvas.drawPath(path, mPaint);              // 绘制Path
+```
   
 ## 贝塞尔曲线
 
