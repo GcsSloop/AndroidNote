@@ -152,6 +152,25 @@ setLastPoint | 设置之前操作的最后一个点位置 | 是 | 是
 
 **moveTo只改变下次操作的起点，在执行完第一次LineTo的时候，本来的默认点位置是A(200,200),但是moveTo将其改变成为了C(200,100),所以在第二次调用lineTo的时候就是连接C(200,100) 到 B(200,0) 之间的直线(用蓝色圈2标注)。**
 
+下面是setLastPoint的示例：
+
+``` java 
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+
+        Path path = new Path();                     // 创建Path
+
+        path.lineTo(200, 200);                      // lineTo
+
+        path.setLastPoint(200,100);                 // setLastPoint
+
+        path.lineTo(200,0);                         // lineTo
+
+        canvas.drawPath(path, mPaint);              // 绘制Path
+```
+
+
+
+
 ## 贝塞尔曲线
 
 在展示的图像中的Path由**直线**和**曲线**构成，我们知道对于**直线还是比较好描述的，两点确定一条直线，而不规则的曲线我们一般会用到贝塞尔曲线**，关于贝塞尔曲线这个的概念你们还是参考一下这里[**维基百科-贝塞尔曲线**](https://zh.wikipedia.org/wiki/%E8%B2%9D%E8%8C%B2%E6%9B%B2%E7%B7%9A)，或者自己Google一下，不过嘛你们可以在下面预览一下贝塞尔曲线：
