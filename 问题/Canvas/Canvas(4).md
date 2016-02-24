@@ -81,7 +81,7 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
         mPaint.setStrokeWidth(10);              // 边框宽度 - 10
 ```
   
-**lineTo：**
+#### lineTo：
   
   首先讲解的的LineTo，为啥先讲解这个呢？
   
@@ -119,11 +119,11 @@ lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾�
 
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ap1tu0w9j30u01hcjse.jpg" width = "270" height = "480"/>  
 
-在示例中我们调用了两次lineTo，第一次由于之前没有过操作，所以默认点就是坐标原点O，结果就是坐标原点O到A(200,200)之间的直线(用蓝色圈1标注)。
+在示例中我们调用了两次lineTo，**第一次由于之前没有过操作，所以默认点就是坐标原点O，结果就是坐标原点O到A(200,200)之间的直线(用蓝色圈1标注)。**
 
-第二次lineTo的时候，由于上次的结束位置是A(200,200),所以就是A(200,200)到B(200,0)之间的直线(用蓝色圈2标注)。
+**第二次lineTo的时候，由于上次的结束位置是A(200,200),所以就是A(200,200)到B(200,0)之间的直线(用蓝色圈2标注)。**
 
-**moveTo 和 setLastPoint：**
+#### moveTo 和 setLastPoint：
 
 这两个方法虽然在作用上有相似之处，但实际上却是完全不同的两个东东，具体参照下表：
 
@@ -146,7 +146,12 @@ setLastPoint | 设置之前操作的最后一个点位置 | 是 | 是
 
         canvas.drawPath(path, mPaint);              // 绘制Path
 ```
-  
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2gw1f1aqjptdtjj30u01hct9t.jpg" width = "270" height = "480"/>  
+
+这个和上面演示lineTo的方法类似，只不过在两个lineTo之间添加了一个moveTo。
+
+**moveTo只改变下次操作的起点，在执行完第一次LineTo的时候，本来的默认点位置是A(200,200),但是moveTo将其改变成为了C(200,100),所以在第二次调用lineTo的时候就是连接C(200,100) 到 B(200,0) 之间的直线(用蓝色圈2标注)。**
+
 ## 贝塞尔曲线
 
 在展示的图像中的Path由**直线**和**曲线**构成，我们知道对于**直线还是比较好描述的，两点确定一条直线，而不规则的曲线我们一般会用到贝塞尔曲线**，关于贝塞尔曲线这个的概念你们还是参考一下这里[**维基百科-贝塞尔曲线**](https://zh.wikipedia.org/wiki/%E8%B2%9D%E8%8C%B2%E6%9B%B2%E7%B7%9A)，或者自己Google一下，不过嘛你们可以在下面预览一下贝塞尔曲线：
