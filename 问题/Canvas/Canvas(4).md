@@ -173,6 +173,25 @@ setLastPoint | 设置之前操作的最后一个点位置 | 是 | 是
 
 **在执行完第一次lineTo和setLastPoint后，最后一个点的位置是C(200,100),所以在第二次调用lineTo的时候就是C(200,100) 到 B(200,0) 之间的连线(用蓝色圈2标注)。**
 
+#### close
+
+close方法用于连接当前最后一个点和最初的一个点(如果两个点不重合的话)，最终形成一个封闭的图形。
+
+``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+
+        Path path = new Path();                     // 创建Path
+
+        path.lineTo(200, 200);                      // lineTo
+
+        path.lineTo(200,0);                         // lineTo
+
+        path.close();                               // close
+
+        canvas.drawPath(path, mPaint);              // 绘制Path
+```
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1axmfeojzj30u01hcwfi.jpg" width = "270" height = "480"/> 
+
 
 ## 贝塞尔曲线
 
