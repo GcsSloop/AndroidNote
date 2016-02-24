@@ -111,9 +111,18 @@ lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾�
         Path path = new Path();                     // 创建Path
 
         path.lineTo(200, 200);                      // lineTo
+        path.lineTo(200,0);
 
         canvas.drawPath(path, mPaint);              // 绘制Path
 ```
+
+
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ap1tu0w9j30u01hcjse.jpg" width = "270" height = "480"/>  
+
+在示例中我们调用了两次lineTo，第一次由于之前没有过操作，所以默认点就是坐标原点O，结果就是坐标原点O到A(200,200)之间的直线(用蓝色圈1标注)。
+
+第二次lineTo的时候，由于上次的结束位置是A(200,200),所以就是A(200,200)到B(200,0)之间的直线(用蓝色圈2标注)。
+
 
   
 ## 贝塞尔曲线
