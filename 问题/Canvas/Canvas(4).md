@@ -198,6 +198,36 @@ close方法用于连接当前最后一个点和最初的一个点(如果两个�
 
 ### 第2组: addXxx与arcTo
 
+这次内容主要是在Path中添加基本图形，重点区别addArc与arcTo的区别。
+
+首先进行方法预览：
+``` java 
+// 第一类(基本形状)
+    // 圆形
+    public void addCircle (float x, float y, float radius, Path.Direction dir)
+    // 椭圆
+    public void addOval (RectF oval, Path.Direction dir)
+    // 矩形
+    public void addRect (float left, float top, float right, float bottom, Path.Direction dir)
+    public void addRect (RectF rect, Path.Direction dir)
+    // 圆角矩形
+    public void addRoundRect (RectF rect, float[] radii, Path.Direction dir)
+    public void addRoundRect (RectF rect, float rx, float ry, Path.Direction dir)
+
+// 第二类(Path)
+    // path
+    public void addPath (Path src)
+    public void addPath (Path src, float dx, float dy)
+    public void addPath (Path src, Matrix matrix)
+
+// 第三类(addArc与arcTo)
+    // addArc
+    public void addArc (RectF oval, float startAngle, float sweepAngle)
+    // arcTo
+    public void arcTo (RectF oval, float startAngle, float sweepAngle)
+    public void arcTo (RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo)
+
+```
 
 ## 贝塞尔曲线
 
