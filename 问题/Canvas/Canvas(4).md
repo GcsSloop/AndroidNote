@@ -241,17 +241,53 @@ Direction的意思是 方向，趋势。 点进去看一下会发现Direction是
 CW | clockwise | 顺时针
 CCW | counter-clockwise | 逆时针
 
-瞬间懵逼，我只是想添加一个基本的形状啊，搞什么顺时针和逆时针, (╯‵□′)╯︵┻━┻
+> **瞬间懵逼，我只是想添加一个基本的形状啊，搞什么顺时针和逆时针, (╯‵□′)╯︵┻━┻**
 
-稍安勿躁，┬─┬ ノ( ' - 'ノ) {摆好摆好） 既然存在肯定是有用的，先偷偷剧透一下这个顺时针和逆时针的作用。
+**稍安勿躁，┬─┬ ノ( ' - 'ノ) {摆好摆好） 既然存在肯定是有用的，先偷偷剧透一下这个顺时针和逆时针的作用。**
 
 序号 | 作用 
 --- | --- 
  1 | 在添加图形时确定闭合顺序
- 2 | 在选择填充模式时，对自相交图像最终渲染结果可能有影响。
+ 2 | 在选择填充模式时，对自相交图像最终渲染结果可能有影响
 
 这个先剧透这么多，至于对闭合顺序有啥影响，自相交图形的渲染等问题等请慢慢看下去。
 
+咱们先研究确定闭合顺序的问题，先添加一个矩形试试看：
+
+``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+
+        Path path = new Path();
+
+        path.addRect(-200,-200,200,200, Path.Direction.CW);
+
+        canvas.drawPath(path,mPaint);
+```
+
+**将上面代码的CW改为CCW再运行一次。然后就是见证奇迹的时刻，两次运行结果一模一样，有木有很神奇！**
+
+> **(╯°Д°)╯︵ ┻━┻(再TM掀一次) 
+坑人也不带这样的啊，一毛一样要他干嘛。**
+
+**其实啊，这个东东是自带隐身技能的，这次咱们就用刚刚学到的法术setLastPoint来让它现出原形。**
+
+```
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+        canvas.scale(1,-1);                         // <-- 注意 scale特殊运用：翻转y坐标轴
+
+        Path path = new Path();
+
+        path.addRect(-200,-200,200,200, Path.Direction.CW);
+
+        path.setLastPoint(-300,300);                // <-- 移动最后一个点的位置
+
+        canvas.drawPath(path,mPaint);
+```
+
+**请注意：为了演示方便，本次将坐标系调整到了和我们常见的数学坐标系相同，请留意代码的变动，否则效果刚好是反着的，会更加难以理解。**
+
+> 如果你对坐标系有疑问，请参考之前文章 [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md) <br/>
+>如果你对翻转坐标轴有疑问，请参考之前文章 [Canvas(2)画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(2).md)
 
 
 ## 贝塞尔曲线
