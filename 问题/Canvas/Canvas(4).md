@@ -263,6 +263,7 @@ CCW | counter-clockwise | 逆时针
 
         canvas.drawPath(path,mPaint);
 ```
+<img src="http://ww1.sinaimg.cn/large/005Xtdi2gw1f1cmvjtuxcj30u01hcwgm.jpg" width = "270" height = "480"/> 
 
 **将上面代码的CW改为CCW再运行一次。接下来就是见证奇迹的时刻，两次运行结果一模一样，有木有很神奇！**
 
