@@ -285,6 +285,8 @@ CCW | counter-clockwise | 逆时针
         canvas.drawPath(path,mPaint);
 ```
 
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1ea3qc3j6j30u01hcabi.jpg" width = "270" height = "480"/> 
+
 **请注意：为了演示方便，本次将坐标系调整到了和我们常见的数学坐标系相同，请留意代码的变动，否则效果刚好是反着的，会更加难以理解。**
 
 > 如果你对坐标系有疑问，请参考之前文章 [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md) <br/>
