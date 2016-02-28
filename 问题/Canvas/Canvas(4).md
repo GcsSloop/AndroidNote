@@ -292,6 +292,8 @@ CCW | counter-clockwise | 逆时针
 > 如果你对坐标系有疑问，请参考之前文章 [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md) <br/>
 >如果你对翻转坐标轴有疑问，请参考之前文章 [Canvas(2)画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(2).md)
 
+可以看到，图形发生了奇怪的变化。为何会如此呢？
+
 
 ## 贝塞尔曲线
 
