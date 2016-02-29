@@ -280,7 +280,7 @@ CCW | counter-clockwise | 逆时针
 
         path.addRect(-200,-200,200,200, Path.Direction.CW);
 
-        path.setLastPoint(-300,300);                // <-- 移动最后一个点的位置
+        path.setLastPoint(-300,300);                // <-- 重置最后一个点的位置
 
         canvas.drawPath(path,mPaint);
 ```
@@ -304,7 +304,23 @@ CCW | counter-clockwise | 逆时针
 
 图形在实际记录中就是记录各个的点，对于一个图形来说肯定有多个点，既然有这么多的点，肯定就需要一个先后顺序，这里顺时针和逆时针就是用来确定记录这些点的顺序的。
 
-对于上面这个矩形来说，我们采用的是顺时针(CW)，所以记录的点的顺序就是 A -> B -> C -> D.
+对于上面这个矩形来说，我们采用的是顺时针(CW)，所以记录的点的顺序就是 A -> B -> C -> D. 最后一个点就是D，我们这里使用setLastPoint改变最后一个点的位置实际上就是改变了D的位置。
+
+理解了上面的原理之后，设想如果我们将上面的顺时针改为逆时针，则记录点的顺序应该就是 A -> D -> C -> B, 再使用setLastPoint则改变的是B的位置，我们试试看结果和我们的猜想是否一致：
+
+``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
+
+        Path path = new Path();
+
+        path.addRect(-200,-200,200,200, Path.Direction.CCW);
+
+        path.setLastPoint(-300,300);                // <-- 重置最后一个点的位置
+
+        canvas.drawPath(path,mPaint);
+```
+
 
 
 
