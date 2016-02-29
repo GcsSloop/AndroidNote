@@ -331,40 +331,12 @@ CCW | counter-clockwise | 逆时针
 
 **参数中点的顺序很重要！<br/>参数中点的顺序很重要！<br/>参数中点的顺序很重要！<br/>**
 
-重要的话说三遍，本次是用矩形作为例子的，其他的几个图形基本上都涉及到了曲线，详情可以参加后续的贝塞尔曲线部分。
+重要的话说三遍，本次是用矩形作为例子的，其他的几个图形基本上都涉及到了曲线，详情参见后续的贝塞尔曲线部分。
 
+**关于顺时针和逆时针对自相图形渲染的问题请等待下一篇，虽然只讲了一个Path，但也是内容颇多，放进一篇中就太长了，请见谅。**
 
+#### 第二类(Path)
 
-
-
-
-## 贝塞尔曲线
-
-在展示的图像中的Path由**直线**和**曲线**构成，我们知道对于**直线还是比较好描述的，两点确定一条直线，而不规则的曲线我们一般会用到贝塞尔曲线**，关于贝塞尔曲线这个的概念你们还是参考一下这里[**维基百科-贝塞尔曲线**](https://zh.wikipedia.org/wiki/%E8%B2%9D%E8%8C%B2%E6%9B%B2%E7%B7%9A)，或者自己Google一下，不过嘛你们可以在下面预览一下贝塞尔曲线：
-
-贝塞尔曲线 | 结构 | 演示动画
- --- | --- | ---
- 一阶曲线<br/>(线性曲线) | ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif) | ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif)
- 二阶曲线 | ![](https://upload.wikimedia.org/wikipedia/commons/6/6b/B%C3%A9zier_2_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
-三阶曲线 |  ![](https://upload.wikimedia.org/wikipedia/commons/8/89/B%C3%A9zier_3_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
-四阶曲线 | ![](https://upload.wikimedia.org/wikipedia/commons/b/bf/B%C3%A9zier_4_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/a/a4/B%C3%A9zier_4_big.gif)
-
-
-看了上面的一到四阶贝塞尔曲线的效果图，有木有不明觉厉，感觉好高端，好厉害的样子，除了一阶的还知道怎么回事，二阶以上就懵逼了。
-
-其实贝塞尔曲线都是靠一些不明觉厉的公式计算出来的，它的通用公式如下：
-
-![](https://upload.wikimedia.org/math/8/f/4/8f4c915ef475b93fc0f8374f378e436f.png)
-
-额，看完之后更加懵逼了，这么复杂的公式臣妾真心不会算啊。
-
-不过不要紧，这肯定不是手算的，在本文后面内容中会教大家一些取巧的方法，这里先讲Path，讲到曲线的部分再详细的说明。
-
-
-
-
-
-## 贝塞尔曲线详解
 
 
 # 总结
