@@ -321,6 +321,7 @@ CCW | counter-clockwise | 逆时针
         canvas.drawPath(path,mPaint);
 ```
 
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1gamc02c6j30u01hcabi.jpg" width = "270" height = "480"/> 
 
 
 
