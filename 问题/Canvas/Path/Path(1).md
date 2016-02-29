@@ -351,8 +351,24 @@ CCW | counter-clockwise | 逆时针
 
 示例：
 ``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
 
+        Path path = new Path();
+        Path src = new Path();
+
+        path.addRect(-200,-200,200,200, Path.Direction.CW);
+        src.addCircle(0,0,100, Path.Direction.CW);
+
+        path.addPath(src,0,200);
+
+        mPaint.setColor(Color.BLACK);           // 绘制合并后的路径
+        canvas.drawPath(path,mPaint);
 ```
+
+首先我们新建地方两个Path(矩形和圆形)中心都是坐标原点，我们在将包含圆形的path添加到包含矩形的path之前将其进行移动了一段距离，最终绘制出来的效果就如上面所示。
+
+
 
 
 
