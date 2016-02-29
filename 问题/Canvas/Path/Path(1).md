@@ -366,6 +366,8 @@ CCW | counter-clockwise | 逆时针
         canvas.drawPath(path,mPaint);
 ```
 
+<img src="http://ww1.sinaimg.cn/large/005Xtdi2gw1f1gmg3jpc3j30u01hc757.jpg" width = "270" height = "480"/> 
+
 首先我们新建地方两个Path(矩形和圆形)中心都是坐标原点，我们在将包含圆形的path添加到包含矩形的path之前将其进行移动了一段距离，最终绘制出来的效果就如上面所示。
 
 #### 第三类(addArc与arcTo)
