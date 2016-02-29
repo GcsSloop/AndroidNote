@@ -285,7 +285,7 @@ CCW | counter-clockwise | 逆时针
         canvas.drawPath(path,mPaint);
 ```
 
-<img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1ea3qc3j6j30u01hcabi.jpg" width = "270" height = "480"/> 
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f1g5ec62kuj30u01hc3zv.jpg" width = "270" height = "480"/> 
 
 **请注意：为了演示方便，本次将坐标系调整到了和我们常见的数学坐标系相同，请留意代码的变动，否则效果刚好是反着的，会更加难以理解。**
 
