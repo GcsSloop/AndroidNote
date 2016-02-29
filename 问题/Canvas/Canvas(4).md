@@ -15,12 +15,12 @@
 设置终点 | setLastPoint | 重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同
 连接直线 | lineTo | 添加上一个点到当前点之间的直线到Path
 闭合路径 | close  | 连接第一个点连接到最后一个点，形成一个闭合区域
-重置路径 | reset, rewind | 清除Path中的内容(**reset相当于重置到new Path阶段，rewind会保留Path的数据结构**)
 添加内容 | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)
 是否为空 | isEmpty | 判断Path是否为空
 替换路径 | set | 用新的路径替换到当前路径所有内容
 偏移路径 | offset | 对当前路径之前的操作进行偏移(不会影响之后的操作)
 计算边界 | computeBounds | 计算Path的边界
+重置路径 | reset, rewind | 清除Path中的内容(**reset相当于重置到new Path阶段，rewind会保留Path的数据结构**)
 贝塞尔曲线 | quadTo cubicTo | 分别为二次和三次贝塞尔曲线的方法
 rXxx方法 | rMoveTo rLineTo rQuadTo rCubicTo | **不带r的方法是基于原点的坐标系(偏移量)，rXxx方法是基于当前点坐标系(偏移量)**
 填充模式 | setFillType, getFillType, isInverseFillType, toggleInverseFillType| 设置,获取,判断和切换填充模式
@@ -331,7 +331,7 @@ CCW | counter-clockwise | 逆时针
 
 **参数中点的顺序很重要！<br/>参数中点的顺序很重要！<br/>参数中点的顺序很重要！<br/>**
 
-重要的话说三遍，本次是用矩形作为例子的，对于其他的图形大家可以自己试试看。
+重要的话说三遍，本次是用矩形作为例子的，其他的几个图形基本上都涉及到了曲线，详情可以参加后续的贝塞尔曲线部分。
 
 
 
