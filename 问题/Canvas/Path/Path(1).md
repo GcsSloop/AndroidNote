@@ -230,7 +230,7 @@ close方法用于连接当前最后一个点和最初的一个点(如果两个�
 ```
 
 #### 第一类(基本形状)
-这一类就是在path中添加一个基本形状，基本形状部分和前面所讲的绘制基本形状并无太大差别，详情参考[Canvas(1)颜色与基本形状](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md), 本次只将其中不同的部分摘出来详细讲解一下。
+**这一类就是在path中添加一个基本形状，基本形状部分和前面所讲的绘制基本形状并无太大差别，详情参考[Canvas(1)颜色与基本形状](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md), 本次只将其中不同的部分摘出来详细讲解一下。**
 
 **仔细观察一下第一类是方法，无一例外，在最后都有一个_Path.Direction_，这是一个什么神奇的东东？**
 
