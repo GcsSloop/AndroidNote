@@ -379,6 +379,25 @@ CCW | counter-clockwise | 逆时针
  addArc | 添加一个圆弧到path | 直接添加一个圆弧到path中
  arcTo | 添加一个圆弧到path | 添加一个圆弧到path，如果圆弧的起点和上次最后一个坐标点不相同，就连接两个点
 
+``` java
+    // addArc
+    public void addArc (RectF oval, float startAngle, float sweepAngle)
+    // arcTo
+    public void arcTo (RectF oval, float startAngle, float sweepAngle)
+    public void arcTo (RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo)
+```
+
+可以看到addArc有1个方法(_实际上是两个的，但另一个重载方法是API21添加的_), 而arcTo有2个方法，其中一个最后多了一个布尔类型的变量forceMoveTo。
+
+**forceMoveTo是什么作用呢？**
+
+这个变量意思为“是否强制使用moveTo”，也就是说，是否使用moveTo将变量移动到圆弧的起点位移，也就意味着：
+
+forceMoveTo | 含义 | 等价方法
+ --- | --- | ---
+ true  | 将最后一个点移动到圆弧起点 | public void addArc (RectF oval, float startAngle, float sweepAngle)
+ false | 不移动，而是连接最后一个点与圆弧起点 | public void arcTo (RectF oval, float startAngle, float sweepAngle)
+
 
 
 
