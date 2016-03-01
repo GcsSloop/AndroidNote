@@ -395,7 +395,7 @@ CCW | counter-clockwise | 逆时针
 
 forceMoveTo | 含义 | 等价方法
  --- | --- | ---
- true  | 将最后一个点移动到圆弧起点 | public void addArc (RectF oval, float startAngle, float sweepAngle)
+ true  | 将最后一个点移动到圆弧起点，即不连接最后一个点与圆弧起点 | public void addArc (RectF oval, float startAngle, float sweepAngle)
  false | 不移动，而是连接最后一个点与圆弧起点 | public void arcTo (RectF oval, float startAngle, float sweepAngle)
 
 
