@@ -398,6 +398,24 @@ forceMoveTo | 含义 | 等价方法
  true  | 将最后一个点移动到圆弧起点，即不连接最后一个点与圆弧起点 | public void addArc (RectF oval, float startAngle, float sweepAngle)
  false | 不移动，而是连接最后一个点与圆弧起点 | public void arcTo (RectF oval, float startAngle, float sweepAngle)
 
+**示例(addArc)：**
+``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
+
+        Path path = new Path();
+        path.lineTo(100,100);
+
+        RectF oval = new RectF(0,0,300,300);
+        
+        path.addArc(oval,0,100);
+        // path.arcTo(oval,0,100,true);             // <-- 和上面一句作用等价
+
+        canvas.drawPath(path,mPaint);
+```
+
+**示例(arcTo)：**
+
 
 
 
