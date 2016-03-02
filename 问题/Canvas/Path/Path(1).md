@@ -83,16 +83,16 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 ```
   
 #### lineTo：
-  
+方法预览：
+```
+public void lineTo (float x, float y)
+```
+
   首先讲解的的LineTo，为啥先讲解这个呢？
   
   是因为moveTo、 setLastPoint、 close都无法直接看到效果，借助有具现化效果的lineTo才能让这些方法现出原形。
   
-方法预览：
 
-```
-public void lineTo (float x, float y)
-```
 
 lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾名思义就是一条线。
 
@@ -125,6 +125,15 @@ lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾�
 **第二次lineTo的时候，由于上次的结束位置是A(200,200),所以就是A(200,200)到B(200,0)之间的连线(用蓝色圈2标注)。**
 
 #### moveTo 和 setLastPoint：
+
+方法预览：
+``` java
+        // moveTo
+        public void moveTo (float x, float y)
+
+        // setLastPoint
+        public void setLastPoint (float dx, float dy)
+```
 
 这两个方法虽然在作用上有相似之处，但实际上却是完全不同的两个东东，具体参照下表：
 
@@ -176,6 +185,11 @@ setLastPoint | 设置之前操作的最后一个点位置 | 是 | 是
 
 #### close
 
+方法预览：
+``` java
+        public void close ()
+```
+
 close方法用于连接当前最后一个点和最初的一个点(如果两个点不重合的话)，最终形成一个封闭的图形。
 
 ``` java
@@ -201,8 +215,9 @@ close方法用于连接当前最后一个点和最初的一个点(如果两个�
 
 这次内容主要是在Path中添加基本图形，重点区别addArc与arcTo的区别。
 
-首先进行方法预览：
-``` java 
+#### 第一类(基本形状)
+方法预览：
+``` java
 // 第一类(基本形状)
     // 圆形
     public void addCircle (float x, float y, float radius, Path.Direction dir)
@@ -214,23 +229,8 @@ close方法用于连接当前最后一个点和最初的一个点(如果两个�
     // 圆角矩形
     public void addRoundRect (RectF rect, float[] radii, Path.Direction dir)
     public void addRoundRect (RectF rect, float rx, float ry, Path.Direction dir)
-
-// 第二类(Path)
-    // path
-    public void addPath (Path src)
-    public void addPath (Path src, float dx, float dy)
-    public void addPath (Path src, Matrix matrix)
-
-// 第三类(addArc与arcTo)
-    // addArc
-    public void addArc (RectF oval, float startAngle, float sweepAngle)
-    // arcTo
-    public void arcTo (RectF oval, float startAngle, float sweepAngle)
-    public void arcTo (RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo)
-
 ```
 
-#### 第一类(基本形状)
 **这一类就是在path中添加一个基本形状，基本形状部分和前面所讲的绘制基本形状并无太大差别，详情参考[Canvas(1)颜色与基本形状](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md), 本次只将其中不同的部分摘出来详细讲解一下。**
 
 **仔细观察一下第一类是方法，无一例外，在最后都有一个_Path.Direction_，这是一个什么神奇的东东？**
@@ -337,14 +337,17 @@ CCW | counter-clockwise | 逆时针
 **关于顺时针和逆时针对自相交图形影响的问题请等待下一篇，虽然只讲了一个Path，但也是内容颇多，放进一篇中就太长了，请见谅。**
 
 #### 第二类(Path)
-
-这个相对比较简单，也很容易理解，就是将两个Path合并成为一个而已,有三个方法：
-
+方法预览：
 ``` java
+// 第二类(Path)
+    // path
     public void addPath (Path src)
     public void addPath (Path src, float dx, float dy)
     public void addPath (Path src, Matrix matrix)
 ```
+
+
+这个相对比较简单，也很容易理解，就是将两个Path合并成为一个。
 
 第三个方法是将src添加到当前path之前先使用Matrix进行变换。
 
@@ -372,6 +375,15 @@ CCW | counter-clockwise | 逆时针
 首先我们新建地方两个Path(矩形和圆形)中心都是坐标原点，我们在将包含圆形的path添加到包含矩形的path之前将其进行移动了一段距离，最终绘制出来的效果就如上面所示。
 
 #### 第三类(addArc与arcTo)
+方法预览：
+``` java
+// 第三类(addArc与arcTo)
+    // addArc
+    public void addArc (RectF oval, float startAngle, float sweepAngle)
+    // arcTo
+    public void arcTo (RectF oval, float startAngle, float sweepAngle)
+    public void arcTo (RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo)
+```
 
 从名字就可以看出，这两个方法都是与圆弧相关的，作用都是添加一个圆弧到path中，但既然存在两个方法，两者之间肯定是有区别的：
 
@@ -379,14 +391,6 @@ CCW | counter-clockwise | 逆时针
  --- | --- | ---
  addArc | 添加一个圆弧到path | 直接添加一个圆弧到path中
  arcTo | 添加一个圆弧到path | 添加一个圆弧到path，如果圆弧的起点和上次最后一个坐标点不相同，就连接两个点
-
-``` java
-    // addArc
-    public void addArc (RectF oval, float startAngle, float sweepAngle)
-    // arcTo
-    public void arcTo (RectF oval, float startAngle, float sweepAngle)
-    public void arcTo (RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo)
-```
 
 可以看到addArc有1个方法(_实际上是两个的，但另一个重载方法是API21添加的_), 而arcTo有2个方法，其中一个最后多了一个布尔类型的变量forceMoveTo。
 
@@ -442,6 +446,10 @@ forceMoveTo | 含义 | 等价方法
 这一组比较简单，稍微说一下就可以了。
 
 #### isEmpty
+方法预览：
+``` java
+        public boolean isEmpty ()
+```
 
 判断path中是否包含内容。
 
@@ -461,8 +469,12 @@ log输出结果:
 ```
 
 #### isRect
+方法预览：
+``` java
+public boolean isRect (RectF rect)
+```
 
-判断path是否是一个矩形。
+判断path是否是一个矩形，如果是一个矩形的话，会将矩形的信息存放进参数rect中。
 
 ``` java
         path.lineTo(0,400);
@@ -481,6 +493,27 @@ log 输出结果:
 ```
 
 #### set
+方法预览：
+``` java
+        public void reset ()
+```
+
+将新的path赋值到现有path。
+
+``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
+
+        Path path = new Path();                     // path添加一个矩形
+        path.addRect(-200,-200,200,200, Path.Direction.CW);
+
+        Path src = new Path();                      // src添加一个圆
+        src.addCircle(0,0,100, Path.Direction.CW);
+
+        path.set(src);                              // 大致相当于 path = src;
+
+        canvas.drawPath(path,mPaint);
+```
 
 
 
