@@ -414,6 +414,8 @@ forceMoveTo | 含义 | 等价方法
         canvas.drawPath(path,mPaint);
 ```
 
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ihr1s77jj30u01hcmzh.jpg" width = "270" height = "480"/> 
+
 **示例(arcTo)：**
 ``` java
         canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
@@ -429,6 +431,8 @@ forceMoveTo | 含义 | 等价方法
 
         canvas.drawPath(path,mPaint);
 ```
+
+<img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f1ihsfjexcj30u01hcjts.jpg" width = "270" height = "480"/> 
 
 
 
