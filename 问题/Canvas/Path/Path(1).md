@@ -553,6 +553,7 @@ dst状态 | 效果
 
         canvas.drawPath(dst,mPaint);                // 绘制dst
 ```
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2gw1f1ix3vlwlwj30u01hcq3x.jpg" width = "270" height = "480"/> 
 
 从运行效果图可以看出，虽然我们在dst中添加了一个矩形，但是并没有表现出来，所以，当dst中存在内容时，dst中原有的内容会被清空，而存放平移后的path。
 
