@@ -437,7 +437,7 @@ forceMoveTo | 含义 | 等价方法
 
 从上面两张运行效果图可以清晰的看出来两者的区别，我就不再废话了。
 
-### isEmpty、 set 和 offset
+### isEmpty、 isRect、 set 和 offset
 
 这一组比较简单，稍微说一下就可以了。
 
@@ -459,6 +459,29 @@ log输出结果:
 03-02 14:22:54.770 12379-12379/com.sloop.canvas E/1: true
 03-02 14:22:54.770 12379-12379/com.sloop.canvas E/2: false
 ```
+
+#### isRect
+
+判断path是否是一个矩形。
+
+``` java
+        path.lineTo(0,400);
+        path.lineTo(400,400);
+        path.lineTo(400,0);
+        path.lineTo(0,0);
+
+        RectF rect = new RectF();
+        boolean b = path.isRect(rect);
+        Log.e("Rect","isRect:"+b+"| left:"+rect.left+"| top:"+rect.top+"| right:"+rect.right+"| bottom:"+rect.bottom);
+```
+
+log 输出结果:
+```
+03-02 16:48:39.669 24179-24179/com.sloop.canvas E/Rect: isRect:true| left:0.0| top:0.0| right:400.0| bottom:400.0
+```
+
+#### set
+
 
 
 # 总结
