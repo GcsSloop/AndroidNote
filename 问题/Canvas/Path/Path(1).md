@@ -434,6 +434,30 @@ forceMoveTo | 含义 | 等价方法
 
 <img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f1ihsfjexcj30u01hcjts.jpg" width = "270" height = "480"/> 
 
+从上面两张运行效果图可以清晰的看出来两者的区别，我就不再废话了。
+
+### isEmpty、 set 和 offset
+
+这一组比较简单，稍微说一下就可以了。
+
+#### isEmpty
+
+判断path中是否包含内容。
+
+``` java
+        Path path = new Path();
+        Log.e("1",path.isEmpty()+"");
+
+        path.lineTo(100,100);
+        Log.e("2",path.isEmpty()+"");
+```
+
+log输出结果:
+
+```
+03-02 14:22:54.770 12379-12379/com.sloop.canvas E/1: true
+03-02 14:22:54.770 12379-12379/com.sloop.canvas E/2: false
+```
 
 
 # 总结
