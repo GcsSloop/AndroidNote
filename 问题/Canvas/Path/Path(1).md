@@ -407,15 +407,28 @@ forceMoveTo | 含义 | 等价方法
         path.lineTo(100,100);
 
         RectF oval = new RectF(0,0,300,300);
-        
-        path.addArc(oval,0,100);
-        // path.arcTo(oval,0,100,true);             // <-- 和上面一句作用等价
+
+        path.addArc(oval,0,270);
+        // path.arcTo(oval,0,270,true);             // <-- 和上面一句作用等价
 
         canvas.drawPath(path,mPaint);
 ```
 
 **示例(arcTo)：**
+``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
 
+        Path path = new Path();
+        path.lineTo(100,100);
+
+        RectF oval = new RectF(0,0,300,300);
+
+        path.arcTo(oval,0,270);
+        // path.arcTo(oval,0,270,false);             // <-- 和上面一句作用等价
+
+        canvas.drawPath(path,mPaint);
+```
 
 
 
