@@ -514,7 +514,30 @@ log 输出结果:
 
         canvas.drawPath(path,mPaint);
 ```
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f1iv2lnnblj30u01hc3zc.jpg" width = "270" height = "480"/> 
 
+#### offset
+方法预览：
+```java
+        public void offset (float dx, float dy)
+        public void offset (float dx, float dy, Path dst)
+```
+
+这个的作用也很简单，就是对path进行一段平移，它和Canvas中的translate作用很像，但Canvas作用于整个画布，而path的offset只作用于当前path。
+
+**但是第二个方法最后怎么会有一个path作为参数？**
+
+其实第二个方法中最后的参数das是存储平移后的path的。
+
+dst状态 | 效果
+ --- | ---
+ dst为空(null) | 将当前path平移后的状态存入dst中，不会影响当前path
+ dat不为空 | 平移将作用于当前path，相当于第一种方法
+
+示例：
+``` java
+
+```
 
 
 # 总结
