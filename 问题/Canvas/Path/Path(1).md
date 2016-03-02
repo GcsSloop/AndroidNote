@@ -20,8 +20,8 @@
 是否为矩形 | isRect  | 判断path是否是一个矩形
 替换路径   | set | 用新的路径替换到当前路径所有内容
 偏移路径   | offset | 对当前路径之前的操作进行偏移(不会影响之后的操作)
-贝塞尔曲线 | quadTo cubicTo | 分别为二次和三次贝塞尔曲线的方法
-rXxx方法   | rMoveTo rLineTo rQuadTo rCubicTo | **不带r的方法是基于原点的坐标系(偏移量)，rXxx方法是基于当前点坐标系(偏移量)**
+贝塞尔曲线 | quadTo, cubicTo | 分别为二次和三次贝塞尔曲线的方法
+rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于原点的坐标系(偏移量)，rXxx方法是基于当前点坐标系(偏移量)**
 填充模式   | setFillType, getFillType, isInverseFillType, toggleInverseFillType| 设置,获取,判断和切换填充模式
 提示方法   | incReserve | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)**
 布尔操作(API19) | op | 对两个Path进行布尔运算(即取交集、并集等操作)
