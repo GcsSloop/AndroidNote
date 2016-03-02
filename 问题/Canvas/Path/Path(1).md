@@ -536,7 +536,22 @@ dst状态 | 效果
 
 示例：
 ``` java
+        canvas.translate(mWidth / 2, mHeight / 2);  // 移动坐标系到屏幕中心
+        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
 
+        Path path = new Path();                     // path中添加一个圆形(圆心在坐标原点)
+        path.addCircle(0,0,100, Path.Direction.CW);
+
+        Path dst = new Path();                      // dst中添加一个矩形
+        dst.addRect(-200,-200,200,200, Path.Direction.CW);
+
+        path.offset(300,0,dst);                     // 平移
+
+        canvas.drawPath(path,mPaint);               // 绘制path
+
+        mPaint.setColor(Color.BLUE);                // 更改画笔颜色
+
+        canvas.drawPath(dst,mPaint);                // 绘制dst
 ```
 
 
