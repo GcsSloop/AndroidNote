@@ -29,4 +29,9 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 重置路径   | reset, rewind | 清除Path中的内容(**reset相当于重置到new Path阶段，rewind会保留Path的数据结构**)
 矩阵操作   | transform | 矩阵变换
 
+# 二.Path详解
+
+# 三.总结
+
+# 四.参考资料
 
