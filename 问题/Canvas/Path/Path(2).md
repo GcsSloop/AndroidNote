@@ -33,7 +33,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 上一次除了一些常用函数之外，讲解的基本上都是直线，本次需要了解其中的贝塞尔曲线部分。
 
-一搜索贝塞尔曲线，你们看到的基本就是下面这些不明觉厉的图形：
+**搜索贝塞尔曲线，你们看到的基本就是下面这些不明觉厉的图形：**
 
 贝塞尔曲线 | 结构 | 演示动画
  --- | --- | ---
@@ -42,7 +42,9 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 三阶曲线 |  ![](https://upload.wikimedia.org/wikipedia/commons/8/89/B%C3%A9zier_3_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
 四阶曲线 | ![](https://upload.wikimedia.org/wikipedia/commons/b/bf/B%C3%A9zier_4_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/a/a4/B%C3%A9zier_4_big.gif)
 
+**或者类似于这样的不明觉厉的公式：**
 
+![](https://upload.wikimedia.org/math/8/f/4/8f4c915ef475b93fc0f8374f378e436f.png)
 
 # 三.总结
 
