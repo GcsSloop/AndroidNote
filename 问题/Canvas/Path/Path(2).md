@@ -46,6 +46,11 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](https://upload.wikimedia.org/math/8/f/4/8f4c915ef475b93fc0f8374f378e436f.png)
 
+**话说这根本就是数学家干的活吧，让我一个写程序(_差点挂在高数上下不来_)的弄这个？**
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ko2ld47aj309c0aajrp.jpg)
+
+
 # 三.总结
 
 # 四.参考资料
