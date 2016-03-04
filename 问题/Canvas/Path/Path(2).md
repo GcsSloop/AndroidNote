@@ -50,6 +50,10 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ko2ld47aj309c0aajrp.jpg)
 
+## 论如何避免接触公式学好贝塞尔曲线
+
+
+
 
 # 三.总结
 
