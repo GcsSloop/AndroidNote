@@ -30,7 +30,9 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 ### (1)drawPicture
 
-> **注意：在使用Picture之前请关闭硬件加速，以免引起不必要的问题，如何关闭请参考这里： [Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
+**使用Picture前请关闭硬件加速，以免引起不必要的问题！<br/>使用Picture前请关闭硬件加速，以免引起不必要的问题！<br/>使用Picture前请关闭硬件加速，以免引起不必要的问题！**
+
+**重要的话说三遍！<br/>如何关闭请参考这里：[Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
 
 关于drawPicture一开始还是挺让人费解的，不过嘛，我们接下来慢慢研究一下它的用途。
 
