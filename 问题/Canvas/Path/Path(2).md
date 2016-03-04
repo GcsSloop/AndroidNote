@@ -2,7 +2,7 @@
 ### 讲解安卓中的Canvas基础内容。
 ### 作者微博: [@攻城师sloop](http://weibo.com/5459430586)
 
-本次接着上次的内容，继续讲解Path，创造更多**炫(zhuang)酷(B)**的东东。
+本次讲解Path中的贝塞尔曲线部分，创造更多**炫(zhuang)酷(B)**的东东。
 
 ******
 
@@ -30,6 +30,19 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 矩阵操作   | transform | 矩阵变换
 
 # 二.Path详解
+
+上一次除了一些常用函数之外，讲解的基本上都是直线，本次需要了解其中的贝塞尔曲线部分。
+
+一搜索贝塞尔曲线，你们看到的基本就是下面这些不明觉厉的图形：
+
+贝塞尔曲线 | 结构 | 演示动画
+ --- | --- | ---
+ 一阶曲线<br/>(线性曲线) | ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif) | ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif)
+ 二阶曲线 | ![](https://upload.wikimedia.org/wikipedia/commons/6/6b/B%C3%A9zier_2_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
+三阶曲线 |  ![](https://upload.wikimedia.org/wikipedia/commons/8/89/B%C3%A9zier_3_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
+四阶曲线 | ![](https://upload.wikimedia.org/wikipedia/commons/b/bf/B%C3%A9zier_4_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/a/a4/B%C3%A9zier_4_big.gif)
+
+
 
 # 三.总结
 
