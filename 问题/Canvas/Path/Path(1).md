@@ -557,7 +557,7 @@ dst状态 | 效果
 
 从运行效果图可以看出，虽然我们在dst中添加了一个矩形，但是并没有表现出来，所以，当dst中存在内容时，dst中原有的内容会被清空，而存放平移后的path。
 
-# 总结
+# 三.总结
 
 本想一篇把path写完，但是万万没想到居然扯了这么多。本篇中讲解的是直线部分和一些常用方法，下一篇将着重讲解贝塞尔曲线和自相交图形渲染等相关问题，敬请期待哦。
 
@@ -571,7 +571,7 @@ dst状态 | 效果
 
 <b>PS: 由于本人英文水平有限，某些地方可能存在误解或词语翻译不准确，如果你对此有疑问可以提交Issues进行反馈。</b>
 
-# 参考资料
+# 四.参考资料
 
 [Path](http://developer.android.com/reference/android/graphics/Path.html)<br/>
 [Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
