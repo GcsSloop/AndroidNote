@@ -37,7 +37,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ky5bw28pg305k07h3yo.gif)
 
-**搜索贝塞尔曲线，你们看到的基本就是下面这些不明觉厉的图形：**
+**搜索贝塞尔曲线，我们看到的基本就是下面这些不明觉厉的图形：**
 
 贝塞尔曲线 | 结构 | 演示动画
  --- | --- | ---
