@@ -54,6 +54,8 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ko2ld47aj309c0aajrp.jpg)
 
+不过嘛，不用担心，本次内容中不会拿这些不明觉厉的公式去忽悠大家，接来下就开始正式的内容。
+
 ## 论如何避免接触公式学好贝塞尔曲线
 
 
