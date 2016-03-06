@@ -52,7 +52,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 **话说这根本就是数学家干的活吧，让我一个写程序(_差点挂在高数上下不来_)的弄这个？**
 
-![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ko2ld47aj309c0aajrp.jpg)
+<img src = "http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ko2ld47aj309c0aajrp.jpg" width=168 height = 185/>
 
 不过嘛，不用担心，本次内容中不会拿这些不明觉厉的公式去忽悠大家，下面正式开始。
 
