@@ -54,7 +54,21 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ko2ld47aj309c0aajrp.jpg)
 
-不过嘛，不用担心，本次内容中不会拿这些不明觉厉的公式去忽悠大家，接来下就开始正式的内容。
+不过嘛，不用担心，本次内容中不会拿这些不明觉厉的公式去忽悠大家，下面正式开始。
+
+## 贝塞尔曲线能干什么？
+
+额，一个比较弱智的问题，人家都说是曲线了，肯定就是画曲线啦，不然还能干什么！
+
+没错，贝塞尔曲线就是用于**绘制一些比较复杂的光滑曲线**用的，例如绘制一个妹子的小蛮腰。:point_down:
+
+**:warning:前方高能预警，非战斗人员请迅速撤离！！！！:warning:**
+
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f1ndvjkblpj30dw0b7aa5.jpg)
+
+** 如果没有贝塞尔曲线，就会变成这样子。:point_down:**
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ndyk4thxj30dv0b80tl.jpg)
 
 ## 论如何避免接触公式学好贝塞尔曲线
 
