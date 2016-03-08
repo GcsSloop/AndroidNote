@@ -1,6 +1,6 @@
 # Canvas基础五
 ### 讲解安卓中的Canvas基础内容。
-### 作者微博: [@攻城师sloop](http://weibo.com/5459430586)
+### 作者微博: [@攻城师sloop](http://weibo.com/GcsSloop)
 
 本次讲解Path中的贝塞尔曲线部分，创造更多**炫(zhuang)酷(B)**的东东。
 
@@ -89,6 +89,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 上代码：
 ``` java
 ```
+
 
 
 
