@@ -8,11 +8,10 @@
 
 ## 自定义View系列
 
-### 基础篇
+**基础篇** |
+:---: |
+<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1s7ulgixgj30rs0dwmzx.jpg" width=300 /></a> |
 
-文章 | 简介 
-:---:|:---:
-<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1s7ulgixgj30rs0dwmzx.jpg" height=100 /></a> | 简要介绍手机上默认坐标系与数学中常见的坐标系的差别。
 
  问题 | 描述
  --- | ---
