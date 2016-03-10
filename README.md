@@ -7,11 +7,13 @@
 
 
 ## 自定义View系列
+<div  align="center">
 
 **基础篇** |
 :---: |
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1s7ulgixgj30rs0dwmzx.jpg" width=300 /></a> |
 
+</div>
 
  问题 | 描述
  --- | ---
