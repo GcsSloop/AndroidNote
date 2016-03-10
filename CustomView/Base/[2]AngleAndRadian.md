@@ -54,7 +54,7 @@ C = 2πr;
 
 
 ## 四.一些细节问题
-由于默认屏幕坐标系和常见数学坐标系的小差别([坐标系详情点这里](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md))，所以在角度上必然也会存在一些区别，例如：
+由于默认屏幕坐标系和常见数学坐标系的小差别([坐标系问题点这里](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md)，所以在角度上必然也会存在一些区别，例如：
 
 **在常见的数学坐标系中角度增大方向为逆时针，**
 
