@@ -11,8 +11,8 @@
 ### 基础篇
 
 文章 | 简介 
-:---:|:---
-<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md" target="_blank"/><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1s7ulgixgj30rs0dwmzx.jpg" width=300 /> | 由于移动设备一般定义屏幕左上角为坐标原点，向右为 x 轴增大方向，向下为 y 轴增大方向，所以在手机屏幕上的坐标系与数学中常见的坐标系是稍微有点差别的。
+:---:|:---:
+<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1s7ulgixgj30rs0dwmzx.jpg" width=300 /></a> | 简要介绍手机上默认坐标系与数学中常见的坐标系的差别。
 
  问题 | 描述
  --- | ---
