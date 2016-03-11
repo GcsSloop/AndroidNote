@@ -1,0 +1,194 @@
+# 颜色
+### 作者微博: [@攻城师sloop](http://weibo.com/5459430586)
+```
+目录：
+一.简单介绍颜色
+二.几种创建或定义颜色的方式
+三.推荐取色工具
+四.颜色混合模式(Alpha通道相关)
+五.参考资料
+```
+
+## 一.简单介绍颜色
+安卓中颜色是按照ARGB方式定义的。
+
+A(Alpha): 透明度
+
+R(Red): 红色
+
+G(Green): 绿色
+
+B(Blue):  蓝色
+
+其中 A R G B 的取值范围均为0~255(即16进制的0x00~0xff)
+
+A 从ox00到oxff表示从透明到不透明。
+
+RGB 从0x00到0xff表示颜色从浅到深。
+
+## 二.几种创建或使用颜色的方式
+### 1.java中定义颜色
+``` java
+  int color = Color.GRAY;     //灰色
+```
+  由于Color类提供的颜色仅为有限的几个，通常还是用ARGB值进行表示。
+``` java
+  int color = Color.argb(127, 255, 0, 0);   //半透明红色
+  
+  int color = 0xaaff0000;                   //带有透明度的红色
+```
+### 2.在xml文件中定义颜色
+在/res/values/color.xml 文件中如下定义：
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+</resources>
+```
+详解： 在以上xml文件中定义了两个颜色，红色和蓝色，是没有alpha（透明）通道的。
+
+定义颜色以‘#’开头，后面跟十六进制的值，有如下几种定义方式：
+``` java
+  #f00            //低精度 - 不带透明通道红色
+  #af00           //低精度 - 带透明通道红色
+  
+  #ff0000         //高精度 - 不带透明通道红色
+  #aaff0000       //高精度 - 带透明通道红色
+```
+其中用<i>一个十六进制数值表示一种颜色</i>的<b>低精度</b>不常用，最常用的是<i>两个十六进制的数值表示一个颜色</i>的<b>高精度</b>。
+
+### 3.引用在xml文件中定义的颜色
+#### 1.在java文件中引用：
+``` java
+  int color = getResources().getColor(R.color.mycolor);
+```
+#### 2.在其他xml文件(layout或style)中引用或者直接创建
+``` xml
+    <!--在style文件中引用-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/red</item>
+    </style>
+```
+``` java
+  android:background="@color/red"     //引用在/res/values/color.xml 中定义的颜色
+  
+  android:background="#ff0000"        //创建颜色
+```
+
+## 三.取色工具
+颜色都是用RGB值定义的，而我们一般是无法直观的知道自己需要颜色的值，需要借用取色工具直接从图片或者其他地方获取颜色的RGB值。
+
+### 1.屏幕取色工具
+取色调色工具，可以从屏幕取色或者使用调色板调制颜色，非常小而精简。
+
+<b>[点击这里获取屏幕取色工具](http://pan.baidu.com/s/1gdWkN0B)</b>
+
+### 2.Picpick
+功能更加强大的工具：PicPick。
+
+PicPick具备了截取全屏、活动窗口、指定区域、固定区域、手绘区域功能，支持滚动截屏，屏幕取色，支持双显示器，具备白板、屏幕标尺、直角座标或极座标显示与测量，具备强大的图像编辑和标注功能。
+
+<b>[点击这里获取PicPick](http://ngwin.com/picpick)</b>
+
+## 四.颜色混合模式(Alpha通道相关)
+每个Color里可以有四个通道ARGB，其中RGB是红绿蓝，A即Alpha通道，它通常的作用是用来作为此颜色的透明度。
+
+因为我们的显示屏是没法透明的，因此最终显示在屏幕上的颜色里可以认为没有Alpha通道。Alpha通道主要在两个图像混合的时候生效。
+
+默认情况下，当一个颜色绘制到Canvas上时的混合模式是这样计算的：(RGB通道) 最终颜色 = 绘制的颜色 + (1 - 绘制颜色的透明度) × Canvas上的原有颜色。
+
+<b>注意：</b>
+
+1.这里我们一般把每个通道的取值从0(ox00)到255(0xff)映射到0到1的浮点数表示。
+
+2.这里等式右边的“绘制的颜色"、“Canvas上的原有颜色”都是经过预乘了自己的Alpha通道的值。如绘制颜色：0x88ffffff，那么参与运算时的每个颜色通道的值不是1.0，而是(1.0 * 0.5333 = 0.5333)。  (其中0.5333 = 0x88/0xff)
+
+使用这种方式的混合，就会造成后绘制的内容以半透明的方式叠在上面的视觉效果。
+
+其实还可以有不同的混合模式供我们选择，用Paint.setXfermode，指定不同的PorterDuff.Mode。
+
+下表是各个PorterDuff模式的混合计算公式：（D指原本在Canvas上的内容dst，S指绘制输入的内容src，a指alpha通道，c指RGB各个通道）
+
+<table class="confluenceTable">
+<tbody>
+<tr>
+<td class="confluenceTd">ADD&nbsp;</td>
+<td class="confluenceTd">Saturate(S + D) &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">CLEAR&nbsp;</td>
+<td class="confluenceTd">[0, 0] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">DARKEN&nbsp;</td>
+<td class="confluenceTd">[Sa + Da - Sa*Da, Sc*(1 - Da) + Dc*(1 - Sa) + min(Sc, Dc)] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">DST&nbsp;</td>
+<td class="confluenceTd">[Da, Dc] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">DST_ATOP&nbsp;</td>
+<td class="confluenceTd">[Sa, Sa * Dc + Sc * (1 - Da)] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">DST_IN&nbsp;</td>
+<td class="confluenceTd">[Sa * Da, Sa * Dc] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">DST_OUT&nbsp;</td>
+<td class="confluenceTd">[Da * (1 - Sa), Dc * (1 - Sa)] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">DST_OVER&nbsp;</td>
+<td class="confluenceTd">[Sa + (1 - Sa)*Da, Rc = Dc + (1 - Da)*Sc] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">LIGHTEN&nbsp;</td>
+<td class="confluenceTd">[Sa + Da - Sa*Da, Sc*(1 - Da) + Dc*(1 - Sa) + max(Sc, Dc)] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">MULTIPLY&nbsp;</td>
+<td class="confluenceTd">[Sa * Da, Sc * Dc] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">SCREEN&nbsp;</td>
+<td class="confluenceTd">[Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">SRC&nbsp;</td>
+<td class="confluenceTd">[Sa, Sc] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">SRC_ATOP&nbsp;</td>
+<td class="confluenceTd">[Da, Sc * Da + (1 - Sa) * Dc] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">SRC_IN&nbsp;</td>
+<td class="confluenceTd">[Sa * Da, Sc * Da] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">SRC_OUT&nbsp;</td>
+<td class="confluenceTd">[Sa * (1 - Da), Sc * (1 - Da)] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">SRC_OVER&nbsp;</td>
+<td class="confluenceTd">[Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] &nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd">XOR&nbsp;</td>
+<td class="confluenceTd">[Sa + Da - 2 * Sa * Da, Sc * (1 - Da) + (1 - Sa) * Dc] &nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+用示例图来查看使用不同模式时的混合效果如下（src表示输入的图，dst表示原Canvas上的内容）：
+
+![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/Art/%E9%A2%9C%E8%89%B2.png)
+
+### 更详细的使用方式会在稍后的Canvas中介绍
+
+## 五.参考资料
+
+[【安卓图形动画】](http://www.cnblogs.com/zhucai/p/android-graphics-animation.html)
