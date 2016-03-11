@@ -63,8 +63,9 @@ C = 2πr;
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f1s2wnsewfj308c0dwt94.jpg)
 
 ## About Me
-### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
+### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
+
+<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
 
 
 
