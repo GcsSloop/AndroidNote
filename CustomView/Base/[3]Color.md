@@ -67,7 +67,7 @@ RGB 从0x00到0xff表示颜色从浅到深。
 ``` java
   android:background="@color/red"     //引用在/res/values/color.xml 中定义的颜色
   
-  android:background="#ff0000"        //创建颜色
+  android:background="#ff0000"        //创建并使用颜色
 ```
 
 ## 三.取色工具
@@ -86,11 +86,14 @@ PicPick具备了截取全屏、活动窗口、指定区域、固定区域、手�
 <b>[点击这里获取PicPick](http://ngwin.com/picpick)</b>
 
 ## 四.颜色混合模式(Alpha通道相关)
-每个Color里可以有四个通道ARGB，其中RGB是红绿蓝，A即Alpha通道，它通常的作用是用来作为此颜色的透明度。
+
+通过前面介绍我们知道颜色一般都是四个通道(ARGB)的，其中(RGB)控制的是颜色,而A(Alpha)控制的是透明度。
 
 因为我们的显示屏是没法透明的，因此最终显示在屏幕上的颜色里可以认为没有Alpha通道。Alpha通道主要在两个图像混合的时候生效。
 
-默认情况下，当一个颜色绘制到Canvas上时的混合模式是这样计算的：(RGB通道) 最终颜色 = 绘制的颜色 + (1 - 绘制颜色的透明度) × Canvas上的原有颜色。
+默认情况下，当一个颜色绘制到Canvas上时的混合模式是这样计算的：
+
+**(RGB通道) 最终颜色 = 绘制的颜色 + (1 - 绘制颜色的透明度) × Canvas上的原有颜色。**
 
 <b>注意：</b>
 
