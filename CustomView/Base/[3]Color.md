@@ -53,12 +53,11 @@ RGB 从0x00到0xff表示颜色从浅到深。
 ```
 其中用<i>一个十六进制数值表示一种颜色</i>的<b>低精度</b>不常用，最常用的是<i>两个十六进制的数值表示一个颜色</i>的<b>高精度</b>。
 
-### 3.引用在xml文件中定义的颜色
-#### 1.在java文件中引用：
+### 3.在java文件中引用xml中定义的颜色：
 ``` java
   int color = getResources().getColor(R.color.mycolor);
 ```
-#### 2.在其他xml文件(layout或style)中引用或者直接创建
+### 4.在xml文件(layout或style)中引用或者创建颜色
 ``` xml
     <!--在style文件中引用-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
