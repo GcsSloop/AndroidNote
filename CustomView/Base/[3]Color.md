@@ -107,78 +107,25 @@ PicPick具备了截取全屏、活动窗口、指定区域、固定区域、手�
 
 下表是各个PorterDuff模式的混合计算公式：（D指原本在Canvas上的内容dst，S指绘制输入的内容src，a指alpha通道，c指RGB各个通道）
 
-<table class="confluenceTable">
-<tbody>
-<tr>
-<td class="confluenceTd">ADD&nbsp;</td>
-<td class="confluenceTd">Saturate(S + D) &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">CLEAR&nbsp;</td>
-<td class="confluenceTd">[0, 0] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">DARKEN&nbsp;</td>
-<td class="confluenceTd">[Sa + Da - Sa*Da, Sc*(1 - Da) + Dc*(1 - Sa) + min(Sc, Dc)] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">DST&nbsp;</td>
-<td class="confluenceTd">[Da, Dc] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">DST_ATOP&nbsp;</td>
-<td class="confluenceTd">[Sa, Sa * Dc + Sc * (1 - Da)] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">DST_IN&nbsp;</td>
-<td class="confluenceTd">[Sa * Da, Sa * Dc] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">DST_OUT&nbsp;</td>
-<td class="confluenceTd">[Da * (1 - Sa), Dc * (1 - Sa)] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">DST_OVER&nbsp;</td>
-<td class="confluenceTd">[Sa + (1 - Sa)*Da, Rc = Dc + (1 - Da)*Sc] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">LIGHTEN&nbsp;</td>
-<td class="confluenceTd">[Sa + Da - Sa*Da, Sc*(1 - Da) + Dc*(1 - Sa) + max(Sc, Dc)] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">MULTIPLY&nbsp;</td>
-<td class="confluenceTd">[Sa * Da, Sc * Dc] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">SCREEN&nbsp;</td>
-<td class="confluenceTd">[Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">SRC&nbsp;</td>
-<td class="confluenceTd">[Sa, Sc] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">SRC_ATOP&nbsp;</td>
-<td class="confluenceTd">[Da, Sc * Da + (1 - Sa) * Dc] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">SRC_IN&nbsp;</td>
-<td class="confluenceTd">[Sa * Da, Sc * Da] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">SRC_OUT&nbsp;</td>
-<td class="confluenceTd">[Sa * (1 - Da), Sc * (1 - Da)] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">SRC_OVER&nbsp;</td>
-<td class="confluenceTd">[Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] &nbsp;</td>
-</tr>
-<tr>
-<td class="confluenceTd">XOR&nbsp;</td>
-<td class="confluenceTd">[Sa + Da - 2 * Sa * Da, Sc * (1 - Da) + (1 - Sa) * Dc] &nbsp;</td>
-</tr>
-</tbody>
-</table>
+混合模式 | 计算公式
+:------- | :---------
+ADD      | Saturate(S + D)
+CLEAR    | [0, 0]
+DARKEN   | [Sa + Da - Sa*Da, Sc*(1 - Da) + Dc*(1 - Sa) + min(Sc, Dc)] 
+DST      | [Da, Dc] 
+DST_ATOP | [Sa, Sa * Dc + Sc * (1 - Da)] 
+DST_IN   | [Sa * Da, Sa * Dc] 
+DST_OUT  | [Da * (1 - Sa), Dc * (1 - Sa)] 
+DST_OVER | [Sa + (1 - Sa)*Da, Rc = Dc + (1 - Da)*Sc] 
+LIGHTEN  | [Sa + Da - Sa*Da, Sc*(1 - Da) + Dc*(1 - Sa) + max(Sc, Dc)] 
+MULTIPLY | [Sa * Da, Sc * Dc]
+SCREEN   | [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc]
+SRC      | [Sa, Sc] 
+SRC_ATOP | [Da, Sc * Da + (1 - Sa) * Dc] 
+SRC_IN   | [Sa * Da, Sc * Da] 
+SRC_OUT  | [Sa * (1 - Da), Sc * (1 - Da)] 
+SRC_OVER | [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] 
+XOR      | [Sa + Da - 2 * Sa * Da, Sc * (1 - Da) + (1 - Sa) * Dc] 
 
 用示例图来查看使用不同模式时的混合效果如下（src表示输入的图，dst表示原Canvas上的内容）：
 
