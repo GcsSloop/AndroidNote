@@ -12,7 +12,7 @@
 :---: |
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md" target="_blank"><img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f1s96hizi5j30rs0dwwha.jpg" width=300 /></a> |
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B2%5DAngleAndRadian.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1s97g6rfbj30rs0dwdiq.jpg" width=300 /></a> |
-
+<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B3%5DColor.md" target="_blank"><img src="http://ww3.sinaimg.cn/large/005Xtdi2gw1f1w9s5vyidj30rs0dw0vg.jpg" width=300 /></a> |
 
  问题 | 描述
  --- | ---
@@ -21,7 +21,7 @@
  [Canvas(2)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(2).md) | 画布操作
  [Canvas(1)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md) | 颜色与基本图形
  [View几个重要的函数](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/View/%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E7%9A%84%E5%87%BD%E6%95%B0.md) | 自定义View流程与重要的函数
-[颜色](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/%E9%A2%9C%E8%89%B2.md) | 介绍安卓中颜色相关问题
+
 
 
 ## About Me
