@@ -141,7 +141,7 @@ XOR      | [Sa + Da - 2 * Sa * Da, Sc * (1 - Da) + (1 - Sa) * Dc]
 
 用示例图来查看使用不同模式时的混合效果如下（src表示输入的图，dst表示原Canvas上的内容）：
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E9%A2%9C%E8%89%B2/Art/%E9%A2%9C%E8%89%B2.png)
+![](http://ww4.sinaimg.cn/large/005Xtdi2gw1f1wa0f0mzjj30hh0fsjt8.jpg)
 
 
 ## 五.参考资料
