@@ -120,7 +120,7 @@ PicPick具备了截取全屏、活动窗口、指定区域、固定区域、手�
 下表是各个PorterDuff模式的混合计算公式：（D指原本在Canvas上的内容dst，S指绘制输入的内容src，a指alpha通道，c指RGB各个通道）
 
 混合模式 | 计算公式
-:------- | :---------
+ ------- | ---------
 ADD      | Saturate(S + D)
 CLEAR    | [0, 0]
 DARKEN   | [Sa + Da - Sa*Da, Sc*(1 - Da) + Dc*(1 - Sa) + min(Sc, Dc)] 
