@@ -126,9 +126,7 @@ AT_MOST     | 10       | 000000000000000000001111011000
 **PS: 实际上关于上面的东西了解即可，在实际运用之中只需要记住有三种模式，用 MeasureSpec 的 getSize是获取数值， getMode是获取模式即可。**
 
 #### 注意：
-如果对View的宽高进行修改了，不要调用*super.onMeasure(widthMeasureSpec,heightMeasureSpec);*
-
-要调用*setMeasuredDimension(widthsize,heightsize);* 这个函数。
+**如果对View的宽高进行修改了，不要调用*super.onMeasure(widthMeasureSpec,heightMeasureSpec);*要调用*setMeasuredDimension(widthsize,heightsize);* 这个函数。**
 
 ======
 
@@ -209,14 +207,14 @@ b    | View底部距父View顶部的距离 | getBottom();
 
 类别      | 继承自                | 特点
 --------- | --------------------- | ------------
-View      | View  SurfaceView 等  | 不包含子View
+View      | View  SurfaceView 等  | 不含子View
 ViewGroup | ViewGroup xxLayout等  | 包含子View
 
 ### 自定义View流程：
 步骤 | 关键字        | 作用
 ---- | ------------- | -------------
   1  | 构造函数      | View初始化
-  2  | onMeasure     | 测量View的大小
+  2  | onMeasure     | 测量View大小
   3  | onSizeChanged | 确定View大小
   4  | onLayout      | 确定子View布局(自定义View包含子View时有用)
   5  | onDraw        | 实际绘制内容
@@ -244,11 +242,6 @@ ViewGroup | ViewGroup xxLayout等  | 包含子View
 
 <a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
 
-## About Me
-
-### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
-
-<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
 
 <br/>
 <br/>
