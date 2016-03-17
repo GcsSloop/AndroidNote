@@ -114,15 +114,16 @@ EXACTLY     | 01         | 表示父控件已经确切的指定了子View的大�
 AT_MOST     | 10         | 表示子View具体大小没有尺寸限制，但是存在上限，上限一般为父View大小。
 
 #### 关于 onMeasure中的参数(widthMeasureSpec, heightMeasureSpec)在不同模式下是这样的：
+
 以数值1080(二进制为: 1111011000)为例(其中模式和实际数值是连在一起的，为了展示我将他们分开了)：
 
-名称 | 模式 | 实际数值
---- | --- | ---
-UNSPECIFIED | 00 | 000000000000000000001111011000
-EXACTLY     | 01 | 000000000000000000001111011000
-AT_MOST     | 10 | 000000000000000000001111011000
+模式名称    | 模式数值 | 实际数值
+------------| --------:| ---
+UNSPECIFIED | 00       | 000000000000000000001111011000
+EXACTLY     | 01       | 000000000000000000001111011000
+AT_MOST     | 10       | 000000000000000000001111011000
 
-实际上关于上面的东西了解即可，在实际运用之中只需要记住有三种模式，用 MeasureSpec 的 getSize是获取数值， getMode是获取模式即可。
+**PS: 实际上关于上面的东西了解即可，在实际运用之中只需要记住有三种模式，用 MeasureSpec 的 getSize是获取数值， getMode是获取模式即可。**
 
 #### 注意：
 如果对View的宽高进行修改了，<b>不要调用super.onMeasure(widthMeasureSpec,heightMeasureSpec);</b> 
@@ -133,8 +134,9 @@ AT_MOST     | 10 | 000000000000000000001111011000
 ### 3.确定View大小(onSizeChanged)
   这个函数在视图大小发生改变时调用：
   
-#### Q: 在测量完View并使用setMeasuredDimension函数之后View的大小基本上已经确定了，那么为什么还要再次确定View的大小呢？
-#### A: 这是因为View的大小不仅由View本身控制，而且受父控件的影响，所以我们在确定View大小的时候最好使用系统提供的onSizeChanged回调函数。
+**Q: 在测量完View并使用setMeasuredDimension函数之后View的大小基本上已经确定了，那么为什么还要再次确定View的大小呢？**
+
+**A: 这是因为View的大小不仅由View本身控制，而且受父控件的影响，所以我们在确定View大小的时候最好使用系统提供的onSizeChanged回调函数。**
 
 onSizeChanged如下：
 ``` java
@@ -151,24 +153,27 @@ onSizeChanged如下：
 
 ### 4.确定子View布局位置(onLayout)
 
-  <b>确定布局的函数是onLayout，它用于确定子View的位置，在自定义ViewGroup中会用到，他调用的是子View的layout函数。</b>
+**确定布局的函数是onLayout，它用于确定子View的位置，在自定义ViewGroup中会用到，他调用的是子View的layout函数。**
   
   不过关于View的layout函数我们一般无需关注，因为在一般情况下我们只需关注View自身的坐标系即可，除非View状态与在父VIew所处位置相关。
   
   在自定义ViewGroup中，onLayout一般是循环取出子View，然后经过计算得出各个子View位置的坐标值，然后用以下函数设置子View位置。
+  
 ``` java
   child.layout(l, t, r, b);
 ```
 四个参数分别为：
 
-名称 |  说明 | 对应的函数
---- | ---  | ---
-l | View左侧距父View左侧的距离 | getLeft();
-t | View顶部距父View顶部的距离 | getTop();
-r | View右侧距父View左侧的距离 | getRight();
-b | View底部距父View顶部的距离 | getBottom(); 
-具体可以参考 [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md) 这篇文章:
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/Art/%E5%9D%90%E6%A0%87%E7%B3%BB5.png)
+名称 |  说明                      | 对应的函数
+---- | -------------------------- | ---
+l    | View左侧距父View左侧的距离 | getLeft();
+t    | View顶部距父View顶部的距离 | getTop();
+r    | View右侧距父View左侧的距离 | getRight();
+b    | View底部距父View顶部的距离 | getBottom(); 
+
+具体可以参考 [坐标系]https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md) 这篇文章。
+
+![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f1qzqwvkkbj308c0dwgm9.jpg)
 
   PS：关于onLayout这个函数在讲解自定义ViewGroup的时候会详细讲解。
   
