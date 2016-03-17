@@ -190,24 +190,26 @@ b    | View底部距父View顶部的距离 | getBottom();
         super.onDraw(canvas);
     }
 ```
-关于Canvas绘图另分一章吧，本来想写一些关于Canvas基本操作的的，可是篇幅太长了QAQ， 留个尾巴下一篇再写吧，毕竟Canvas绘图也是一个比较庞大的东西，也不是三言两语就能讲明白的，就到这里吧。
+关于Canvas绘图是本章节的重点，会分几篇文章进行详细讲解，敬请期待OwO。
 
 ======
 
 ### 6.对外提供操作方法和监听回调
-  自定义完View之后，一般会对外暴露一些接口，用于操作View的相关属性，控制View的状态等，或者需要监听View的变化，具体还是稍后再讲吧(继续挖坑)。
-
+  自定义完View之后，一般会对外暴露一些接口，用于控制View的状态等，或者监听View的变化.
+  
+  本内容会在后续文章中以实例的方式进讲解。
 
 ************
 
 ## 三.重点知识梳理
 
 ### 自定义View分类
-PS ：实际上ViewGroup是View的一个子类。
+
+> PS ：实际上ViewGroup是View的一个子类。
 
 类别      | 继承自                | 特点
 --------- | --------------------- | ------------
-View      | View SurfaceView  等  | 不包含子View
+View      | View  SurfaceView 等  | 不包含子View
 ViewGroup | ViewGroup xxLayout等  | 包含子View
 
 ### 自定义View流程：
@@ -223,7 +225,7 @@ ViewGroup | ViewGroup xxLayout等  | 包含子View
 
 ## 参考资料：
 [View](http://developer.android.com/reference/android/view/View.html)<br/>
-[ViewGroup](http://developer.android.com/reference/android/view/ViewGroup.html)
+[ViewGroup](http://developer.android.com/reference/android/view/ViewGroup.html)<br/>
 [View.MeasureSpec](http://developer.android.com/reference/android/view/View.MeasureSpec.html)<br/>
 [onMeasure，MeasureSpec源码 流程 思路详解](http://blog.csdn.net/a396901990/article/details/36475213)<br/>
 <br/>
