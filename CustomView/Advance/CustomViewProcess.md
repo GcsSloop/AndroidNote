@@ -216,6 +216,14 @@ ViewGroup | ViewGroup xxLayout等  | 包含子View
   6  | 提供接口      | 控制View或监听View某些状态。
 
 
+
+## About Me
+
+### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
+
+<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
+
+
 ## 参考资料：
 [View](http://developer.android.com/reference/android/view/View.html)<br/>
 [ViewGroup](http://developer.android.com/reference/android/view/ViewGroup.html)<br/>
@@ -229,14 +237,6 @@ ViewGroup | ViewGroup xxLayout等  | 包含子View
 [Android 自定义View onMeasure方法的实现](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1102/1891.html)<br/>
 [Android API指南(二)自定义控件02之 onMeasure](http://wangkuiwu.github.io/2014/06/20/View-OnMeasure/)<br/>
 [Android中View的绘制过程 onMeasure方法简述](http://www.cnblogs.com/mengdd/p/3332882.html)<br/>
-
-
-## About Me
-
-### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
-
-<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
-
 
 <br/>
 <br/>
