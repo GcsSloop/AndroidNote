@@ -84,8 +84,10 @@ View的构造函数有四种重载分别如下:
 ========
 
 ### 2.测量View大小(onMeasure)
-#### Q: 为什么要测量View大小？
-#### A: View的大小不仅由自身所决定，同时也会受到父控件的影响，为了我们的控件能更好的适应各种情况，所有我们一般会自己进行测量。
+
+**Q: 为什么要测量View大小？**
+
+** A: View的大小不仅由自身所决定，同时也会受到父控件的影响，为了我们的控件能更好的适应各种情况，所有我们一般会自己进行测量。**
 
 #### 测量View使用的函数
 测量View大小使用的是onMeasure函数，我们可以从这两个参数取出宽高的相关数据：
@@ -99,17 +101,17 @@ View的构造函数有四种重载分别如下:
         int heightmode = MeasureSpec.getMode(heightMeasureSpec);    //取出高度的测量模式
     }
 ```
-从上面可以看出 onMeasure 函数中有 widthMeasureSpec 和 heightMeasureSpec 这两个 int 类型的参数， 毫无疑问他们是和宽高相关的， <b>但它们其实不是宽和高， 而是由宽、高和各自方向上对应的模式来合成的一个值：</b>
+从上面可以看出 onMeasure 函数中有 widthMeasureSpec 和 heightMeasureSpec 这两个 int 类型的参数， 毫无疑问他们是和宽高相关的， **但它们其实不是宽和高， 而是由宽、高和各自方向上对应的模式来合成的一个值：**
 
 在int类型的32位二进制位中，31-30这两位表示模式,29~0这三十位表示宽和高的实际值。
 
-#### 模式一共有三种， 被定义在 Android 中的 View 类的一个内部类View.MeasureSpec中：
+**模式一共有三种， 被定义在 Android 中的 View 类的一个内部类View.MeasureSpec中：**
 
-模式 | 二进制数值 | 描述 
---- | --- | --- 
-UNSPECIFIED | 00 | 默认值，父控件没有给子view任何限制，子View可以设置为任意大小。
-EXACTLY     | 01 | 表示父控件已经确切的指定了子View的大小。 
-AT_MOST     | 10 | 表示子View具体大小没有尺寸限制，但是存在上限，上限一般为父View大小。
+模式        | 二进制数值 | 描述 
+----------- |:----------:| --- 
+UNSPECIFIED | 00         | 默认值，父控件没有给子view任何限制，子View可以设置为任意大小。
+EXACTLY     | 01         | 表示父控件已经确切的指定了子View的大小。 
+AT_MOST     | 10         | 表示子View具体大小没有尺寸限制，但是存在上限，上限一般为父View大小。
 
 #### 关于 onMeasure中的参数(widthMeasureSpec, heightMeasureSpec)在不同模式下是这样的：
 以数值1080(二进制为: 1111011000)为例(其中模式和实际数值是连在一起的，为了展示我将他们分开了)：
