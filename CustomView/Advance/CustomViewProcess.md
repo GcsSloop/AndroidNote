@@ -171,7 +171,7 @@ t    | View顶部距父View顶部的距离 | getTop();
 r    | View右侧距父View左侧的距离 | getRight();
 b    | View底部距父View顶部的距离 | getBottom(); 
 
-具体可以参考 [坐标系]https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md) 这篇文章。
+具体可以参考 [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md) 这篇文章。
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f1qzqwvkkbj308c0dwgm9.jpg)
 
