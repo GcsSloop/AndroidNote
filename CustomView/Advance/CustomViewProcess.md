@@ -151,8 +151,6 @@ onSizeChanged如下：
 
 **确定布局的函数是onLayout，它用于确定子View的位置，在自定义ViewGroup中会用到，他调用的是子View的layout函数。**
   
-  不过关于View的layout函数我们一般无需关注，因为在一般情况下我们只需关注View自身的坐标系即可，除非View状态与在父VIew所处位置相关。
-  
   在自定义ViewGroup中，onLayout一般是循环取出子View，然后经过计算得出各个子View位置的坐标值，然后用以下函数设置子View位置。
   
 ``` java
