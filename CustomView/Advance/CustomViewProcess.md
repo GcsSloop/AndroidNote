@@ -29,7 +29,10 @@
 ##  二.几个重要的函数
 
 ### 1.构造函数
-  View的构造函数有四种重载分别如下
+
+构造函数是View的入口，可以用于**初始化一些的内容，和获取自定义属性**。
+
+View的构造函数有四种重载分别如下:
 ``` java
   public void SloopView(Context context) {}
   public void SloopView(Context context, AttributeSet attrs) {}
