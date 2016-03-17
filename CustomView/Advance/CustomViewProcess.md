@@ -126,13 +126,14 @@ AT_MOST     | 10       | 000000000000000000001111011000
 **PS: 实际上关于上面的东西了解即可，在实际运用之中只需要记住有三种模式，用 MeasureSpec 的 getSize是获取数值， getMode是获取模式即可。**
 
 #### 注意：
-如果对View的宽高进行修改了，<b>不要调用super.onMeasure(widthMeasureSpec,heightMeasureSpec);</b> 
-要调用<b>setMeasuredDimension(widthsize,heightsize);</b> 这个函数。
+如果对View的宽高进行修改了，不要调用*super.onMeasure(widthMeasureSpec,heightMeasureSpec);*
+
+要调用*setMeasuredDimension(widthsize,heightsize);* 这个函数。
 
 ======
 
 ### 3.确定View大小(onSizeChanged)
-  这个函数在视图大小发生改变时调用：
+  这个函数在视图大小发生改变时调用。
   
 **Q: 在测量完View并使用setMeasuredDimension函数之后View的大小基本上已经确定了，那么为什么还要再次确定View的大小呢？**
 
@@ -204,20 +205,20 @@ b    | View底部距父View顶部的距离 | getBottom();
 ### 自定义View分类
 PS ：实际上ViewGroup是View的一个子类。
 
-类别 | 继承自 | 特点
---- | --- | ---
+类别      | 继承自                | 特点
+--------- | --------------------- | ------------
+View      | View SurfaceView  等  | 不包含子View
 ViewGroup | ViewGroup xxLayout等  | 包含子View
-View      | View SurfaceView 其他 | 不包含子View
 
 ### 自定义View流程：
-步骤 | 关键字 | 作用
---- | --- | ---
-1 | 构造函数      | View初始化
-2 | onMeasure     | 测量View的大小
-3 | onSizeChanged | 确定View大小
-4 | onLayout      | 确定子View布局(自定义View包含子View时有用)
-5 | onDraw        | 实际绘制内容
-6 | 提供接口      | 控制View或监听View某些状态。
+步骤 | 关键字        | 作用
+---- | ------------- | -------------
+  1  | 构造函数      | View初始化
+  2  | onMeasure     | 测量View的大小
+  3  | onSizeChanged | 确定View大小
+  4  | onLayout      | 确定子View布局(自定义View包含子View时有用)
+  5  | onDraw        | 实际绘制内容
+  6  | 提供接口      | 控制View或监听View某些状态。
 
 
 ## 参考资料：
