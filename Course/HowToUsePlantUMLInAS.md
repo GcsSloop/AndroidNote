@@ -1,6 +1,6 @@
 # AndroidStudio中使用PlantUML
 
-### 作者微博: [@攻城师sloop](http://weibo.com/GcsSloop)
+### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
 ## 前言
 
@@ -47,6 +47,9 @@
 	
 ####好了，到这里该教程正式结束，祝各位小伙伴能愉快的使用plantUML玩耍。
 
+## About Me
+### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
+<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
 
 
 
