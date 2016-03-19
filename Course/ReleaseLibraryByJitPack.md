@@ -100,7 +100,9 @@ buildscript {
 
 **为了提交更加快速，你可以删除无用的文件(文件夹),至于需要保留哪些文件你可以参考官方给出的[示例仓库](https://github.com/jitpack/android-example)**
 
+### 第 5 步: Release你的仓库或者给你的仓库打一个TAG
 
+### 第 6 步: 将你的仓库地址提交到JitPack
 
 
 
