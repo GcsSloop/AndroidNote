@@ -35,7 +35,12 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 ## 如何在JitPack上发布你的Library。
 
+**首先，假设大家有已经具备了以下条件：**
 
+序号 | 条件
+:---:|---------
+  1  | 会使用GitHub，能提交项目到GitHub上。 
+  2  | 使用AndroidStudio，且Gradle版本在2.4以上
 
 
 
