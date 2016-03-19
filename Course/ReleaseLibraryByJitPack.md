@@ -48,13 +48,13 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 在AndroidStudio中新建一个Project用于发布项目，新建完成之后结果是这样子:
 
-![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f22hjfubtsj30n50dwtap.jpg)
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f22k52gkahj30rs0gowhr.jpg)
 
 ### 第 2 步: 在这个Project中添加一个Library
 
 添加的这个Library就是我要发布的仓库，Library的名字无所谓,可以随便起(*我这里就叫library*)。添加完成之后是这样子：
 
-
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f22k6161ifj30rs0godk6.jpg)
 
 
 
