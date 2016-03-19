@@ -1,5 +1,5 @@
 # 用优雅的方式发布Android开源库(论JitPack的优越性)
-
+### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
 ## 前言
 自从谷歌宣布不支持Eclipse之后，大批Android程序猿情愿或者不情愿的迁移到了AndroidStudio，从此过上了使用Gradle构建程序的"优越"生活。
 
@@ -46,7 +46,7 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 序号 | 条件
 :---:|---------
-  1  | 会使用GitHub，能提交项目到GitHub上。 
+  1  | 会使用GitHub，能提交项目到GitHub上
   2  | 使用AndroidStudio，且Gradle版本在2.4以上
 
 在具备了这些条件之后，正式开始发布一个项目(以我的一个工具仓库Sutil为例)。
@@ -104,6 +104,11 @@ buildscript {
 
 ### 第 6 步: 将你的仓库地址提交到JitPack
 
+## About Me
+
+### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
+
+<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
 
 
 
