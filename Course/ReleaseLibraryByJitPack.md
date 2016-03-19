@@ -56,6 +56,13 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f22k6161ifj30rs0godk6.jpg)
 
+**注意： 1是新添加的Library 2是Library的build.gradle 3是Library的plugin**
+
+library的plugin是下面这样子：
+
+``` gradle
+apply plugin: 'com.android.library'
+```
 
 
 
