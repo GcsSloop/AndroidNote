@@ -17,21 +17,28 @@ Maven Central | 发布过程繁杂冗长， 每次发布成功都应该感谢一
 jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。 
 自定义仓库    | 一般的猿猿玩不起，企业内部可能会见到。
 
-在这些托管地址上面发布过项目的都应该能理解其中的痛苦，不说了，让我哭会儿(我就是那个每次发布都折腾半天的bug狂魔，从未一次发布就成功过)。
+在这些托管地址上面发布过项目的都应该能理解其中的痛苦，不说了，让我哭会儿(我就是那个每次发布都折腾半天的“bug狂魔”，从未一次发布就成功过)。
 
 然而，现在福音来了，JitPack可以帮助你简单快速的发布你的开源仓库。
 
 ## 在正式讲解之前我们先了解一下JitPack
 
-**Q: JitPack是什么？**
+**JitPack是什么？**
 
-> **A：JitPack是一个自定义的Maven仓库。**
+> **JitPack是一个自定义的Maven仓库。**
 
-**Q:JitPack安全吗？**
+**JitPack安全吗？**
 
-> **A：私以为还是比较安全的，毕竟开源库都是给大家用的，源码都能分享出来，如果你是担心它在里面插入恶意代码的话，在AndroidStudio的 External Libraies里面能够看到你的依赖库的源码，可以查看一下。**
+> **私以为还是比较安全的，毕竟开源库都是给大家用的，源码都能分享出来，如果你是担心它在里面插入恶意代码的话，在AndroidStudio的 External Libraies里面能够看到你的依赖库的源码，可以查看一下。**
+
+**JitPack好处都有啥(金坷垃，雾)**
+
+> **省时间，省时间，省时间，省下的时间都够你修复好几个bug了。**
+
 
 简单的了解了JitPack之后，开始本篇的正文。
+
+
 
 ## 如何在JitPack上发布你的Library。
 
@@ -64,11 +71,34 @@ library的plugin是下面这样子：
 apply plugin: 'com.android.library'
 ```
 
+### 第 3 步: 给你的项目添加配置(重点)
 
+你需要对你的项目简单的配置一下:
 
+**在你项目的根节点的 build.gradle(图示1) 中添加如下代码:**
 
+``` gradle
+buildscript { 
+  dependencies {
+    // 重点就是下面这一行(上面两行是为了定位这一行的添加位置)
+    classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3' 
+```
+**[完整示例]()**
 
+**在你要发布的library的 build.gradle(图示2) 中添加如下代码：**
 
+``` gradle
+ apply plugin: 'com.github.dcendents.android-maven'  
+
+ group='com.github.YourUsername'
+```
+**[完整示例]()**
+
+### 第 4 步: 提交项目到GitHub仓库
+
+这一步就不多啰嗦了，不论你是用命令行还是客户端都可以。
+
+**为了提交更加快速，你可以删除无用的文件(文件夹),至于需要保留哪些文件你可以参考官方给出的[示例仓库](https://github.com/jitpack/android-example)**
 
 
 
