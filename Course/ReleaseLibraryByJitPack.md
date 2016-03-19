@@ -29,7 +29,7 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 **Q:JitPack安全吗？**
 
-> **A：私以为还是比较安全的，毕竟开源库都是给大家用的，源码都能分享出来，如果你是担心它在里面插入恶意代码的话，在AndroidStudio的 External Libraies里面是能够看到你的依赖库的源码的，你尽可以查看一下。**
+> **A：私以为还是比较安全的，毕竟开源库都是给大家用的，源码都能分享出来，如果你是担心它在里面插入恶意代码的话，在AndroidStudio的 External Libraies里面能够看到你的依赖库的源码，可以查看一下。**
 
 简单的了解了JitPack之后，开始本篇的正文。
 
@@ -41,6 +41,21 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 :---:|---------
   1  | 会使用GitHub，能提交项目到GitHub上。 
   2  | 使用AndroidStudio，且Gradle版本在2.4以上
+
+在具备了这些条件之后，正式开始发布一个项目(以我的一个工具仓库Sutil为例)。
+
+### 第 1 步: 新建一个Project
+
+在AndroidStudio中新建一个Project用于发布项目，新建完成之后结果是这样子:
+
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f22hjfubtsj30n50dwtap.jpg)
+
+### 第 2 步: 在这个Project中添加一个Library
+
+添加的这个Library就是我要发布的仓库，Library的名字无所谓,可以随便起(*我这里就叫library*)。添加完成之后是这样子：
+
+
+
 
 
 
