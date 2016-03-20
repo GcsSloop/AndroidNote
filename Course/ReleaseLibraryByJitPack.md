@@ -38,7 +38,7 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 简单的了解了JitPack之后，开始本篇的正文。
 
 
-# 如何在JitPack上发布你的Library。
+# 如何在JitPack上发布你的Library
 
 **首先，假设大家有已经具备了以下条件：**
 
@@ -134,6 +134,8 @@ buildscript {
   5  | 提交完成后自动生成的日志
 
 ### 2.JitPack自动生成的配置信息
+在上传完成之后，JitPack会自动生成引用该仓库的配置信息，如下：
+
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f23a0fd5iyj30rs0gotb2.jpg)
 
 **以上就是教程的全部内容，各位小伙伴可以回去愉快的发布自己的开源库了。**
