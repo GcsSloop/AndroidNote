@@ -67,9 +67,9 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 序号 | 解释
 :---:|-------
-  1  | 是新添加的Library
-  2  | 是Library的build.gradle 
-  3  | 是Library的plugin
+  1  | 新添加的Library
+  2  | Library的build.gradle 
+  3  | Library的plugin
 
 **其中library的plugin是下面这样子：**
 
