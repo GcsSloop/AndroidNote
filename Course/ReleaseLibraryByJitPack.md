@@ -55,13 +55,13 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 在AndroidStudio中新建一个Project用于发布项目，新建完成之后结果是这样子:
 
-![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f22k52gkahj30rs0gowhr.jpg)
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f239wl5amtj30rs0gon0g.jpg)
 
 ### 第 2 步: 在这个Project中添加一个Library
 
 添加的这个Library就是我要发布的仓库，Library的名字无所谓,可以随便起(*我这里就叫library*)。添加完成之后是这样子：
 
-![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f22k6161ifj30rs0godk6.jpg)
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f239xb835xj30rs0gowiv.jpg)
 
 **注意： 1是新添加的Library 2是Library的build.gradle 3是Library的plugin**
 
@@ -74,6 +74,8 @@ apply plugin: 'com.android.library'
 ### 第 3 步: 给你的项目添加配置(重点)
 
 你需要对你的项目简单的配置一下:
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f239y5xsj4j30rs0gowit.jpg)
 
 **在你项目的根节点的 build.gradle(图示1) 中添加如下代码:**
 
@@ -102,7 +104,20 @@ buildscript {
 
 ### 第 5 步: Release你的仓库或者给你的仓库打一个TAG
 
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f239yqr44cj30rs0goadk.jpg)
+
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f239z1dnr8j30rs0goaco.jpg)
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f239zctc5xj30rs0goq7w.jpg)
+
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f239zpfkcwj30rs0gogns.jpg)
+
 ### 第 6 步: 将你的仓库地址提交到JitPack
+
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f23a055uoej30rs0godi0.jpg)
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f23a0fd5iyj30rs0gotb2.jpg)
+
 
 ## About Me
 
