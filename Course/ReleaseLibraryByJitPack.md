@@ -47,7 +47,7 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
   1  | 会使用GitHub，能提交项目到GitHub上
   2  | 使用AndroidStudio，且Gradle版本在2.4以上
 
-在具备了这些条件之后，正式开始发布一个项目(以我的一个工具仓库Sutil为例)。
+在具备了这些条件之后，正式开始发布一个项目(以我的一个[工具仓库Sutil](https://github.com/GcsSloop/SUtil)为例)。
 
 ## 第 1 步: 新建一个Project
 
@@ -136,6 +136,7 @@ buildscript {
 ### 2.JitPack自动生成的配置信息
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f23a0fd5iyj30rs0gotb2.jpg)
 
+**以上就是教程的全部内容，各位小伙伴可以回去愉快的发布自己的开源库了。**
 
 ## About Me
 
