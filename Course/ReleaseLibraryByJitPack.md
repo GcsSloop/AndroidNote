@@ -35,12 +35,10 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 > **省时间，省时间，省时间，省下的时间都够你修复好几个bug了。**
 
-
 简单的了解了JitPack之后，开始本篇的正文。
 
 
-
-## 如何在JitPack上发布你的Library。
+# 如何在JitPack上发布你的Library。
 
 **首先，假设大家有已经具备了以下条件：**
 
@@ -51,27 +49,33 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 在具备了这些条件之后，正式开始发布一个项目(以我的一个工具仓库Sutil为例)。
 
-### 第 1 步: 新建一个Project
+## 第 1 步: 新建一个Project
 
 在AndroidStudio中新建一个Project用于发布项目，新建完成之后结果是这样子:
 
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f239wl5amtj30rs0gon0g.jpg)
 
-### 第 2 步: 在这个Project中添加一个Library
+## 第 2 步: 在这个Project中添加一个Library
 
 添加的这个Library就是我要发布的仓库，Library的名字无所谓,可以随便起(*我这里就叫library*)。添加完成之后是这样子：
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f239xb835xj30rs0gowiv.jpg)
 
-**注意： 1是新添加的Library 2是Library的build.gradle 3是Library的plugin**
+### 图中的几个标注
 
-library的plugin是下面这样子：
+序号 | 解释
+:---:|-------
+  1  | 是新添加的Library
+  2  | 是Library的build.gradle 
+  3  | 是Library的plugin
+
+**其中library的plugin是下面这样子：**
 
 ``` gradle
 apply plugin: 'com.android.library'
 ```
 
-### 第 3 步: 给你的项目添加配置(重点)
+## 第 3 步: 给你的项目添加配置(重点)
 
 你需要对你的项目简单的配置一下:
 
@@ -85,7 +89,7 @@ buildscript {
     // 重点就是下面这一行(上面两行是为了定位这一行的添加位置)
     classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3' 
 ```
-**[完整示例]()**
+**[完整示例](https://github.com/GcsSloop/SUtil/blob/master/build.gradle)**
 
 **在你要发布的library的 build.gradle(图示2) 中添加如下代码：**
 
@@ -94,25 +98,27 @@ buildscript {
 
  group='com.github.YourUsername'
 ```
-**[完整示例]()**
+**[完整示例](https://github.com/GcsSloop/SUtil/blob/master/library/build.gradle)**
 
-### 第 4 步: 提交项目到GitHub仓库
+## 第 4 步: 提交项目到GitHub仓库
 
 这一步就不多啰嗦了，不论你是用命令行还是客户端都可以。
 
 **为了提交更加快速，你可以删除无用的文件(文件夹),至于需要保留哪些文件你可以参考官方给出的[示例仓库](https://github.com/jitpack/android-example)**
 
-### 第 5 步: Release你的仓库或者给你的仓库打一个TAG
+## 第 5 步: Release你的仓库或者给你的仓库打一个Tag(重点)
 
+### 1.点击图示新建一个Release或Tag
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f239yqr44cj30rs0goadk.jpg)
 
+### 2.
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f239z1dnr8j30rs0goaco.jpg)
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f239zctc5xj30rs0goq7w.jpg)
 
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f239zpfkcwj30rs0gogns.jpg)
 
-### 第 6 步: 将你的仓库地址提交到JitPack
+### 第 6 步: 将你的仓库地址提交到JitPack(重点)
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f23a055uoej30rs0godi0.jpg)
 
