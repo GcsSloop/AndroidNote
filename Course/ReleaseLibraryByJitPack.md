@@ -29,7 +29,7 @@ jCenter       | jCenter貌似稍微简单一点，但也不是省油的灯。
 
 **JitPack安全吗？**
 
-> **私以为还是比较安全的，毕竟开源库都是给大家用的，源码都能分享出来，如果你是担心它在里面插入恶意代码的话，在AndroidStudio的 External Libraies里面能够看到你的依赖库的源码，可以查看一下。**
+> **个人还是比较安全的，毕竟开源库都是给大家用的，源码都能分享出来，如果你是担心它在里面插入恶意代码的话，在AndroidStudio的 External Libraies里面能够看到反编译的依赖库的源码，可以查看一下。**
 
 **JitPack好处都有啥(金坷垃，雾)**
 
@@ -108,20 +108,32 @@ buildscript {
 
 ## 第 5 步: Release你的仓库或者给你的仓库打一个Tag(重点)
 
-### 1.点击图示新建一个Release或Tag
+### 1.点击图示进入Release界面
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f239yqr44cj30rs0goadk.jpg)
 
-### 2.
+### 2.创建一个Release或Tag
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f239z1dnr8j30rs0goaco.jpg)
 
+### 3.填写基本信息
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f239zctc5xj30rs0goq7w.jpg)
 
+### 4.完成
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f239zpfkcwj30rs0gogns.jpg)
 
-### 第 6 步: 将你的仓库地址提交到JitPack(重点)
+## 第 6 步: 将你的仓库地址提交到JitPack(重点)
 
+### 1.将你的仓库地址提交到JitPack 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f23a055uoej30rs0godi0.jpg)
 
+序号 | 解释
+:---:|--------
+  1  | 粘贴你的仓库地址
+  2  | 点击这里查看
+  3  | 版本号
+  4  | 点击这里提交该版本
+  5  | 提交完成后自动生成的日志
+
+### 2.JitPack自动生成的配置信息
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f23a0fd5iyj30rs0gotb2.jpg)
 
 
