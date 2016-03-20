@@ -1,5 +1,7 @@
 # 优雅的发布Android开源库(论JitPack的优越性)
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
+### [JitPack地址](https://jitpack.io)
+
 ## 前言
 自从谷歌宣布不支持Eclipse之后，大批Android程序猿情愿或者不情愿的迁移到了AndroidStudio，从此过上了使用Gradle构建程序的"优越"生活。
 
@@ -141,6 +143,7 @@ buildscript {
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f23a0fd5iyj30rs0gotb2.jpg)
 
 **以上就是教程的全部内容，各位小伙伴可以回去愉快的发布自己的开源库了。**
+### [JitPack地址](https://jitpack.io)
 
 ## About Me
 
