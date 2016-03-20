@@ -122,7 +122,9 @@ buildscript {
 
 ## 第 6 步: 将你的仓库地址提交到JitPack(重点)
 
-### 1.将你的仓库地址提交到JitPack 
+### 1.将你的仓库地址提交到[JitPack](https://jitpack.io)
+**[JitPack地址戳这里](https://jitpack.io)**
+
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f23a055uoej30rs0godi0.jpg)
 
 序号 | 解释
