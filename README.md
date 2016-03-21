@@ -27,6 +27,12 @@
  [Canvas(2)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(2).md) | 画布操作
  [Canvas(1)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md) | 颜色与基本图形
 
+# 教程类
+
+序号 | 链接
+:---:|--------
+ 01  | [在AndroidStudio中使用PlantUML](https://github.com/GcsSloop/AndroidNote/blob/master/Course/HowToUsePlantUMLInAS.md)
+ 02  | [优雅的发布Android开源库(论JitPack的优越性)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/ReleaseLibraryByJitPack.md)
 
 
 
