@@ -10,7 +10,7 @@
 
 **进阶篇** |
 :---: |
-<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/CustomViewProcess.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1zyiohvopj30rs0dwacz.jpg" width=300 /></a> |
+<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B1%5DCustomViewProcess.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1zyiohvopj30rs0dwacz.jpg" width=300 /></a> |
 
 ## About Me
 
