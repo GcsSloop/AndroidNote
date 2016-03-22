@@ -22,9 +22,9 @@ Canvas我们可以称之为画布，在上面绘制各种东西。
 
 绘制的<b>基本形状</b>由<b>Canvas</b>确定，但绘制出来的<b>颜色,具体效果</b>则由<b>Paint</b>确定。
 
-本次内容仅简单讲解Canvas所能绘制的基本内容，对Paint有一点涉及但不会涉及太多，关于Paint的更多用法会在以后详细想介绍，下面开始正题：
+本次内容仅简单讲解Canvas所能绘制的基本内容，对Paint有一点涉及但不会涉及太多，关于Paint的更多用法会在以后文章中详细介绍，下面开始正题：
 
-### Canvas的常用操作表：
+### Canvas的常用操作速查表：
 
 操作类型 | 相关API | 备注
 --- | --- | ---
@@ -39,9 +39,8 @@ Canvas我们可以称之为画布，在上面绘制各种东西。
 画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、倾斜<br/> 相关： [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E5%9D%90%E6%A0%87%E7%B3%BB/%E5%9D%90%E6%A0%87%E7%B3%BB.md)    [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
 Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放等操作的都是图像矩阵Matrix，只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
 
-PS： Canvas常用方法在上面表格中基本全部列出了，当然还存在一些其他的方法未列出，具体可以官方文档 [Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)
+> PS： Canvas常用方法在上面表格中已经全部列出了，当然还存在一些其他的方法未列出，具体可以参考官方文档 [Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)
 
-从上表可以看出，Canvas的可用操作还是有很多的，限于篇幅，本文仅讲解 绘制颜色， 绘制基本形状，简要介绍画布形变操作，最后会利用以上知识做一个小实例用来<b>练(zhaung)手(B)</b>，其余内容会在以后的文章中更加详细的介绍。
 
 ******
 ### Canvas基础示例：
