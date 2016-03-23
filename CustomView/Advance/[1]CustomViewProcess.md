@@ -1,5 +1,8 @@
 # 自定义View分类与流程
 
+### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+
 经历过前面三篇啰啰嗦嗦的基础篇之后，终于到了进阶篇，正式进入解析自定义View的阶段。
 
 ## 前言
