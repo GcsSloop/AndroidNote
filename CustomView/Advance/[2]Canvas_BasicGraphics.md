@@ -525,7 +525,7 @@ public class PieView extends View {
 
 ## 总结：
   
-  其实自定义View只要按照流程一步步的走，也是比较容易的。不过里面也有不少坑，这些坑还是自己踩的过印象比较深，建议大家不要直接copy源码，自己手打体验一下。
+  其实自定义View只要按照流程一步步的走，也是比较容易的。不过里面也有不少坑，这些坑还是自己踩过印象比较深，建议大家不要直接copy源码，自己手打体验一下。
 
 ## About Me
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
