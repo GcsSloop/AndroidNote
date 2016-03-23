@@ -109,7 +109,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 ******
 
-#### 绘制矩形：
+### 绘制矩形：
 确定确定一个矩形最少需要四个数据，就是**对角线的两个点**的坐标值，通常我们会采用<b>左上角</b>和<b>右下角</b>的两个点的坐标(当然了右上和左下也可以)。
 
 关于绘制矩形，Canvas提供了<b>三种重载</b>方法，第一种就是提供<b>四个数值(对角线两个点的坐标)来确定一个矩形</b>进行绘制。
@@ -136,7 +136,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 ******
 
-#### 绘制圆角矩形：
+### 绘制圆角矩形：
 绘制圆角矩形也提供了两种重载方式，如下：
 ``` java
         // 第一种
@@ -189,7 +189,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 ******
 
-#### 绘制椭圆：
+### 绘制椭圆：
 相对于绘制圆角矩形，绘制椭圆就简单的多了，因为他只需要一个矩形就能绘制出一个与矩形内切的椭圆。
 ``` java
         // 第一种
@@ -210,7 +210,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那么绘制出来的实际上就是一个圆。
 
 ******
-#### 绘制圆：
+### 绘制圆：
 绘制圆形比较简单，因为圆形只需要圆心和半径，如下：
 ```
     canvas.drawCircle(500,500,400,mPaint);  // 绘制一个圆心坐标在(500,500)，半径为400 的圆。
@@ -220,7 +220,7 @@ PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawCircle.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
 ******
-#### 绘制圆弧：
+### 绘制圆弧：
 绘制圆弧相比以上内容就比较神奇一点了，为了理解这个比较神奇的东西，我们先看一下他需要的几个参数：
 ``` java
 // 第一种
@@ -289,7 +289,7 @@ useCenter   // 是否使用中心
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawArc2.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
 ******
-#### 简要介绍Paint
+### 简要介绍Paint
 看了上面这么多，相信有一部分人会产生一个疑问，如果我想绘制一个圆，只要边不要里面的颜色怎么办？
 
 很简单，在一开始我们就说过，绘制的<b>基本形状</b>由<b>Canvas</b>确定，但绘制出来的<b>颜色,具体效果</b>则由<b>Paint</b>确定。
@@ -346,7 +346,7 @@ rotate | 旋转
 
 ![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/pie.png)
 
-#### 简单分析
+### 简单分析
 其实根据我们上面的知识已经能自己制作一个饼状图了。不过制作东西最重要的不是制作结果，而是制作思路。
 相信我贴上代码大家一看就立刻明白了，非常简单的东西。不过嘛，咱们还是想了解一下制作思路：
 
@@ -360,7 +360,7 @@ rotate | 旋转
 其中颜色这一项可以用户指定也可以用程序指定(我们这里采用程序指定)。<br/>
 </b>
 
-#### 封装数据：
+### 封装数据：
 ``` java
 public class PieData {
     // 用户关心数据
@@ -380,7 +380,7 @@ public class PieData {
 ```
 PS: 以上省略了get set方法
 
-#### 自定义View：
+### 自定义View：
 先按照自定义View流程梳理一遍：
 
 步骤 | 关键字 | 作用
@@ -491,7 +491,7 @@ public class PieView extends View {
 ```
 PS: 其中在更改了数据需要重绘界面时要调用invalidate()这个函数。
 
-#### 效果图
+### 效果图
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/pieView.jpeg" width = "270" height = "480" alt="title" align=center /> 
 
