@@ -1,7 +1,8 @@
 # 安卓中的坐标系
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+
 
 ## 一.屏幕坐标系和数学坐标系的区别
 由于移动设备一般定义屏幕左上角为坐标原点，向右为x轴增大方向，向下为y轴增大方向，
