@@ -1,7 +1,7 @@
 # Canvas之绘制基本形状
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
 在上一篇[自定义View分类与流程](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B1%5DCustomViewProcess.md)中我们了解自定义View相关的基本知识，不过，这些东西依旧还是理论，并不能**拿来(zhuang)用(B)**, 这一次我们就了解一些**能(zhaung)用(B)**的东西。
 
@@ -113,10 +113,11 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 ******
 
 ### 绘制矩形：
-确定确定一个矩形最少需要四个数据，就是**对角线的两个点**的坐标值，通常我们会采用<b>左上角</b>和<b>右下角</b>的两个点的坐标(当然了右上和左下也可以)。
+确定确定一个矩形最少需要四个数据，就是**对角线的两个点**的坐标值，通常我们会采用**左上角和右下角**的两个点的坐标(当然了右上和左下也可以)。
 
-关于绘制矩形，Canvas提供了<b>三种重载</b>方法，第一种就是提供<b>四个数值(对角线两个点的坐标)来确定一个矩形</b>进行绘制。
-其余两种是先将矩形封装为<b>Rect</b>或<b>RectF</b>(实际上仍然是用两个坐标点来确定的矩形)，然后传递给Canvas绘制，如下：
+关于绘制矩形，Canvas提供了三种重载方法，第一种就是提供**四个数值(对角线两个点的坐标)来确定一个矩形**进行绘制。
+其余两种是先将矩形封装为**Rect或RectF**(实际上仍然是用两个坐标点来确定的矩形)，然后传递给Canvas绘制，如下：
+
 ``` java
         // 第一种
         canvas.drawRect(100,100,800,400,mPaint);
@@ -135,7 +136,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 看到这里,相信很多观众会产生一个疑问，<b>为什么会有Rect和RectF两种？两者有什么区别吗？</b>
 
-答案当然是存在区别的，两种最大的区别就是<b>精度不同</b>，<b>Rect</b>是<b>int(整形)</b>的，而<b>RectF</b>则是<b>float(单精度浮点型)</b>的。当然了除了精度不同，两种提供的方法也稍微存在差别，在这里我们暂时无需关注，想了解更多参见官方文档 [Rect](http://developer.android.com/reference/android/graphics/Rect.html) 和 [RectF](http://developer.android.com/reference/android/graphics/RectF.html)
+答案当然是存在区别的，**两者最大的区别就是精度不同，Rect是int(整形)的，而RectF是float(单精度浮点型)的**。当然了除了精度不同，两种提供的方法也稍微存在差别，在这里我们暂时无需关注，想了解更多参见官方文档 [Rect](http://developer.android.com/reference/android/graphics/Rect.html) 和 [RectF](http://developer.android.com/reference/android/graphics/RectF.html)
 
 ******
 
@@ -168,7 +169,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f2748fjw2bj308c0dwmx8.jpg)
 
-在此图之中，外部灰色的矩形表示我们确定的矩形，而用红色圈住的 A、B 两个点是我们用来确定这个矩形的两个重要参数, 而用红线标注的 rx 与 ry 就是两个半径，也就是相比绘制矩形多出来的那两个参数。
+**红线标注的 rx 与 ry 就是两个半径，也就是相比绘制矩形多出来的那两个参数。**
 
 我们了解到原理后，就可以为所欲为了，通过计算可知我们上次绘制的矩形宽度为700，高度为300，当你让 rx大于350(宽度的一半)， ry大于150(高度的一半) 时奇迹就出现了， 你会发现圆角矩形变成了一个椭圆， 他们画出来是这样的 ( 为了方便确认我更改了画笔颜色， 同时绘制出了矩形和圆角矩形 )：
 
@@ -219,13 +220,15 @@ PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那
 ```
     canvas.drawCircle(500,500,400,mPaint);  // 绘制一个圆心坐标在(500,500)，半径为400 的圆。
 ```
-绘制圆形有四个参数，前两个是圆心，第三个是半径，最后一个是画笔。
+绘制圆形有四个参数，前两个是圆心坐标，第三个是半径，最后一个是画笔。
 
 <img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f274c41kknj30u01hcdgf.jpg" width = "300" /> 
 
 ******
 ### 绘制圆弧：
-绘制圆弧相比以上内容就比较神奇一点了，为了理解这个比较神奇的东西，我们先看一下他需要的几个参数：
+
+绘制圆弧就比较神奇一点了，为了理解这个比较神奇的东西，我们先看一下他需要的几个参数：
+
 ``` java
 // 第一种
 public void drawArc(@NonNull RectF oval, float startAngle, float sweepAngle, boolean useCenter, @NonNull Paint paint){}
@@ -234,13 +237,17 @@ public void drawArc(@NonNull RectF oval, float startAngle, float sweepAngle, boo
 public void drawArc(float left, float top, float right, float bottom, float startAngle,
             float sweepAngle, boolean useCenter, @NonNull Paint paint) {}
 ```
+
 从上面可以看出，相比于绘制椭圆，绘制圆弧还多了三个参数：
+
 ``` java
 startAngle  // 开始角度
 sweepAngle  // 扫过角度
 useCenter   // 是否使用中心
 ```
-通过字面意思我们基本能猜测出来前两个参数(startAngle， sweepAngel)的作用，就是确定角度的起始位置和角度实际大小， 而角度的结束角度实际上就是起始角度加上角度大小(startAngle, sweepAngle). 不过第三个参数是干嘛的？试一下就知道了,上代码：
+
+通过字面意思我们基本能猜测出来前两个参数(startAngle， sweepAngel)的作用，就是确定角度的起始位置和扫过角度， 不过第三个参数是干嘛的？试一下就知道了,上代码：
+
 ```
         RectF rectF = new RectF(100,100,800,400);
         // 绘制背景矩形
@@ -268,7 +275,8 @@ useCenter   // 是否使用中心
 
 可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则是圆弧起始点和结束点之间的连线加上圆弧围成的图形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B2%5DAngleAndRadian.md)
 
-相比于使用椭圆，我们通常还是使用正圆比较多的，使用正圆展示一下效果：
+相比于使用椭圆，我们还是使用正圆比较多的，使用正圆展示一下效果：
+
 ```
         RectF rectF = new RectF(100,100,800,400);
         // 绘制背景矩形
@@ -304,12 +312,15 @@ useCenter   // 是否使用中心
   mPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
 ```
 这也是为了展示方便，容易看出效果，所以设置了模式为填充，实际上画笔有三种模式，如下：
+
 ``` java
 STROKE                //描边
 FILL                  //填充
 FILL_AND_STROKE       //描边加填充
 ```
+
 为了区分三者效果我们做如下实验：
+
 ```
         Paint paint = new Paint();
         paint.setColor(Color.BLUE);
@@ -386,18 +397,19 @@ public class PieData {
 PS: 以上省略了get set方法
 
 ### 自定义View：
-先按照自定义View流程梳理一遍：
+先按照自定义View流程梳理一遍(确定各个步骤应该做的事情)：
 
-步骤 | 关键字 | 作用
---- | --- | ---
-1 | 构造函数      | 初始化(初始化画笔Paint)
-2 | onMeasure     | 测量View的大小(暂时不用关心)
-3 | onSizeChanged | 确定View大小(记录当前View的宽高)
-4 | onLayout      | 确定子View布局(不关心)
-5 | onDraw        | 实际绘制内容(绘制饼状图)
-6 | 提供接口      | 提供接口(提供设置数据的接口)
+步骤 |     关键字    |         作用
+:---:|-------------- | -----------------------
+  1  | 构造函数      | 初始化(初始化画笔Paint)
+  2  | onMeasure     | 测量View的大小(暂时不用关心)
+  3  | onSizeChanged | 确定View大小(记录当前View的宽高)
+  4  | onLayout      | 确定子View布局(无子View，不关心)
+  5  | onDraw        | 实际绘制内容(绘制饼状图)
+  6  | 提供接口      | 提供接口(提供设置数据的接口)
 
 代码如下：
+
 ``` java
 public class PieView extends View {
     // 颜色表
@@ -427,8 +439,6 @@ public class PieView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         mWidth = w;
         mHeight = h;
-
-
     }
 
     @Override
@@ -494,7 +504,8 @@ public class PieView extends View {
     }
 }
 ```
-PS: 其中在更改了数据需要重绘界面时要调用invalidate()这个函数。
+
+**PS: 在更改了数据需要重绘界面时要调用invalidate()这个函数。**
 
 ### 效果图
 
@@ -502,9 +513,8 @@ PS: 其中在更改了数据需要重绘界面时要调用invalidate()这个函�
 
 
 ## 总结：
-  本次偷懒了一点，最后的饼状图并没有绘制完整，以后会补上未完成的部分的。
   
-  其实自定义View只要按照流程一步步的走，还是比较容易的。不过里面自然也是有不少坑的，这个坑还是自己踩过印象会比较深，建议大家不要直接copy源码，自己亲手写一遍体验一下。
+  其实自定义View只要按照流程一步步的走，还是比较容易的。不过里面自然也是有不少坑的，这个坑还是自己踩过印象比较深，建议大家不要直接copy源码，自己手打体验一下。
 
 ## About Me
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
