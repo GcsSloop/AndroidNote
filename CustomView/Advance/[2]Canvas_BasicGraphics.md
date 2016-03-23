@@ -130,7 +130,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 ```
 以上三种方法所绘制出来的结果是完全一样的。
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawRect.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f27478692dj30u01hc3yy.jpg" width = "300" /> 
 
 看到这里,相信很多观众会产生一个疑问，<b>为什么会有Rect和RectF两种？两者有什么区别吗？</b>
 
@@ -150,7 +150,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 ```
 上面两种方法绘制效果也是一样的，但鉴于第二种方法在API21的时候才添加上，所以我们一般使用的都是第一种。
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawRoundRect1.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2747s3c5zj30u01hcq3e.jpg" width = "300" /> 
 
 下面简单解析一下圆角矩形的几个必要的参数的意思。
 
@@ -165,7 +165,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 好吧，让你发现了，**这里圆角矩形的角实际上不是一个正圆的圆弧，而是椭圆的圆弧，这里的两个参数实际上是椭圆的两个半径**，他们看起来个如下图：<br/>
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/RoundRect.png)
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f2748fjw2bj308c0dwmx8.jpg)
 
 在此图之中，外部灰色的矩形表示我们确定的矩形，而用红色圈住的 A、B 两个点是我们用来确定这个矩形的两个重要参数, 而用红线标注的 rx 与 ry 就是两个半径，也就是相比绘制矩形多出来的那两个参数。
 
@@ -184,7 +184,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
         canvas.drawRoundRect(rectF,700,400,mPaint);
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawRoundRect3.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2748ugy2pj30u01hcwf1.jpg" width = "300" /> 
 
 其中灰色部分是我们所选定的矩形，而里面的圆角矩形则变成了一个椭圆，<b>实际上在rx为宽度的一半，ry为高度的一半时，刚好是一个椭圆，通过上面我们分析的原理推算一下就能得到，而当rx大于宽度的一半，ry大于高度的一半时，实际上是无法计算出圆弧的，所以drawRoundRect对大于该数值的参数进行了限制(修正)，凡是大于一半的参数均按照一半来处理。</b>
 
@@ -192,7 +192,8 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 ******
 
 ### 绘制椭圆：
-相对于绘制圆角矩形，绘制椭圆就简单的多了，因为他只需要一个矩形就能绘制出一个与矩形内切的椭圆。
+相对于绘制圆角矩形，绘制椭圆就简单的多了，因为他只需要一个矩形矩形作为参数:
+
 ``` java
         // 第一种
         RectF rectF = new RectF(100,100,800,400);
@@ -203,23 +204,23 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 ```
 同样，以上两种方法效果完全一样，但一般使用第一种。
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawOval.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f274afxbiyj30u01hczks.jpg" width = "300" /> 
 
-绘制椭圆实际上就是绘制一个矩形调度内切椭圆，原理如下，就不多说了：
+绘制椭圆实际上就是绘制一个矩形的内切图形，原理如下，就不多说了：
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/Oval.png)
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f274bq1h4rj308c0dwjrl.jpg)
 
 PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那么绘制出来的实际上就是一个圆。
 
 ******
 ### 绘制圆：
-绘制圆形比较简单，因为圆形只需要圆心和半径，如下：
+绘制圆形也比较简单，因为圆形只需要圆心和半径，如下：
 ```
     canvas.drawCircle(500,500,400,mPaint);  // 绘制一个圆心坐标在(500,500)，半径为400 的圆。
 ```
 绘制圆形有四个参数，前两个是圆心，第三个是半径，最后一个是画笔。
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawCircle.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f274c41kknj30u01hcdgf.jpg" width = "300" /> 
 
 ******
 ### 绘制圆弧：
@@ -262,9 +263,9 @@ useCenter   // 是否使用中心
 ```
 上述代码实际上是绘制了一个起始角度为0度，扫过90度的圆弧，两者的区别就是是否使用了中心点，结果如下：
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawArc1.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f274d1smwej30u01hc3z4.jpg" width = "300" /> 
 
-可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则是圆弧起始点和结束点之间的连线加上圆弧围成的图形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6.md)
+可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则是圆弧起始点和结束点之间的连线加上圆弧围成的图形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B2%5DAngleAndRadian.md)
 
 相比于使用椭圆，我们通常还是使用正圆比较多的，使用正圆展示一下效果：
 ```
@@ -288,13 +289,14 @@ useCenter   // 是否使用中心
         mPaint.setColor(Color.BLUE);
         canvas.drawArc(rectF2,0,90,true,mPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawArc2.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f274e3surgj30u01hc3z4.jpg" width = "300" /> 
 
 ******
 ### 简要介绍Paint
+
 看了上面这么多，相信有一部分人会产生一个疑问，如果我想绘制一个圆，只要边不要里面的颜色怎么办？
 
-很简单，在一开始我们就说过，绘制的<b>基本形状</b>由<b>Canvas</b>确定，但绘制出来的<b>颜色,具体效果</b>则由<b>Paint</b>确定。
+很简单，绘制的**基本形状由Canvas确定**，但绘制出来的**颜色,具体效果则由Paint确定**。
 
 如果你注意到了的话，在一开始我们设置画笔样式的时候是这样的：
 ``` java
@@ -325,11 +327,11 @@ FILL_AND_STROKE       //描边加填充
         canvas.drawCircle(200, 800, 100, paint);
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/paintStyle.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f274g6lxbpj30u01hcq3n.jpg" width = "300" /> 
 
 一图胜千言，通过以上实验我们可以比较明显的看出三种模式的区别，如果只需要边缘不需要填充内容的话只需要设置模式为描边(STROKE)即可。
 
-其实关于Paint的内容也是有不少的，这些只是冰山一角，在以后会详细的讲解Paint内容。
+其实关于Paint的内容也是有不少的，这些只是冰山一角，在后续内容中会详细的讲解Paint。
 
 ******
 ## 小示例
@@ -346,7 +348,7 @@ rotate | 旋转
 ### 制作一个饼状图
 在展示百分比数据的时候经常会用到饼状图，像这样：
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/pie.png)
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f274gmnlk3j308c0dwglq.jpg)
 
 ### 简单分析
 其实根据我们上面的知识已经能自己制作一个饼状图了。不过制作东西最重要的不是制作结果，而是制作思路。
@@ -495,18 +497,23 @@ PS: 其中在更改了数据需要重绘界面时要调用invalidate()这个函�
 
 ### 效果图
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/pieView.jpeg" width = "270" height = "480" alt="title" align=center /> 
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f274gz06voj30u01hc3za.jpg" width = "300" /> 
 
 
 ## 总结：
   本次偷懒了一点，最后的饼状图并没有绘制完整，以后会补上未完成的部分的。
   
   其实自定义View只要按照流程一步步的走，还是比较容易的。不过里面自然也是有不少坑的，这个坑还是自己踩过印象会比较深，建议大家不要直接copy源码，自己亲手写一遍体验一下。
-  
+
+## About Me
+### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
+
+<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
+
 ## 参考资料：
 
 [View](http://developer.android.com/reference/android/view/View.html)<br/>
 [Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
 [Android Canvas绘图详解](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2012/1212/703.html)<br/>
 
-
+<br/><br/><br/><br/><br/>
