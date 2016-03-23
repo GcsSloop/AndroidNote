@@ -1,6 +1,7 @@
 # Canvas之绘制基本形状
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
+### [【本系列系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
 在上一篇[自定义View分类与流程](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B1%5DCustomViewProcess.md)中我们了解自定义View相关的基本知识，不过，这些东西依旧还是理论，并不能**拿来(zhuang)用(B)**, 这一次我们就了解一些**能(zhaung)用(B)**的东西。
 
