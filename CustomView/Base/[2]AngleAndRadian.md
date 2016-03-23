@@ -1,7 +1,7 @@
 # 角度与弧度
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
 安卓中角度(angle)与弧度(radian)的有关问题。
 
