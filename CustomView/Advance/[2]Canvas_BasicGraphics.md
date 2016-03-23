@@ -47,7 +47,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
   canvas.drawColor(Color.BLUE); //绘制蓝色
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawColor.jpeg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2742437w3j30u01hcjrq.jpg" width = "300" />  
   
 > 关于颜色的更多资料请参考[基础篇_颜色](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B3%5DColor.md)
 
@@ -91,7 +91,8 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 > 更多参考这里 [基础篇_坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B1%5DCoordinateSystem.md)
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawPoint.jpeg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f2743rkifnj30u01hc74n.jpg" width = "300" />
+
 
 ******
 
@@ -105,7 +106,8 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
         },mPaint);
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art/drawLine.jpeg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2745k83ybj30u01hcq3d.jpg" width = "300" />
+
 
 ******
 
