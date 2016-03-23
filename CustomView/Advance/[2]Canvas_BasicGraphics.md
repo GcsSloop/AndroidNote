@@ -136,7 +136,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 看到这里,相信很多观众会产生一个疑问，<b>为什么会有Rect和RectF两种？两者有什么区别吗？</b>
 
-答案当然是存在区别的，**两者最大的区别就是精度不同，Rect是int(整形)的，而RectF是float(单精度浮点型)的**。当然了除了精度不同，两种提供的方法也稍微存在差别，在这里我们暂时无需关注，想了解更多参见官方文档 [Rect](http://developer.android.com/reference/android/graphics/Rect.html) 和 [RectF](http://developer.android.com/reference/android/graphics/RectF.html)
+答案当然是存在区别的，**两者最大的区别就是精度不同，Rect是int(整形)的，而RectF是float(单精度浮点型)的**。除了精度不同，两种提供的方法也稍微存在差别，在这里我们暂时无需关注，想了解更多参见官方文档 [Rect](http://developer.android.com/reference/android/graphics/Rect.html) 和 [RectF](http://developer.android.com/reference/android/graphics/RectF.html)
 
 ******
 
@@ -156,11 +156,12 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放�
 
 下面简单解析一下圆角矩形的几个必要的参数的意思。
 
-很明显可以看出，第二种方法前四个参数和第一种方法的RectF作用是一样的，都是为了确定一个矩形，最后一个参数Paint是画笔，无需多说，与矩形相比，圆角矩形多出来了两个参数<b>rx</b> 和 <b>ry</b>，这两个参数是干什么的呢？
+很明显可以看出，第二种方法前四个参数和第一种方法的RectF作用是一样的，都是为了确定一个矩形，最后一个参数Paint是画笔，无需多说，**与矩形相比，圆角矩形多出来了两个参数rx 和 ry**，这两个参数是干什么的呢？
 
-稍微分析一下，既然是圆角矩形，他的角肯定是圆弧(圆形的一部分)，**我们用什么一般用什么确定一个圆形呢？**
+稍微分析一下，既然是圆角矩形，他的角肯定是圆弧(圆形的一部分)，**我们一般用什么确定一个圆形呢？**
 
 答案是**圆心 和 半径，其中圆心用于确定位置，而半径用于确定大小**。<br/>
+
 由于矩形位置已经确定，所以其边角位置也是确定的，那么确定位置的参数就可以省略，只需要用半径就能描述一个圆弧了。<br/>
 
 但是，**半径只需要一个参数，但这里怎么会有两个呢？**<br/>
@@ -216,7 +217,9 @@ PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那
 
 ******
 ### 绘制圆：
-绘制圆形也比较简单，因为圆形只需要圆心和半径，如下：
+
+绘制圆形也比较简单, 如下：
+
 ```
     canvas.drawCircle(500,500,400,mPaint);  // 绘制一个圆心坐标在(500,500)，半径为400 的圆。
 ```
@@ -227,7 +230,7 @@ PS： 如果你传递进来的是一个长宽相等的矩形(即正方形)，那
 ******
 ### 绘制圆弧：
 
-绘制圆弧就比较神奇一点了，为了理解这个比较神奇的东西，我们先看一下他需要的几个参数：
+绘制圆弧就比较神奇一点了，为了理解这个比较神奇的东西，我们先看一下它需要的几个参数：
 
 ``` java
 // 第一种
@@ -269,11 +272,12 @@ useCenter   // 是否使用中心
         mPaint.setColor(Color.BLUE);
         canvas.drawArc(rectF2,0,90,true,mPaint);
 ```
+
 上述代码实际上是绘制了一个起始角度为0度，扫过90度的圆弧，两者的区别就是是否使用了中心点，结果如下：
 
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f274d1smwej30u01hc3z4.jpg" width = "300" /> 
 
-可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则是圆弧起始点和结束点之间的连线加上圆弧围成的图形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B2%5DAngleAndRadian.md)
+可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则是圆弧起始点和结束点之间的连线加上圆弧围成的图形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇文章： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B2%5DAngleAndRadian.md)
 
 相比于使用椭圆，我们还是使用正圆比较多的，使用正圆展示一下效果：
 
@@ -308,10 +312,12 @@ useCenter   // 是否使用中心
 很简单，绘制的**基本形状由Canvas确定**，但绘制出来的**颜色,具体效果则由Paint确定**。
 
 如果你注意到了的话，在一开始我们设置画笔样式的时候是这样的：
+
 ``` java
   mPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
 ```
-这也是为了展示方便，容易看出效果，所以设置了模式为填充，实际上画笔有三种模式，如下：
+
+为了展示方便，容易看出效果，之前使用的模式一直为填充模式，实际上画笔有三种模式，如下：
 
 ``` java
 STROKE                //描边
@@ -324,7 +330,7 @@ FILL_AND_STROKE       //描边加填充
 ```
         Paint paint = new Paint();
         paint.setColor(Color.BLUE);
-        paint.setStrokeWidth(40);     //为了实验效果明显特异，特地设置描边宽度非常大
+        paint.setStrokeWidth(40);     //为了实验效果明显，特地设置描边宽度非常大
 
         // 描边
         paint.setStyle(Paint.Style.STROKE);
@@ -348,27 +354,31 @@ FILL_AND_STROKE       //描边加填充
 ******
 ## 小示例
 
-### 简要介绍画布的操作：
+### 简要介绍画布的操作:
 
-相关操作 | 简要介绍
---- | ---
-save | 保存当前画布状态
-restore | 回滚到上一次保存的状态
+> 画布操作详细内容会在下一篇文章中讲解, 不是本文重点，但以下示例中可能会用到，所以此处简要介绍一下。
+
+相关操作  | 简要介绍
+----------|------------------------
+save      | 保存当前画布状态
+restore   | 回滚到上一次保存的状态
 translate | 相对于当前位置位移
-rotate | 旋转
+rotate    | 旋转
 
 ### 制作一个饼状图
+
 在展示百分比数据的时候经常会用到饼状图，像这样：
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f274gmnlk3j308c0dwglq.jpg)
 
 ### 简单分析
+
 其实根据我们上面的知识已经能自己制作一个饼状图了。不过制作东西最重要的不是制作结果，而是制作思路。
 相信我贴上代码大家一看就立刻明白了，非常简单的东西。不过嘛，咱们还是想了解一下制作思路：
 
 先分析饼状图的构成，非常明显，饼状图就是一个又一个的扇形构成的，每个扇形都有不同的颜色，对应的有名字，数据和百分比。
 
-经以上信息可以得出饼状图的最基本数据应包括：<b> 名字 数据值 百分比 对应的角度 颜色</b>。
+经以上信息可以得出饼状图的最基本数据应包括：<b>名字 数据值 百分比 对应的角度 颜色</b>。
 
 <b>
 用户关心的数据 ： 名字 数据值 百分比<br/>
@@ -446,10 +456,10 @@ public class PieView extends View {
         super.onDraw(canvas);
         if (null == mData)
             return;
-        float currentStartAngle = mStartAngle;        // 当前起始角度
-        canvas.translate(mWidth / 2, mHeight / 2);  // 将画布坐标原点移动到中心位置
-        float r = (float) (Math.min(mWidth, mHeight) / 2 * 0.8); // 饼状图半径
-        RectF rect = new RectF(-r, -r, r, r);                       // 饼状图绘制区域
+        float currentStartAngle = mStartAngle;                    // 当前起始角度
+        canvas.translate(mWidth / 2, mHeight / 2);                // 将画布坐标原点移动到中心位置
+        float r = (float) (Math.min(mWidth, mHeight) / 2 * 0.8);  // 饼状图半径
+        RectF rect = new RectF(-r, -r, r, r);                     // 饼状图绘制区域
 
         for (int i = 0; i < mData.size(); i++) {
             PieData pie = mData.get(i);
@@ -505,12 +515,11 @@ public class PieView extends View {
 }
 ```
 
-**PS: 在更改了数据需要重绘界面时要调用invalidate()这个函数。**
+**PS: 在更改了数据需要重绘界面时要调用invalidate()这个函数重新绘制。**
 
 ### 效果图
 
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f274gz06voj30u01hc3za.jpg" width = "300" /> 
-
 
 ## 总结：
   
