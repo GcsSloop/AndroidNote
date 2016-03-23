@@ -521,6 +521,8 @@ public class PieView extends View {
 
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f274gz06voj30u01hc3za.jpg" width = "300" /> 
 
+> **PS: 这个饼状图并没有添加百分比等数据，仅作为示例使用。**
+
 ## 总结：
   
   其实自定义View只要按照流程一步步的走，也是比较容易的。不过里面也有不少坑，这些坑还是自己踩的过印象比较深，建议大家不要直接copy源码，自己手打体验一下。
