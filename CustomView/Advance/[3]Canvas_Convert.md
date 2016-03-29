@@ -1,13 +1,13 @@
-# Canvas基础二
+# Canvas之画布操作
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
-上一次我们了解了如何使用Canvas绘制基本图形，本次了解一些基本的画布操作。
+上一篇[Canvas之绘制基本形状](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B2%5DCanvas_BasicGraphics.md)中我们了解了如何使用Canvas绘制基本图形，本次了解一些基本的画布操作。
 
-相比于上一次绘制简单的图形，这次的内容会稍微有趣一点点，相信大家看完之后会对Canvas更加了解,能够制作一些<b>更(geng)加(neng)炫(zhuang)酷(B)</b>的东西出来。
+本来想把画布操作放到后面部分的，但是发现很多图形绘制都离不开画布操作，于是先讲解一下画布的基本操作方法。
 
-## 一.Canvas常用操作
-为了方便，我把上次的表格搬过来了。
+## 一.Canvas的常用操作速查表
 
 操作类型 | 相关API | 备注
 --- | --- | ---
@@ -24,7 +24,6 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 
 ******
 ## 二.Canvas基本操作
-上次呢我们了解了绘制颜色和绘制基本形状，这次会了解画布变换相关操作。
 
 *****
 ### 1.画布操作
