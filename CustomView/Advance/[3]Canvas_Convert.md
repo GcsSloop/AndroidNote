@@ -41,6 +41,8 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 
 **合理的使用画布操作可以帮助你用更容易理解的方式创作你想要的效果，这也是画布操作存在的原因。**
 
+**PS: 所有的画布操作都只影响后续的绘制，对之前已经绘制过的内容没有影响。**
+
 *****
 #### ⑴位移(translate)
 
@@ -60,7 +62,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
         canvas.drawCircle(0,0,100,mPaint);
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/translate.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2f1ph46qaj30u01hcgm3.jpg" width = "300"/>  
 
 我们首先将坐标系移动一段距离绘制一个圆形，之后再移动一段距离绘制一个圆形，<b>两次移动是可叠加的</b>。
 
@@ -86,9 +88,8 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 1         | 没有变化
 (1, +∞)   | 根据缩放中心放大n倍
 
-> **PS： 当取值为负数时，你也可以认为坐标系进行了翻转，不过对之前的操作不会产生影响。**
-
 如果在缩放时稍微注意一下就会发现<b>缩放的中心默认为坐标原点,而缩放中心轴就是坐标轴</b>，如下：
+
 ``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
@@ -105,7 +106,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 ```
 (为了更加直观，我添加了一个坐标系，可以比较明显的看出，缩放中心就是坐标原点)
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale1.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2f1vphdjjj30u01hct9r.jpg" width = "300" />  
 
 接下来我们使用第二种方法让缩放中心位置稍微改变一下，如下：
 ``` java
@@ -124,7 +125,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 ```
 (图中用箭头指示的就是缩放中心。)
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale2.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2f1w7kv8dj30u01hct9s.jpg" width = "300" />  
 
 前面两个示例缩放的数值都是正数，按照表格中的说明，**当缩放比例为负数的时候会根据缩放中心轴进行翻转**，下面我们就来实验一下：
 
@@ -143,7 +144,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale3.jpg" width="270" height="480"/>  
+<img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f2f1x76o6qj30u01hc0tu.jpg" width="300" />  
 
 > 为了效果明显，这次我不仅添加了坐标系而且对矩形中几个重要的点进行了标注，具有相同字母标注的点是一一对应的。
 
@@ -166,7 +167,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale4.jpg" width="270" height="480"/>  
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2f1xth4p6j30u01hc0u4.jpg" width="300" />  
 
 > 添加了这么多的辅助内容，希望大家能够看懂。
 
@@ -194,7 +195,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
         }
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/scale5.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2f1yfn22xj30u01hcta9.jpg" width = "300" />  
 
 *****
 #### ⑶旋转(rotate)
@@ -222,7 +223,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
         canvas.drawRect(rect,mPaint);
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate1.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2f1yws38nj30u01hcmy8.jpg" width = "300" />  
 
 改变旋转中心位置：
 ``` java
@@ -240,7 +241,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
         canvas.drawRect(rect,mPaint);
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate2.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2f1zcmwb2j30u01hcmy9.jpg" width = "300" />
 
 <b>好吧，旋转也是可叠加的</b>
 ``` java
@@ -262,10 +263,11 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
             canvas.rotate(10);
         }
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/rotate3.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2f1zsnj00j30u01hc75a.jpg" width = "300" />  
 
 *****
 #### ⑷倾斜(skew)
+
 skew这里翻译为倾斜，有的地方也叫错切。
 
 倾斜只提供了一种方法：
@@ -291,7 +293,7 @@ float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的ta
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/skew1.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2f20h7i23j30u01hcdgq.jpg" width = "300" />  
 
 <b>如你所想，倾斜也是可叠加的，不过请注意，调用次序不同绘制结果也会不同</b>
 ``` java
@@ -310,7 +312,7 @@ float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的ta
         canvas.drawRect(rect,mPaint);
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/skew2.jpg" width = "270" height = "480" alt="title" align=center />  
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2f20w0rffj30u01hcgm8.jpg" width = "300" />
 
 *****
 #### ⑸快照(save)和回滚(restore)
