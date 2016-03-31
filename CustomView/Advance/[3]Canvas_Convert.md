@@ -336,13 +336,15 @@ getSaveCount | 获取栈中内容的数量(即保存次数)
 ##### 状态栈：
 其实这个栈我也不知道叫什么名字，暂时叫做状态栈吧，它看起来像下面这样：
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/stack1.png)
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f2gfqmu2sgj308c0dwmxw.jpg)
 
 这个栈可以存储画布状态和图层状态。
 
 <b>Q：什么是画布和图层？<br/>
 A：实际上我们看到的画布是由多个图层构成的，如下图(图片来自网络)：<br/>
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art2/layer.png)<br/>
+
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f2gfrc6fdkj308c0dwglr.jpg)
+
 实际上我们之前讲解的绘制操作和画布操作都是在默认图层上进行的。<br/>
 在通常情况下，使用默认图层就可满足需求，但是如果需要绘制比较复杂的内容，如地图(地图可以有多个地图层叠加而成，比如：政区层，道路层，兴趣点层)等，则分图层绘制比较好一些。<br/>
 你可以把这些图层看做是一层一层的玻璃板，你在每层的玻璃板上绘制内容，然后把这些玻璃板叠在一起看就是最终效果。
