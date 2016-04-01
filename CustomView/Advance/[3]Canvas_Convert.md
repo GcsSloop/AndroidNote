@@ -426,11 +426,7 @@ public int saveLayerAlpha (float left, float top, float right, float bottom, int
 
 如本文一开始所说，合理的使用画布操作可以帮助你用更容易理解的方式创作你想要的效果。
 
-其实之前准备在画布操作后再讲一些图片 文字 路径相关内容的， 但是没想到画布操作居然有这么多东西，这还是在没讲解Matrix的情况下。
-
 (,,• ₃ •,,)
-
-这次就先讲这么多吧。
 
 <b>PS: 由于本人英文水平有限，某些地方可能存在误解或词语翻译不准确，如果你对此有疑问可以提交Issues进行反馈。</b>
 
@@ -447,7 +443,6 @@ public int saveLayerAlpha (float left, float top, float right, float bottom, int
 [Canvas之translate、scale、rotate、skew方法讲解](http://blog.csdn.net/tianjian4592/article/details/45234419)<br/>
 [Canvas的save(),saveLayer()和restore()浅谈](http://www.cnblogs.com/liangstudyhome/p/4143498.html)<br/>
 [Graphics->Layers](http://www.programgo.com/article/72302404062/;jsessionid=8E62016408BFFB21D46F9C878A49D8EE)<br/>
-[AndroidのCanvasを使いこなす](http://tech.recruit-mp.co.jp/mobile/remember_canvas1/)<br/>
 []()<br/>
 []()<br/>
 
