@@ -26,8 +26,6 @@
  --- | ---
  [Canvas(4)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Path/Path(1).md) | Path1~直线
  [Canvas(3)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(3).md) | 图片与文字
- [Canvas(2)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(2).md) | 画布操作
- [Canvas(1)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md) | 颜色与基本图形
 
 # 教程类
 
