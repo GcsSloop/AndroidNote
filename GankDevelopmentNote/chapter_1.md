@@ -8,7 +8,5 @@
 
 <img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2ixxuzwpmj30u01hcjsk.jpg" width="300" />
 <img src="http://ww2.sinaimg.cn/large/005Xtdi2gw1f2iy0ldkbvj30u01hc76r.jpg" width="300" />
-<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2iy0xd7oqj30u01hctbc.jpg" width="300" />
-<img src="http://ww2.sinaimg.cn/large/005Xtdi2gw1f2iy18g1cnj30u01hcwgx.jpg" width="300" />
 
 **嘻嘻，这个大家先慢慢猜，稍后再告诉大家结果，下面开始本篇正文，对项目进行整体规划。**
