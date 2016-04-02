@@ -6,19 +6,13 @@
 如果出现链接失效等情况可以提交Issues提醒我修改相关内容。
 
 
-## 自定义View系列
-
-### 基础篇
+## [自定义View系列](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
  
  序号 | 内容
 :----:|---------
   01  | [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md)
   02  | [安卓自定义View基础 - 角度弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B2%5DAngleAndRadian.md)
   03  | [安卓自定义View基础 - 颜色](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B3%5DColor.md)
-
-### 进阶篇
- 序号 | 内容
-:----:|---------
   04  | [安卓自定义View进阶 - 分类和流程](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B1%5DCustomViewProcess.md)
   05  | [安卓自定义View进阶 - 绘制基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B2%5DCanvas_BasicGraphics.md)
   06  | [安卓自定义View进阶 - 画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)
@@ -30,7 +24,7 @@
  [Canvas(4)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Path/Path(1).md) | Path1~直线
  [Canvas(3)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(3).md) | 图片与文字
 
-## 教程类
+## [教程类](https://github.com/GcsSloop/AndroidNote/tree/master/Course)
 
 序号 | 链接
 :---:|--------
