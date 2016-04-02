@@ -19,11 +19,6 @@
   
  ******
 
- 问题 | 描述
- --- | ---
- [Canvas(4)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Path/Path(1).md) | Path1~直线
- [Canvas(3)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(3).md) | 图片与文字
-
 ## [教程类](https://github.com/GcsSloop/AndroidNote/tree/master/Course)
 
 序号 | 链接
