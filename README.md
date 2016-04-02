@@ -5,6 +5,7 @@
 
 如果出现链接失效等情况可以提交Issues提醒我修改相关内容。
 
+> #### PS:点击分类标题可以查看该分类的详细信息。 
 
 ## [自定义View系列](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
  
