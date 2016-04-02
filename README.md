@@ -8,11 +8,13 @@
 
 ## 自定义View系列
 
-**基础篇** |
-:---: |
-<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md" target="_blank"><img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f1s96hizi5j30rs0dwwha.jpg" width=300 /></a> |
-<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B2%5DAngleAndRadian.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1s97g6rfbj30rs0dwdiq.jpg" width=300 /></a> |
-<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B3%5DColor.md" target="_blank"><img src="http://ww3.sinaimg.cn/large/005Xtdi2gw1f1w9s5vyidj30rs0dw0vg.jpg" width=300 /></a> |
+### 基础篇
+ 
+ 序号 | 内容
+:----:|---------
+  01  | [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md)
+  02  | [安卓自定义View基础 - 角度弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B2%5DAngleAndRadian.md)
+  03  | [安卓自定义View基础 - 颜色](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B3%5DColor.md)
 
 ======
 
@@ -27,7 +29,7 @@
  [Canvas(4)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Path/Path(1).md) | Path1~直线
  [Canvas(3)](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(3).md) | 图片与文字
 
-# 教程类
+## 教程类
 
 序号 | 链接
 :---:|--------
