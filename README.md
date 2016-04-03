@@ -1,4 +1,4 @@
-# AndroidNote
+# <img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2jtcc1bpsj30740740sy.jpg" width=32 /> AndroidNote
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
 我的安卓学习笔记，记录学习过程中遇到的问题,以及我发布的安卓相关文章。
