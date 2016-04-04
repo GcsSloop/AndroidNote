@@ -149,7 +149,7 @@ Picture虽然方法就那么几个，但是具体使用起来还是分很多情�
         mPicture.draw(canvas);  
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawPicture1.jpg" width = "300" />  
+<img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f2kwz9956lj30u01hcdg9.jpg" width = "300" />  
 
 **PS：这种方法在比较低版本的系统上绘制后可能会影响Canvas状态，所以这种方法一般不会使用。**
 
@@ -170,7 +170,7 @@ public void drawPicture (Picture picture, RectF dst)
     canvas.drawPicture(mPicture,new RectF(0,0,mPicture.getWidth(),200));
 ```
  
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawPicture2.jpg" width = "270" height = "480"/>  
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2kwzseqawj30u01hc74o.jpg" width = "300"/>  
  
  **PS:对照上一张图片，可以比较明显的看出，绘制的内容根据选区进行了缩放。 **
 
@@ -184,7 +184,7 @@ public void drawPicture (Picture picture, RectF dst)
         drawable.draw(canvas);
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawPicture3.jpg" width = "270" height = "480"/>  
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2kx0bquw3j30u01hcdg8.jpg" width = "300" />  
 
 **PS:此处setBounds相当于剪裁显示区域，并非根据该区域进行缩放。**
 
@@ -266,7 +266,7 @@ PS:图片左上角位置默认为坐标原点。
 
 > 关于Matrix和Paint暂时略过吧，一展开又是啰啰嗦嗦一大段，反正挖坑已经是常态了，大家应该也习惯了(PAP).
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap1.jpg" width = "270" height = "480"/> 
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2kx0rjzgmj30u01hcwfc.jpg" width = "300" /> 
 
 第二种方法就是在绘制时指定了图片左上角的坐标(距离坐标原点的距离)：
 
@@ -274,7 +274,7 @@ PS:图片左上角位置默认为坐标原点。
 ``` java
     canvas.drawBitmap(bitmap,200,500,new Paint());
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap2.jpg" width = "270" height = "480"/> 
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2kx1f34a4j30u01hcgmn.jpg" width = "300" /> 
 
 第三种方法比较有意思，上面多了两个矩形区域(src,dst),这两个矩形选区是干什么用的？
 
@@ -297,38 +297,39 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
         // 绘制图片
         canvas.drawBitmap(bitmap,src,dst,null);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap3.jpg" width = "270" height = "480"/> 
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx1ygdmwj30u01hct9m.jpg" width = "300" /> 
 
 **详解：**
 
 上面是以绘制该图为例，用src指定了图片绘制部分的区域，即下图中红色方框标注的区域。
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap4.jpg)
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f2kx2daw1qj305k05kq39.jpg)
 
 然后用dst指定了绘制在屏幕上的绘制，即下图中蓝色方框标注的区域，图片宽高会根据指定的区域自动进行缩放。
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap5.jpg" width = "270" height = "480"/> 
+
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx38lolnj30u01hcjs6.jpg" width = "300" /> 
 
 从上面可知，第三种方法可以绘制图片的一部分到画布上，这有什么用呢？
 
 如果你看过某些游戏的资源文件，你可能会看到如下的图片(图片来自网络)：
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap6.png)
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f2kx3lk1ucj30kg04omz7.jpg)
 
 用一张图片包含了大量的素材，在绘制的时候每次只截取一部分进行绘制，这样可以大大的减少素材数量，而且素材管理起来也很方便。
 
 然而这和我们有什么关系呢？我们又不做游戏开发。
 
-确实，我们不做游戏开发，但是在某些时候我们需要制作一些炫酷的效果，这些效果因为太复杂了用代码很难实现或者渲染效率不高。这时候很多人就会想起帧动画，将动画分解成一张一张的图片然后使用帧动画制作出来，这种实现方式的确比较简单，但是一个动画效果的图片有十几到几十张，一个应用里面来几个这样炫酷的动画效果就会导致资源文件出现一大堆，想找其中的某一张资源图片简直就是灾难啊有木有。但是把同一个动画效果的所有资源图片整理到一张图片上，会大大的减少资源文件数量，方便管理，妈妈再也不怕我找不到资源文件了。
+确实，我们不做游戏开发，但是在某些时候我们需要制作一些炫酷的效果，这些效果因为太复杂了用代码很难实现或者渲染效率不高。这时候很多人就会想起帧动画，将动画分解成一张一张的图片然后使用帧动画制作出来，这种实现方式的确比较简单，但是一个动画效果的图片有十几到几十张，一个应用里面来几个这样炫酷的动画效果就会导致资源文件出现一大堆，想找其中的某一张资源图片简直就是灾难啊有木有。但是把同一个动画效果的所有资源图片整理到一张图片上，会大大的**减少资源文件数量，方便管理**，妈妈再也不怕我找不到资源文件了，**同时也节省了图片文件头、文件结束块以及调色板等占用的空间。**
 
 **下面是利用drawBitmap第三种方法制作的一个简单示例：**
 
 资源文件如下：
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/checkres.png)
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f2kx6kpukaj310402sglr.jpg)
 
 最终效果如下：
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/checkview.gif)
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f2kx67fkkog306g0b43yn.gif)
 
 源码如下：
 
@@ -396,7 +397,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
         // 参数分别为 (文本 x轴坐标 y轴坐标 画笔)
         canvas.drawText(str,200,500,textPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText1.jpg" width = "270" height = "480"/>  
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx7r1l6ej30u01hct9i.jpg" width = "300" />  
 
 当然啦，除了能指定绘制文本的起始位置，还能只取出文本中的一部分内容进行绘制。
 
@@ -419,7 +420,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
         // 参数分别为 (字符串 开始截取位置 结束截取位置 x轴坐标 y轴坐标 画笔)
         canvas.drawText(str,1,3,200,500,textPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText2.jpg" width = "270" height = "480"/>  
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx8aclfhj30u01hct9g.jpg" width = "300" />  
 
 另外，对于字符数组char[]我们截取字符串使用起始位置(index)和长度(count)来确定。
 
@@ -433,7 +434,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
         // 参数为 (字符数组 起始坐标 截取长度 x轴坐标 y轴坐标 画笔)
         canvas.drawText(chars,1,3,200,500,textPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText3.jpg" width = "270" height = "480"/>  
+<img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f2kx8w1dcmj30u01hc0th.jpg" width = "300" />  
 
 ### 第二类(drawPosText)
 
@@ -453,20 +454,23 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
                 500,500
         },textPaint);
 ```
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawText4.jpg" width = "270" height = "480"/>  
+
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx9fl8c8j30u01hcglz.jpg" width = "300" />  
 
 不过嘛，虽然虽然这个方法也比较容易理解，但是关于这个方法我个人是不推荐使用的，因为坑比较的，主要有一下几点：
 
 序号 | 反对理由
---- | ---
-1 | 必须指定所有字符位置，否则直接crash掉，反人类设计
-2 | 性能不佳，在大量使用的时候可能导致卡顿
-3 | 不支持emoji等特殊字符，不支持字形组合与分解
+-----|----------------------
+  1  | 必须指定所有字符位置，否则直接crash掉，反人类设计
+  2  | 性能不佳，在大量使用的时候可能导致卡顿
+  3  | 不支持emoji等特殊字符，不支持字形组合与分解
 
 关于第二类的第二种方法：
+
 ``` java
 public void drawPosText (char[] text, int index, int count, float[] pos, Paint paint)
 ```
+
 和上面一样，就是从字符数组中切出来一段进行绘制，相信以诸位看官的聪明才智一眼就看出来了，我这里就不多说了，真的不是我偷懒啊(ˉ▽￣～) ~~
 
 ### 第三类(drawTextOnPath)
@@ -477,13 +481,13 @@ public void drawPosText (char[] text, int index, int count, float[] pos, Paint p
 
 学会了图片和文字绘制，对于大部分自定义View都能制作了，可以去看看这位大神制作的作品，尝试模仿一下[一个绚丽的loading动效分析与实现！](http://blog.csdn.net/tianjian4592/article/details/44538605)
 
-![](http://img.blog.csdn.net/20150322173842391?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppYW40NTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f2kxbki0wtg308c069mzr.gif)
 
 (,,• ₃ •,,)
 
 <b>PS: 由于本人英文水平有限，某些地方可能存在误解或词语翻译不准确，如果你对此有疑问可以提交Issues进行反馈。</b>
 
-# 四.参考资料
+# 参考资料
 
 [Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
 [Bitmap](http://developer.android.com/reference/android/graphics/Bitmap.html)<br/>
