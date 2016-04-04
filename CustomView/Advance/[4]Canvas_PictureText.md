@@ -49,7 +49,7 @@ A Picture records drawing calls (via the canvas returned by beginRecording) and 
 
 某一天小萌想在朋友面前显摆一下，于是在单杠上来了一个后空翻,动作姿势请参照下图：
 
-![](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/Picture1.jpg)
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2kua0sxg0j30bo0b4aba.jpg" width=300 />
 
 朋友都说 恩，很不错。 想再看一遍 (〃ω〃)。ヽ(〃∀〃)ﾉ。⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
 
