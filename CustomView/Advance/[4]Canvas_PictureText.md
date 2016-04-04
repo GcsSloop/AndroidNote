@@ -325,7 +325,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
 
 资源文件如下：
 
-![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f2kx6kpukaj310402sglr.jpg)
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f2kytmbjrnj310402s3yo.jpg)
 
 最终效果如下：
 
