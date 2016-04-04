@@ -7,7 +7,7 @@
 ## 一.Canvas的常用操作速查表
 
 操作类型 | 相关API | 备注
---- | --- | ---
+---------|---------|-----------
 绘制颜色 | drawColor, drawRGB, drawARGB | 使用单一颜色填充整个画布
 绘制基本形状 | drawPoint, drawPoints, drawLine, drawLines, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
 绘制图片 | drawBitmap, drawPicture | 绘制位图和图片
@@ -26,7 +26,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 
 ## 1.绘制图片
 
-绘制有两种方法，drawPicture 和 drawBitmap,接下来我们一一了解。
+绘制有两种方法，drawPicture(矢量图) 和 drawBitmap(位图),接下来我们一一了解。
 
 ### (1)drawPicture
 
@@ -36,7 +36,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 
 关于drawPicture一开始还是挺让人费解的，不过嘛，我们接下来慢慢研究一下它的用途。
 
-既然是drawPicture就要了解一下什么是**Picture**。 顾名思义，Picture的意思是图片。
+既然是drawPicture就要了解一下什么是Picture。 顾名思义，Picture的意思是图片。
 
 不过嘛，我觉得这么用图片这个名词解释Picture是不合适的，为何这么说？请看其官方文档对[Picture](http://developer.android.com/reference/android/graphics/Picture.html)的解释：
 
@@ -46,7 +46,7 @@ A Picture records drawing calls (via the canvas returned by beginRecording) and 
 
 好吧，我知道很多人对这段鸟语是看不懂的，至于为什么要放在这里，仅仅是为了显得更加专业(偷笑)。
 
-<b>下面我就对这段不明觉厉的鸟语用通俗的话翻译一下:</b>
+**下面我就对这段不明觉厉的鸟语用通俗的话翻译一下:**
 
 某一天小萌想在朋友面前显摆一下，于是在单杠上来了一个后空翻,动作姿势请参照下图：
 
@@ -56,28 +56,28 @@ A Picture records drawing calls (via the canvas returned by beginRecording) and 
 
 于是小萌又来了一遍，如是几次之后，小萌累的吐血三升。
 
-于是小萌机智的想，我何不用手机录下来呢，直接保存成为<b>后空翻.avi</b> 下次想显摆的时候直接拿出手机，点一下播放就行了，省时省力。
+于是小萌机智的想，我何不能用手机将我是飒爽英姿录下来呢，直接保存成为**后空翻.avi** 下次想显摆的时候直接拿出手机，点一下播放就行了，省时省力。
 
 小萌被自己的机智深深的折服了，然后Picture就诞生啦。(╯‵□′)╯︵┻━┻掀桌，坑爹呢，这剧情跳跃也忒大了吧。
 
-<b>
-好吧，言归正传，这次我们了解的Picture和上文中的录像功能是类似的，只不过我们Picture录的是Canvas中绘制的内容。<br/>
-我们把Canvas绘制点，线，矩形等诸多操作用Picture录制下来，下次需要的时候拿来就能用，使用Picture相比于再次调用绘图API，开销是比较小的，也就是说对于重复的操作可以更加省时省力。
-</b>
 
-<b>PS：你可以把Picture看作是一个录制Canvas操作的录像机。</b>
+**好吧，言归正传，这次我们了解的Picture和上文中的录像功能是类似的，只不过我们Picture录的是Canvas中绘制的内容。**
+
+我们把Canvas绘制点，线，矩形等诸多操作用Picture录制下来，下次需要的时候拿来就能用，使用Picture相比于再次调用绘图API，开销是比较小的，也就是说对于重复的操作可以更加省时省力。
+
+**PS：你可以把Picture看作是一个录制Canvas操作的录像机。**
 
 了解了Picture的概念之后，我们再了解一下Picture的相关方法。
 
-相关方法 | 简介
---- | ---
-public int getWidth () | 获取宽度
-public int getHeight () | 获取高度
-public Canvas beginRecording (int width, int height) | 开始录制 (返回一个Canvas，在Canvas中所有的绘制都会存储在Picture中)
-public void endRecording () | 结束录制
-public void draw (Canvas canvas) | 将Picture中内容绘制到Canvas中
+相关方法                                                    | 简介
+------------------------------------------------------------|--------------------
+public int getWidth ()                                      | 获取宽度
+public int getHeight ()                                     | 获取高度
+public Canvas beginRecording (int width, int height)        | 开始录制 (返回一个Canvas，在Canvas中所有的绘制都会存储在Picture中)
+public void endRecording ()                                 | 结束录制
+public void draw (Canvas canvas)                            | 将Picture中内容绘制到Canvas中
 public static Picture createFromStream (InputStream stream) | (已废弃)通过输入流创建一个Picture
-public void writeToStream (OutputStream stream) | (已废弃)将Picture中内容写出到输出流中
+public void writeToStream (OutputStream stream)             | (已废弃)将Picture中内容写出到输出流中
 
 上面表格中基本上已经列出了Picture的所有方法，其中getWidth和getHeight没什么好说的，最后两个已经废弃也自然就不用关注了，排除了这些方法之后，只剩三个方法了，接下来我们就比较详细的了解一下：
 
@@ -123,23 +123,23 @@ public void writeToStream (OutputStream stream) | (已废弃)将Picture中内容
 
 **具体使用:**
 
-Picture虽然方法就那么几个，但是具体使用起来还是分很多情况的，总体上可以分为以下几种：
+Picture虽然方法就那么几个，但是具体使用起来还是分很多情况的，由于录制的内容不会直接显示，就像存储的视频不点击播放不会自动播放一样，同样，想要将Picture中的内容显示出来就需要手动调用播放(绘制)，将Picture中的内容绘制出来可以有以下几种方法：
 
 序号 | 简介
---- | ---
-1 | 使用Picture提供的draw方法绘制。
-2 | 使用Canvas提供的drawPicture方法绘制。
-3 | 将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。
+-----|-----------
+  1  | 使用Picture提供的draw方法绘制。
+  2  | 使用Canvas提供的drawPicture方法绘制。
+  3  | 将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。
 
 
 以上几种方法主要区别：
 
-主要区别 | 分类 | 简介
---- | --- | ---
-是否对Canvas有影响 | 1有影响<br/>2,3不影响 | 此处指绘制完成后是否会影响Canvas的状态(Matrix clip等)
-可操作性强弱 | 1可操作性较弱<br/>2,3可操作性较强 | 此处的可操作性可以简单理解为对绘制结果可控程度。
+主要区别           |               分类                | 简介
+-------------------|-----------------------------------|------------------
+是否对Canvas有影响 | 1有影响<br/>2,3不影响             | 此处指绘制完成后是否会影响Canvas的状态(Matrix clip等)
+可操作性强弱       | 1可操作性较弱<br/>2,3可操作性较强 | 此处的可操作性可以简单理解为对绘制结果可控程度。
 
-几种方法简介和主要区别我知道的就这么多了，接下来对于各种使用方法一一详细介绍：
+几种方法简介和主要区别基本就这么多了，接下来对于各种使用方法一一详细介绍：
 
 **1.使用Picture提供的draw方法绘制:**
 ``` java
@@ -147,7 +147,7 @@ Picture虽然方法就那么几个，但是具体使用起来还是分很多情�
         mPicture.draw(canvas);  
 ```
 
-<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawPicture1.jpg" width = "270" height = "480"/>  
+<img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawPicture1.jpg" width = "300" />  
 
 **PS：这种方法在比较低版本的系统上绘制后可能会影响Canvas状态，所以这种方法一般不会使用。**
 
@@ -196,11 +196,11 @@ public void drawPicture (Picture picture, RectF dst)
  
  **获取Bitmap方式:**
  
- 序号 | 获取方式 | 备注
- --- | --- | ---
-  1 | 通过Bitmap创建            | 复制一个已有的Bitmap(_新Bitmap状态和原有的一致_) 或者 创建一个空白的Bitmap(_内容可改变_)
-  2 | 通过BitmapDrawable获取    | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap
-  3 | 通过BitmapFactory获取     | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap
+ 序号 |         获取方式          | 备注
+ -----|---------------------------|-----------------------------------------
+   1  | 通过Bitmap创建            | 复制一个已有的Bitmap(_新Bitmap状态和原有的一致_) 或者 创建一个空白的Bitmap(_内容可改变_)
+   2  | 通过BitmapDrawable获取    | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap
+   3  | 通过BitmapFactory获取     | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap
   
 **通常来说，我们绘制Bitmap都是读取已有的图片转换为Bitmap绘制到Canvas上。**<br/>
 很明显，第1种方式不能满足我们的要求，暂时排除。<br/>
@@ -238,7 +238,9 @@ public void drawPicture (Picture picture, RectF dst)
 ```
 
 既然已经获得到了Bitmap，那么就开始本文的重点了，将Bitmap绘制到画布上。
+
 #### 绘制Bitmap：
+
 依照惯例先预览一下drawBitmap的常用方法：
 ``` java
     // 第一种
@@ -255,9 +257,11 @@ public void drawPicture (Picture picture, RectF dst)
 第一种方法中后两个参数(matrix, paint)是在绘制的时候对图片进行一些改变，如果只是需要将图片内容绘制出来只需要如下操作就可以了：
 
 PS:图片左上角位置默认为坐标原点。
+
 ``` java
     canvas.drawBitmap(bitmap,new Matrix(),new Paint());
 ```
+
 > 关于Matrix和Paint暂时略过吧，一展开又是啰啰嗦嗦一大段，反正挖坑已经是常态了，大家应该也习惯了(PAP).
 
 <img src="https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Art3/drawBitmap1.jpg" width = "270" height = "480"/> 
@@ -272,10 +276,10 @@ PS:图片左上角位置默认为坐标原点。
 
 第三种方法比较有意思，上面多了两个矩形区域(src,dst),这两个矩形选区是干什么用的？
 
-名称 | 作用
---- | ---
-Rect src | 指定绘制图片的区域
-Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
+名称                      | 作用
+--------------------------|---------------------
+Rect src                  | 指定绘制图片的区域
+Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
 
 示例：
 ``` java
@@ -361,14 +365,14 @@ Rect dst <br/>或RectF dst | 指定图片在屏幕上显示(绘制)的区域
 
 **Paint文本相关常用方法表**
 
-标题 | 相关方法 | 备注
---- | --- | ---
+标题 | 相关方法                  | 备注
+-----|---------------------------|----------------------
 色彩 | setColor setARGB setAlpha | 设置颜色，透明度
-大小 | setTextSize | 设置文本字体大小
-字体 | setTypeface | 设置或清除字体样式
-样式 | setStyle | 填充(FILL),描边(STROKE),填充加描边(FILL_AND_STROKE)
-对齐 | setTextAlign | 左对齐(LEFT),居中对齐(CENTER),右对齐(RIGHT)
-测量 | measureText | 测量文本大小(注意，请在设置完文本各项参数后调用)
+大小 | setTextSize               | 设置文本字体大小
+字体 | setTypeface               | 设置或清除字体样式
+样式 | setStyle                  | 填充(FILL),描边(STROKE),填充加描边(FILL_AND_STROKE)
+对齐 | setTextAlign              | 左对齐(LEFT),居中对齐(CENTER),右对齐(RIGHT)
+测量 | measureText               | 测量文本大小(注意，请在设置完文本各项参数后调用)
 
 为了绘制文本，我们先创建一个文本画笔：
 ``` java
