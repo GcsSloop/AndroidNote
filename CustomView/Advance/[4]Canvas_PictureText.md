@@ -85,6 +85,9 @@ public void writeToStream (OutputStream stream)             | (已废弃)将Pict
 #### 使用示例：
 
 **准备工作:**
+
+录制内容，即将一些Canvas操作用Picture存储起来，录制的内容是不会直接显示在屏幕上的，只是存储起来了而已。
+
 ``` java 
     // 1.创建Picture
     private Picture mPicture = new Picture();
