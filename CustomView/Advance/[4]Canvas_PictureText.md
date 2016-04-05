@@ -3,7 +3,7 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
-在上一篇文章[Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)中我们了解了画布的一些基本操作方法，本次了解一些绘制图片文字相关的内容。如果你对前几篇文章讲述的内容熟练掌握的话，那么恭喜你，本篇结束之后，对于2D绘图部分的掌握基本达到小成的阶段，大部分的自定义View已经难不倒你了，当然了，这并不是终点，接下来还会有更加炫酷的技能。
+在上一篇文章[Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)中我们了解了画布的一些基本操作方法，本次了解一些绘制图片文字相关的内容。如果你对前几篇文章讲述的内容熟练掌握的话，那么恭喜你，本篇结束之后，大部分的自定义View已经难不倒你了，当然了，这并不是终点，接下来还会有更加炫酷的技能。
 
 ## 一.Canvas的常用操作速查表
 
