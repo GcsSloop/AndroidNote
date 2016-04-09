@@ -1,9 +1,10 @@
 # Path之基本图形
 
-### 讲解安卓中的Canvas基础内容。
-### 作者微博: [@攻城师sloop](http://weibo.com/5459430586)
+### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
-本次会了解到path(路径)这个神器，有了这个神器，就能创造出更多**炫(zhuang)酷(B)**的东东了。
+### [本系列相关文章](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+
+在上一篇[Canvas之图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md)中我们了解了如何使用Canvas中绘制图片文字，结合前几篇文章，Canvas的基本操作已经差不多完结了，然而Canvas不仅仅具有这些基本的操作，还可以更加炫酷，本次会了解到path(路径)这个Canvas中的神器，有了这个神器，就能创造出更多**炫(zhuang)酷(B)**的东东了。
 
 ******
 
