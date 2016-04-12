@@ -132,7 +132,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
-        RectF rect = new RectF(0,0,400,-400);   // 矩形区域
+        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
 
         mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
         canvas.drawRect(rect,mPaint);
@@ -155,7 +155,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
 
-        RectF rect = new RectF(0,0,400,-400);   // 矩形区域
+        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
 
         mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
         canvas.drawRect(rect,mPaint);
