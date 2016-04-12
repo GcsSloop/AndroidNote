@@ -24,7 +24,7 @@
 
 ## [教程类](https://github.com/GcsSloop/AndroidNote/tree/master/Course)
 
-序号 | 链接
+序号 | 内容
 :---:|--------
  01  | [在AndroidStudio中使用PlantUML](https://github.com/GcsSloop/AndroidNote/blob/master/Course/HowToUsePlantUMLInAS.md)
  02  | [优雅的发布Android开源库(论JitPack的优越性)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/ReleaseLibraryByJitPack.md)
