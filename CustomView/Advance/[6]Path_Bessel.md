@@ -1,8 +1,10 @@
 # Path之贝塞尔曲线
 
 ### 作者微博: [@攻城师sloop](http://weibo.com/GcsSloop)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
-本次讲解Path中的贝塞尔曲线部分，创造更多**炫(zhuang)酷(B)**的东东。
+在上一篇文章[Path之基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_BasicGraphics.md)中我们了解了Path的基本使用方法，本次了解一些Path中非常重要的内容-贝塞尔曲线。
+
 
 ******
 
