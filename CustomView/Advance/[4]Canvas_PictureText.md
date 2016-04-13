@@ -178,7 +178,7 @@ public void drawPicture (Picture picture, RectF dst)
 ```
         // 包装成为Drawable
         PictureDrawable drawable = new PictureDrawable(mPicture);
-        // 设置绘制区域 -- 注意此处所绘制的实际内容不会缩放，而是相当于剪裁
+        // 设置绘制区域 -- 注意此处所绘制的实际内容不会缩放
         drawable.setBounds(0,0,250,mPicture.getHeight());
         // 绘制
         drawable.draw(canvas);
@@ -186,7 +186,7 @@ public void drawPicture (Picture picture, RectF dst)
 
 <img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2kx0bquw3j30u01hcdg8.jpg" width = "300" />  
 
-**PS:此处setBounds相当于剪裁显示区域，并非根据该区域进行缩放。**
+**PS:此处setBounds是设置在画布上的绘制区域，并非根据该区域进行缩放，也不是剪裁Picture，每次都从Picture的左上角开始绘制。**
 
 > **注意：在使用Picture之前请关闭硬件加速，以免引起不必要的问题，如何关闭请参考这里： [Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
 
