@@ -497,7 +497,7 @@ log 输出结果:
 #### set
 方法预览：
 ``` java
-        public void reset ()
+        public void set (Path src)
 ```
 
 将新的path赋值到现有path。
