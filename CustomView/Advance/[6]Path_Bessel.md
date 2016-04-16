@@ -78,6 +78,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ## 如何轻松入门贝塞尔曲线
 
+虽然贝塞尔曲线用途非常广泛，然而目前在国内并没有适合的入门教程，
 
 
 
