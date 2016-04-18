@@ -1,6 +1,6 @@
 # Path之贝塞尔曲线
 
-### 作者微博: [@攻城师sloop](http://weibo.com/GcsSloop)
+### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
 在上一篇文章[Path之基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_BasicGraphics.md)中我们了解了Path的基本使用方法，本次了解Path中非常重要的内容-贝塞尔曲线。
@@ -78,7 +78,13 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ## 如何轻松入门贝塞尔曲线
 
-虽然贝塞尔曲线用途非常广泛，然而目前在国内并没有适合的入门教程，
+虽然贝塞尔曲线用途非常广泛，然而目前貌似并没有适合的中文教程，能够搜索出来Android关于贝塞尔曲线的中文文章基本可以分为以下几种：
+* 科普型(只是让人了解贝塞尔，并没有实质性的内容)
+* 装逼型(摆出来一大堆公式，引用一堆英文原文)
+* 基础型(仅仅是讲解贝塞尔曲线的两个函数用法)
+* 实战型(根据实例讲解其中贝塞尔曲线的运用)
+
+以上几种类型中比较有用的就是基础型和实战型，但两者各有不足，本文会综合两者内容，从零开始学习贝塞尔曲线。
 
 
 
