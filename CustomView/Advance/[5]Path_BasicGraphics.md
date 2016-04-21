@@ -1,4 +1,4 @@
-# Path之基本图形
+# Path之基本操作
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
