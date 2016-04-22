@@ -84,7 +84,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif)
 
-**PS：一阶曲线其实就是前面讲解过的lineTo。**
+> **PS：一阶曲线其实就是前面讲解过的lineTo。**
 
 **二阶曲线原理：**
 
@@ -108,7 +108,14 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
 
-**PS: 二阶曲线对应的方法是quadTo**
+> **PS: 二阶曲线对应的方法是quadTo**
+
+**三阶曲线原理：**
+
+三阶曲线由两个数据点(A 和 D)，两个控制点(B 和 C)来描述曲线状态，如下：
+
+
+
 
 ## 三.总结
 
