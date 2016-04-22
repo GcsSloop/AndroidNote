@@ -31,13 +31,13 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 重置路径   | reset, rewind | 清除Path中的内容(**reset相当于重置到new Path阶段，rewind会保留Path的数据结构**)
 矩阵操作   | transform | 矩阵变换
 
-# 二.Path详解
+## 二.Path详解
 
 上一次除了一些常用函数之外，讲解的基本上都是直线，本次需要了解其中的曲线部分,说到曲线，就不得不提大名鼎鼎的贝塞尔曲线。它的发明者是下面这个人(法国数学家PierreBézier)。
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ky5bw28pg305k07h3yo.gif)
 
-## 贝塞尔曲线能干什么？
+### 贝塞尔曲线能干什么？
 
 贝塞尔曲线的运用是十分广泛的，可以说**贝塞尔曲线奠定了计算机绘图的基础(_因为它可以将任何复杂的图形用精确的数学语言进行描述_)**，在你不经意间就已经使用过它了。
 
@@ -53,7 +53,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 * 很多炫酷的动画效果
 
 
-## 如何轻松入门贝塞尔曲线
+### 如何轻松入门贝塞尔曲线
 
 虽然贝塞尔曲线用途非常广泛，然而目前貌似并没有适合的中文教程，能够搜索出来Android关于贝塞尔曲线的中文文章基本可以分为以下几种：
 * 科普型(只是让人了解贝塞尔，并没有实质性的内容)
@@ -63,7 +63,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 以上几种类型中比较有用的就是基础型和实战型，但两者各有不足，本文会综合两者内容，从零开始学习贝塞尔曲线。
 
-### 第一步.理解贝塞尔曲线的原理
+#### 第一步.理解贝塞尔曲线的原理
  
 此处理解贝塞尔曲线并非是学会公式的推倒过程，而是要了解贝塞尔曲线是如何生成的。贝塞尔曲线是用一系列点来控制曲线状态的，我将这些点简单分为两类：
 
@@ -76,7 +76,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 **一阶曲线原理：**
 
-一阶曲线最终效果一个线段，一阶曲线是没有控制点的，仅有两个数据点AB。
+一阶曲线是没有控制点的，仅有两个数据点(A 和 B)，最终效果一个线段。
 
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f35of045w8j308c0dwq2z.jpg)
 
@@ -88,14 +88,14 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 **二阶曲线原理：**
 
-二阶曲线由两个数据点，一个控制点来描述曲线状态，大致如下：
+二阶曲线由两个数据点(A 和 C)，一个控制点(B)来描述曲线状态，大致如下：
 
-
+![http://ww3.sinaimg.cn/large/005Xtdi2jw1f35p4913k7j308c0dw74d.jpg]
 
 上图中红色曲线部分就是传说中的二阶贝塞尔曲线，那么这条红色曲线是如何生成的呢？接下来我们就以其中的一个状态分析一下：
 
 连接AB BC，并在AB上取点E，BC上取点F，使其满足条件：
-
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=%5Cfrac%7BAD%7D%7BAB%7D%20%3D%20%5Cfrac%7BBE%7D%7BBC%7D" style="border:none;" />
 
  
 如图所示，图中有ABC三个点，其中AB为曲线的数据点(锚点)，C为控制点(控点)。
@@ -105,5 +105,12 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 
 ## 三.总结
+
+## About Me
+
+### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
+
+<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
+
 
 ## 参考资料
