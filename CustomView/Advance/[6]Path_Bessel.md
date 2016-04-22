@@ -37,23 +37,6 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f1ky5bw28pg305k07h3yo.gif)
 
-**在Google中搜索贝塞尔曲线，我们看到的基本就是下面这些不明觉厉的图形：**
-
-贝塞尔曲线 | 结构 | 演示动画
- --- | --- | ---
- 一阶曲线<br/>(线性曲线) | ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif) | ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif)
- 二阶曲线 | ![](https://upload.wikimedia.org/wikipedia/commons/6/6b/B%C3%A9zier_2_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
-三阶曲线 |  ![](https://upload.wikimedia.org/wikipedia/commons/8/89/B%C3%A9zier_3_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
-四阶曲线 | ![](https://upload.wikimedia.org/wikipedia/commons/b/bf/B%C3%A9zier_4_big.svg) | ![](https://upload.wikimedia.org/wikipedia/commons/a/a4/B%C3%A9zier_4_big.gif)
-
-**或者类似于这样的不明觉厉的公式：**
-
-![](https://upload.wikimedia.org/math/8/f/4/8f4c915ef475b93fc0f8374f378e436f.png)
-
-**基本上，大部分人看到这里已经懵逼了，话说这根本就是数学家干的活吧，让我一个写程序(_差点挂在高数上下不来_)的弄这个？**
-
-> **不用担心，本次内容中不会拿这些不明觉厉的东西去忽悠大家，会尽量用通俗易懂接地气的方式描述贝塞尔曲线，下面正式开始。**
-
 ## 贝塞尔曲线能干什么？
 
 贝塞尔曲线的运用是十分广泛的，可以说**贝塞尔曲线奠定了计算机绘图的基础(_因为它可以将任何复杂的图形用精确的数学语言进行描述_)**，在你不经意间就已经使用过它了。
