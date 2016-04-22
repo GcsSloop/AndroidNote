@@ -90,19 +90,25 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 二阶曲线由两个数据点(A 和 C)，一个控制点(B)来描述曲线状态，大致如下：
 
-![http://ww3.sinaimg.cn/large/005Xtdi2jw1f35p4913k7j308c0dw74d.jpg]
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f35p4913k7j308c0dw74d.jpg)
 
 上图中红色曲线部分就是传说中的二阶贝塞尔曲线，那么这条红色曲线是如何生成的呢？接下来我们就以其中的一个状态分析一下：
 
-连接AB BC，并在AB上取点E，BC上取点F，使其满足条件：
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f361bjqj2vj308c0dwwem.jpg)
+
+连接AB BC，并在AB上取点D，BC上取点E，使其满足条件：
 <img src="http://chart.googleapis.com/chart?cht=tx&chl=%5Cfrac%7BAD%7D%7BAB%7D%20%3D%20%5Cfrac%7BBE%7D%7BBC%7D" style="border:none;" />
 
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f361oje6h1j308c0dwdg0.jpg)
  
-如图所示，图中有ABC三个点，其中AB为曲线的数据点(锚点)，C为控制点(控点)。
+连接DE，取点F，使得: 
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=%5Cfrac%7BAD%7D%7BAB%7D%20%3D%20%5Cfrac%7BBE%7D%7BBC%7D%20%3D%20%5Cfrac%7BDF%7D%7BDE%7D" style="border:none;" />
 
+这样获取到的点F就是贝塞尔曲线上的一个点，动态过程如下：
 
+![](https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
 
-
+**PS: 二阶曲线对应的方法是quadTo**
 
 ## 三.总结
 
