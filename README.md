@@ -29,6 +29,13 @@
  01  | [在AndroidStudio中使用PlantUML](https://github.com/GcsSloop/AndroidNote/blob/master/Course/HowToUsePlantUMLInAS.md)
  02  | [优雅的发布Android开源库(论JitPack的优越性)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/ReleaseLibraryByJitPack.md)
 
+## [速查表](https://github.com/GcsSloop/AndroidNote/tree/master/QuickChart)
+
+序号 | 内容
+:---:|---------------
+ 01  | [Canvas常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Canvas.md)
+ 02  | [Path常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Path.md)
+ 03  | [贝塞尔曲线常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bessel.md)
 
 
 ## About Me
