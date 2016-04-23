@@ -118,7 +118,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 三阶曲线计算过程与二阶类似，具体可以见下图动态效果：
 
-https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
+![](https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
 
 > **PS: 三阶曲线对应的方法是cubicTo**
 
