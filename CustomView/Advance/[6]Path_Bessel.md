@@ -114,7 +114,13 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 三阶曲线由两个数据点(A 和 D)，两个控制点(B 和 C)来描述曲线状态，如下：
 
+![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f36myeqcu5j308c0dwdg2.jpg)
 
+三阶曲线计算过程与二阶类似，具体可以见下图动态效果：
+
+https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
+
+> **PS: 三阶曲线对应的方法是cubicTo**
 
 
 ## 三.总结
