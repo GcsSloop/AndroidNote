@@ -53,7 +53,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 * 很多炫酷的动画效果
 
 
-### 如何轻松入门贝塞尔曲线
+### 如何轻松入门贝塞尔曲线？
 
 虽然贝塞尔曲线用途非常广泛，然而目前貌似并没有适合的中文教程，能够搜索出来Android关于贝塞尔曲线的中文文章基本可以分为以下几种：
 * 科普型(只是让人了解贝塞尔，并没有实质性的内容)
@@ -63,7 +63,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 以上几种类型中比较有用的就是基础型和实战型，但两者各有不足，本文会综合两者内容，从零开始学习贝塞尔曲线。
 
-#### 第一步.理解贝塞尔曲线的原理
+### 第一步.理解贝塞尔曲线的原理
  
 此处理解贝塞尔曲线并非是学会公式的推倒过程，而是要了解贝塞尔曲线是如何生成的。贝塞尔曲线是用一系列点来控制曲线状态的，我将这些点简单分为两类：
 
@@ -121,6 +121,16 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 ![](https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
 
 > **PS: 三阶曲线对应的方法是cubicTo**
+
+> #### [贝塞尔曲线速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bessel.md)
+
+#### 强烈推荐[点击这里](http://bezier.method.ac/)练习贝塞尔曲线，可以加深对贝塞尔曲线的理解程度。
+
+### 第二步.了解贝塞尔曲线相关函数使用方法
+
+#### 一阶曲线：
+
+一阶曲线是一条线段，非常简单，可以参见上一篇文章[Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)
 
 
 ## 三.总结
