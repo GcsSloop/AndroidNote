@@ -130,7 +130,13 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 #### 一阶曲线：
 
-一阶曲线是一条线段，非常简单，可以参见上一篇文章[Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)
+一阶曲线是一条线段，非常简单，可以参见上一篇文章[Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)，此处就不详细讲解了。
+
+#### 二阶曲线：
+
+通过上面对二阶曲线的简单了解，我们知道二阶曲线是由两个数据点，一个控制点构成，接下来我们就用一个实例来演示二阶曲线是如何运用的。
+
+
 
 
 ## 三.总结
