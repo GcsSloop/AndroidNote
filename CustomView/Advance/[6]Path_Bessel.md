@@ -140,7 +140,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f39vugjg0vg308c0e8409.gif)
 
-> 从上面的动态图可以看出，贝塞尔曲线在动态变化过程中有类似于橡皮筋一样的弹性效果，因此在制作一些弹性效果的时候很常用。
+> 为了更加容易看出控制点与曲线弯曲程度的关系，上图中绘制除了辅助点和辅助线，从上面的动态图可以看出，贝塞尔曲线在动态变化过程中有类似于橡皮筋一样的弹性效果，因此在制作一些弹性效果的时候很常用。
 
 主要代码如下：
 
@@ -220,6 +220,9 @@ public class Bessel1 extends View {
 
 ```
 
+#### 三阶曲线：
+
+### 第三步.贝塞尔曲线使用实例
 
 
 ## 三.总结
@@ -229,6 +232,5 @@ public class Bessel1 extends View {
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
 
 <a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
-
 
 ## 参考资料
