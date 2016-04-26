@@ -140,6 +140,8 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f39vugjg0vg308c0e8409.gif)
 
+> 从上面的动态图可以看出，贝塞尔曲线在动态变化过程中有类似于橡皮筋一样的弹性效果，因此在制作一些弹性效果的时候很常用。
+
 主要代码如下：
 
 ``` java
