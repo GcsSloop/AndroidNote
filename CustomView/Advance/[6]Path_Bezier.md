@@ -145,7 +145,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 主要代码如下：
 
 ``` java
-public class Bessel1 extends View {
+public class Bezier extends View {
 
     private Paint mPaint;
     private int centerX, centerY;
@@ -223,7 +223,108 @@ public class Bessel1 extends View {
 #### 三阶曲线：
 三阶曲线由两个数据点和两个控制点来控制曲线状态。
 
+![](http://ww1.sinaimg.cn/large/005Xtdi2gw1f3bmilt4flg308c0e8q5e.gif)
 
+代码:
+
+``` java
+public class Bezier2 extends View {
+
+    private Paint mPaint;
+    private int centerX, centerY;
+
+    private PointF start, end, control1, control2;
+    private boolean mode = true;
+
+    public Bezier2(Context context) {
+        this(context, null);
+
+    }
+
+    public Bezier2(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        mPaint = new Paint();
+        mPaint.setColor(Color.BLACK);
+        mPaint.setStrokeWidth(8);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setTextSize(60);
+
+        start = new PointF(0, 0);
+        end = new PointF(0, 0);
+        control1 = new PointF(0, 0);
+        control2 = new PointF(0, 0);
+    }
+
+    public void setMode(boolean mode) {
+        this.mode = mode;
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        centerX = w / 2;
+        centerY = h / 2;
+
+        // 初始化数据点和控制点的位置
+        start.x = centerX - 200;
+        start.y = centerY;
+        end.x = centerX + 200;
+        end.y = centerY;
+        control1.x = centerX;
+        control1.y = centerY - 100;
+        control2.x = centerX;
+        control2.y = centerY - 100;
+
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // 根据触摸位置更新控制点，并提示重绘
+        if (mode) {
+            control1.x = event.getX();
+            control1.y = event.getY();
+        } else {
+            control2.x = event.getX();
+            control2.y = event.getY();
+        }
+        invalidate();
+        return true;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        //drawCoordinateSystem(canvas);
+
+        // 绘制数据点和控制点
+        mPaint.setColor(Color.GRAY);
+        mPaint.setStrokeWidth(20);
+        canvas.drawPoint(start.x, start.y, mPaint);
+        canvas.drawPoint(end.x, end.y, mPaint);
+        canvas.drawPoint(control1.x, control1.y, mPaint);
+        canvas.drawPoint(control2.x, control2.y, mPaint);
+
+        // 绘制辅助线
+        mPaint.setStrokeWidth(4);
+        canvas.drawLine(start.x, start.y, control1.x, control1.y, mPaint);
+        canvas.drawLine(control1.x, control1.y,control2.x, control2.y, mPaint);
+        canvas.drawLine(control2.x, control2.y,end.x, end.y, mPaint);
+
+        // 绘制贝塞尔曲线
+        mPaint.setColor(Color.RED);
+        mPaint.setStrokeWidth(8);
+
+        Path path = new Path();
+
+        path.moveTo(start.x, start.y);
+        path.cubicTo(control1.x, control1.y, control2.x,control2.y, end.x, end.y);
+
+        canvas.drawPath(path, mPaint);
+    }
+}
+
+```
 
 > 三阶曲线相比于二阶曲线可以制作更加复杂的形状，但是对于高阶的曲线，用低阶的曲线组合也可达到相同的效果，就是传说中的**降阶**。因此我们对贝塞尔曲线的封装方法一般最高只到三阶曲线。
 
