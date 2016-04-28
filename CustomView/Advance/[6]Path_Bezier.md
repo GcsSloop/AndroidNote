@@ -363,9 +363,11 @@ public class Bezier2 extends View {
 
 我们最终的需要的效果是将一个圆转变成一个心形，通过分析可知，圆可以由四段三阶贝塞尔曲线组合而成，如下：
 
+![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f3chnpgub3j308c0e7weq.jpg)
 
 心形也可以由四段的三阶的贝塞尔曲线组成，如下：
 
+![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f3chod09sbj308c0e774j.jpg)
 
 两者的差别仅仅在于数据点和控制点位置不同，因此只需要调整数据点和控制点的位置，就能将圆形变为心形。
 
