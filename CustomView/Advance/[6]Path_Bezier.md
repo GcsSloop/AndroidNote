@@ -576,3 +576,15 @@ public class Bezier3 extends View {
 <a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
 
 ## 参考资料
+[Path](http://developer.android.com/reference/android/graphics/Path.html)<br/>
+[Canvas](http://developer.android.com/reference/android/graphics/Canvas.html)<br/>
+[贝塞尔曲线扫盲](http://www.html-js.com/article/1628)<br/>
+[贝塞尔曲线-维基百科](https://zh.wikipedia.org/wiki/%E8%B2%9D%E8%8C%B2%E6%9B%B2%E7%B7%9A)<br/>
+[How to create circle with Bézier curves?](http://stackoverflow.com/questions/1734745/how-to-create-circle-with-b%C3%A9zier-curves)<br/>
+[三次贝塞尔曲线练习之弹性的圆](http://www.jianshu.com/p/791d3a791ec2)<br/>
+
+
+
+
+
+
