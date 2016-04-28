@@ -122,7 +122,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 > **PS: 三阶曲线对应的方法是cubicTo**
 
-> #### [贝塞尔曲线速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bessel.md)
+#### [贝塞尔曲线速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bessel.md)
 
 #### 强烈推荐[点击这里](http://bezier.method.ac/)练习贝塞尔曲线，可以加深对贝塞尔曲线的理解程度。
 
@@ -559,6 +559,15 @@ public class Bezier3 extends View {
 ```
 
 ## 三.总结
+
+其实关于贝塞尔曲线最重要的是核心理解贝塞尔曲线的生成方式，只有理解了贝塞尔曲线的生成方式，才能更好的运用贝塞尔曲线。在上一篇末尾说本篇要涉及一点自相交图形渲染问题，不幸的是，本篇没有了，请期待下一篇(可能会在下一篇中出现)，下一篇依旧Path相关内容，会教给大家更好玩的一些东西。
+
+解锁新的境界之[弹性的圆](http://www.jianshu.com/p/791d3a791ec2)：
+
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f3cij475bhg30k00zk46m.gif" width=300 />
+
+(,,• ₃ •,,)
+#### PS: 由于本人水平有限，某些地方可能存在误解或不准确，如果你对此有疑问可以提交Issues进行反馈。
 
 ## About Me
 
