@@ -19,8 +19,9 @@
   06  | [安卓自定义View进阶 - 画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)
   07  | [安卓自定义View进阶 - 图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md)
   08  | [安卓自定义View进阶 - Path基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)
-    
- ******
+  08  | [安卓自定义View进阶 - 贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md)
+  
+******
 
 ## [教程类](https://github.com/GcsSloop/AndroidNote/tree/master/Course)
 
@@ -29,6 +30,8 @@
  01  | [在AndroidStudio中使用PlantUML](https://github.com/GcsSloop/AndroidNote/blob/master/Course/HowToUsePlantUMLInAS.md)
  02  | [优雅的发布Android开源库(论JitPack的优越性)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/ReleaseLibraryByJitPack.md)
 
+******
+ 
 ## [速查表](https://github.com/GcsSloop/AndroidNote/tree/master/QuickChart)
 
 序号 | 内容
