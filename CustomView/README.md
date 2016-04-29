@@ -15,6 +15,8 @@
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md" target="_blank"><img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2hfy5heduj30rs0dwn04.jpg" width=300 /></a> |
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md" target="_blank"><img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2m36f27vzj30rs0dw777.jpg" width=300 /></a> |
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md" target="_blank"><img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f34oiciiysj30rs0dwn02.jpg" width=300 /></a> |
+<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md" target="_blank"><img src="http://ww2.sinaimg.cn/large/005Xtdi2gw1f3dipcytxxj30rs0dwtbj.jpg" width=300 /></a> |
+
 
 ## About Me
 
