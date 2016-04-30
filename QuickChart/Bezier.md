@@ -2,6 +2,8 @@
 
 > ### 贝塞尔曲线的操作方法均包含在Path中，详情可参考[Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bessel.md)
 
+> **表格中演示动画均来自维基百科**
+
 贝塞尔曲线               | 对应的方法 | 演示动画
 :-----------------------:|------------|------------------------------------------------------------------------------
  一阶曲线<br/>(线性曲线) | lineTo     | ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif)
