@@ -81,7 +81,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f35of045w8j308c0dwq2z.jpg)
 
-> **上图表示的是一阶曲线生成过程中的某一个阶段，动态过程可以参照下图。**
+> **上图表示的是一阶曲线生成过程中的某一个阶段，动态过程可以参照下图(本文中贝塞尔曲线相关的动态演示图片来自维基百科)。**
 
 ![](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif)
 
