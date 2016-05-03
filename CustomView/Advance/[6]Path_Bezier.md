@@ -508,7 +508,7 @@ public class Bezier3 extends View {
             mCtrl[4] -= 20/mCount;
             mCtrl[10] += 20/mCount;
 
-        //    postInvalidateDelayed((long) mPiece);
+            postInvalidateDelayed((long) mPiece);
         }
     }
 
