@@ -8,9 +8,16 @@
 
 ## 错误原因
 
-这个错误是drawText方法中坐标的一个问题，就一般的绘图而言，坐标一般都是指定左上角，然而drawText默认并不是左上角，甚至不是大家测试后认为的左下角，而是一个由paint中Align决定的对齐基准线，该API原文如下：
+这个错误是drawText方法中坐标的一个问题，就一般的绘图而言，坐标一般都是指定左上角，然而drawText默认并不是左上角，甚至不是大家测试后认为的左下角，而是一个**由Paint中Align决定的对齐基准线**，该API原文如下：
 
 > Draw the text, with origin at (x,y), using the specified paint. **The origin is interpreted based on the Align setting in the paint.**
 
+在默认情况下基线如下图所示：
+
+## 分析原因
+
+** Q: 为何要采用基线对齐方式？**
+
+> A :
 
 
