@@ -39,7 +39,16 @@ drawText是Canvas提供的一个方法，使用起来也比较简单，但是想
 
 ### drawText & Paint
 
-虽然在 [图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md) 这篇文章中有简单的了解部分方法，但并没有深入的去讲解，本次将会详细的讲解其中的各个方法。
+虽然在 [图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md) 这篇文章中有简单的了解部分方法，但并没有深入的去讲解，本次将会将与文本相关的部分全部摘出来讲解，至于其他内容以后再讲。
+
+先了解Paint中与文本相关的内部类或者枚举：
+
+名称           | 类型   | 主要作用
+---------------|:------:|------------------------------------------------------
+Align          | 枚举   | 指定基准线与文本的相对关系(包含 左对齐 右对齐 居中)
+Style          | 枚举   | 设置样式，但不仅仅是为文本服务(包含 描边 填充 描边加填充)
+FontMetrics    | 内部类 | 描述给定的文本大小，字体，间距等各种度量值(度量结果类型为float)
+FontMetricsInt | 内部类 | 作用同上，但度量结果返回值是int型的
 
 
 
