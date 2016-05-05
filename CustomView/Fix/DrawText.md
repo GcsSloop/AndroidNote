@@ -20,15 +20,16 @@
 
 ## 分析这样设计的原因
 
-**Q: 为何要采用底部基线对齐方式？**
+**Q: 为何基线y要放到文字下面，而不是上面？**
 
 > A : 既然采用这种对齐方式，必然有其缘由，至少不是为了坑我这种小白。据本人猜测可能有以下原因：
 * 1.符合人类书写习惯，不论是汉字还是英文或是其他语言，我们在书写对齐的时候都是以下面为基准线的，而不是上面，（**我们默认的基准线类似于四线格中的第三条线**）。<br/>
-![](http://ww4.sinaimg.cn/large/005Xtdi2gw1f3knbp87ttj30dw08cq38.jpg)
+![](http://ww4.sinaimg.cn/large/005Xtdi2gw1f3knbp87ttj30dw08cq38.jpg)<br/>
 * 2.字的特点，字的显示不仅有有中文汉字，还有一些特殊字符，并且大部分是根据下面对齐的，如果把对齐的基线放到上面并使其显示整齐，设计太麻烦，如下：<br/>
-![](http://ww1.sinaimg.cn/large/005Xtdi2gw1f3knvptqsrj30dw08cmxw.jpg)
+![](http://ww1.sinaimg.cn/large/005Xtdi2gw1f3knvptqsrj30dw08cmxw.jpg)<br/>
 * 3.字体的特点，我们都知道，字有很多的字体，不同字体的大小是不同的，如果以以上面为基准线，这设计难度简直不敢想象：<br/>
-![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f3ko9oln9lj30dw08cmxo.jpg)
+![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f3ko9oln9lj30dw08cmxo.jpg)<br/>
+**综上所述，基线y放到下面不仅符合人的书写习惯，而且更加便于设计。**
 
 
 
