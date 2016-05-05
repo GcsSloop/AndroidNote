@@ -70,7 +70,26 @@ Align对应的方法自然是setTextAlign，如下：
 
 在实际运用中基线与模式之间的关系则如下图所示：
 
+![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f3l2d6gw0nj30dw08c74q.jpg)
 
+> PS 该图片是截屏加工所得，其中红色的先是各自的基准线。注意汉字有一部分是在基准线下面的。
+
+其核心代码如下：
+
+``` java
+        canvas.translate(mCenterX,0);
+
+        mPaint.setColor(Color.rgb(0x06,0xaf,0xcd));
+
+        mPaint.setTextAlign(Paint.Align.LEFT);
+        canvas.drawText("左对齐", 0, 200, mPaint);
+
+        mPaint.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("居中对齐", 0, 400, mPaint);
+
+        mPaint.setTextAlign(Paint.Align.RIGHT);
+        canvas.drawText("右对齐", 0, 600, mPaint);
+```
 
 
 
