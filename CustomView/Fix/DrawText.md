@@ -62,6 +62,15 @@ LEFT     | 左对齐   基线X在文本左侧，基线y在文本下方，是默�
 RIGHT    | 右对齐   基线x在文本右侧，基线y在文本下方
 CENTER   | 居中对齐 基线x在文本中间，基线y在文本下方
 
+Align对应的方法自然是setTextAlign，如下：
+
+``` java
+  public void setTextAlign (Paint.Align align)
+```
+
+在实际运用中基线与模式之间的关系则如下图所示：
+
+
 
 
 
