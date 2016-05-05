@@ -77,10 +77,13 @@ Align对应的方法自然是setTextAlign，如下：
 其核心代码如下：
 
 ``` java
-        canvas.translate(mCenterX,0);
+        // 平移画布
+        canvas.translate(mCenterX,0);   // mCenterX 是屏幕宽度的一半，在onSizeChanged中获取
 
-        mPaint.setColor(Color.rgb(0x06,0xaf,0xcd));
+        // 设置字体颜色
+        mPaint.setColor(Color.rgb(0x06,0xaf,0xcd)); 
 
+        // 在不同模式下绘制文字
         mPaint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText("左对齐", 0, 200, mPaint);
 
