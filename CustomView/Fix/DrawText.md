@@ -62,10 +62,12 @@ LEFT     | 左对齐   基线X在文本左侧，基线y在文本下方，文本�
 RIGHT    | 右对齐   基线x在文本右侧，基线y在文本下方，文本出现在给定坐标的左侧
 CENTER   | 居中对齐 基线x在文本中间，基线y在文本下方，文本出现在给定坐标的两侧
 
-Align对应的方法自然是setTextAlign，如下：
+Align对应的方法如下：
 
 ``` java
-  public void setTextAlign (Paint.Align align)
+  public Paint.Align getTextAlign ()              // 获取对齐方式
+  
+  public void setTextAlign (Paint.Align align)    // 设置对齐方式
 ```
 
 在实际运用中基线与模式之间的关系则如下图所示：
@@ -103,6 +105,12 @@ Style的意思是样式，这个在 [Canvas之绘制基本形状](https://github
 FILL            | 填充
 STROKE          | 描边
 FILL_AND_STROKE | 填充加描边
+
+Style 对应的方法如下：
+
+``` java
+
+```
 
 
 
