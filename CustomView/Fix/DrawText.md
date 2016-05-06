@@ -58,9 +58,9 @@ Align中文意思是对齐，其作用正式如此，我们使用过 Word 的人
 
 枚举类型 | 作用
 ---------|-------------------------------------------------------------
-LEFT     | 左对齐   基线X在文本左侧，基线y在文本下方，是默认的对齐方式
-RIGHT    | 右对齐   基线x在文本右侧，基线y在文本下方
-CENTER   | 居中对齐 基线x在文本中间，基线y在文本下方
+LEFT     | 左对齐   基线X在文本左侧，基线y在文本下方，文本出现在给定坐标的右侧，是默认的对齐方式
+RIGHT    | 右对齐   基线x在文本右侧，基线y在文本下方，文本出现在给定坐标的左侧
+CENTER   | 居中对齐 基线x在文本中间，基线y在文本下方，文本出现在给定坐标的两侧
 
 Align对应的方法自然是setTextAlign，如下：
 
@@ -94,7 +94,15 @@ Align对应的方法自然是setTextAlign，如下：
         canvas.drawText("右对齐", 0, 600, mPaint);
 ```
 
+#### Style
 
+Style的意思是样式，这个在 [Canvas之绘制基本形状](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B2%5DCanvas_BasicGraphics.md) 这篇文章中讲过，它有三种状态：
+
+枚举类型        | 作用
+----------------|----------------
+FILL            | 填充
+STROKE          | 描边
+FILL_AND_STROKE | 填充加描边
 
 
 
