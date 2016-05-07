@@ -399,7 +399,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
         // 参数分别为 (文本 x轴坐标 y轴坐标 画笔)
         canvas.drawText(str,200,500,textPaint);
 ```
-<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx7r1l6ej30u01hct9i.jpg" width = "300" />  
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f3njfsi0l4j30dw0nuwey.jpg" width = "300" />  
 
 当然啦，除了能指定绘制文本的起始位置，还能只取出文本中的一部分内容进行绘制。
 
@@ -422,7 +422,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
         // 参数分别为 (字符串 开始截取位置 结束截取位置 x轴坐标 y轴坐标 画笔)
         canvas.drawText(str,1,3,200,500,textPaint);
 ```
-<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx8aclfhj30u01hct9g.jpg" width = "300" />  
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2gw1f3njh66018j30dw0nuq3b.jpg" width = "300" />  
 
 另外，对于字符数组char[]我们截取字符串使用起始位置(index)和长度(count)来确定。
 
@@ -436,7 +436,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
         // 参数为 (字符数组 起始坐标 截取长度 x轴坐标 y轴坐标 画笔)
         canvas.drawText(chars,1,3,200,500,textPaint);
 ```
-<img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f2kx8w1dcmj30u01hc0th.jpg" width = "300" />  
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f3njhnldb5j30dw0nu74o.jpg" width = "300" />  
 
 ### 第二类(drawPosText)
 
