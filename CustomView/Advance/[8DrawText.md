@@ -144,8 +144,23 @@ public void setStyle (Paint.Style style)    // 设置样式
         canvas.drawText("GcsSloop 中文", 0, 600, mPaint);
 ```
 
+#### FontMetrics
 
+> 看了前面的Align和Style是不是茅塞顿开，感觉自己在技(装)术(逼)的道路上又前进了一大步，O(∩_∩)O哈哈哈~
+请稍安勿躁，前面仅仅是餐前甜点，真正的大餐现在才开始。
 
+FontMetrics 是 Paint 的一个内部类，根据名字我们可以大致知道这是一个描述**字体规格**相关的类。
+
+关于这个类的描述原文是这样的：
+
+> Class that describes the various metrics for a font at a given text size. Remember, Y values increase going down, so those values will be positive, and values that measure distances going up will be negative. This class is returned by getFontMetrics().
+
+翻译一下：
+
+> 简单来说，FontMetrics包含了当前文本相关的各项参数，你可以通过 Paint中 _getFontMetrics()_ 这个方法来获取到这个类。
+(另外，原文中还特地强调了一下关于坐标正负的问题。）
+
+##### FontMetrics包含了以下几项参数：
 
 
 
