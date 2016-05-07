@@ -111,8 +111,15 @@ FILL_AND_STROKE | 填充加描边
 Style 对应的方法如下：
 
 ``` java
+public Paint.Style getStyle ()              // 获取当然样式
 
+public void setStyle (Paint.Style style)    // 设置样式
 ```
+
+效果如下：
+
+核心代码：
+
 
 
 
