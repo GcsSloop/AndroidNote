@@ -81,7 +81,7 @@ Align对应的方法如下：
 其核心代码如下：
 
 ``` java
-        // 平移画布
+        // 平移画布 - 如有疑问请参考画布操作这篇文章
         canvas.translate(mCenterX,0);   // mCenterX 是屏幕宽度的一半，在onSizeChanged中获取
 
         // 设置字体颜色
@@ -118,7 +118,32 @@ public void setStyle (Paint.Style style)    // 设置样式
 
 效果如下：
 
+![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f3nh9r8ih0j30dw08c3z4.jpg)
+
 核心代码：
+
+``` java
+        // 平移画布 - 如有疑问请参考画布操作这篇文章
+        canvas.translate(mCenterX,0);   // mCenterX 是屏幕宽度的一半，在onSizeChanged中获取
+
+        mPaint.setTextAlign(Paint.Align.CENTER);
+        mPaint.setColor(Color.rgb(0x06,0xaf,0xcd));
+
+        // 设置不同的样式
+
+        // 填充
+        mPaint.setStyle(Paint.Style.FILL);
+        canvas.drawText("GcsSloop 中文", 0, 200, mPaint);
+
+        // 描边
+        mPaint.setStyle(Paint.Style.STROKE);
+        canvas.drawText("GcsSloop 中文", 0, 400, mPaint);
+
+        // 描边加填充
+        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        canvas.drawText("GcsSloop 中文", 0, 600, mPaint);
+```
+
 
 
 
