@@ -31,7 +31,7 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 
 **使用Picture前请关闭硬件加速，以免引起不必要的问题！<br/>使用Picture前请关闭硬件加速，以免引起不必要的问题！<br/>使用Picture前请关闭硬件加速，以免引起不必要的问题！**
 
-**重要的话说三遍！<br/>如何关闭请参考这里：[Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
+**在AndroidMenifest文件中application节点下添上 android:hardwareAccelerated="false"以关闭整个应用的硬件加速。 <br/>更多请参考这里：[Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
 
 关于drawPicture一开始还是挺让人费解的，不过嘛，我们接下来慢慢研究一下它的用途。
 
