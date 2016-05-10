@@ -18,6 +18,6 @@
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md" target="_blank"><img src="http://ww2.sinaimg.cn/large/005Xtdi2gw1f3dipcytxxj30rs0dwtbj.jpg" width=300 /></a> |
 
 
-## About Me
+### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
-<a href="https://github.com/GcsSloop/SloopBlog/blob/master/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
+<a href="https://github.com/GcsSloop/README/blob/master/README.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
