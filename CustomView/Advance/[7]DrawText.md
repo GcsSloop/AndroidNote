@@ -170,6 +170,8 @@ descent | +   | 单个字符的最低点与基线距离的推荐值
 bottom  | +   | 在指定字形和大小的情况下，字符最低点与基线之间的距离
 leading	| +   | 行间距,当前行bottom与下一行top之间的距离的推荐值 (通常为0，因为top与ascent，bottom与leading之间的距离足够作为行间距了)
 
+![](http://ww1.sinaimg.cn/large/005Xtdi2gw1f3syr8fbd1j30dw08c755.jpg)
+
 看了上面啰啰嗦嗦讲了一堆，你可能会产生一些疑问，这里我简单解释一下：
 
 0、 FontMetrics到底有什么用？
