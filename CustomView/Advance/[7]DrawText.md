@@ -39,9 +39,7 @@ drawText是Canvas提供的一个方法，使用起来也比较简单，但是想
 
 ### drawText & Paint
 
-虽然在 [图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md) 这篇文章中有简单的了解部分方法，但并没有深入的去讲解，本次将会将与文本相关的部分全部摘出来讲解，至于其他内容以后再讲。
-
-先了解Paint中与文本相关的内部类或者枚举：
+虽然之前在 [图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md) 这篇文章中已经简单的了解部分关于文字的方法，但Paint中关于文字的方法还有很多，本文会了解一些我们比较关心的一些内容，例如绘制居中的文本，多行文本等，在此之前我们先了解一下Paint中与文本相关的内部类或者枚举：
 
 名称           | 类型   | 主要作用
 ---------------|:------:|------------------------------------------------------
