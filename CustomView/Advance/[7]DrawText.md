@@ -1,8 +1,8 @@
-# drawText
+# drawText之坐标、居中、绘制多行
+
+本文用于讲解Canvas中关于DrawText相关的一些常见问题，如坐标，居中，和绘制多行。
 
 之前由于个人的疏忽以及对问题的想当然，没有进行验证，在 [【安卓自定义View进阶 - 图片文字】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md) 这篇文章中出现了一个错误，有不少眼睛雪亮的网友都发现了该错误并给予了反馈，非常感谢这些网友的帮助。
-
-本文用来修正错误以及更加详细的讲解与绘制文本相关的各个知识点(其实本文大部分内容属于Paint部分，会在之后的文章中出现，但由于前面的失误，于是本篇内容提前了)，如果之前的文章让你造成了误解，在此向你致以诚挚的歉意。
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f3i3wsruf7j306o06o3yg.jpg)
 
