@@ -221,12 +221,39 @@ leading	| +   | 行间距,当前行bottom与下一行top之间的距离的推荐
 
 而让文字垂直居中则有些麻烦了，因为BaseLineY既不是顶部，底部，也不是中心，所以文本居中最难的内容就是计算BaseLineY的位置。
 
+我们已知：
 
+> 1. 中心位置坐标，centerX, centerY
+2. 文本高度：height ＝ descent－ascent
+3. descent的坐标：descentY ＝ centerY ＋ 1/2height
+4. baseLineY坐标：baseLineY ＝ descentY－descent
 
+通过上面内容可以推算出如下公式：
 
+> baseLineY ＝ centerY － 1/2(ascent + descent)
 
+**根据公式我们可以封装一个方法：**
 
+``` java
+    /**
+     * 居中绘制文本
+     *
+     * @param text
+     * @param canvas
+     * @param paint
+     */
+    public void drawTextByCenter(String text, float x, float y, Canvas canvas, Paint paint) {
+        Paint tempPaint = new Paint(paint);             // 创建一个临时画笔,防止影响原来画笔的状态
+        tempPaint.setTextAlign(Paint.Align.CENTER);     // 设置文本对齐方式为居中
 
+        // 通过y计算出baseline的位置
+        float baseline = y - (tempPaint.descent() + tempPaint.ascent()) / 2;   
+
+        canvas.drawText(text, x, baseline, tempPaint);  //绘制文本
+    }
+```
+
+**测试方法是否正确**
 
 
 
