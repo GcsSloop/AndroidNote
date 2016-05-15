@@ -33,12 +33,6 @@
 
 ## drawText从入门到懵逼
 
-drawText是Canvas提供的一个方法，使用起来也比较简单，但是想玩出花样，单单的会使用这些方法是远远不够的。
-
-**drawText方法的使用可以参见这一篇文章：[【安卓自定义View进阶 - 图片文字】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md) 这里就不多啰嗦了，接下来我们将会了解一些更加好玩的东西。**
-
-### drawText & Paint
-
 虽然之前在 [图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md) 这篇文章中已经简单的了解部分关于文字的方法，但Paint中关于文字的方法还有很多，本文会了解一些我们比较关心的一些内容，例如绘制居中的文本，多行文本等，在此之前我们先了解一下Paint中与文本相关的内部类或者枚举：
 
 名称           | 类型   | 主要作用
@@ -192,7 +186,10 @@ leading	| +   | 行间距,当前行bottom与下一行top之间的距离的推荐
 
 根据前面的知识可知，想让文字水平居中很容易，只需要设置 TextAlign 为 CENTER，然后将x坐标直接指定为中心轴即可。
 
-而让文字垂直居中则有些麻烦了，因为文字的基线Y的位置很特殊，下面我们探讨一下如何让文字真正实现居中显示。
+而让文字垂直居中则有些麻烦了，因为BaseLine既不是顶部，底部，也不是中心，所以以下的核心内容就是计算BaseLine的位置。
+
+
+
 
 
 
