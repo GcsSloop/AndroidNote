@@ -182,6 +182,37 @@ leading	| +   | 行间距,当前行bottom与下一行top之间的距离的推荐
 
 > 不会， **FontMetrics中的数值受字体大小(FontSize) 和 字体风格(Typeface) 影响**， 而不会因为具体绘制的内容不同而改变，给Paint设置完字体大小和字体风格后就能获取到正确的FontMetrics。
 
+**获取FontMetrics的方法**
+``` java
+    Paint.FontMetrics mMetrics = mPaint.getFontMetrics();
+    
+    Log.e("TAG", "top=" + mMetrics.top);
+    Log.e("TAG", "ascent=" + mMetrics.ascent);
+    Log.e("TAG", "descent=" + mMetrics.descent);
+    Log.e("TAG", "bottom=" + mMetrics.bottom);
+    Log.e("TAG", "leading=" + mMetrics.leading);
+```
+结果：
+```
+05-15 21:18:13.315 13112-13112/com.gcssloop.canvas E/TAG: top=-152.98828
+05-15 21:18:13.315 13112-13112/com.gcssloop.canvas E/TAG: ascent=-129.88281
+05-15 21:18:13.315 13112-13112/com.gcssloop.canvas E/TAG: descent=34.179688
+05-15 21:18:13.315 13112-13112/com.gcssloop.canvas E/TAG: bottom=37.939453
+05-15 21:18:13.315 13112-13112/com.gcssloop.canvas E/TAG: leading=0.0
+```
+
+**由于FontMetrics中的 ascent 与 descent 比较常用，所以可以直接通过Paint获取：**
+``` java
+    Log.e("TAG", "P.ascent=" + mPaint.ascent());
+    Log.e("TAG", "P.descent=" + mPaint.descent());
+```
+结果，可以看到与通过FontMetrics获得的结果相同。
+``` 
+05-15 21:24:18.950 13112-13112/com.gcssloop.canvas E/TAG: P.ascent=-129.88281
+05-15 21:24:18.955 13112-13112/com.gcssloop.canvas E/TAG: P.descent=34.179688
+```
+
+
 #### 文字居中
 
 对于绘制居中的文本来说，我们可以封装一个方法用中心点作为绘制坐标，在绘制的时候转换为实际坐标。
