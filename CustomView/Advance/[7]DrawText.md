@@ -14,7 +14,7 @@
 
 在默认情况下基线如下图所示：
 
-> PS：基准线(以下简称基线)有两条，是用户指定的坐标确定的，在默认情况下，基线X在字符串左侧，基线y在字符串下方(但并不是最低的部分)。
+> PS：基线(BaseLine)有两条，是用户指定的坐标确定的，在默认情况下，基线X在字符串左侧，基线y在字符串下方(但并不是最低的部分)。
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f3jppylp6zj30dw08c74v.jpg)
 
@@ -136,12 +136,7 @@ public void setStyle (Paint.Style style)    // 设置样式
 
 ### FontMetrics
 
-> 看了前面的Align和Style是不是茅塞顿开，感觉自己在技(装)术(逼)的道路上又前进了一大步，O(∩_∩)O哈哈哈~
-请稍安勿躁，前面仅仅是餐前甜点，真正的大餐现在才开始。
-
-FontMetrics 是 Paint 的一个内部类，根据名字我们可以大致知道这是一个描述**字体规格**相关的类。
-
-关于这个类的描述原文是这样的：
+FontMetrics 是 Paint 的一个内部类，根据名字我们可以大致知道这是一个描述**字体规格**相关的类，关于这个类的描述原文是这样的：
 
 > Class that describes the various metrics for a font at a given text size. Remember, Y values increase going down, so those values will be positive, and values that measure distances going up will be negative. This class is returned by getFontMetrics().
 
@@ -217,9 +212,9 @@ leading	| +   | 行间距,当前行bottom与下一行top之间的距离的推荐
 
 对于绘制居中的文本来说，我们可以封装一个方法用中心点作为绘制坐标，在绘制的时候转换为实际坐标。
 
-根据前面的知识可知，想让文字水平居中很容易，只需要设置 TextAlign 为 CENTER，那么BaseLineX自然就是这个字符串的中心了。
+根据前面的知识可知，想让文字水平居中很容易，只需要设置 TextAlign 为 CENTER，那么基线X(BaseLineX)自然就是这个字符串的中心了。
 
-而让文字垂直居中则有些麻烦了，因为BaseLineY既不是顶部，底部，也不是中心，所以文本居中最难的内容就是计算BaseLineY的位置。
+而让文字垂直居中则有些麻烦了，因为基线Y(BaseLineY)既不是顶部，底部，也不是中心，所以文本居中最难的内容就是计算BaseLineY的位置。
 
 我们已知：
 
