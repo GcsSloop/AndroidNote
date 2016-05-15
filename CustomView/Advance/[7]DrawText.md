@@ -42,7 +42,7 @@ Style          | 枚举   | 设置样式，但不仅仅是为文本服务(包含
 FontMetrics    | 内部类 | 描述给定的文本大小，字体，间距等各种度量值(度量结果类型为float)
 FontMetricsInt | 内部类 | 作用同上，但度量结果返回值是int型的
 
-#### Align
+### Align
 
 Align中文意思是对齐，其作用正式如此，我们使用过 Word 的人都知道文本有 *左对齐、居中、右对齐、两端对齐、分散对齐* 五种模式，Align作用就是设置文本的对齐模式，但是并没有这么多，仅有 **左对齐、居中、右对齐** 三种模式，如下：
 
@@ -88,7 +88,7 @@ Align对应的方法如下：
         canvas.drawText("右对齐", 0, 600, mPaint);
 ```
 
-#### Style
+### Style
 
 Style的意思是样式，这个在 [Canvas之绘制基本形状](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B2%5DCanvas_BasicGraphics.md) 这篇文章中讲过，它有三种状态：
 
@@ -134,7 +134,7 @@ public void setStyle (Paint.Style style)    // 设置样式
         canvas.drawText("GcsSloop 中文", 0, 600, mPaint);
 ```
 
-#### FontMetrics
+### FontMetrics
 
 > 看了前面的Align和Style是不是茅塞顿开，感觉自己在技(装)术(逼)的道路上又前进了一大步，O(∩_∩)O哈哈哈~
 请稍安勿躁，前面仅仅是餐前甜点，真正的大餐现在才开始。
@@ -213,7 +213,7 @@ leading	| +   | 行间距,当前行bottom与下一行top之间的距离的推荐
 ```
 
 
-#### 文字居中
+## 文字居中
 
 对于绘制居中的文本来说，我们可以封装一个方法用中心点作为绘制坐标，在绘制的时候转换为实际坐标。
 
@@ -266,6 +266,9 @@ leading	| +   | 行间距,当前行bottom与下一行top之间的距离的推荐
 
 结果：
 
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f3wlau69aaj30u01hcgmd.jpg" width=300 />
+
+## 绘制多行
 
 
 
