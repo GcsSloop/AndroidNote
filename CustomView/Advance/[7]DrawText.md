@@ -255,6 +255,16 @@ leading	| +   | 行间距,当前行bottom与下一行top之间的距离的推荐
 
 **测试方法是否正确**
 
+``` java
+    canvas.translate(mCenterX, mCenterY);
+
+    String text = "ASSA";
+    mPaint.setColor(Color.BLACK);
+
+    drawTextByCenter(text, 0, 0, canvas, mPaint);
+```
+
+结果：
 
 
 
