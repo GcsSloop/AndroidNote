@@ -63,6 +63,10 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 ```
 <img src ="http://ww2.sinaimg.cn/large/005Xtdi2jw1f3zy4lyb4gj30u01hcmxj.jpg" width=300 />
 
+这个例子中，将 lineTo 换成了 rLineTo 可以看到在屏幕上面画出了一条直线。
+
+在这个例子中，第一次使用moveTo方法将当前点移动到了 (100,100) 这个位置，之后使用 rLineTo 是基于 (100,100) 这个位置偏移一段距离，即相当于连接 (100,100) 到 (100+100, 100+100);
+
 
 ### 填充模式
 
