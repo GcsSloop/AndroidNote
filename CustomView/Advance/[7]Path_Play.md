@@ -46,12 +46,19 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
     path.moveTo(100,100);
     path.lineTo(100,100);
+
+    canvas.drawPath(path,mDeafultPaint);
 ```
 
 在这个例子中，先移动点到坐标(100，100)处，之后再连接 _点(100，100)_ 到 _(100，100)_ 之间点直线,由于线点起点和终点相同，所以在屏幕上不会绘制出任何内容，接下来看下面一个例子。
 
 ``` java
+    Path path = new Path();
 
+    path.moveTo(100,100);
+    path.rLineTo(100,100);
+
+    canvas.drawPath(path,mDeafultPaint);
 ```
 
 
