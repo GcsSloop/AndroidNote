@@ -49,6 +49,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
     canvas.drawPath(path,mDeafultPaint);
 ```
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f3zy3gglyxj30u01hc0t3.jpg" width=300 />
 
 在这个例子中，先移动点到坐标(100，100)处，之后再连接 _点(100，100)_ 到 _(100，100)_ 之间点直线,由于线点起点和终点相同，所以在屏幕上不会绘制出任何内容，接下来看下面一个例子。
 
@@ -60,7 +61,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
     canvas.drawPath(path,mDeafultPaint);
 ```
-
+<img src ="http://ww2.sinaimg.cn/large/005Xtdi2jw1f3zy4lyb4gj30u01hcmxj.jpg" width=300 />
 
 
 ### 填充模式
