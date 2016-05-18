@@ -37,7 +37,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
 此类方法可以看到和前面的一些方法看起来很像，只是在前面多了一个r，那么这个rXxx和前面的一些方法有什么区别呢？
 
-> 区别就在于rXxx方法是基于当前点的位移距离，而之前的方法是基于坐标原点的位移距离(即当前坐标系的坐标)
+> **rXxx方法的坐标使用的是相对位置(基于当前点的位移)，而之前方法的坐标是绝对位置(基于当前坐标系的坐标)。**
 
 **举个例子:**
 
@@ -45,28 +45,29 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
     Path path = new Path();
 
     path.moveTo(100,100);
-    path.lineTo(100,100);
+    path.lineTo(100,200);
 
     canvas.drawPath(path,mDeafultPaint);
 ```
-<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f3zy3gglyxj30u01hc0t3.jpg" width=300 />
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f403p6ftn9j30u01hc74m.jpg" width=300 />
 
-在这个例子中，先移动点到坐标(100，100)处，之后再连接 _点(100，100)_ 到 _(100，100)_ 之间点直线,由于线点起点和终点相同，所以在屏幕上不会绘制出任何内容，接下来看下面一个例子。
+在这个例子中，先移动点到坐标(100，100)处，之后再连接 _点(100，100)_ 到 _(100，200)_ 之间点直线,非常简单，画出来就是一条竖直的线，那接下来看下一个例子：
 
 ``` java
     Path path = new Path();
 
     path.moveTo(100,100);
-    path.rLineTo(100,100);
+    path.rLineTo(100,200);
 
     canvas.drawPath(path,mDeafultPaint);
 ```
-<img src ="http://ww2.sinaimg.cn/large/005Xtdi2jw1f3zy4lyb4gj30u01hcmxj.jpg" width=300 />
+<img src ="http://ww1.sinaimg.cn/large/005Xtdi2jw1f403zs9qeej30u01hcdg7.jpg" width=300 />
 
-这个例子中，将 lineTo 换成了 rLineTo 可以看到在屏幕上面画出了一条直线。
+这个例子中，将 lineTo 换成了 rLineTo 可以看到在屏幕上原本是竖直的线变成了倾斜的线。这是因为最终我们连接的是 _(100,100)_ 和 _(200, 300)_ 之间的线段。
 
-在这个例子中，第一次使用moveTo方法将当前点移动到了 (100,100) 这个位置，之后使用 rLineTo 是基于 (100,100) 这个位置偏移一段距离，即相当于连接 (100,100) 到 (100+100, 100+100);
+在使用rLineTo之前，当前点的位置在 (100,100) ， 使用了 rLineTo(100,200) 之后，下一个点的位置是在当前点的基础上加上偏移量得到的，即 (100+100, 100+200) 这个位置，故最终结果如上所示。
 
+**PS: 此处仅以 rLineTo 为例，只要理解 “绝对坐标” 和 “相对坐标” 的区别，其他方法类比即可。**
 
 ### 填充模式
 
