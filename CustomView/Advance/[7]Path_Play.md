@@ -129,8 +129,29 @@ P3: 从P3点发出一条射线，沿射线方向移动，在第一个交点处�
 
 简单的提一下自相交图形，了解概念即可，下图就是一个简单的自相交图形：
 
+![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f42dp5drq4j308c0dw74b.jpg)
+
+#### Android中的填充模式
+
+Android中的填充模式有四种，是封装在Path中的一个枚举。
+
+模式             | 简介
+-----------------|-----------------------
+EVEN_ODD         | 奇偶规则
+INVERSE_EVEN_ODD | 反奇偶规则
+WINDING          | 非零环绕数规则
+INVERSE_WINDING  | 反非零环绕数规则
 
 
+
+#### Android与填充模式相关的方法
+
+方法                    | 作用
+------------------------|----------------------------
+setFillType             | 
+getFillType             | 
+isInverseFillType       | 
+toggleInverseFillType   |
 
 
 
