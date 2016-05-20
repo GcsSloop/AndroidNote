@@ -159,7 +159,54 @@ toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之�
 
 #### 示例演示：
 
+本演示着重于帮助理解填充模式中的一些难点和易混淆的问题，对于一些比较简单的问题，读者可自行验证，本文中不会过多赘述。
 
+##### 奇偶规则于反奇偶规则
+
+``` java
+    mDeafultPaint.setStyle(Paint.Style.FILL);                   // 设置画布模式为填充
+
+    canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 移动画布(坐标系)
+
+    Path path = new Path();                                     // 创建Path
+
+    //path.setFillType(Path.FillType.EVEN_ODD);                   // 设置Path填充模式为 奇偶规则
+    path.setFillType(Path.FillType.INVERSE_WINDING);            // 反奇偶规则
+
+    path.addRect(-200,-200,200,200, Path.Direction.CW);         // 给Path中添加一个矩形
+```
+
+下面两张图片分别是在奇偶规则于反奇偶规则的情况下绘制的结果，可以看出其填充的区域刚好相反：
+
+> PS: 白色为背景色，黑色为填充色。
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2gw1f42jji5nm9j308c0et749.jpg)
+![](http://ww1.sinaimg.cn/large/005Xtdi2gw1f42jjtay96j308c0etaa1.jpg)
+
+##### 图形边的方向对非零奇偶环绕数规则填充结果的影响
+
+我们之前讨论过给Path添加图形时顺时针与逆时针的作用，除了上次讲述的方便记录外，就是本文所涉及的另外一个重要作用了: **"作为非零环绕数规则的判断依据。"**
+
+通过前面我们已经大致了解了在图形边的方向会如何影响到填充效果，我们这里验证一下:
+
+``` java
+    mDeafultPaint.setStyle(Paint.Style.FILL);                   // 设置画笔模式为填充
+
+    canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 移动画布(坐系)
+
+    Path path = new Path();                                     // 创建Path
+
+    // 添加小正方形 (通过这两行代码来控制小正方形边的方向,从而演示不同的效果)
+    // path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+    path.addRect(-200, -200, 200, 200, Path.Direction.CCW);
+
+    // 添加大正方形
+    path.addRect(-400, -400, 400, 400, Path.Direction.CCW);
+
+    path.setFillType(Path.FillType.WINDING);                    // 设置Path填充模式为非零环绕规则
+
+    canvas.drawPath(path, mDeafultPaint);                       // 绘制Path
+```
 
 
 
