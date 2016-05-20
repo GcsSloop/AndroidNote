@@ -104,7 +104,9 @@ P3: 从P3发出一条射线，发现图形与该射线相交边数为2，偶数�
 
 非零环绕数规则相对来说比较难以理解一点。
 
-我们在之前的文章 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md) 中我们了解到，在给Path中添加图形时需要指定图形的添加方式，是用顺时针还是逆时针，另外我们不论是使用lineTo，quadTo，cubicTo还是其他连接线的方法，都是从一个点连接到另一个点，换言之，**Path的任何线段都是有方向性的**，这也是使用非零环绕数规则的基础。
+我们在之前的文章 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md) 中我们了解到，在给Path中添加图形时需要指定图形的添加方式，是用顺时针还是逆时针，另外我们不论是使用lineTo，quadTo，cubicTo还是其他连接线的方法，都是从一个点连接到另一个点，换言之，**Path中任何线段都是有方向性的**，这也是使用非零环绕数规则的基础。
+
+我们依旧用一个简单的例子来说明非零环绕数规则的用法:
 
 
 
