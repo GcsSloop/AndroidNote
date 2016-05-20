@@ -142,16 +142,23 @@ INVERSE_EVEN_ODD | 反奇偶规则
 WINDING          | 非零环绕数规则
 INVERSE_WINDING  | 反非零环绕数规则
 
+我们可以看到上面有四种模式，分成两对，例如 "奇偶规则" 与 "反奇偶规则" 是一对，它们之间有什么关系呢？
 
+Inverse 和含义是“相反，对立”，说明反奇偶规则刚好与奇偶规则相反，例如对于一个矩形而言，使用奇偶规则会填充矩形内部，而使用反奇偶规则会填充矩形外部，这个会在后面示例中代码展示两者对区别。
 
 #### Android与填充模式相关的方法
 
+> 这些都是Path中的方法。
+
 方法                    | 作用
 ------------------------|----------------------------
-setFillType             | 
-getFillType             | 
-isInverseFillType       | 
-toggleInverseFillType   |
+setFillType             | 设置填充规则
+getFillType             | 获取当前填充规则
+isInverseFillType       | 判断是否是反向(INVERSE)规则
+toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之间相互切换)
+
+#### 示例演示：
+
 
 
 
