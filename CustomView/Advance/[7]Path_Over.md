@@ -1,9 +1,9 @@
-# Path之玩出花样
+# Path之完结篇(伪)
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
-经历过前两篇 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md) 和 [Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md) 的讲解，本篇正式进入Path的收尾篇，通过使用前面的内容和本文新学的内容，教大家如何将玩转Path，玩出花样。
+经历过前两篇 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md) 和 [Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md) 的讲解，本篇终于进入Path的收尾篇，本篇结束后Path的大部分相关方法都已经讲解完了，但Path还有一些更有意思的玩法，应该会在后续的文章中出现吧，嗯，应该会的ˊ_>ˋ
 
 ******
 
@@ -282,49 +282,66 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
 
 代码：
 
-```
-        int x = 80;
-        int r = 100;
+``` java
+    int x = 80;
+    int r = 100;
 
-        canvas.translate(250,0);
+    canvas.translate(250,0);
 
-        Path path1 = new Path();
-        Path path2 = new Path();
-        Path pathOpResult = new Path();
+    Path path1 = new Path();
+    Path path2 = new Path();
+    Path pathOpResult = new Path();
 
-        path1.addCircle(-x, 0, r, Path.Direction.CW);
-        path2.addCircle(x, 0, r, Path.Direction.CW);
+    path1.addCircle(-x, 0, r, Path.Direction.CW);
+    path2.addCircle(x, 0, r, Path.Direction.CW);
 
-        pathOpResult.op(path1,path2, Path.Op.DIFFERENCE);
-        canvas.translate(0, 200);
-        canvas.drawText("DIFFERENCE", 240,0,mDeafultPaint);
-        canvas.drawPath(pathOpResult,mDeafultPaint);
+    pathOpResult.op(path1,path2, Path.Op.DIFFERENCE);
+    canvas.translate(0, 200);
+    canvas.drawText("DIFFERENCE", 240,0,mDeafultPaint);
+    canvas.drawPath(pathOpResult,mDeafultPaint);
 
-        pathOpResult.op(path1,path2, Path.Op.REVERSE_DIFFERENCE);
-        canvas.translate(0, 300);
-        canvas.drawText("REVERSE_DIFFERENCE", 240,0,mDeafultPaint);
-        canvas.drawPath(pathOpResult,mDeafultPaint);
+    pathOpResult.op(path1,path2, Path.Op.REVERSE_DIFFERENCE);
+    canvas.translate(0, 300);
+    canvas.drawText("REVERSE_DIFFERENCE", 240,0,mDeafultPaint);
+    canvas.drawPath(pathOpResult,mDeafultPaint);
 
-        pathOpResult.op(path1,path2, Path.Op.INTERSECT);
-        canvas.translate(0, 300);
-        canvas.drawText("INTERSECT", 240,0,mDeafultPaint);
-        canvas.drawPath(pathOpResult,mDeafultPaint);
+    pathOpResult.op(path1,path2, Path.Op.INTERSECT);
+    canvas.translate(0, 300);
+    canvas.drawText("INTERSECT", 240,0,mDeafultPaint);
+    canvas.drawPath(pathOpResult,mDeafultPaint);
 
-        pathOpResult.op(path1,path2, Path.Op.UNION);
-        canvas.translate(0, 300);
-        canvas.drawText("UNION", 240,0,mDeafultPaint);
-        canvas.drawPath(pathOpResult,mDeafultPaint);
+    pathOpResult.op(path1,path2, Path.Op.UNION);
+    canvas.translate(0, 300);
+    canvas.drawText("UNION", 240,0,mDeafultPaint);
+    canvas.drawPath(pathOpResult,mDeafultPaint);
 
-        pathOpResult.op(path1,path2, Path.Op.XOR);
-        canvas.translate(0, 300);
-        canvas.drawText("XOR", 240,0,mDeafultPaint);
-        canvas.drawPath(pathOpResult,mDeafultPaint);
+    pathOpResult.op(path1,path2, Path.Op.XOR);
+    canvas.translate(0, 300);
+    canvas.drawText("XOR", 240,0,mDeafultPaint);
+    canvas.drawPath(pathOpResult,mDeafultPaint);
 ```
 
 ### 计算边界
 
 ### 重置路径
 
+
+## About Me
+
+### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
+
+<a href="https://github.com/GcsSloop/README/blob/master/README.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
+
+## 参考资料
+[Path](https://developer.android.com/reference/android/graphics/Path.html)<br/>
+[维基百科－Nonzero-rule](https://en.wikipedia.org/wiki/Nonzero-rule)<br/>
+[android绘图之Path总结](http://ghui.me/post/2015/10/android-graphics-path/)<br/>
+[]()<br/>
+[]()<br/>
+[]()<br/>
+[]()<br/>
+[]()<br/>
+[]()<br/>
 
 
 
