@@ -218,6 +218,32 @@ toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之�
 
 **布尔操作是两个Path之间的运算，主要作用是用一些简单的图形通过一些规则合成一些相对比较复杂，或难以直接得到的图形**。
 
+如太极中的阴阳鱼，如果用贝塞尔曲线制作的话，可能需要六段贝塞尔曲线才行，而在这里我们可以用四个Path通过布尔运算得到，而且会相对来说更容易理解一点。
+
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f43b9o4yfuj308c0etq2y.jpg)
+
+``` java
+    canvas.translate(mViewWidth / 2, mViewHeight / 2);
+
+    Path path1 = new Path();
+    Path path2 = new Path();
+    Path path3 = new Path();
+    Path path4 = new Path();
+
+    path1.addCircle(0, 0, 200, Path.Direction.CW);
+    path2.addRect(0, -200, 200, 200, Path.Direction.CW);
+    path3.addCircle(0, -100, 100, Path.Direction.CW);
+    path4.addCircle(0, 100, 100, Path.Direction.CCW);
+
+
+    path1.op(path2, Path.Op.DIFFERENCE);
+    path1.op(path3, Path.Op.UNION);
+    path1.op(path4, Path.Op.DIFFERENCE);
+
+    canvas.drawPath(path1, mDeafultPaint);
+```
+
+
 
 
 ### 计算边界
