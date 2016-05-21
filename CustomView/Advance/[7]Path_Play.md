@@ -208,6 +208,8 @@ toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之�
     canvas.drawPath(path, mDeafultPaint);                       // 绘制Path
 ```
 
+![](http://ww1.sinaimg.cn/large/005Xtdi2gw1f430h944zhj308c0et3yj.jpg)
+![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f430fono6uj308c0et74a.jpg)
 
 
 ### 布尔操作(API19)
