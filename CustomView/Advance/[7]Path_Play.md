@@ -243,6 +243,17 @@ toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之�
     canvas.drawPath(path1, mDeafultPaint);
 ```
 
+前面演示了布尔运算的作用，接下来我们了解一下布尔运算的核心:布尔逻辑。
+
+Path的布尔运算有五种逻辑，如下:
+
+逻辑名称 | 中文 | 说明
+---|---|----
+DIFFERENCE | 差集 | Path1中减去Path2后剩下的部分
+REVERSE_DIFFERENCE | 差集 | Path2中减去Path1后剩下的部分
+INTERSECT | 交集 | Path1与Path2相交的部分
+UNION | 并集 | 包含全部Path1和Path2
+XOR | 异或 | 包含Path1与Path2但不包括两者相交的部分
 
 
 
