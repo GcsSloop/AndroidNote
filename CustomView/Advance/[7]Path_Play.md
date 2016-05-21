@@ -247,13 +247,13 @@ toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之�
 
 Path的布尔运算有五种逻辑，如下:
 
-逻辑名称 | 中文 | 说明
----|---|----
-DIFFERENCE | 差集 | Path1中减去Path2后剩下的部分
-REVERSE_DIFFERENCE | 差集 | Path2中减去Path1后剩下的部分
-INTERSECT | 交集 | Path1与Path2相交的部分
-UNION | 并集 | 包含全部Path1和Path2
-XOR | 异或 | 包含Path1与Path2但不包括两者相交的部分
+逻辑名称           | 类比 | 说明                                   | 示意图
+-------------------|------|----------------------------------------|-------------------------
+DIFFERENCE         | 差集 | Path1中减去Path2后剩下的部分           | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43j85gcaqj305k03c0sn.jpg)
+REVERSE_DIFFERENCE | 差集 | Path2中减去Path1后剩下的部分           | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43jbaaw80j305k03c0sn.jpg)
+INTERSECT          | 交集 | Path1与Path2相交的部分                 | ![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f43jbj4iddj305k03c746.jpg)
+UNION              | 并集 | 包含全部Path1和Path2                   | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43jbqk8rbj305k03cmx4.jpg)
+XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部分 | ![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f43jby8c60j305k03c0sp.jpg)
 
 
 
