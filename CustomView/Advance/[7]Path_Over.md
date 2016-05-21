@@ -49,7 +49,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
     canvas.drawPath(path,mDeafultPaint);
 ```
-<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f403p6ftn9j30u01hc74m.jpg" width=300 />
+![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43livlg7ej308c0etmx4.jpg)
 
 在这个例子中，先移动点到坐标(100，100)处，之后再连接 _点(100，100)_ 到 _(100，200)_ 之间点直线,非常简单，画出来就是一条竖直的线，那接下来看下一个例子：
 
@@ -61,7 +61,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 
     canvas.drawPath(path,mDeafultPaint);
 ```
-<img src ="http://ww1.sinaimg.cn/large/005Xtdi2jw1f403zs9qeej30u01hcdg7.jpg" width=300 />
+![](http://ww4.sinaimg.cn/large/005Xtdi2gw1f43lj76wckj308c0etaa1.jpg)
 
 这个例子中，将 lineTo 换成了 rLineTo 可以看到在屏幕上原本是竖直的线变成了倾斜的线。这是因为最终我们连接的是 _(100,100)_ 和 _(200, 300)_ 之间的线段。
 
