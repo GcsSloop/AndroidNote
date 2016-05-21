@@ -255,7 +255,71 @@ INTERSECT          | 交集 | Path1与Path2相交的部分                 | ![]
 UNION              | 并集 | 包含全部Path1和Path2                   | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43jbqk8rbj305k03cmx4.jpg)
 XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部分 | ![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f43jby8c60j305k03c0sp.jpg)
 
+#### 布尔运算方法
 
+通过前面到理论知识铺垫，相信大家对布尔运算已经有了基本的认识和理解，下面我们用代码演示一下布尔运算:
+
+在Path中的布尔运算有两个方法
+
+``` java
+    boolean op (Path path, Path.Op op)
+    boolean op (Path path1, Path path2, Path.Op op)
+```
+
+两个方法中的返回值用于判断布尔运算是否成功，它们使用方法如下:
+
+``` `java
+    // 对 path1 和 path2 执行布尔运算，运算方式由第二个参数指定，运算结果存入到path1中。
+    path1.op(path2, Path.Op.DIFFERENCE);
+    
+    // 对 path1 和 path2 执行布尔运算，运算方式由第三个参数指定，运算结果存入到path3中。
+    path3.op(path1, path2, Path.Op.DIFFERENCE)
+```
+
+#### 布尔运算示例
+
+![](http://ww1.sinaimg.cn/large/005Xtdi2gw1f43jz8xnbxj308c0etwes.jpg)
+
+代码：
+
+```
+        int x = 80;
+        int r = 100;
+
+        canvas.translate(250,0);
+
+        Path path1 = new Path();
+        Path path2 = new Path();
+        Path pathOpResult = new Path();
+
+        path1.addCircle(-x, 0, r, Path.Direction.CW);
+        path2.addCircle(x, 0, r, Path.Direction.CW);
+
+        pathOpResult.op(path1,path2, Path.Op.DIFFERENCE);
+        canvas.translate(0, 200);
+        canvas.drawText("DIFFERENCE", 240,0,mDeafultPaint);
+        canvas.drawPath(pathOpResult,mDeafultPaint);
+
+        pathOpResult.op(path1,path2, Path.Op.REVERSE_DIFFERENCE);
+        canvas.translate(0, 300);
+        canvas.drawText("REVERSE_DIFFERENCE", 240,0,mDeafultPaint);
+        canvas.drawPath(pathOpResult,mDeafultPaint);
+
+        pathOpResult.op(path1,path2, Path.Op.INTERSECT);
+        canvas.translate(0, 300);
+        canvas.drawText("INTERSECT", 240,0,mDeafultPaint);
+        canvas.drawPath(pathOpResult,mDeafultPaint);
+
+        pathOpResult.op(path1,path2, Path.Op.UNION);
+        canvas.translate(0, 300);
+        canvas.drawText("UNION", 240,0,mDeafultPaint);
+        canvas.drawPath(pathOpResult,mDeafultPaint);
+
+        pathOpResult.op(path1,path2, Path.Op.XOR);
+        canvas.translate(0, 300);
+        canvas.drawText("XOR", 240,0,mDeafultPaint);
+        canvas.drawPath(pathOpResult,mDeafultPaint);
+```
 
 ### 计算边界
 
