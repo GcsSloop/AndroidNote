@@ -384,6 +384,11 @@ _因为“FillType”影响的是显示效果，而“数据结构”影响的�
 
 
 ## 总结
+ 
+Path中常用的方法到此已经结束，希望能够帮助大家加深对Path对理解运用，让大家能够用Path愉快的玩耍。(￣▽￣)
+
+(,,• ₃ •,,)
+#### PS: 由于本人水平有限，某些地方可能存在误解或不准确，如果你对此有疑问可以提交Issues进行反馈。
 
 ## About Me
 
@@ -397,8 +402,7 @@ _因为“FillType”影响的是显示效果，而“数据结构”影响的�
 [android绘图之Path总结](http://ghui.me/post/2015/10/android-graphics-path/)<br/>
 [布尔逻辑](https://zh.wikipedia.org/wiki/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91)<br/>
 [GoogleCode－Path.computeBounds()](https://code.google.com/p/android/issues/detail?id=4070)<br/>
-[]()<br/>
-[]()<br/>
+[Path.reset vs Path.rewind](http://stackoverflow.com/questions/11505617/path-reset-vs-path-rewind)<br/>
 []()<br/>
 []()<br/>
 
