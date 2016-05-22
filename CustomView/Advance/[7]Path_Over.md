@@ -342,6 +342,9 @@ exact  | 是否精确测量，目前这一个参数作用已经废弃，一般�
 
 计算path边界的一个简单示例.
 
+![](http://ww4.sinaimg.cn/large/005Xtdi2gw1f44gxz4k1vj308c0etaa4.jpg)
+
+代码：
 
 ``` java
     // 移动canvas,mViewWidth与mViewHeight在 onSizeChanged 方法中获得
