@@ -323,6 +323,9 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
 
 ### 计算边界
 
+这个方法主要作用是计算Path所占用的空间以及所在位置。
+
+
 ### 重置路径
 
 
@@ -336,7 +339,7 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
 [Path](https://developer.android.com/reference/android/graphics/Path.html)<br/>
 [维基百科－Nonzero-rule](https://en.wikipedia.org/wiki/Nonzero-rule)<br/>
 [android绘图之Path总结](http://ghui.me/post/2015/10/android-graphics-path/)<br/>
-[]()<br/>
+[布尔逻辑](https://zh.wikipedia.org/wiki/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91)<br/>
 []()<br/>
 []()<br/>
 []()<br/>
