@@ -27,7 +27,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 提示方法   | incReserve | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)**
 布尔操作(API19) | op | 对两个Path进行布尔运算(即取交集、并集等操作)
 计算边界   | computeBounds | 计算Path的边界
-重置路径   | reset, rewind | 清除Path中的内容<bt/>**reset不保留内部数据结构，但会保留FillType.**<br/>**rewind会保留内部的数据结构，但不保留FillType**
+重置路径   | reset, rewind | 清除Path中的内容<br/>**reset不保留内部数据结构，但会保留FillType.**<br/>**rewind会保留内部的数据结构，但不保留FillType**
 矩阵操作   | transform | 矩阵变换
 
 
@@ -321,7 +321,7 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
     canvas.drawPath(pathOpResult,mDeafultPaint);
 ```
 
-## 计算边界
+### 计算边界
 
 这个方法主要作用是计算Path所占用的空间以及所在位置,方法如下：
 
@@ -338,7 +338,7 @@ exact  | 是否精确测量，目前这一个参数作用已经废弃，一般�
 
 关于exact如有疑问可参见Google官方的提交记录[Path.computeBounds()](https://code.google.com/p/android/issues/detail?id=4070)
 
-### 计算边界示例
+#### 计算边界示例
 
 计算path边界的一个简单示例.
 
@@ -369,6 +369,21 @@ exact  | 是否精确测量，目前这一个参数作用已经废弃，一般�
 
 ### 重置路径
 
+重置Path有两个方法，分别是reset和rewind，两者区别主要有一下两点：
+
+方法   | 是否保留FillType设置 | 是否保留原有数据结构
+-------|:--------------------:|:--------------------:
+reset  | 是                   | 否
+rewind | 否                   | 是
+
+**这个两个方法应该何时选择呢？**
+
+选择权重: FillType > 数据结构
+
+_因为“FillType”影响的是显示效果，而“数据结构”影响的是重建速度。_
+
+
+## 总结
 
 ## About Me
 
