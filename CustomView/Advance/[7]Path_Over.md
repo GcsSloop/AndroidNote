@@ -26,7 +26,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 填充模式   | setFillType, getFillType, isInverseFillType, toggleInverseFillType| 设置,获取,判断和切换填充模式
 提示方法   | incReserve | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)**
 布尔操作(API19) | op | 对两个Path进行布尔运算(即取交集、并集等操作)
-测量边界   | computeBounds | 计算Path的边界
+计算边界   | computeBounds | 计算Path的边界
 重置路径   | reset, rewind | 清除Path中的内容(**reset相当于重置到new Path阶段，rewind会保留Path的数据结构**)
 矩阵操作   | transform | 矩阵变换
 
@@ -321,7 +321,7 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
     canvas.drawPath(pathOpResult,mDeafultPaint);
 ```
 
-## 测量边界
+## 计算边界
 
 这个方法主要作用是计算Path所占用的空间以及所在位置,方法如下：
 
@@ -338,7 +338,7 @@ exact  | 是否精确测量，目前这一个参数作用已经废弃，一般�
 
 关于exact如有疑问可参见Google官方的提交记录[Path.computeBounds()](https://code.google.com/p/android/issues/detail?id=4070)
 
-### 测量边界示例
+### 计算边界示例
 
 计算path边界的一个简单示例.
 
