@@ -26,7 +26,7 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 填充模式   | setFillType, getFillType, isInverseFillType, toggleInverseFillType| 设置,获取,判断和切换填充模式
 提示方法   | incReserve | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)**
 布尔操作(API19) | op | 对两个Path进行布尔运算(即取交集、并集等操作)
-计算边界   | computeBounds | 计算Path的边界
+测量边界   | computeBounds | 计算Path的边界
 重置路径   | reset, rewind | 清除Path中的内容(**reset相当于重置到new Path阶段，rewind会保留Path的数据结构**)
 矩阵操作   | transform | 矩阵变换
 
@@ -161,7 +161,7 @@ toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之�
 
 本演示着重于帮助理解填充模式中的一些难点和易混淆的问题，对于一些比较简单的问题，读者可自行验证，本文中不会过多赘述。
 
-##### 奇偶规则于反奇偶规则
+##### 奇偶规则与反奇偶规则
 
 ``` java
     mDeafultPaint.setStyle(Paint.Style.FILL);                   // 设置画布模式为填充
@@ -321,10 +321,48 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
     canvas.drawPath(pathOpResult,mDeafultPaint);
 ```
 
-### 计算边界
+## 测量边界
 
-这个方法主要作用是计算Path所占用的空间以及所在位置。
+这个方法主要作用是计算Path所占用的空间以及所在位置,方法如下：
 
+``` java
+    void computeBounds (RectF bounds, boolean exact)
+```
+
+它有两个参数：
+
+参数   | 作用
+-------|--------
+bounds | 测量结果会放入这个矩形
+exact  | 是否精确测量，目前这一个参数作用已经废弃，一般写true即可。
+
+关于exact如有疑问可参见Google官方的提交记录[Path.computeBounds()](https://code.google.com/p/android/issues/detail?id=4070)
+
+### 测量边界示例
+
+计算path边界的一个简单示例.
+
+
+``` java
+    // 移动canvas,mViewWidth与mViewHeight在 onSizeChanged 方法中获得
+    canvas.translate(mViewWidth/2,mViewHeight/2);
+
+    RectF rect1 = new RectF();              // 存放测量结果的矩形
+
+    Path path = new Path();                 // 创建Path并添加一些内容
+    path.lineTo(100,-50);
+    path.lineTo(100,50);
+    path.close();
+    path.addCircle(-100,0,100, Path.Direction.CW);
+
+    path.computeBounds(rect1,true);         // 测量Path
+
+    canvas.drawPath(path,mDeafultPaint);    // 绘制Path
+
+    mDeafultPaint.setStyle(Paint.Style.STROKE);
+    mDeafultPaint.setColor(Color.RED);
+    canvas.drawRect(rect1,mDeafultPaint);   // 绘制边界
+```
 
 ### 重置路径
 
@@ -340,7 +378,7 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
 [维基百科－Nonzero-rule](https://en.wikipedia.org/wiki/Nonzero-rule)<br/>
 [android绘图之Path总结](http://ghui.me/post/2015/10/android-graphics-path/)<br/>
 [布尔逻辑](https://zh.wikipedia.org/wiki/%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91)<br/>
-[]()<br/>
+[GoogleCode－Path.computeBounds()](https://code.google.com/p/android/issues/detail?id=4070)<br/>
 []()<br/>
 []()<br/>
 []()<br/>
