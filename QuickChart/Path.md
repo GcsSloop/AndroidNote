@@ -19,5 +19,6 @@ rXxx方法   | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于
 提示方法   | incReserve | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)**
 布尔操作(API19) | op | 对两个Path进行布尔运算(即取交集、并集等操作)
 计算边界   | computeBounds | 计算Path的边界
-重置路径   | reset, rewind | 清除Path中的内容(**reset相当于重置到new Path阶段，rewind会保留Path的数据结构**)
+重置路径   | reset, rewind | 清除Path中的内容<bt/>**reset不保留内部数据结构，但会保留FillType.**<br/>**rewind会保留内部的数据结构，但不保留FillType**
 矩阵操作   | transform | 矩阵变换
+
