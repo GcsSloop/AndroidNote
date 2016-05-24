@@ -2,7 +2,7 @@
 
 从零起步，从入门到懵逼的自定义View教程。
 
-### 基础篇
+## 基础篇
 
 <p align="center">
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md" target="_blank"><img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f1s96hizi5j30rs0dwwha.jpg" width=285 /></a> 
@@ -11,7 +11,7 @@
 </p>
 
 *******
-### 进阶篇
+## 进阶篇
 <p align="center">
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B1%5DCustomViewProcess.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f1zyiohvopj30rs0dwacz.jpg" width=285 /></a> 
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B2%5DCanvas_BasicGraphics.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f289mh2tdnj30rs0dwtbo.jpg" width=285 /></a> 
