@@ -20,7 +20,6 @@
 添加内容        | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)
 是否为空        | isEmpty         | 判断Path是否为空
 是否为矩形      | isRect          | 判断path是否是一个矩形
-是否为凸多边形  | isConvex        | 判断path是否是凸多边形
 替换路径        | set             | 用新的路径替换到当前路径所有内容
 偏移路径        | offset          | 对当前路径之前的操作进行偏移(不会影响之后的操作)
 贝塞尔曲线      | quadTo, cubicTo | 分别为二次和三次贝塞尔曲线的方法
