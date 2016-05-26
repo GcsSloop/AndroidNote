@@ -96,6 +96,24 @@ log如下:
 
 绘制在界面上的效果如下:
 
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f49allf7gij308c0et3yk.jpg)
+
+我们所创建的 Path 实际上是一个边长为 200 的正方形的三条边，通过上面的示例就能验证以上两个问题。
+
+> 
+* 1.我们将 Path 与两个的 PathMeasure 进行关联，并给 forceClosed 设置了不同的状态，之后绘制再绘制出来的 Path 没有任何变化，所以与 Path 与 PathMeasure进行关联并不会影响 Path 状态。
+* 2.我们可以看到，设置 forceClosed 为 true 的方法比设置为 false 的方法测量出来的长度要长一点，这是由于 Path 没有闭合的缘故，长处来的距离正是Path最后一个点与最开始一个点之间点距离。**forceClosed 为 false 测量的是当前Path状态的长度， forceClosed 为 true，则不论Path是否闭合测量的都是 Path 的闭合长度。**
+
+#### setPath isClosed getLength
+
+这三个方法都如字面意思一样，非常简单，这里就简单是叙述一下，不再过多讲解。
+
+setPath 是 PathMeasure 与 Path 关联的重要方法，效果和 构造函数 中两个参数的作用是一样的。
+
+isClosed 用于判断 Path 是否闭合，但是如果你在关联 Path 的时候设置 forceClosed 为 true 的话，这个方法的返回值则一定为true。
+
+getLength 用于获取 Path 的总长度，在之前的测试中已经用过了。
+
 
 
 
