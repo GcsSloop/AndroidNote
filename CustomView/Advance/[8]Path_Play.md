@@ -64,6 +64,7 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
 **在这里有两点需要明确:**
 
+> 
 * 1. 不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，**即 Path 与 PathMeasure 关联之后，Path不会有任何改变。**
 * 2. forceClosed 的设置状态可能会影响测量结果，**如果 Path 未闭合但在与 PathMeasure 关联的时候设置 forceClosed 为 true 时，测量结果可能会比 Path 实际长度稍长一点。**
 
@@ -86,6 +87,15 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
     canvas.drawPath(path,mDeafultPaint);
 ```
+
+log如下:
+```
+ 25521-25521/com.gcssloop.canvas E/TAG: forceClosed=false---->600.0
+ 25521-25521/com.gcssloop.canvas E/TAG: forceClosed=true----->800.0
+```
+
+绘制在界面上的效果如下:
+
 
 
 
