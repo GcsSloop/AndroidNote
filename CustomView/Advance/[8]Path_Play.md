@@ -62,6 +62,32 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
 该方法有两个参数，第一个参数自然就是被关联的Path了，第二个参数是用来确保 Path 闭合，如果设置为 true， 则不论之前Path是否闭合，都会自动闭合该 Path。
 
+**在这里有两点需要明确:**
+
+* 1. 不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，**即 Path 与 PathMeasure 关联之后，Path不会有任何改变。**
+* 2. forceClosed 的设置状态可能会影响测量结果，**如果 Path 未闭合但在与 PathMeasure 关联的时候设置 forceClosed 为 true 时，测量结果可能会比 Path 实际长度稍长一点。**
+
+下面我们用一个例子来验证一下：
+
+```
+    canvas.translate(mViewWidth/2,mViewHeight/2);
+
+    Path path = new Path();
+
+    path.lineTo(0,200);
+    path.lineTo(200,200);
+    path.lineTo(200,0);
+
+    PathMeasure measure1 = new PathMeasure(path,false);
+    PathMeasure measure2 = new PathMeasure(path,true);
+
+    Log.e("TAG", "forceClosed=false---->"+measure1.getLength());
+    Log.e("TAG", "forceClosed=true----->"+measure2.getLength());
+
+    canvas.drawPath(path,mDeafultPaint);
+```
+
+
 
 ## 总结
 
