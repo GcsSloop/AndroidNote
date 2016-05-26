@@ -58,7 +58,7 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
   PathMeasure (Path path, boolean forceClosed)
 ```
 
-
+用这个构造函数是创建一个 PathMeasure 并关联一个 Path， 其实和创建一个空的 PathMeasure 后调用 setPath 进行关联效果是一样的，同样，被关联的 Path 也必须是已经创建好的，如果关联之后 Path 内容进行了更改，则需要使用 setPath 方法重新关联。
 
 
 ## 总结
