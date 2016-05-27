@@ -102,7 +102,7 @@ log如下:
 
 > 
 * 1.我们将 Path 与两个的 PathMeasure 进行关联，并给 forceClosed 设置了不同的状态，之后绘制再绘制出来的 Path 没有任何变化，所以与 Path 与 PathMeasure进行关联并不会影响 Path 状态。
-* 2.我们可以看到，设置 forceClosed 为 true 的方法比设置为 false 的方法测量出来的长度要长一点，这是由于 Path 没有闭合的缘故，长处来的距离正是Path最后一个点与最开始一个点之间点距离。**forceClosed 为 false 测量的是当前Path状态的长度， forceClosed 为 true，则不论Path是否闭合测量的都是 Path 的闭合长度。**
+* 2.我们可以看到，设置 forceClosed 为 true 的方法比设置为 false 的方法测量出来的长度要长一点，这是由于 Path 没有闭合的缘故，多出来的距离正是Path最后一个点与最开始一个点之间点距离。**forceClosed 为 false 测量的是当前Path状态的长度， forceClosed 为 true，则不论Path是否闭合测量的都是 Path 的闭合长度。**
 
 #### 2.setPath、 isClosed 和 getLength
 
