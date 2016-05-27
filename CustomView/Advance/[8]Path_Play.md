@@ -122,6 +122,14 @@ getSegment 用于获取Path的一个片段，方法如下：
   boolean getSegment (float startD, float stopD, Path dst, boolean startWithMoveTo)
 ```
 
+参数详解：
+
+参数            | 作用                             | 备注
+----------------|----------------------------------|-----------------------------------------
+startD          | 开始截取位置距离 Path 起点的长度 | 取值范围: 0 < startD < stopD < Path总长度
+stopD           | 结束截取位置距离 Path 起点的长度 | 取值范围: 0 < startD < stopD < Path总长度
+dst             | 截取的 Path 将会添加到 dst 中    | 注意: 是添加，而不是替换
+startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取的Path第一个点位置不变
 
 
 
