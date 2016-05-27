@@ -9,9 +9,9 @@
 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)
 [Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md) 和 
 [Path之完结篇(伪)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B7%5DPath_Over.md) 后， Path中各类方法基本上都讲完了，表格中还没有讲解到到方法就是矩阵变换了，难道本篇终于要讲矩阵了？
-非也，矩阵这一部分仍在后面单独讲解，本篇主要讲解PathMeasure这个类与Path的一些使用技巧。
+非也，矩阵这一部分仍在后面单独讲解，本篇主要讲解 PathMeasure 这个类与 Path 的一些使用技巧。
 
-> PS：不要问我为什么不讲PathEffect，因为这个方法在后面的Paint系列中。
+> PS：不要问我为什么不讲 PathEffect，因为这个方法在后面的Paint系列中。
 
 ******
 
@@ -24,7 +24,7 @@
 方法名 | 释义
 ---|---
 PathMeasure() | 创建一个空的PathMeasure
-PathMeasure(Path path, boolean forceClosed) | 创建PathMeasure并关联一个指定的Path(Path需要已经创建完成)。
+PathMeasure(Path path, boolean forceClosed) | 创建 PathMeasure 并关联一个指定的Path(Path需要已经创建完成)。
 
 ### 公共方法
 
@@ -50,7 +50,7 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
   PathMeasure ()
 ```
 
-用这个构造函数可创建一个空的PathMeasure，但是使用之前需要先调用 setPath 方法来与 Path 进行关联。被关联的 Path 必须是已经创建好的，如果关联之后 Path 内容进行了更改，则需要使用 setPath 方法重新关联。
+用这个构造函数可创建一个空的 PathMeasure，但是使用之前需要先调用 setPath 方法来与 Path 进行关联。被关联的 Path 必须是已经创建好的，如果关联之后 Path 内容进行了更改，则需要使用 setPath 方法重新关联。
 
 **有参构造函数：**
 
@@ -60,12 +60,12 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
 用这个构造函数是创建一个 PathMeasure 并关联一个 Path， 其实和创建一个空的 PathMeasure 后调用 setPath 进行关联效果是一样的，同样，被关联的 Path 也必须是已经创建好的，如果关联之后 Path 内容进行了更改，则需要使用 setPath 方法重新关联。
 
-该方法有两个参数，第一个参数自然就是被关联的Path了，第二个参数是用来确保 Path 闭合，如果设置为 true， 则不论之前Path是否闭合，都会自动闭合该 Path。
+该方法有两个参数，第一个参数自然就是被关联的 Path 了，第二个参数是用来确保 Path 闭合，如果设置为 true， 则不论之前Path是否闭合，都会自动闭合该 Path。
 
 **在这里有两点需要明确:**
 
 > 
-* 1. 不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，**即 Path 与 PathMeasure 关联之后，Path不会有任何改变。**
+* 1. 不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，**即 Path 与 PathMeasure  关联之后，Path不会有任何改变。**
 * 2. forceClosed 的设置状态可能会影响测量结果，**如果 Path 未闭合但在与 PathMeasure 关联的时候设置 forceClosed 为 true 时，测量结果可能会比 Path 实际长度稍长一点。**
 
 下面我们用一个例子来验证一下：
@@ -102,7 +102,7 @@ log如下:
 
 > 
 * 1.我们将 Path 与两个的 PathMeasure 进行关联，并给 forceClosed 设置了不同的状态，之后绘制再绘制出来的 Path 没有任何变化，所以与 Path 与 PathMeasure进行关联并不会影响 Path 状态。
-* 2.我们可以看到，设置 forceClosed 为 true 的方法比设置为 false 的方法测量出来的长度要长一点，这是由于 Path 没有闭合的缘故，多出来的距离正是Path最后一个点与最开始一个点之间点距离。**forceClosed 为 false 测量的是当前Path状态的长度， forceClosed 为 true，则不论Path是否闭合测量的都是 Path 的闭合长度。**
+* 2.我们可以看到，设置 forceClosed 为 true 的方法比设置为 false 的方法测量出来的长度要长一点，这是由于 Path 没有闭合的缘故，多出来的距离正是 Path 最后一个点与最开始一个点之间点距离。**forceClosed 为 false 测量的是当前 Path  状态的长度， forceClosed 为 true，则不论Path是否闭合测量的都是 Path 的闭合长度。**
 
 #### 2.setPath、 isClosed 和 getLength
 
@@ -131,6 +131,7 @@ stopD           | 结束截取位置距离 Path 起点的长度 | 取值范围: 
 dst             | 截取的 Path 将会添加到 dst 中    | 注意: 是添加，而不是替换
 startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取的Path第一个点位置不变
 
+我们先看看这个方法如何使用
 
 
 
