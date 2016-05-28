@@ -133,9 +133,8 @@ dst             | 截取的 Path 将会添加到 dst 中    | 注意: 是添加�
 startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取的 Path 第一个点位置不变
 
 > 
-* 如果 startD 或 stopD 的数值不在取值范围内，或者 startD == stopD 则返回值为 false，不会改变dst内容。
+* 如果 startD、stopD 的数值不在取值范围 [0, getLength] 内，或者 startD == stopD 则返回值为 false，不会改变dst内容。
 * 如果在安卓4.4或者之前的版本，在默认开启硬件加速的情况下，更改 dst 的内容后可能绘制会出现问题，请关闭硬件加速，或者给 dst  添加一个单个操作，例如: dst.rLineTo(0, 0)
-
 
 我们先看看这个方法如何使用
 
