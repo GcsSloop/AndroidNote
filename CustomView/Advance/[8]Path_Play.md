@@ -122,14 +122,20 @@ getSegment 用于获取Path的一个片段，方法如下：
   boolean getSegment (float startD, float stopD, Path dst, boolean startWithMoveTo)
 ```
 
-参数详解：
+方法各个参数释义：
 
 参数            | 作用                             | 备注
-----------------|----------------------------------|-----------------------------------------
-startD          | 开始截取位置距离 Path 起点的长度 | 取值范围: 0 < startD < stopD < Path总长度
-stopD           | 结束截取位置距离 Path 起点的长度 | 取值范围: 0 < startD < stopD < Path总长度
+----------------|----------------------------------|--------------------------------------------
+返回值(boolean) | 判断截取是否成功                 | 如果返回值为 false 表示截取失败，不会改变dst中内容
+startD          | 开始截取位置距离 Path 起点的长度 | 取值范围: 0 <= startD < stopD <= Path总长度
+stopD           | 结束截取位置距离 Path 起点的长度 | 取值范围: 0 <= startD < stopD <= Path总长度
 dst             | 截取的 Path 将会添加到 dst 中    | 注意: 是添加，而不是替换
-startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取的Path第一个点位置不变
+startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取的 Path 第一个点位置不变
+
+> 
+* 如果 startD 或 stopD 的数值不在取值范围内，或者 startD == stopD 则返回值为 false，不会改变dst内容。
+* 如果在安卓4.4或者之前的版本，在默认开启硬件加速的情况下，更改 dst 的内容后可能绘制会出现问题，请关闭硬件加速，或者给 dst  添加一个单个操作，例如: dst.rLineTo(0, 0)
+
 
 我们先看看这个方法如何使用
 
