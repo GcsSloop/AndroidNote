@@ -225,7 +225,48 @@ false | 保证存储截取片段的 Path(dst) 的连续性
 
 我们知道 Path 可以由多条曲线构成，但不论是 getLength , getgetSegment 或者是其它方法，都只会在其中第一条线段上运行，而这个 `nextContour` 就是用于跳转到下一条曲线到方法，_如果跳转成功，则返回 true， 如果跳转失败，则返回 false。_
 
+如下，我们创建了一个 Path 并使其中包含了两个闭合的曲线，外面的边长是400，内部的边长是200，现在我们使用 PathMeasure 分别测量两条曲线的总长度。
 
+代码：
+
+``` java
+    canvas.translate(mViewWidth / 2, mViewHeight / 2);      // 平移坐标系
+
+    Path path = new Path();
+
+    path.addRect(-100, -100, 100, 100, Path.Direction.CW);  // 添加小矩形
+    path.addRect(-200, -200, 200, 200, Path.Direction.CW);  // 添加大矩形
+
+    canvas.drawPath(path,mDeafultPaint);                    // 绘制 Path
+    
+    PathMeasure measure = new PathMeasure(path, false);     // 将Path与PathMeasure关联
+
+    float len1 = measure.getLength();                       // 获得第一条路径的长度
+
+    measure.nextContour();                                  // 跳转到下一条路径
+
+    float len2 = measure.getLength();                       // 获得第二条路径的长度
+
+    Log.i("LEN","len1="+len1);                              // 输出两条路径的长度
+    Log.i("LEN","len2="+len2);
+```
+
+log输出结果:
+```
+05-30 02:00:33.899 19879-19879/com.gcssloop.canvas I/LEN: len1=800.0
+05-30 02:00:33.899 19879-19879/com.gcssloop.canvas I/LEN: len2=1600.0
+```
+
+通过测试，我们可以得到以下内容：
+
+* 1.使用图形中线的顺序与在 Path 中添加的顺序有关。
+* 2.getLength 获取到到是当前一条曲线分长度，而不是整个 Path 到长度。
+* 3.getLength 等方法是针对当前的曲线(其它方法请自行验证)。
+
+
+#### getPosTan
+
+这个方法是用于得到路径上某一长度的位置以及该位置的正切值。
 
 
 
