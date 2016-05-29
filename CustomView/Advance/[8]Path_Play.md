@@ -227,6 +227,8 @@ false | 保证存储截取片段的 Path(dst) 的连续性
 
 如下，我们创建了一个 Path 并使其中包含了两个闭合的曲线，外面的边长是400，内部的边长是200，现在我们使用 PathMeasure 分别测量两条曲线的总长度。
 
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f4ctzjr08dj308c0et74c.jpg)
+
 代码：
 
 ``` java
