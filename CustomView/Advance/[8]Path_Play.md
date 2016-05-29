@@ -147,19 +147,19 @@ startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取�
 代码:
 
 ``` java
-        canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
+    canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
 
-        Path path = new Path();                                     // 创建Path并添加了一个矩形
-        path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+    Path path = new Path();                                     // 创建Path并添加了一个矩形
+    path.addRect(-200, -200, 200, 200, Path.Direction.CW);
 
-        Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
+    Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
 
-        PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
+    PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
 
-        // 截取一部分存入dst中，并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
-        measure.getSegment(200, 600, dst, true);                    
+    // 截取一部分存入dst中，并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
+    measure.getSegment(200, 600, dst, true);                    
 
-        canvas.drawPath(dst, mDeafultPaint);                        // 绘制 dst
+    canvas.drawPath(dst, mDeafultPaint);                        // 绘制 dst
 ```
 
 结果如下：
@@ -169,24 +169,48 @@ startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取�
 从上图可以看到我们成功到将需要到片段截取了出来，然而当 dst 中有内容时会怎样呢？
 
 ``` java
-        canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
+    canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
 
-        Path path = new Path();                                     // 创建Path并添加了一个矩形
-        path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+    Path path = new Path();                                     // 创建Path并添加了一个矩形
+    path.addRect(-200, -200, 200, 200, Path.Direction.CW);
 
-        Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
-        dst.lineTo(-300, -300);                                     // 在 dst 中添加一条线段
+    Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
+    dst.lineTo(-300, -300);                                     // <--- 在 dst 中添加一条线段
 
-        PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
+    PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
 
-        measure.getSegment(200, 600, dst, true);                   // 截取一部分 并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
+    measure.getSegment(200, 600, dst, true);                   // 截取一部分 并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
 
-        canvas.drawPath(dst, mDeafultPaint);                        // 绘制 Path
+    canvas.drawPath(dst, mDeafultPaint);                        // 绘制 Path
 ```
+
+结果如下:
+
+![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f4cg8rl0wmj308c0et74b.jpg)
 
 从上面的示例可以看到 dst 中的线段保留了下来，可以得到结论：**被截取的 Path 片段会添加到 dst 中，而不是替换 dst 中到内容。**
 
 前面两个例子中 startWithMoveTo 均为 true， 如果设置为false会怎样呢?
+
+``` java
+    canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
+
+    Path path = new Path();                                     // 创建Path并添加了一个矩形
+    path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+
+    Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
+    dst.lineTo(-300, -300);                                     // 在 dst 中添加一条线段
+
+    PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
+
+    measure.getSegment(200, 600, dst, false);                   // <--- 截取一部分 不使用 startMoveTo, 保持 dst 的连续性
+
+    canvas.drawPath(dst, mDeafultPaint);                        // 绘制 Path
+```
+
+结果如下：
+
+![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f4cgdgc7etj308c0et3yk.jpg)
 
 从该示例我们又可以得到一条结论：**如果 startWithMoveTo 为 true, 则被截取出来到Path片段保持原状，如果 startWithMoveTo 为 false，则会将截取出来的 Path 片段的起始点移动到 dst 的最后一个点，以保证 dst 的连续性。**
 
