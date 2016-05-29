@@ -4,7 +4,6 @@
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
 
 
-
 可以看到，在经过 
 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)
 [Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md) 和 
@@ -220,7 +219,19 @@ startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取�
 ------|------------------
 true  | 保证截取得到的 Path 片段不会发生形变
 false | 保证存储截取片段的 Path(dst) 的连续性
- 
+
+
+#### 4.nextContour
+
+我们知道 Path 可以由多条曲线构成，但不论是 getLength , getgetSegment 或者是其它方法，都只会在其中第一条线段上运行，而这个 `nextContour` 就是用于跳转到下一条曲线到方法，_如果跳转成功，则返回 true， 如果跳转失败，则返回 false。_
+
+
+
+
+
+
+
+
 ## 总结
 
 
