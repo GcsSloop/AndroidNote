@@ -284,9 +284,72 @@ tan             | 该点的正切值                     | 正切值: (x==[0], y
 
 这个方法也不难理解，除了其中 `tan` 这个东东，这个东西是干什么的呢？
 
-这个是用来判断 Path 的趋势的，即在这个位置上曲线的走向，请看下图示例，注意箭头的方向:
+`tan` 是用来判断 Path 的趋势的，即在这个位置上曲线的走向，请看下图示例，注意箭头的方向:
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f4dtufydm4g308c0etmyl.gif)
+
+可以看到 上图中箭头在沿着 Path 运动时，方向始终与 Path 走向保持一致，下面我们来看看代码是如何实现的:
+
+首先我们需要定义几个必要的变量:
+
+``` java
+    private float currentValue = 0;     // 用于纪录当前的位置,取值范围[0,1]映射Path的整个长度
+
+    private float[] pos;                // 当前点的实际位置
+    private float[] tan;                // 当前点的tangent值,用于计算图片所需旋转的角度
+    private Bitmap mBitmap;             // 箭头图片
+    private Matrix mMatrix;             // 矩阵,用于对图片进行一些操作
+```
+
+初始化这些变量(在构造函数中调用这个方法):
+
+``` java
+    private void init(Context context) {
+        pos = new float[2];
+        tan = new float[2];
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 2;       // 缩放图片
+        mBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow, options);
+        mMatrix = new Matrix();
+    }
+```
+
+具体绘制:
+
+``` java
+
+    canvas.translate(mViewWidth / 2, mViewHeight / 2);      // 平移坐标系
+
+    Path path = new Path();                                 // 创建 Path
+
+    path.addCircle(0, 0, 200, Path.Direction.CW);           // 添加一个圆形
+
+    PathMeasure measure = new PathMeasure(path, false);     // 创建 PathMeasure
+
+    currentValue += 0.005;                                  // 计算当前的位置在总长度上的比例[0,1]
+    if (currentValue >= 1) {
+        currentValue = 0;
+    }
+
+    measure.getPosTan(measure.getLength() * currentValue, pos, tan);        // 获取当前位置的坐标以及趋势
+
+    mMatrix.reset();                                                        // 重置Matrix
+    float degrees = (float) (Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI); // 计算图片旋转角度
+
+    mMatrix.postRotate(degrees, mBitmap.getWidth() / 2, mBitmap.getHeight() / 2);   // 旋转图片
+    mMatrix.postTranslate(pos[0] - mBitmap.getWidth() / 2, pos[1] - mBitmap.getHeight() / 2);   // 将图片绘制中心调整到与当前点重合
+
+    canvas.drawPath(path, mDeafultPaint);                                   // 绘制 Path
+    canvas.drawBitmap(mBitmap, mMatrix, mDeafultPaint);                     // 绘制箭头
+
+    invalidate();                                                           // 重绘页面
+```
+
+**核心要点:**
+
+* 1.**通过 `tan` 得值计算出图片旋转的角度**，tan 是 tangent 的缩写，即中学中常见的正切， 其中tan[0](x)是邻边边长，tan[1](y)是对边边长，而Math中 `atan2` 方法是根据正切是数值计算出该角度的大小,得到的单位是弧度，所以上面又将弧度转为了角度。
+* 2.**通过 `Matrix` 来设置图片对旋转角度和位移**，这里使用的方法与前面讲解过对 canvas操作 有些类似，对于 `Matrix` 会在后面专一进行讲解，敬请期待。
+* 3.**页面刷新**，页面刷新此处是在 onDraw 里面调用了 invalidate 方法来保持界面不断刷新，但并不提倡这么做，正确对做法应该是使用 线程 或者 ValueAnimator 来控制界面的刷新，关于控制页面刷新这一部分会在后续的 动画部分 详细讲解，同样敬请期待。
 
 
 
