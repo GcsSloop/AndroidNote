@@ -352,7 +352,14 @@ tan             | 该点的正切值                     | 正切值: (x==[0], y
 * 3.**页面刷新**，页面刷新此处是在 onDraw 里面调用了 invalidate 方法来保持界面不断刷新，但并不提倡这么做，正确对做法应该是使用 线程 或者 ValueAnimator 来控制界面的刷新，关于控制页面刷新这一部分会在后续的 动画部分 详细讲解，同样敬请期待。
 
 
+#### getMatrix
 
+这个方法是用于得到路径上某一长度的位置以及该位置的正切值的矩阵：
+``` java
+boolean getMatrix (float distance, Matrix matrix, int flags)
+```
+
+其实这个方法就相当于我们在前一个例子中封装矩阵的过程
 
 
 ## 总结
