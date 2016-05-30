@@ -347,12 +347,13 @@ tan             | 该点的正切值                     | 正切值: (x==[0], y
 
 **核心要点:**
 
+> 
 * 1.**通过 `tan` 得值计算出图片旋转的角度**，tan 是 tangent 的缩写，即中学中常见的正切， 其中tan[0](x)是邻边边长，tan[1](y)是对边边长，而Math中 `atan2` 方法是根据正切是数值计算出该角度的大小,得到的单位是弧度，所以上面又将弧度转为了角度。
 * 2.**通过 `Matrix` 来设置图片对旋转角度和位移**，这里使用的方法与前面讲解过对 canvas操作 有些类似，对于 `Matrix` 会在后面专一进行讲解，敬请期待。
 * 3.**页面刷新**，页面刷新此处是在 onDraw 里面调用了 invalidate 方法来保持界面不断刷新，但并不提倡这么做，正确对做法应该是使用 线程 或者 ValueAnimator 来控制界面的刷新，关于控制页面刷新这一部分会在后续的 动画部分 详细讲解，同样敬请期待。
 
 
-#### getMatrix
+#### 5.getMatrix
 
 这个方法是用于得到路径上某一长度的位置以及该位置的正切值的矩阵：
 ``` java
@@ -368,7 +369,51 @@ distance        | 距离 Path 起点的长度             | 取值范围: 0 <= d
 matrix          | 根据 falgs 封装好的matrix        | 会根据 flags 的设置而存入不同的内容
 flags           | 规定哪些内容会存入到matrix中     | 可选择<br/>POSITION_MATRIX_FLAG(位置) <br/>ANGENT_MATRIX_FLAG(正切)
 
-其实这个方法就相当于我们在前一个例子中封装矩阵的过程
+其实这个方法就相当于我们在前一个例子中封装 `matrix` 的过程由 `getMatrix` 替我们做了，我们可以直接得到一个封装好到 `matrix`，岂不快哉。 
+
+但是我们看到最后到 `flags` 选项可以选择 `位置` 或者 `正切` ,如果我们两个选项都想选择怎么办？
+
+如果两个选项都想选择，可以将两个选项之间用 `|` 连接起来，如下：
+```
+measure.getMatrix(distance, matrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasure.POSITION_MATRIX_FLAG);
+```
+
+我们可以将上面都例子中 `getPosTan` 替换为 `getMatrix`， 看看是不是会显得简单很多:
+
+具体绘制: 
+
+``` java
+    Path path = new Path();                                 // 创建 Path
+
+    path.addCircle(0, 0, 200, Path.Direction.CW);           // 添加一个圆形
+
+    PathMeasure measure = new PathMeasure(path, false);     // 创建 PathMeasure
+
+    currentValue += 0.005;                                  // 计算当前的位置在总长度上的比例[0,1]
+    if (currentValue >= 1) {
+        currentValue = 0;
+    }
+
+    // 获取当前位置的坐标以及趋势的矩阵
+    measure.getMatrix(measure.getLength() * currentValue, mMatrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasure.POSITION_MATRIX_FLAG);
+    
+    mMatrix.preTranslate(-mBitmap.getWidth() / 2, -mBitmap.getHeight() / 2);   // <-- 将图片绘制中心调整到与当前点重合(注意:此处是前乘pre)
+
+    canvas.drawPath(path, mDeafultPaint);                                   // 绘制 Path
+    canvas.drawBitmap(mBitmap, mMatrix, mDeafultPaint);                     // 绘制箭头
+
+    invalidate();                                                           // 重绘页面
+```
+
+> 由于此处代码运行结果与上面一样，便不再贴图片了，请参照上面一个示例的效果图。
+
+可以看到使用 getMatrix 方法的确可以节省一些代码，不过这里依旧需要注意一些内容:
+
+>
+* 1.对 `matrix` 的操作必须要在 `getMatrix` 之后进行，否则会被 `getMatrix` 重置而导致无效。
+* 2.矩阵对旋转角度默认为图片的左上角，我们此处需要使用 `preTranslate` 调整为图片中心。
+* 3.pre(矩阵前乘) 与 post(矩阵后乘) 的区别，此处请等待后续的文章或者自行搜索。
+
 
 
 ## 总结
