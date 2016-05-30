@@ -39,6 +39,9 @@ boolean | getMatrix(float distance, Matrix matrix, int flags)                   
 
 PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
+******
+
+
 ### 1.构造函数
 
 构造函数有两个。
@@ -103,7 +106,11 @@ log如下:
 * 1.我们将 Path 与两个的 PathMeasure 进行关联，并给 forceClosed 设置了不同的状态，之后绘制再绘制出来的 Path 没有任何变化，所以与 Path 与 PathMeasure进行关联并不会影响 Path 状态。
 * 2.我们可以看到，设置 forceClosed 为 true 的方法比设置为 false 的方法测量出来的长度要长一点，这是由于 Path 没有闭合的缘故，多出来的距离正是 Path 最后一个点与最开始一个点之间点距离。**forceClosed 为 false 测量的是当前 Path  状态的长度， forceClosed 为 true，则不论Path是否闭合测量的都是 Path 的闭合长度。**
 
-#### 2.setPath、 isClosed 和 getLength
+
+
+
+
+### 2.setPath、 isClosed 和 getLength
 
 这三个方法都如字面意思一样，非常简单，这里就简单是叙述一下，不再过多讲解。
 
@@ -113,7 +120,11 @@ isClosed 用于判断 Path 是否闭合，但是如果你在关联 Path 的时�
 
 getLength 用于获取 Path 的总长度，在之前的测试中已经用过了。
 
-#### 3.getSegment
+
+
+
+
+### 3.getSegment
 
 getSegment 用于获取Path的一个片段，方法如下：
 
@@ -221,7 +232,10 @@ true  | 保证截取得到的 Path 片段不会发生形变
 false | 保证存储截取片段的 Path(dst) 的连续性
 
 
-#### 4.nextContour
+
+
+
+### 4.nextContour
 
 我们知道 Path 可以由多条曲线构成，但不论是 getLength , getgetSegment 或者是其它方法，都只会在其中第一条线段上运行，而这个 `nextContour` 就是用于跳转到下一条曲线到方法，_如果跳转成功，则返回 true， 如果跳转失败，则返回 false。_
 
@@ -266,7 +280,10 @@ log输出结果:
 * 3.getLength 等方法是针对当前的曲线(其它方法请自行验证)。
 
 
-#### getPosTan
+
+
+
+#### 5.getPosTan
 
 这个方法是用于得到路径上某一长度的位置以及该位置的正切值：
 ``` java
@@ -353,7 +370,9 @@ tan             | 该点的正切值                     | 正切值: (x==[0], y
 * 3.**页面刷新**，页面刷新此处是在 onDraw 里面调用了 invalidate 方法来保持界面不断刷新，但并不提倡这么做，正确对做法应该是使用 线程 或者 ValueAnimator 来控制界面的刷新，关于控制页面刷新这一部分会在后续的 动画部分 详细讲解，同样敬请期待。
 
 
-#### 5.getMatrix
+
+
+### 6.getMatrix
 
 这个方法是用于得到路径上某一长度的位置以及该位置的正切值的矩阵：
 ``` java
