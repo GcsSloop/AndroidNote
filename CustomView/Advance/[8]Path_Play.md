@@ -277,7 +277,7 @@ log输出结果:
 
 参数            | 作用                             | 备注
 ----------------|----------------------------------|--------------------------------------------
-返回值(boolean) | 判断获取是否成功                 | 如果返回值为 false 表示获取失败，pos 和 tan 都不会改变
+返回值(boolean) | 判断获取是否成功                 | true表示成功，数据会存入 pos 和 tan 中，<br/>false 表示失败，pos 和 tan 不会改变
 distance        | 距离 Path 起点的长度             | 取值范围: 0 <= distance <= getLength
 pos             | 该点的坐标值                     | 坐标值: (x==[0], y==[1])
 tan             | 该点的正切值                     | 正切值: (x==[0], y==[1])
@@ -358,6 +358,15 @@ tan             | 该点的正切值                     | 正切值: (x==[0], y
 ``` java
 boolean getMatrix (float distance, Matrix matrix, int flags)
 ```
+
+方法各个参数释义：
+
+参数            | 作用                             | 备注
+----------------|----------------------------------|--------------------------------------------
+返回值(boolean) | 判断获取是否成功                 | true表示成功，数据会存入matrix中，false 失败，matrix内容不会改变
+distance        | 距离 Path 起点的长度             | 取值范围: 0 <= distance <= getLength
+matrix          | 根据 falgs 封装好的matrix        | 会根据 flags 的设置而存入不同的内容
+flags           | 规定哪些内容会存入到matrix中     | 可选择<br/>POSITION_MATRIX_FLAG(位置) <br/>ANGENT_MATRIX_FLAG(正切)
 
 其实这个方法就相当于我们在前一个例子中封装矩阵的过程
 
