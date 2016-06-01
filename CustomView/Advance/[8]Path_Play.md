@@ -490,9 +490,12 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 ### Path 划分
 
 为了制作对方便，此处整个动效用了两个 Path， 一个是中间对放大镜， 另一个则是外侧的圆环,将两者全部画出来是这样子的。
- 
 
-其中 Path 的走向要把握好，如下:
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f4gbhxuuktj308c0etwej.jpg) 
+
+其中 Path 的走向要把握好，如下(只是一个放大镜，并不是♂):
+
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f4gbjj3fd1j308c05kt8i.jpg)
 
 其中圆形上面的点可以用 PathMeasure 测量，无需计算。
 
