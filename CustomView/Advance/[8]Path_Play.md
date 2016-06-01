@@ -444,6 +444,15 @@ measure.getMatrix(distance, matrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasur
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4fp2myqo4g308c05k75k.gif)
 
+这是一个搜索的动效图，通过分析可以得到它应该有四种状态，分别如下:
+
+状态     |概述
+---------|--------------------------------------------------
+无动作   | 初始状态，没有任何动效，只显示一个搜索标志 :mag:
+准备搜索 | 放大镜图标逐渐变化为一个点
+搜索中   | 围绕这一个圆环运动，并且线段长度会周期性变化
+准备结束 | 从一个点逐渐变化成为放大镜图标
+
 
 
 ## 总结
