@@ -440,13 +440,20 @@ measure.getMatrix(distance, matrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasur
 
 我们知道，用Path可以创建出各种个样的图形，但如果图形过于复杂时，用代码写就不现实了，不仅麻烦，而且容易出错，所以在绘制复杂的图形时我们一般是将 SVG 图像转换为 Path。
 
-你说什么是 SVG? 
- SVG 是一种矢量图，内部用的是 xml 格式化存储方式存储这操作和数据，你完全可以将 SVG 看作是 Path 的各项操作简化书写后的存储格式。 
+**你说什么是 SVG?**
  
- Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
+SVG 是一种矢量图，内部用的是 xml 格式化存储方式存储这操作和数据，你完全可以将 SVG 看作是 Path 的各项操作简化书写后的存储格式。 
  
- 
+Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4g87vfjbeg30690b4go8.gif)
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4g89vqhqwg30690b4mzu.gif)
+
+>
+**该图片来自这个开源库 ->[PathView](https://github.com/geftimov/android-pathview)** <br/>
+**SVG 转 Path 的解析可以用这个库 -> [AndroidSVG](https://bigbadaboom.github.io/androidsvg/)**
+
+限于篇幅以及本人精力，这一部分就暂不详解了，感兴趣的可以直接看源码，或者搜索一些相关的解析文章。
 
 *****
 
