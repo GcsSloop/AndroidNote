@@ -511,15 +511,15 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 
 ### 最终效果
 
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4gbmtj0mvg308c0etq58.gif)
 
 ### 源码
 
 上面的内容是为了帮助大家从把控全局流程以及理解某些细节的设计思路，而更多的内容都藏在代码中，代码总体也不算长，感兴趣的可以自己敲一遍。
 
-#### [戳这里查看源码]()
+#### [戳这里查看源码](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/Code/SearchView.md)
 
 > PS: 本代码仅作为示例使用，还有诸多不足，如 自定义属性，视图大小， 点击事件， 监听回调 等，并不适合直接使用，有需要的可以自行补足相关内容。
-
 
 
 ## 总结
