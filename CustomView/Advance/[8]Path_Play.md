@@ -305,6 +305,8 @@ tan             | 该点的正切值                     | 正切值: (x==[0], y
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f4dtufydm4g308c0etmyl.gif)
 
+**[点击这里下载箭头图片](http://ww1.sinaimg.cn/large/005Xtdi2jw1f4gam21ktoj3069069jre.jpg)**
+
 可以看到 上图中箭头在沿着 Path 运动时，方向始终与 Path 走向保持一致，下面我们来看看代码是如何实现的:
 
 首先我们需要定义几个必要的变量:
