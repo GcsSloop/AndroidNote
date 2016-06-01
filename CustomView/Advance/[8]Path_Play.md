@@ -453,6 +453,14 @@ measure.getMatrix(distance, matrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasur
 搜索中   | 围绕这一个圆环运动，并且线段长度会周期性变化
 准备结束 | 从一个点逐渐变化成为放大镜图标
 
+这些状态是有序转换的，转换流程以及转换条件如下：
+
+> 其中 `正在搜索` 这个状态持续时间长度是不确定的，在没有搜索完成前，应该一直处于搜索状态。
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f4g4i3c06cj30a60gb3yt.jpg)
+
+
+
 
 
 ## 总结
