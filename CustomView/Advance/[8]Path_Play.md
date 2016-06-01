@@ -12,6 +12,10 @@
 
 > PS：不要问我为什么不讲 PathEffect，因为这个方法在后面的Paint系列中。
 
+先放一个图镇楼，省的下面无聊的内容把你们都吓跑了Σ(￣。￣ﾉ)ﾉ
+
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4fp2myqo4g308c05k75k.gif)
+
 ******
 
 ##  Path & PathMeasure
@@ -524,6 +528,9 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 
 ## 总结
 
+本文中虽然后面点内容看起来比较高大上，但前面看起来啰嗦的废话才是真正的干货，把前面的东西学会了，以后各种效果基本上都是信手拈来，如果忽略的前面而只研究后面的东西，则只能取其形，难以会其意。
+
+### PS: 由于本人水平有限，某些地方可能存在误解或不准确，如果你对此有疑问可以提交Issues进行反馈。
 
 ## About Me
 
@@ -532,5 +539,14 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 <a href="https://github.com/GcsSloop/README/blob/master/README.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
 
 ## 参考资料
+[PathMeasure](https://developer.android.com/reference/android/graphics/PathMeasure.html)<br/>
+[AndroidSVG](https://bigbadaboom.github.io/androidsvg/)<br/>
+[android-pathview](https://github.com/geftimov/android-pathview)<br/>
+[android Path 和 PathMeasure 进阶](http://blog.csdn.net/cquwentao/article/details/51436852)<br/>
 []()<br/>
-[]()<br/>
+
+
+
+
+
+
