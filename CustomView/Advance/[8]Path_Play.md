@@ -66,13 +66,13 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
 用这个构造函数是创建一个 PathMeasure 并关联一个 Path， 其实和创建一个空的 PathMeasure 后调用 setPath 进行关联效果是一样的，同样，被关联的 Path 也必须是已经创建好的，如果关联之后 Path 内容进行了更改，则需要使用 setPath 方法重新关联。
 
-该方法有两个参数，第一个参数自然就是被关联的 Path 了，第二个参数是用来确保 Path 闭合，如果设置为 true， 则不论之前Path是否闭合，都会自动闭合该 Path。
+该方法有两个参数，第一个参数自然就是被关联的 Path 了，第二个参数是用来确保 Path 闭合，如果设置为 true， 则不论之前Path是否闭合，都会自动闭合该 Path(如果Path可以闭合的话)。
 
 **在这里有两点需要明确:**
 
 > 
-* 1. 不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，**即 Path 与 PathMeasure  关联之后，Path不会有任何改变。**
-* 2. forceClosed 的设置状态可能会影响测量结果，**如果 Path 未闭合但在与 PathMeasure 关联的时候设置 forceClosed 为 true 时，测量结果可能会比 Path 实际长度稍长一点。**
+* 1. 不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，**即 Path 与 PathMeasure  关联之后，之前的的 Path 不会有任何改变。**
+* 2. forceClosed 的设置状态可能会影响测量结果，**如果 Path 未闭合但在与 PathMeasure 关联的时候设置 forceClosed 为 true 时，测量结果可能会比 Path 实际长度稍长一点，获取到到是该 Path 闭合时的状态。**
 
 下面我们用一个例子来验证一下：
 
@@ -140,7 +140,7 @@ getSegment 用于获取Path的一个片段，方法如下：
 
 参数            | 作用                             | 备注
 ----------------|----------------------------------|--------------------------------------------
-返回值(boolean) | 判断截取是否成功                 | 如果返回值为 false 表示截取失败，不会改变dst中内容
+返回值(boolean) | 判断截取是否成功                 | true 表示截取成功，结果存入dst中，false 截取失败，不会改变dst中内容
 startD          | 开始截取位置距离 Path 起点的长度 | 取值范围: 0 <= startD < stopD <= Path总长度
 stopD           | 结束截取位置距离 Path 起点的长度 | 取值范围: 0 <= startD < stopD <= Path总长度
 dst             | 截取的 Path 将会添加到 dst 中    | 注意: 是添加，而不是替换
@@ -243,7 +243,7 @@ false | 保证存储截取片段的 Path(dst) 的连续性
 
 我们知道 Path 可以由多条曲线构成，但不论是 getLength , getgetSegment 或者是其它方法，都只会在其中第一条线段上运行，而这个 `nextContour` 就是用于跳转到下一条曲线到方法，_如果跳转成功，则返回 true， 如果跳转失败，则返回 false。_
 
-如下，我们创建了一个 Path 并使其中包含了两个闭合的曲线，外面的边长是400，内部的边长是200，现在我们使用 PathMeasure 分别测量两条曲线的总长度。
+如下，我们创建了一个 Path 并使其中包含了两个闭合的曲线，内部的边长是200，外面的边长是400，现在我们使用 PathMeasure 分别测量两条曲线的总长度。
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f4ctzjr08dj308c0et74c.jpg)
 
@@ -279,8 +279,8 @@ log输出结果:
 
 通过测试，我们可以得到以下内容：
 
-* 1.使用图形中线的顺序与在 Path 中添加的顺序有关。
-* 2.getLength 获取到到是当前一条曲线分长度，而不是整个 Path 到长度。
+* 1.曲线的顺序与 Path 中添加的顺序有关。
+* 2.getLength 获取到到是当前一条曲线分长度，而不是整个 Path 的长度。
 * 3.getLength 等方法是针对当前的曲线(其它方法请自行验证)。
 
 
