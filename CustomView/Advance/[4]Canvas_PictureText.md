@@ -266,7 +266,7 @@ PS:图片左上角位置默认为坐标原点。
 
 > 关于Matrix和Paint暂时略过吧，一展开又是啰啰嗦嗦一大段，反正挖坑已经是常态了，大家应该也习惯了(PAP).
 
-<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2kx0rjzgmj30u01hcwfc.jpg" width = "300" /> 
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2gw1f4ixnjrn83j30u01hcabc.jpg" width = "300" /> 
 
 第二种方法就是在绘制时指定了图片左上角的坐标(距离坐标原点的距离)：
 
@@ -276,7 +276,7 @@ PS:图片左上角位置默认为坐标原点。
     canvas.drawBitmap(bitmap,200,500,new Paint());
 ```
 
-<img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2kx1f34a4j30u01hcgmn.jpg" width = "300" /> 
+<img src="http://ww3.sinaimg.cn/large/005Xtdi2gw1f4ixoug2x8j30u01hcgn4.jpg" width = "300" /> 
 
 第三种方法比较有意思，上面多了两个矩形区域(src,dst),这两个矩形选区是干什么用的？
 
@@ -299,7 +299,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
         // 绘制图片
         canvas.drawBitmap(bitmap,src,dst,null);
 ```
-<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx1ygdmwj30u01hct9m.jpg" width = "300" /> 
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2gw1f4ixqgk8rwj30u01hc756.jpg" width = "300" /> 
 
 **详解：**
 
@@ -309,7 +309,7 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
 
 然后用dst指定了绘制在屏幕上的绘制，即下图中蓝色方框标注的区域，图片宽高会根据指定的区域自动进行缩放。
 
-<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2kx38lolnj30u01hcjs6.jpg" width = "300" /> 
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2gw1f4ixr3skcjj30u01hc3za.jpg" width = "300" /> 
 
 从上面可知，第三种方法可以绘制图片的一部分到画布上，这有什么用呢？
 
