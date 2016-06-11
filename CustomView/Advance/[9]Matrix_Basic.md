@@ -20,4 +20,8 @@
 >
 **Matrix 的翻译过来是矩阵，模型。和其释义相同，Matrix是一个矩阵，其作用则是一个模型，一个控制视图状态的模型。**
 
-## 
+我们之前在 [Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 中讲解过不少画布相关操作，这些操作的核心就是是在操作 Matrix
+
+## Matrix方法表
+
+
