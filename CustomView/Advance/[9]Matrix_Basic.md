@@ -20,10 +20,30 @@
 >
 **Matrix 的翻译过来是矩阵，模型。和其释义相同，Matrix是一个矩阵，其作用则是一个模型，一个控制视图状态的模型。**
 
-我们之前在 [Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 中讲解过不少画布相关操作，这些操作的核心就是是在操作 Matrix
+我们之前在 [Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 中讲解过不少画布相关操作，这些操作的核心就是是操作 Matrix
 
 ## Matrix方法表
 
+Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些方法的讲解，而是帮助大家理解 Matrix 的一些基本概念。
+
 方法类别 | 相关API | 摘要
 ---|---|---
+比较 | equals | 比较两个矩阵是否相同
+获取数值 | getValues | 获取矩阵的数值
+获取哈希值 | hashCode | 获取矩阵的哈希值
+获取逆矩阵 | invert | 如果矩阵可逆，获取其逆矩阵
+是否是仿射矩阵 | isAffine |判断是否是仿射矩阵
+是否是单位矩阵 | isIdentity | 判断是否是单位矩阵
+获取变换后位置 | mapPoints | 计算一个点在变换后的位置
+
+
+
+
+
+
+
+
+
+
+
 
