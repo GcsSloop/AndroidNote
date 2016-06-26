@@ -30,6 +30,7 @@ Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些�
 特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos  | 一些特殊操作
 其它方法   | invert isAffine isIdentity  toString toShortString | 逆矩阵、 是否是仿射矩阵、 是否是单位矩阵 ...
 
+## Matrix原理
 
 
 
