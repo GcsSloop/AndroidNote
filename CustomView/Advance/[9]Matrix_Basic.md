@@ -20,14 +20,15 @@
 Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些方法的讲解，而是帮助大家理解 Matrix 的一些基本概念。
 
 方法类别   | 相关API                                                 | 摘要
------------|---------------------------------------------------------|-------------------------------------
+-----------|---------------------------------------------------------|------------------------
 比较方法   | equals hashCode                                         | 比较、 获取哈希值
-基本方法   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值
-矩阵相关   | invert isAffine isIdentity                              | 计算逆矩阵、 是否是仿射矩阵、 是否是单位矩阵
-数值计算   | mapPoints mapRect mapVectors                            | 计算 点、 矩形、 阵列 经过变换后点位置
+基本方法   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值                    
+数值计算   | mapPoints mapRect mapVectors                            | 计算变换后的数值
 设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
 后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
+特殊方法 | invert isAffine isIdentity  | 逆矩阵、 是否是仿射矩阵、 是否是单位矩阵
+其它方法  | 
 
 
 
