@@ -27,8 +27,9 @@ Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些�
 设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
 后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
-特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
-其它方法   | invert isAffine isIdentity  toString toShortString      | 逆矩阵、 是否是仿射矩阵、 是否是单位矩阵 ...
+特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos  | 一些特殊操作
+其它方法   | invert isAffine isIdentity  toString toShortString | 逆矩阵、 是否是仿射矩阵、 是否是单位矩阵 ...
+
 
 
 
