@@ -26,18 +26,18 @@
 
 Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些方法的讲解，而是帮助大家理解 Matrix 的一些基本概念。
 
-方法类别 | 相关API | 摘要
----|---|---
-比较 | equals | 比较两个矩阵是否相同
-获取数值 | getValues | 获取矩阵的数值
-获取哈希值 | hashCode | 获取矩阵的哈希值
-获取逆矩阵 | invert | 如果矩阵可逆，获取其逆矩阵
-是否是仿射矩阵 | isAffine |判断是否是仿射矩阵
-是否是单位矩阵 | isIdentity | 判断是否是单位矩阵
-获取变换后位置 | mapPoints | 计算一个点在变换后点的位置
-获取变换后位置 | mapRect | 计算一个矩形变换后点位置
-获取变换后位置 | mapVectors | 计算一个向量阵列变换后点位置
-后乘 | postConcat | 原始矩阵后乘一个新的矩阵
+方法类别   | 相关API                                                 | 摘要
+-----------|---------------------------------------------------------|-------------------------------------
+比较方法   | equals hashCode                                         | 比较、 获取哈希值
+基本方法   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值
+矩阵相关   | invert isAffine isIdentity                              | 计算逆矩阵、 是否是仿射矩阵、 是否是单位矩阵
+数值计算   | mapPoints mapRect mapVectors                            | 计算 点、 矩形、 阵列 经过变换后点位置
+设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
+前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
+后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
+
+
+
 
 
 
