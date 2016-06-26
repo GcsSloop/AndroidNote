@@ -2,11 +2,10 @@
 
 前面扯了四篇 Path 相关的内容，本次终于要到了大家期盼已久的 Matrix，没错，就是传说中的黑客帝国:
 
-<p style="display:inline;">
+<div style="display:inline;">
 <img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f4oyx5i8wbj308c0bj3zz.jpg" width=300 />
-</p>
-
-<p style="display:inline;">
+</div>
+<div style="display:inline;">
 勇敢的骚年啊，你是选择红药丸还是选择蓝药丸呢？
 
 <blockquote>
@@ -16,7 +15,7 @@
 <img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f4pji1l0lej308c04pwer.jpg" width=300 /> <br/>
 
 好了，言止于此，不能说更多了，下面开始我们本篇的正题。
-</p>
+</div>
 
 ## 前言
 
