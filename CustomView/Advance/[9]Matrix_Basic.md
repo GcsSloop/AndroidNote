@@ -6,14 +6,14 @@
 
 如题，本篇的主角是 Matrix(其实并不是黑客帝国来着)。
 
-仔细会想一下，我们在很多地方都见过 Matrix(画布操作，drawBitmap，path 等)， 感觉它就像是一个烦人家伙，什么事情都想插上一脚。 然而实际情况却并非如此， Matrix 一直都在我们看不到的地方默默付出着， 如果没有了 Matrix， 我们之前的很多方法都是无法运行的。 
+仔细回想一下，我们在很多地方都见过 Matrix(画布操作，drawBitmap，path 等)， 感觉它就像是一个烦人家伙，什么事情都想插上一脚。 然而实际情况却并非如此， Matrix 一直都在我们看不到的地方默默付出着， 如果没有了 Matrix， 我们之前的很多方法都是无法运行的。 
 
 这么说来 Matrix 也算个厉害人物，那么这个 Matrix 到底是何方神圣呢？
 
 >
 **Matrix 的翻译过来是矩阵，模型。和其释义相同，Matrix是一个矩阵，其作用则是一个模型，一个控制视图状态的模型。**
 
-我们之前在 [Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 中讲解过不少画布相关操作，这些操作的核心就是改变 Matrix 的数值。
+也就是说， 我们进行界面视图等转换都是需要依靠 Matrix 的帮助的，例如我们之前在 [Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 中讲解过的画布操作，这些操作的核心就是改变 Matrix 的数值。
 
 ## Matrix方法表
 
