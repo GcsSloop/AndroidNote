@@ -171,7 +171,7 @@ toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之�
     Path path = new Path();                                     // 创建Path
 
     //path.setFillType(Path.FillType.EVEN_ODD);                   // 设置Path填充模式为 奇偶规则
-    path.setFillType(Path.FillType.INVERSE_WINDING);            // 反奇偶规则
+    path.setFillType(Path.FillType.INVERSE_EVEN_ODD);            // 反奇偶规则
 
     path.addRect(-200,-200,200,200, Path.Direction.CW);         // 给Path中添加一个矩形
 ```
