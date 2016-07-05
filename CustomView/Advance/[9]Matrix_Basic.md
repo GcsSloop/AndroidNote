@@ -21,19 +21,19 @@ Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些�
 
 方法类别   | 相关API                                                 | 摘要
 -----------|---------------------------------------------------------|------------------------
-比较方法   | equals hashCode                                         | 比较、 获取哈希值
-基本方法   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值                    
-数值计算   | mapPoints mapRadius mapRect mapVectors                  | 计算变换后的数值
+基本方法   | equals hashCode toString toShortString                  | 比较、 获取哈希值、 转换为字符串
+数值操作   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值                    
 设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
 后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
-特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos  | 一些特殊操作
-其它方法   | invert isAffine isIdentity  toString toShortString | 逆矩阵、 是否是仿射矩阵、 是否是单位矩阵 ...
+数值计算   | mapPoints mapRadius mapRect mapVectors                  | 计算变换后的数值
+特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
+矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
 
 ## Matrix原理
 
 
-Matrix 本质是一个 3x3 的矩阵。
+Matrix 本质是一个 3x3 的矩阵，里面有9个数值，分别用于控制视图状态的不同内容。
 
 
 
