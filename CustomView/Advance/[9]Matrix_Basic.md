@@ -28,8 +28,8 @@ Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些�
 特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
 矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
 
-## Matrix原理
 
+## Matrix原理
 
 Matrix 本质是一个 3x3 的矩阵，里面有9个数值，分别用于控制视图状态的不同内容，我们对视图的操作最终都是改变Matrix里面的数值。
 
