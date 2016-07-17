@@ -43,6 +43,11 @@
  02  | [Path常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Path.md)
  03  | [贝塞尔曲线常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bezier.md)
 
+## [混沌水晶](https://github.com/GcsSloop/AndroidNote/tree/master/ChaosCrystal)
+
+序号 | 内容
+:---:|---------------
+ 01  | [在线查看Android API源码](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/HowToViewAPISourceOnline.md)
 
 ## About Me
 
