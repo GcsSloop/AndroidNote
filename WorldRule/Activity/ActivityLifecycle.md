@@ -2,7 +2,7 @@
 
 ## 典型情况下的生命周期
 
-<table width="85%" align="center" frame="hsides" rules="rows">
+<table width="85%" align="center"  rules="rows">
      <colgroup align="left" span="3" />
      <colgroup align="left" />
      <colgroup align="center" />
