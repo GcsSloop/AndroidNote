@@ -17,23 +17,22 @@
          <td>当Activity第一次被创建时调用.
              在这里进行初始化工作: 创建view, 为list绑定数据 等。<br/>
              如果Activity被杀死后重新初始化，你可以在savedInstanceState中得到被杀死之前				的某些状态信息。</td>
-         <td align="center">No</td>
+         <td align="center">不允许</td>
          <td align="center"><code>onStart()</code></td>
      </tr>
 
      <tr><td rowspan="5" style="border-left: none; border-right: none;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
          <td colspan="2" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onRestart()">onRestart()</a></code></td>
          <td>当Activity切换到后台再切换回来时会被调用。</td>
-         <td align="center">No</td>
+         <td align="center">不允许</td>
          <td align="center"><code>onStart()</code></td>
      </tr>
 
      <tr><td colspan="2" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onStart()">onStart()</a></code></td>
-         <td>Called when the activity is becoming visible to the user.
-             <p>Followed by <code>onResume()</code> if the activity comes
-             to the foreground, or <code>onStop()</code> if it becomes hidden.</td>
-         <td align="center">No</td>
-         <td align="center"><code>onResume()</code> or <code>onStop()</code></td>
+         <td>当Activity对用户可见时调用。<p/>
+             <p/>如果Activity进入前台则接下来调用<code>onResume()</code><br/>如果Activity被隐藏则接下来调用<code>onStop()</code> </td>
+         <td align="center">不允许</td>
+         <td align="center"><code>onResume()</code> 或者 <code>onStop()</code></td>
      </tr>
 
      <tr><td rowspan="2" style="border-left: none;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
