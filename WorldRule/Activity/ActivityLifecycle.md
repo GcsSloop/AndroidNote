@@ -9,17 +9,16 @@
      <colgroup align="center" />
 
      <thead>
-     <tr><th colspan="3">方法</th> <th>描述</th> <th>是否允许被杀死?</th> <th>接下来的方法</th></tr>
+     <tr><th colspan="3">方法</th> <th>描述</th> <th>允许被杀死?</th> <th>接下来的方法</th></tr>
      </thead>
 
      <tbody>
      <tr><td colspan="3" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code></td>
          <td>当Activity第一次被创建时调用.
-             This is where you should do all of your normal static set up:
-             create views, bind data to lists, etc.  This method also
-             provides you with a Bundle containing the activity's previously
-             frozen state, if there was one.
-             <p>Always followed by <code>onStart()</code>.</td>
+             在这里进行初始化工作:
+             创建view, 为list绑定数据 等.  This method also
+             如果Activity被杀死后重新初始化，你可以在savedInstanceState中得到被杀死之前				的某些状态信息
+             <p>下一个方法总是<code>onStart()</code>.</td>
          <td align="center">No</td>
          <td align="center"><code>onStart()</code></td>
      </tr>
