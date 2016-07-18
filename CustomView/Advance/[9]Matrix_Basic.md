@@ -33,7 +33,11 @@ Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些�
 
 Matrix 本质是一个 3x3 的矩阵，里面有9个数值，分别用于控制视图的不同属性，大致如下:
 
-
+   | 0         | 1         | 2
+---|-----------|-----------|----------
+ 0 | MSSCALE_X | MSKEW_X   | MTRANS_X
+ 1 | MSSCALE_X | MSKEW_X   | MTRANS_X
+ 2 | MPERSRP_0 | MPERSRP_1 | MPERSRP_2 
 
 
 
