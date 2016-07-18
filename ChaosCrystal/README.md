@@ -6,7 +6,9 @@
 
 序号 | 内容
 :---:|---------------
- 01  | [在线查看Android API源码](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/HowToViewAPISourceOnline.md)
- 02  | [ADB常用命令](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/ADB%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
- 03  | [AndroidStudio常用快捷键(Mac)](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/AndroidStudio%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE(Mac).md)
- 04  | [录屏与GIF制作](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/%E5%BD%95%E5%B1%8F%E4%B8%8EGIF%E5%88%B6%E4%BD%9C.md)
+ 01  | [AndroidStudio常用快捷键(Mac)](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/AndroidStudio%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE(Mac).md)
+ 02  | [在线查看Android API源码](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/HowToViewAPISourceOnline.md)
+ 03  | [录屏与GIF制作](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/%E5%BD%95%E5%B1%8F%E4%B8%8EGIF%E5%88%B6%E4%BD%9C.md)
+ 04  | [ADB常用命令](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/ADB%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
+
+
