@@ -41,11 +41,8 @@
 
      <tr><td rowspan="2" style="border-left: none;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
          <td align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onResume()">onResume()</a></code></td>
-         <td>Called when the activity will start
-             interacting with the user.  At this point your activity is at
-             the top of the activity stack, with user input going to it.
-             <p>Always followed by <code>onPause()</code>.</td>
-         <td align="center">No</td>
+         <td>当Activity可以与用户交互时调用.此时当前Activity处于Activity栈的顶端。</td>
+         <td align="center">不允许</td>
          <td align="center"><code>onPause()</code></td>
      </tr>
 
