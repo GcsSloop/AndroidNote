@@ -1,8 +1,12 @@
 # Activity生命周期
 
+## 生命周期状态转换示意图(完整版)
+
+![](./elements/activity_lifecycle.png)
+
 ## 典型情况下的生命周期
 
-<table width="85%" align="center"  rules="rows">
+<table width="85%" align="center" rules="rows">
      <colgroup align="left" span="3" />
      <colgroup align="left" />
      <colgroup align="center" />
