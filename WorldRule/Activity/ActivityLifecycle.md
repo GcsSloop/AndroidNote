@@ -15,19 +15,15 @@
      <tbody>
      <tr><td colspan="3" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code></td>
          <td>当Activity第一次被创建时调用.
-             在这里进行初始化工作:
-             创建view, 为list绑定数据 等.  This method also
-             如果Activity被杀死后重新初始化，你可以在savedInstanceState中得到被杀死之前				的某些状态信息
-             <p>下一个方法总是<code>onStart()</code>.</td>
+             在这里进行初始化工作: 创建view, 为list绑定数据 等。<br/>
+             如果Activity被杀死后重新初始化，你可以在savedInstanceState中得到被杀死之前				的某些状态信息。</td>
          <td align="center">No</td>
          <td align="center"><code>onStart()</code></td>
      </tr>
 
      <tr><td rowspan="5" style="border-left: none; border-right: none;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
          <td colspan="2" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onRestart()">onRestart()</a></code></td>
-         <td>Called after your activity has been stopped, prior to it being
-             started again.
-             <p>Always followed by <code>onStart()</code></td>
+         <td>当Activity切换到后台再切换回来时会被调用。</td>
          <td align="center">No</td>
          <td align="center"><code>onStart()</code></td>
      </tr>
