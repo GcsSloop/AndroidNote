@@ -2,7 +2,7 @@
 
 ## 典型情况下的生命周期
 
-<table border="2" width="85%" align="center" frame="hsides" rules="rows">
+<table width="85%" align="center" frame="hsides" rules="rows">
      <colgroup align="left" span="3" />
      <colgroup align="left" />
      <colgroup align="center" />
@@ -32,7 +32,7 @@
          <td>当Activity对用户可见时调用。<p/>
              <p/>如果Activity进入前台则接下来调用<code>onResume()</code><br/>如果Activity被隐藏则接下来调用<code>onStop()</code> </td>
          <td align="center">不允许</td>
-         <td align="center"><code>onResume()</code> 或者 <code>onStop()</code></td>
+         <td align="center"><code>onResume()</code> <br/>或者<br/> <code>onStop()</code></td>
      </tr>
 
      <tr><td rowspan="2" style="border-left: none;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
