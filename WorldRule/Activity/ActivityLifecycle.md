@@ -9,12 +9,12 @@
      <colgroup align="center" />
 
      <thead>
-     <tr><th colspan="3">Method</th> <th>Description</th> <th>Killable?</th> <th>Next</th></tr>
+     <tr><th colspan="3">方法</th> <th>描述</th> <th>是否允许被杀死?</th> <th>接下来的方法</th></tr>
      </thead>
 
      <tbody>
      <tr><td colspan="3" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code></td>
-         <td>Called when the activity is first created.
+         <td>当Activity第一次被创建时调用.
              This is where you should do all of your normal static set up:
              create views, bind data to lists, etc.  This method also
              provides you with a Bundle containing the activity's previously
@@ -89,4 +89,5 @@
          <td align="center"><font color="#800000"><strong>Yes</strong></font></td>
          <td align="center"><em>nothing</em></td>
      </tr>
-     </tbody></table>
+     </tbody>
+</table>
