@@ -29,7 +29,7 @@ Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些�
 矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
 
 
-## Matrix原理
+## Matrix基本原理
 
 Matrix 本质是一个 3x3 的矩阵，里面有9个数值，分别用于控制视图的不同属性，大致如下:
 
@@ -55,7 +55,13 @@ Matrix 本质是一个 3x3 的矩阵，里面有9个数值，分别用于控制�
   6  | MPERSP_0 | perspective | 控制透视  (绕Y轴旋转)
   7  | MPERSP_1 | perspective | 控制透视  (绕X轴旋转)
   8  | MPERSP_2 | perspective | 控制透视  (通常为1)
-  
+
+从上表中可以看出一些内容，下面分析一下画布常用的四种操作(translate, scale, rotate, skew)都是由哪些参数控制的。
+
+
+
+## Matrix方法详解  
+
 
 
 
