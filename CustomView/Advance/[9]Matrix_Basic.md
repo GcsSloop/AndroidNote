@@ -39,6 +39,11 @@ Matrix 本质是一个 3x3 的矩阵，里面有9个数值，分别用于控制�
  1 | MSKEW_Y   | MSCALE_Y  | MTRANS_Y
  2 | MPERSP_0  | MPERSP_1  | MPERSP_2 
 
+**数值作用的介绍:**
+
+
+
+
 
 
 
