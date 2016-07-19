@@ -44,17 +44,17 @@ Matrix 本质是一个 3x3 的矩阵，里面有9个数值，分别用于控制�
 >
 根据名称我们就能猜到其大概作用，但有一些数值比较奇怪，需要细心考证。
 
-序号 | 名称     | 摘要
------|----------|------------------------
-  0  | MSCALE_X | 控制X坐标 缩放，旋转
-  1  | MSKEW_X  | 控制X坐标 错切，旋转
-  2  | MTRANS_X | 控制X坐标 位移
-  3  | MSKEW_Y  | 控制Y坐标 错切，旋转
-  4  | MSCALE_Y | 控制Y坐标 缩放，旋转
-  5  | MTRANS_Y | 控制Y坐标 位移
-  6  | MPERSP_0 | 控制透视  (绕Y轴旋转)
-  7  | MPERSP_1 | 控制透视  (绕X轴旋转)
-  8  | MPERSP_2 | 控制透视  (通常为1)
+序号 | 名称     | 对应单词    | 摘要
+-----|----------|-------------|--------------
+  0  | MSCALE_X | scale       | 控制X坐标 缩放，旋转
+  1  | MSKEW_X  | skew        | 控制X坐标 错切，旋转
+  2  | MTRANS_X | transfer    | 控制X坐标 位移
+  3  | MSKEW_Y  | skew        | 控制Y坐标 错切，旋转
+  4  | MSCALE_Y | scale       | 控制Y坐标 缩放，旋转
+  5  | MTRANS_Y | transfer    | 控制Y坐标 位移
+  6  | MPERSP_0 | perspective | 控制透视  (绕Y轴旋转)
+  7  | MPERSP_1 | perspective | 控制透视  (绕X轴旋转)
+  8  | MPERSP_2 | perspective | 控制透视  (通常为1)
   
 
 
