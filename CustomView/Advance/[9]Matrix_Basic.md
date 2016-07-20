@@ -7,7 +7,7 @@
 
 ## Matrix作用
 
-如题，本篇的主角是 Matrix(并不是黑客帝国)。
+如题，本篇的主角是 Matrix。
 
 它在我们在之前的很多文章中都提及过，但并没有仔细的介绍过，从本篇开始终于要正式介绍它了，这个在2D和3D绘图中十分重要的角色Matrix(Android中有两个Matrix，分别属于OpenGL 和 graphics， 本篇主要讲述的是graphics中的Matrix)。
 
@@ -15,22 +15,6 @@
 ### Matrix 的翻译过来是矩阵，模型。和其释义相同，Matrix是一个矩阵，其作用则是一个模型，一个控制视图状态的模型。
 
 也就是说， 我们进行界面视图等转换都是需要依靠 Matrix 的帮助的，例如我们之前在 [Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 中讲解过的画布操作，这些操作的核心就是改变 Matrix 的数值。
-
-
-## Matrix方法表
-
-Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些方法的讲解，而是帮助大家理解 Matrix 的一些基本概念。
-
-方法类别   | 相关API                                                 | 摘要
------------|---------------------------------------------------------|------------------------
-基本方法   | equals hashCode toString toShortString                  | 比较、 获取哈希值、 转换为字符串
-数值操作   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值                    
-设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
-前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
-后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
-数值计算   | mapPoints mapRadius mapRect mapVectors                  | 计算变换后的数值
-特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
-矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
 
 
 ## Matrix基本原理
@@ -73,11 +57,27 @@ $$)
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f60gx3a9z5j30c008zwf0.jpg)
 
 >
-**从上图可以看到最后三个参数是控制透视的，这三个参数主要在3D效果中运用，通常为(0, 0, 1)，不在本篇范围内，暂不过多叙述。**
+**从上图可以看到最后三个参数是控制透视的，这三个参数主要在3D效果中运用，通常为(0, 0, 1)，不在本篇范围内，暂不过多叙述，会在之后对文章中详述其作用。**
 
 
 
 
+
+
+## Matrix方法表
+
+Matrix 有很多常用和不常用的方法，在本篇中重点不在于这些方法的讲解，而是帮助大家理解 Matrix 的一些基本概念。
+
+方法类别   | 相关API                                                 | 摘要
+-----------|---------------------------------------------------------|------------------------
+基本方法   | equals hashCode toString toShortString                  | 比较、 获取哈希值、 转换为字符串
+数值操作   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值                    
+设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
+前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
+后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
+数值计算   | mapPoints mapRadius mapRect mapVectors                  | 计算变换后的数值
+特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
+矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
 
 
 
