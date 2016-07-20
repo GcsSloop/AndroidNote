@@ -43,6 +43,8 @@
  02  | [Path常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Path.md)
  03  | [贝塞尔曲线常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bezier.md)
 
+******
+
 ## [混沌水晶](https://github.com/GcsSloop/AndroidNote/tree/master/ChaosCrystal)
 
 混沌水晶本身并没有太大功效，但与其他物品合成之后可能产生质的变化。
