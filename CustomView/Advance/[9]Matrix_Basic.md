@@ -64,7 +64,7 @@ $$)
   7  | MPERSP_1 | perspective | 控制透视  (绕X轴旋转)
   8  | MPERSP_2 | perspective | 控制透视  (通常为1)
 
-从上表中可以看出一些内容，下面分析一下画布常用的四种操作(translate, scale, rotate, skew)都是由哪些参数控制的。
+从上表中可以看出一些内容，下面我们看一下2D画布中常用的四种操作(translate, scale, rotate, skew)都是由哪些参数控制的。
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f60gwrhlnyj30c008zdgy.jpg)
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f60gx3a9z5j30c008zwf0.jpg)
