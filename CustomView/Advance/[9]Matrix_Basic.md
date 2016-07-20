@@ -5,11 +5,11 @@
 
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f4oyx5i8wbj308c0bj3zz.jpg)
 
-## Matrix作用
+## 一、Matrix作用
 
 如题，本篇的主角是 Matrix。
 
-它在我们在之前的很多文章中都提及过，但并没有仔细的介绍过，从本篇开始终于要正式介绍它了，这个在2D和3D绘图中十分重要的角色Matrix(Android中有两个Matrix，分别属于OpenGL 和 graphics， 本篇主要讲述的是graphics中的Matrix)，
+它在我们在之前的很多文章中都提及过，但并没有仔细的介绍过，从本篇开始终于要正式介绍它了，这个在2D和3D绘图中十分重要的角色Matrix(_Android中有两个Matrix，分别属于OpenGL 和 graphics， 本篇主要讲述的是graphics中的Matrix_)，
 
 另外，本篇的重点不在于这些方法的讲解，而是帮助大家理解 Matrix 的一些基本概念。
 
@@ -18,7 +18,7 @@
 
 也就是说， 我们进行界面视图等转换都是需要依靠 Matrix 的帮助的，例如我们之前在 [Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 中讲解过的画布操作，这些操作的核心就是改变 Matrix 的数值，我们常见的可以用到Matrix的地方就是 canvas、 path、 bitmap 和 camera 等地方，对于我们Android程序员来说，只要是图形化界面展示，就有Matrix在后台默默工作。
 
-## Matrix基本原理
+## 二、Matrix基本原理
 
 Matrix 本质是一个 3x3 的矩阵，里面有9个数值，分别用于控制视图的不同属性，大致如下:
 
@@ -61,7 +61,7 @@ $$)
 >
 **从上图可以看到最后三个参数是控制透视的，这三个参数主要在3D效果中运用，通常为(0, 0, 1)，不在本篇范围内，暂不过多叙述，会在之后对文章中详述其作用。**
 
-## Matrix常见误解
+## 三、Matrix常见误解
 
 在写本文之前，我翻阅很多介绍 Matrix 的文章和官方文档，但其中文的搜索结果令我很悲伤，大部分的中文章对Matrix都存在误解,想当然的创造出一些错误的理论, 导致很多(抄袭)的文章都是这一错误的理论，不知道要坑害多少小白，常见的错误理论有:
 
