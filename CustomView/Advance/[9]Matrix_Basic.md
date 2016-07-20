@@ -66,6 +66,8 @@ $$)
 
 从上表中可以看出一些内容，下面分析一下画布常用的四种操作(translate, scale, rotate, skew)都是由哪些参数控制的。
 
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f60gwrhlnyj30c008zdgy.jpg)
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f60gx3a9z5j30c008zwf0.jpg)
 
 
 ## Matrix方法详解  
