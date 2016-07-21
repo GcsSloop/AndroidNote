@@ -56,6 +56,13 @@ C = 2πr;
 **弧度 = 角度xπ/180** | 2π ＝ 360 x π / 180 
 **角度 = 弧度x180/π** | 360 ＝ 2π x 180 / π
 
+维基百科的公式：
+
+>  rad 是弧度， deg 是角度
+
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4hui2jaecj305m03lwee.jpg)
+
+
 ## 四.一些细节问题
 由于默认屏幕坐标系和常见数学坐标系的小差别([坐标系问题点这里](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md))，所以在角上必然也会存在一些区别，例如：
 
