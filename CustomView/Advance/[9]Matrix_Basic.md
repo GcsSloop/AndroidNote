@@ -68,7 +68,7 @@ $$)
   5  | MTRANS_Y | transfer    | 控制Y坐标 位移
   6  | MPERSP_0 | perspective | 控制透视  (绕Y轴旋转)
   7  | MPERSP_1 | perspective | 控制透视  (绕X轴旋转)
-  8  | MPERSP_2 | perspective | 控制透视  (通常为1)
+  8  | MPERSP_2 | perspective | 控制透视  (齐次坐标标志位，通常为1)
 
 从上表中可以看出一些内容，下面我们看一下2D画布中常用的四种操作(translate, scale, rotate, skew)都是由哪些参数控制的。
 
