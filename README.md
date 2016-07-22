@@ -1,9 +1,8 @@
-# <img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f2jtcc1bpsj30740740sy.jpg" width=32 /> AndroidNote
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f6307cu3krj30rs05kglz.jpg)
+
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
-我的安卓学习笔记，记录学习过程中遇到的问题,以及我发布的安卓相关文章。
-
-如果出现链接失效等情况可以提交Issues提醒我修改相关内容。
+我的安卓学习笔记，记录学习过程中遇到的问题,以及我的一些经验总结。如果出现链接失效等情况可以提交Issues提醒我修改相关内容。
 
 > #### PS:点击分类标题可以查看该分类的详细信息。 
 
