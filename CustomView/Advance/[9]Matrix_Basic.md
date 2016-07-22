@@ -103,9 +103,15 @@ Matrix在view、canvas、path、bitmap等很多地方都有应用，可以说运
 
 ### 优点
 
-* 计算方便，利用矩阵的计算法则
-* 方便复用，Matrix仅有九个数值，却包含了大部分画布的状态信息，如果有重复的需要相同状态的地方，只需要构造好一个Matrix，然后设置给不同的画布即可，无需给每一个画布都重新构造状态，同样，如果一张图片需要在不同的地方以状态(镜像，旋转)展示，可以只放一张资源图片，然后构造出不同的Matrix进行设置即可。
-* 
+* 计算方便，利用矩阵的计算法则可以方便的将一个坐标系转换为另一个坐标系中。
+* 存储量小，Matrix仅有九个数值，却包含了大部分画布的状态信息。
+* 方便复用，如果有重复的需要相同状态的地方，只需要构造好一个Matrix，设置给不同的画布即可保证每一个画布的状态都是相同的，无需给每一个画布都重新构造状态。另外，如果一张图片需要以不同的状态展示，可以只放一张资源图片，然后构造出不同的Matrix进行设置即可。
+
+### 缺点
+
+* 稍有门槛，Matrix计算运用了线性代数的知识，有一定的门槛，虽然封装了比较好的方法，但对于大部分人来说，pre、post、set有啥区别还是傻傻分不清楚，更不用说仿射，投影，齐次坐标这些让人头大的概念。
+* 容易混淆，Matrix的方法变换 和 Canvas的方法变换 稍微有所差别， 如果按照Canvas的变换方法直接构造Matrix，最后的结果可能会与你想象的有所差别。
+
 
 
 
@@ -136,11 +142,11 @@ Matrix 有很多常用和不常用的方法，
 方法类别   | 相关API                                                 | 摘要
 -----------|---------------------------------------------------------|------------------------
 基本方法   | equals hashCode toString toShortString                  | 比较、 获取哈希值、 转换为字符串
-数值操作   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值                    
+数值操作   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值
+数值计算   | mapPoints mapRadius mapRect mapVectors                  | 计算变换后的数值
 设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
 后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
-数值计算   | mapPoints mapRadius mapRect mapVectors                  | 计算变换后的数值
 特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
 矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
 
