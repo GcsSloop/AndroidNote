@@ -10,7 +10,7 @@
 
 自定义View绘制流程函数调用链(简化版)
 
-![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f638q87ubaj30fr0heaaw.jpg)
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f638wreu74j30fc0heaay.jpg)
 
 
 ## 一.自定义View分类
