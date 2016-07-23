@@ -1,7 +1,7 @@
 # 安卓中的坐标系
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
 
 ## 一.屏幕坐标系和数学坐标系的区别
