@@ -1,7 +1,7 @@
 # Canvas之画布操作
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
 上一篇[Canvas之绘制基本形状](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B2%5DCanvas_BasicGraphics.md)中我们了解了如何使用Canvas绘制基本图形，本次了解一些基本的画布操作。
 
