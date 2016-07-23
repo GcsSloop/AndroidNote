@@ -6,7 +6,7 @@
 
 > #### PS:点击分类标题可以查看该分类的详细信息。 
 
-## [自定义View系列](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+## [自定义View系列](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
  
  序号 | 内容
 :----:|---------
@@ -25,7 +25,7 @@
  
 ******
 
-## [教程类](https://github.com/GcsSloop/AndroidNote/tree/master/Course)
+## [教程类](https://github.com/GcsSloop/AndroidNote/tree/master/Course/README.md)
 
 序号 | 内容
 :---:|--------
@@ -34,7 +34,7 @@
 
 ******
  
-## [速查表](https://github.com/GcsSloop/AndroidNote/tree/master/QuickChart)
+## [速查表](https://github.com/GcsSloop/AndroidNote/tree/master/QuickChart/README.md)
 
 序号 | 内容
 :---:|---------------
@@ -44,7 +44,7 @@
 
 ******
 
-## [混沌水晶](https://github.com/GcsSloop/AndroidNote/tree/master/ChaosCrystal)
+## [混沌水晶](https://github.com/GcsSloop/AndroidNote/tree/master/ChaosCrystal/README.md)
 
 混沌水晶本身并没有太大功效，但与其他物品合成之后可能产生质的变化。
 
