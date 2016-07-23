@@ -1,7 +1,7 @@
 # Path之完结篇(伪)
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView)
+### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
 经历过前两篇 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md) 和 [Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md) 的讲解，本篇终于进入Path的收尾篇，本篇结束后Path的大部分相关方法都已经讲解完了，但Path还有一些更有意思的玩法，应该会在后续的文章中出现吧，嗯，应该会的ˊ_>ˋ
 
