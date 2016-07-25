@@ -5,8 +5,9 @@
 
 前面讲了四篇 Path 相关的内容，经过长时间的拖更，终于要到了大家期盼已久的 Matrix， 一个与黑客帝国同名的东东，看名字就知道很不凡，接下来我们就看看这个 Matrix 到底是何方神圣。
 
+<center>
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f4oyx5i8wbj308c0bj3zz.jpg)
-
+</center>
 
 ******
 
