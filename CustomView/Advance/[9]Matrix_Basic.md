@@ -3,12 +3,13 @@
 
 ## 目录
 
-- [Matrix简介](#Matrix简介)
+- [Matrix简介](#jianjie)
     - [常见误解](#常见误解)
 - [Matrix详解](#Matrix详解)
 
 ******
 
+<p id="jianjie" /> 
 ## Matrix简介
 
 **Matrix是一个矩阵，主要功能是坐标映射，数值转换。**
