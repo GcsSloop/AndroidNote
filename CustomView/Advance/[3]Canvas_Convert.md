@@ -19,7 +19,7 @@
 顶点操作 | drawVertices, drawBitmapMesh | 通过对顶点操作可以使图像形变，drawVertices直接对画布作用、 drawBitmapMesh只对绘制的Bitmap作用
 画布剪裁 | clipPath,    clipRect | 设置画布的显示区域
 画布快照 | save, restore, saveLayerXxx, restoreToCount, getSaveCount | 依次为 保存当前状态、 回滚到上一次保存的状态、 保存图层状态、 回滚到指定状态、 获取保存次数
-画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、倾斜
+画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、错切
 Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩放等操作的都是图像矩阵Matrix， 只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
 
 ******
@@ -265,17 +265,15 @@ Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩�
 <img src="http://ww3.sinaimg.cn/large/005Xtdi2jw1f2f1zsnj00j30u01hc75a.jpg" width = "300" />  
 
 *****
-#### ⑷倾斜(skew)
+#### ⑷错切(skew)
 
-skew这里翻译为倾斜，有的地方也叫错切。
+skew这里翻译为错切，错切是特殊线性变换的一种。
 
-倾斜只提供了一种方法：
+错切只提供了一种方法：
 ``` java
   public void skew (float sx, float sy)
 ```
-<b>参数含义：<br/>
-float sx:将画布在x方向上倾斜相应的角度，sx倾斜角度的tan值，<br/>
-float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的tan值.</b>
+
 
 示例：
 ``` java
@@ -287,14 +285,14 @@ float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的ta
         mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
         canvas.drawRect(rect,mPaint);
 
-        canvas.skew(1,0);                       // 在x轴倾斜45度 <-- tan45 = 1
+        canvas.skew(1,0);                       // 错切
 
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
 ```
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2f20h7i23j30u01hcdgq.jpg" width = "300" />  
 
-<b>如你所想，倾斜也是可叠加的，不过请注意，调用次序不同绘制结果也会不同</b>
+<b>如你所想，错切也是可叠加的，不过请注意，调用次序不同绘制结果也会不同</b>
 ``` java
         // 将坐标系原点移动到画布正中心
         canvas.translate(mWidth / 2, mHeight / 2);
@@ -304,8 +302,8 @@ float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的ta
         mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
         canvas.drawRect(rect,mPaint);
 
-        canvas.skew(1,0);                       // 在x轴倾斜45度 <-- tan45 = 1
-        canvas.skew(0,1);                       // 在y轴倾斜45度 <-- tan45 = 1
+        canvas.skew(1,0);                       // 错切
+        canvas.skew(0,1);                       // 错切
 
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
