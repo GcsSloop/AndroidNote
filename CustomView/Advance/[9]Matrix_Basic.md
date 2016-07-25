@@ -122,8 +122,6 @@ Matrix 是一个矩阵，肯定会涉及到一些比较麻烦的理论知识，�
 
 以点(10,10)为例，我们将x缩放到原来到0.5倍，y缩放到原来到2倍，我们可以轻易到算出结果:(10x0.5, 10x2) = (5, 20)
 
-**计算公式:**
-
 ![](http://latex.codecogs.com/png.latex?
 $$
 \\left [ 
@@ -152,8 +150,6 @@ $$)
 #### b.错切
 
 错切有水平错切(平行X轴)和垂直错切(平行Y轴)，或者是两者叠加。
-
-**计算公式:**
 
 ![](http://latex.codecogs.com/png.latex?
 $$
@@ -186,8 +182,6 @@ Y = Skew_Y * x + y
 
 #### b.旋转
 
-**计算公式:**
-
 逆时针旋转 a 度。
 
 ![](http://latex.codecogs.com/png.latex?
@@ -216,12 +210,6 @@ $$)
 
 
 ### 4.平移变换
-
-
-
-### 四大常用操作
-
-我们之前在 [Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 中讲解过的四种画布操作(translate, scale, rotate, skew)，这些操作的核心就是改变Matrix的数值，接下来我们看看这四种操作都会影响到哪些数值。
 
 
 
