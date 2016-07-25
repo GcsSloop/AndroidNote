@@ -10,5 +10,5 @@
 顶点操作 | drawVertices, drawBitmapMesh | 通过对顶点操作可以使图像形变，drawVertices直接对画布作用、 drawBitmapMesh只对绘制的Bitmap作用
 画布剪裁 | clipPath,    clipRect | 设置画布的显示区域
 画布快照 | save, restore, saveLayerXxx, restoreToCount, getSaveCount | 依次为 保存当前状态、 回滚到上一次保存的状态、 保存图层状态、 会滚到指定状态、 获取保存次数<br/>**相关链接:** <br/>[【Canvas－画布操作】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)
-画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、倾斜<br/> **相关链接:** <br/>[【基础－坐标系】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md)    <br/>[【基础－角度弧度】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B2%5DAngleAndRadian.md)  <br/>[【Canvas－画布操作】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)
+画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、错切<br/> **相关链接:** <br/>[【基础－坐标系】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md)    <br/>[【基础－角度弧度】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B2%5DAngleAndRadian.md)  <br/>[【Canvas－画布操作】](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)
 Matrix(矩阵) | getMatrix, setMatrix, concat | 实际画布的位移，缩放等操作的都是图像矩阵Matrix，只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
