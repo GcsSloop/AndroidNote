@@ -295,7 +295,7 @@ Y = sy * x + y
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
 ```
-<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2f20h7i23j30u01hcdgq.jpg" width = "300" />  
+<img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f66sgn7aj2j30u01hcmy0.jpg" width = "300" />  
 
 <b>如你所想，错切也是可叠加的，不过请注意，调用次序不同绘制结果也会不同</b>
 ``` java
