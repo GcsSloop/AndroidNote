@@ -149,32 +149,6 @@ y
 $$)
 
 
-**计算示例:**
-
-![](http://latex.codecogs.com/png.latex?
-$$
-\\left [ 
-\\begin{matrix} 
-5 \\\\
-20
-\\end{1} 
-\\right ] 
- = 
-\\left [ 
-\\begin{matrix} 
-0.5 & 0 \\\\
-0 & 2 
-\\end{1} 
-\\right ] 
- . 
-\\left [ 
-\\begin{matrix} 
-10\\\\
-10
-\\end{1} 
-\\right ]
-$$)
-
 #### b.错切
 
 错切有水平错切(平行X轴)和垂直错切(平行Y轴)，或者是两者叠加。
@@ -210,33 +184,6 @@ X = x + Skew_X * y
 Y = Skew_Y * x + y
 ```
 
-**计算示例:**
-
-![](http://latex.codecogs.com/png.latex?
-$$
-\\left [ 
-\\begin{matrix} 
-25\\\\
-10
-\\end{1} 
-\\right ] 
- = 
-\\left [ 
-\\begin{matrix} 
-1 & 2 \\\\
-0 & 1 
-\\end{1} 
-\\right ] 
- . 
-\\left [ 
-\\begin{matrix} 
-5\\\\
-10
-\\end{1} 
-\\right ]
-$$)
-
-
 #### b.旋转
 
 **计算公式:**
@@ -268,9 +215,7 @@ y
 $$)
 
 
-
-
-**计算示例:**
+### 4.平移变换
 
 
 
