@@ -274,6 +274,10 @@ skew这里翻译为错切，错切是特殊类型的线性变换。
   public void skew (float sx, float sy)
 ```
 
+<b>参数含义：<br/>
+float sx:将画布在x方向上倾斜相应的角度，sx倾斜角度的tan值，<br/>
+float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的tan值.</b>
+
 变换后:
 ```
 X = x + sx * y
@@ -290,7 +294,7 @@ Y = sy * x + y
         mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
         canvas.drawRect(rect,mPaint);
 
-        canvas.skew(1,0);                       // 错切
+        canvas.skew(1,0);                       // 水平错切 <- 45度
 
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
@@ -307,8 +311,8 @@ Y = sy * x + y
         mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
         canvas.drawRect(rect,mPaint);
 
-        canvas.skew(1,0);                       // 错切
-        canvas.skew(0,1);                       // 错切
+        canvas.skew(1,0);                       // 水平错切
+        canvas.skew(0,1);                       // 垂直错切
 
         mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
         canvas.drawRect(rect,mPaint);
