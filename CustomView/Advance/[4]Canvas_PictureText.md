@@ -17,7 +17,7 @@
 顶点操作 | drawVertices, drawBitmapMesh | 通过对顶点操作可以使图像形变，drawVertices直接对画布作用、 drawBitmapMesh只对绘制的Bitmap作用
 画布剪裁 | clipPath,    clipRect | 设置画布的显示区域
 画布快照 | save, restore, saveLayerXxx, restoreToCount, getSaveCount | 依次为 保存当前状态、 回滚到上一次保存的状态、 保存图层状态、 回滚到指定状态、 获取保存次数
-画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、倾斜
+画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、错切
 Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩放等操作的都是图像矩阵Matrix， 只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
 
 ******
