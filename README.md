@@ -59,6 +59,7 @@
 * [录屏与GIF制作](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/%E5%BD%95%E5%B1%8F%E4%B8%8EGIF%E5%88%B6%E4%BD%9C.md)
 * [ADB常用命令](https://github.com/GcsSloop/AndroidNote/blob/master/ChaosCrystal/ADB%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
 
+******
 
 ## 版权声明
 
@@ -74,6 +75,7 @@
 
 * 保持文章原文，不作修改。
 * 明确署名，即至少注明 `作者：GcsSloop` 字样以及文章的原始链接，且不得使用 `rel="nofollow"` 标记。
+* 商业用途请点击最下面图片联系本人。
 
 
 ## About Me
