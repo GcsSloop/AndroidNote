@@ -177,6 +177,8 @@ $$)
 
 #### b.错切
 
+错切有水平错切(平行X轴)和垂直错切(平行Y轴)，或者是两者叠加。
+
 计算公式:
 
 ![](http://latex.codecogs.com/png.latex?
@@ -210,6 +212,29 @@ Y = Skew_Y * x + y
 
 计算示例:
 
+![](http://latex.codecogs.com/png.latex?
+$$
+\\left [ 
+\\begin{matrix} 
+20\\\\
+5
+\\end{1} 
+\\right ] 
+ = 
+\\left [ 
+\\begin{matrix} 
+1 & 2 \\\\
+0 & 1 
+\\end{1} 
+\\right ] 
+ . 
+\\left [ 
+\\begin{matrix} 
+10\\\\
+5
+\\end{1} 
+\\right ]
+$$)
 
 
 
