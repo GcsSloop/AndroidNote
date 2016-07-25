@@ -4,6 +4,7 @@
 ## 目录
 
 - [Matrix简介](#jianjie)
+    - [概述](#gaishu) 
     - [常见误解](#wujie)
 - [Matrix详解](#xiangjie)
 
@@ -11,6 +12,9 @@
 
 <p id="jianjie" /> 
 ## Matrix简介
+
+<p id="gaishu" />
+### 概述
 
 **Matrix是一个矩阵，主要功能是坐标映射，数值转换。**
 
