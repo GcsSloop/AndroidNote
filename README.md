@@ -8,12 +8,13 @@
 
 ## 目录
 
-- [自定义View](#自定义View)
+- [自定义View](#custom_view)
 - [教程类](#教程类)
 - [速查表](#速查表)
 - [混沌水晶](#混沌水晶)
 - [版权声明](#版权声明)
 
+<p id="custom_view" />
 ## [自定义View](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
  
 * 基础篇
