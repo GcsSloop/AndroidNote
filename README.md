@@ -8,27 +8,27 @@
 
 ## 目录
 
-- [CustomView](#CustomView)
+- [自定义View](#自定义View)
 - [教程类](#教程类)
 - [速查表](#速查表)
 - [混沌水晶](#混沌水晶)
 - [版权声明](#版权声明)
 
-## [CustomView](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
+## [自定义View](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
  
- 序号 | 内容
-:----:|---------
-  01  | [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md)
-  02  | [安卓自定义View基础 - 角度弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B2%5DAngleAndRadian.md)
-  03  | [安卓自定义View基础 - 颜色](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B3%5DColor.md)
-  04  | [安卓自定义View进阶 - 分类和流程](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B1%5DCustomViewProcess.md)
-  05  | [安卓自定义View进阶 - 绘制基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B2%5DCanvas_BasicGraphics.md)
-  06  | [安卓自定义View进阶 - 画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)
-  07  | [安卓自定义View进阶 - 图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md)
-  08  | [安卓自定义View进阶 - Path基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)
-  09  | [安卓自定义View进阶 - 贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md)
-  10  | [安卓自定义View进阶 - Path完结篇(伪)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B7%5DPath_Over.md)
-  11  | [安卓自定义View进阶 - Path玩出花样(PathMeasure)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B8%5DPath_Play.md)
+* 基础篇
+    * [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md)
+    * [安卓自定义View基础 - 角度弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B2%5DAngleAndRadian.md)
+    * [安卓自定义View基础 - 颜色](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B3%5DColor.md)
+* 进阶篇    
+    * [安卓自定义View进阶 - 分类和流程](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B1%5DCustomViewProcess.md)
+    * [安卓自定义View进阶 - 绘制基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B2%5DCanvas_BasicGraphics.md)
+    * [安卓自定义View进阶 - 画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)
+    * [安卓自定义View进阶 - 图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md)
+    * [安卓自定义View进阶 - Path基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)
+    * [安卓自定义View进阶 - 贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md)
+    * [安卓自定义View进阶 - Path完结篇(伪)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B7%5DPath_Over.md)
+    * [安卓自定义View进阶 - Path玩出花样(PathMeasure)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B8%5DPath_Play.md)
  
  
 ******
