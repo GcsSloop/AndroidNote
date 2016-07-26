@@ -92,7 +92,6 @@ MSCALE\\_X &     0      &   0  \\\\
     0      &     0      &   1
 \\end{1} 
 \\right ] 
- . 
 \\left [ 
 \\begin{matrix} 
 x_0 \\\\
@@ -123,7 +122,6 @@ Y
 Skew\\_Y & 1 
 \\end{1} 
 \\right ] 
- . 
 \\left [ 
 \\begin{matrix} 
 x\\\\
