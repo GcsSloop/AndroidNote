@@ -22,4 +22,6 @@ Ctrl(Command)+ - / +        | 折叠/展开代码
 Ctrl(Command)+Shift+ - / +  | 折叠/展开全部代码
 Ctrl(Command)+Shift+.       | 折叠/展开当前花括号中的代码
 Command + Y                 | 快速查看代码实现
+Contral + H                 | 查看继承关系
+Contral + Alt + H           | 查看调用关系
 
