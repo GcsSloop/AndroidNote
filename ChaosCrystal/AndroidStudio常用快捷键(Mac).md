@@ -27,4 +27,5 @@ Contral + Alt + H           | 查看调用关系
 Command + [                 | 返回上一次查看的位置
 Command + ]                 | 前进到返回之前查看的位置
 Command + J                 | 自动生成代码
+Command + E                 | 查看最近打开的文件
 
