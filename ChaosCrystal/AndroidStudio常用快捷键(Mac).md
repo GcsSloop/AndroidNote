@@ -1,10 +1,13 @@
 # AndroidStudio常用快捷键(Mac) 
 
+这里的快捷键是基于OSX个人定制版本的，具体请到 setting -> keymap 设置
+
 快捷键                      | 作用
 ----------------------------|-----------------------------------------------
 Option + Enter              | 自动修正
 Command + N                 | 自动生成代码(Getter Setter)
 Command ＋ Alt ＋ L         | 格式化代码
+Contral ＋ Shift + F        | 格式化代码(定制)
 Command ＋ Alt ＋ T         | 把选中的代码放在 try{} 、if{} 、 else{} 里
 Command ＋ /                | 注释 //
 Command ＋ Shift ＋ /       | 注释 /* */
@@ -18,4 +21,5 @@ Control + Alt + O           | 优化导入的包
 Ctrl(Command)+ - / +        | 折叠/展开代码
 Ctrl(Command)+Shift+ - / +  | 折叠/展开全部代码
 Ctrl(Command)+Shift+.       | 折叠/展开当前花括号中的代码
+Command + Y                 | 快速查看代码实现
 
