@@ -63,32 +63,46 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 ### 1.缩放
 
-以点(10,10)为例，我们将x缩放到原来到0.5倍，y缩放到原来到2倍，我们可以轻易到算出结果:(10x0.5, 10x2) = (5, 20)
+![](http://latex.codecogs.com/png.latex?
+$$
+x = MSCALE\\_X \\times x_0
+$$)
+
+![](http://latex.codecogs.com/png.latex?
+$$
+y = MSCALE\\_Y \\times y_0
+$$)
+
+用矩阵表示: 
 
 ![](http://latex.codecogs.com/png.latex?
 $$
 \\left [ 
 \\begin{matrix} 
-X\\\\
-Y
+x\\\\
+y\\\\
+1
 \\end{1} 
 \\right ] 
  = 
 \\left [ 
 \\begin{matrix} 
-Scale\\_X & 0 \\\\
-0 & Scale\\_Y 
+MSCALE\\_X &     0      &   0  \\\\
+    0      & MSCALE\\_Y &   0  \\\\
+    0      &     0      &   1
 \\end{1} 
 \\right ] 
  . 
 \\left [ 
 \\begin{matrix} 
-x\\\\
-y
+x_0 \\\\
+y_0 \\\\
+1
 \\end{1} 
 \\right ]
 $$)
 
+图例: 
 
 ### 2.错切
 
