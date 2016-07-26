@@ -24,4 +24,6 @@ Ctrl(Command)+Shift+.       | 折叠/展开当前花括号中的代码
 Command + Y                 | 快速查看代码实现
 Contral + H                 | 查看继承关系
 Contral + Alt + H           | 查看调用关系
+Command + [                 | 返回上一次查看的位置
+Command + ]                 | 前进到返回之前查看的位置
 
