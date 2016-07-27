@@ -119,21 +119,24 @@ $$)
 $$
 \\left [ 
 \\begin{matrix} 
-X\\\\
-Y
+x\\\\
+y\\\\
+1
 \\end{1} 
 \\right ] 
  = 
 \\left [ 
-\\begin{matrix} 
-1 & Skew\\_X \\\\
-Skew\\_Y & 1 
+\\begin{matrix}  
+    1     & MSKEW\\_X & 0 \\\\
+MSKEW\\_Y &     1     & 0 \\\\
+    0     &     0     & 1
 \\end{1} 
 \\right ] 
 \\left [ 
 \\begin{matrix} 
-x\\\\
-y
+x_0\\\\
+y_0\\\\
+1
 \\end{1} 
 \\right ]
 $$)
