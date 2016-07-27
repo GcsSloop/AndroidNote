@@ -151,20 +151,23 @@ $$
 \\begin{matrix} 
 X\\\\
 Y
+1
 \\end{1} 
 \\right ] 
  = 
 \\left [ 
 \\begin{matrix} 
-cos(a) & -sin(a) \\\\
-sin(a) & cos(a) 
+cos(a) & -sin(a) & 0 \\\\
+sin(a) & cos(a)  & 0 \\\\
+  0    &   0     & 1
 \\end{1} 
 \\right ] 
  . 
 \\left [ 
 \\begin{matrix} 
-x\\\\
-y
+x_0\\\\
+y_0\\\\
+1
 \\end{1} 
 \\right ]
 $$)
