@@ -6,21 +6,7 @@
 
 > #### PS:点击分类标题可以查看该分类的详细信息。 
 
-<script type="text/javascript"> 
-	function hide_menu()  
-  	{  
-		document.getElementById("menu").style.display = "none";
-	}  
-	function show_menu()  
-	{  
-      		document.getElementById("menu").style.display = "block";
-	}
-</script> 
-
 ## 目录
-
-<button type="button" onclick="hide_menu()" value="隐藏菜单">隐藏菜单</button>
-<button type="button" onclick="show_menu()" value="显示菜单">显示菜单</button>
 
 - [自定义View](#custom_view)
 - [教程类](#教程类)
