@@ -7,30 +7,26 @@
 > #### PS:点击分类标题可以查看该分类的详细信息。 
 
 <script type="text/javascript"> 
-  function hide_menu()  
-		{  
-		    document.getElementById("menu").style.display = "none";
-		}  
-		function show_menu()  
-		{  
-      document.getElementById("menu").style.display = "block";
-		}
+	function hide_menu()  
+  	{  
+		document.getElementById("menu").style.display = "none";
+	}  
+	function show_menu()  
+	{  
+      		document.getElementById("menu").style.display = "block";
+	}
 </script> 
 
 ## 目录
 
-<form>
-  <input type="button" onclick="hide_menu()" value="隐藏菜单" /> 
-  <input type="button" onclick="show_menu()" value="显示菜单" /> 
-</form>
+<button type="button" onclick="hide_menu()" value="隐藏菜单">隐藏菜单</button>
+<button type="button" onclick="show_menu()" value="显示菜单">显示菜单</button>
 
-<div id="menu" >
 - [自定义View](#custom_view)
 - [教程类](#教程类)
 - [速查表](#速查表)
 - [混沌水晶](#混沌水晶)
 - [版权声明](#版权声明)
-</div>
 
 ******
 
