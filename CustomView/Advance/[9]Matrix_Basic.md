@@ -149,8 +149,8 @@ $$)
 $$
 \\left [ 
 \\begin{matrix} 
-X\\\\
-Y
+x\\\\
+y
 1
 \\end{1} 
 \\right ] 
@@ -175,7 +175,32 @@ $$)
 
 ### 4.平移
 
-
+![](http://latex.codecogs.com/png.latex?
+$$
+\\left [ 
+\\begin{matrix} 
+x\\\\
+y
+1
+\\end{1} 
+\\right ] 
+ = 
+\\left [ 
+\\begin{matrix} 
+1 & 0 & MTRANS\\_X \\\\
+0 & 1 & MTRANS\\_Y \\\\
+0 & 0 & 1
+\\end{1} 
+\\right ] 
+ . 
+\\left [ 
+\\begin{matrix} 
+x_0\\\\
+y_0\\\\
+1
+\\end{1} 
+\\right ]
+$$)
 
 
 
