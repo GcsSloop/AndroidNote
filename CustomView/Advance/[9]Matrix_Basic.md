@@ -63,15 +63,10 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 ### 1.缩放
 
-![](http://latex.codecogs.com/png.latex?
-$$
-x = MSCALE\\_X \\times x_0
-$$)
+![](http://latex.codecogs.com/png.latex?$$ x = k_1 x_0 $$)
 
-![](http://latex.codecogs.com/png.latex?
-$$
-y = MSCALE\\_Y \\times y_0
-$$)
+![](http://latex.codecogs.com/png.latex?$$ y = k_2 y_0 $$)
+
 
 用矩阵表示: 
 
@@ -87,9 +82,9 @@ y\\\\
  = 
 \\left [ 
 \\begin{matrix} 
-MSCALE\\_X &     0      &   0  \\\\
-    0      & MSCALE\\_Y &   0  \\\\
-    0      &     0      &   1
+k_1  &   0   &  0  \\\\
+ 0   &  k_2  &  0  \\\\
+ 0   &   0   &  1
 \\end{1} 
 \\right ] 
 \\left [ 
