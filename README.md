@@ -63,6 +63,16 @@
 
 ******
 
+## 开源库
+
+* [FontsManager - 快速替换字体](https://github.com/GcsSloop/FontsManager)
+* [ViewSupport - 自定义View工具包](https://github.com/GcsSloop/ViewSupport)
+* [Rocker － 自定义摇杆](https://github.com/GcsSloop/Rocker)
+* [LeafLoading － 进度条](https://github.com/GcsSloop/LeafLoading)
+* [Rotate3dAnimation - 3D旋转动画(修正版)](https://github.com/GcsSloop/Rotate3dAnimation)
+
+******
+
 ## 版权声明
 
 * 所有原创文章(未进行特殊标识的均属于原创) 的著作权属于 **GcsSloop**。
