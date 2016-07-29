@@ -175,20 +175,25 @@ $$)
 
 ### 4.平移
 
+![](http://latex.codecogs.com/png.latex?$$ x = x_0 + \\Delta x $$)
+
+![](http://latex.codecogs.com/png.latex?$$ y = y_0 + \\Delta y $$)
+
+
 ![](http://latex.codecogs.com/png.latex?
 $$
 \\left [ 
 \\begin{matrix} 
 x\\\\
-y
+y\\\\
 1
 \\end{1} 
 \\right ] 
  = 
 \\left [ 
 \\begin{matrix} 
-1 & 0 & MTRANS\\_X \\\\
-0 & 1 & MTRANS\\_Y \\\\
+1 & 0 & \\Delta x \\\\
+0 & 1 & \\Delta y \\\\
 0 & 0 & 1
 \\end{1} 
 \\right ] 
