@@ -12,7 +12,11 @@ pt | point，是一个标准的长度单位，1pt＝1/72英寸，用于印刷业
 in | （英寸）：长度单位。 
 mm | （毫米）：长度单位。
 
-单位转换：
+## 工具包
+
+在 [ViewSupport](https://github.com/GcsSloop/ViewSupport) 支持包中可以找到该工具。
+
+## 单位转换代码：
 ``` java
 /**
  * dp、sp 转换为 px 的工具类
