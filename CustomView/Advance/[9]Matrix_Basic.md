@@ -114,7 +114,7 @@ $$)
 
 #### 水平错切
 
-![](http://latex.codecogs.com/png.latex?$$ x = x + ky_0 $$)
+![](http://latex.codecogs.com/png.latex?$$ x = x_0 + ky_0 $$)
 
 ![](http://latex.codecogs.com/png.latex?$$ y = y_0 $$)
 
@@ -149,6 +149,44 @@ $$)
 图例:
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6cniifb0sj308c0dw3yz.jpg)
+
+#### 垂直错切
+
+![](http://latex.codecogs.com/png.latex?$$ x = x_0 $$)
+
+![](http://latex.codecogs.com/png.latex?$$ y = kx_0 + y_0 $$)
+
+用矩阵表示:
+
+![](http://latex.codecogs.com/png.latex?
+$$
+\\left [ 
+\\begin{matrix} 
+x\\\\
+y\\\\
+1
+\\end{1} 
+\\right ] 
+ = 
+\\left [ 
+\\begin{matrix}  
+ 1   &  0  &  0 \\\\
+ k   &  1   &  0 \\\\
+ 0   &  0   &  1
+\\end{1} 
+\\right ] 
+\\left [ 
+\\begin{matrix} 
+x_0\\\\
+y_0\\\\
+1
+\\end{1} 
+\\right ]
+$$)
+
+图例:
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f6cnkwyksij308c0dwq3f.jpg)
 
 ### 3.旋转
 
