@@ -188,6 +188,43 @@ $$)
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f6cnkwyksij308c0dwq3f.jpg)
 
+#### 复合错切
+
+> 水平错切和垂直错切的复合。
+
+![](http://latex.codecogs.com/png.latex?$$ x = x_0 + k_1 y_0 $$)
+
+![](http://latex.codecogs.com/png.latex?$$ y = k_2 x_0 + y_0 $$)
+
+用矩阵表示:
+
+![](http://latex.codecogs.com/png.latex?
+$$
+\\left [ 
+\\begin{matrix} 
+x\\\\
+y\\\\
+1
+\\end{1} 
+\\right ] 
+ = 
+\\left [ 
+\\begin{matrix}  
+ 1   &  k_1 &  0 \\\\
+ k_2 &  1   &  0 \\\\
+ 0   &  0   &  1
+\\end{1} 
+\\right ] 
+\\left [ 
+\\begin{matrix} 
+x_0\\\\
+y_0\\\\
+1
+\\end{1} 
+\\right ]
+$$)
+
+
 ### 3.旋转
 
 假定一个点 A(x<sub>0</sub>, y<sub>0</sub>) ,距离原点距离为 r, 与水平轴夹角为 α 度, 绕原点旋转 θ 度, 旋转后为点 B(x, y) 如下:
