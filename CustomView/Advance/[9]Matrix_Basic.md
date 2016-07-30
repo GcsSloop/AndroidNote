@@ -210,9 +210,7 @@ y = r \\cdot sin( \\alpha + \\theta)
 = y_0 \\cdot cos \\theta + x_0 \\cdot sin \\theta
 $$)
 
-图例:
-
-![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f6cpp174twj308c0dwt8s.jpg)
+用矩阵表示:
 
 ![](http://latex.codecogs.com/png.latex?
 $$
@@ -226,9 +224,9 @@ y\\\\
  = 
 \\left [ 
 \\begin{matrix} 
-cos(\\alpha) & -sin(\\alpha) & 0 \\\\
-sin(\\alpha) & cos(\\alpha)  & 0 \\\\
-  0    &   0     & 1
+cos(\\theta) & -sin(\\theta) &  0 \\\\
+sin(\\theta) & cos(\\theta)  &  0 \\\\
+      0      &       0       &  1
 \\end{1} 
 \\right ] 
  . 
@@ -240,6 +238,12 @@ y_0\\\\
 \\end{1} 
 \\right ]
 $$)
+
+图例:
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f6cpp174twj308c0dwt8s.jpg)
+
+
 
 
 ### 4.平移
