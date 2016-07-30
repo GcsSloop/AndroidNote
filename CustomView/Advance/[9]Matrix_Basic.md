@@ -196,9 +196,23 @@ $$)
 
 ![](http://latex.codecogs.com/png.latex? $$ y_0 = r \\cdot sin \\alpha $$)
 
+![](http://latex.codecogs.com/png.latex?
+$$
+x = r \\cdot cos( \\alpha + \\theta) 
+= r \\cdot cos \\alpha \\cdot cos \\theta - r \\cdot sin \\alpha \\cdot sin \\theta 
+= x_0 \\cdot cos \\theta - y_0 \\cdot sin \\theta
+$$)
+
+![](http://latex.codecogs.com/png.latex?
+$$
+y = r \\cdot sin( \\alpha + \\theta) 
+= r \\cdot sin \\alpha \\cdot cos \\theta + r \\cdot cos \\alpha \\cdot sin \\theta 
+= y_0 \\cdot cos \\theta + x_0 \\cdot sin \\theta
+$$)
+
 图例:
 
-![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6cpceme7lj308c0dwq30.jpg)
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f6cpp174twj308c0dwt8s.jpg)
 
 ![](http://latex.codecogs.com/png.latex?
 $$
