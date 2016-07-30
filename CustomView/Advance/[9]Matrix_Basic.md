@@ -106,7 +106,7 @@ $$)
 
 图例：
 
-![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f6ck7qsor2j308c0dwglo.jpg)
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f6cnk02zy9j308c0dwwej.jpg)
 
 ### 2.错切
 
@@ -145,6 +145,10 @@ y_0\\\\
 \\end{1} 
 \\right ]
 $$)
+
+图例:
+
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6cniifb0sj308c0dw3yz.jpg)
 
 ### 3.旋转
 
