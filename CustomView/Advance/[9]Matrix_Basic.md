@@ -190,14 +190,16 @@ $$)
 
 ### 3.旋转
 
-逆时针旋转 a 度。
+设一个点 A(x<sub>0</sub>, <sub>0</sub>) ,绕原点旋转 θ 度, 假定点A距离原点距离为 r。
+
+
 
 ![](http://latex.codecogs.com/png.latex?
 $$
 \\left [ 
 \\begin{matrix} 
 x\\\\
-y
+y\\\\
 1
 \\end{1} 
 \\right ] 
