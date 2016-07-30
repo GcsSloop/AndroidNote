@@ -190,7 +190,13 @@ $$)
 
 ### 3.旋转
 
-设一个点 A(x<sub>0</sub>, y<sub>0</sub>) ,绕原点旋转 θ 度, 假定点A距离原点距离为 r, 旋转后为点 B(x, y) 如下:
+假定一个点 A(x<sub>0</sub>, y<sub>0</sub>) ,距离原点距离为 r, 与水平轴夹角为 α 度, 绕原点旋转 θ 度, 旋转后为点 B(x, y) 如下:
+
+![](http://latex.codecogs.com/png.latex? $$ x_0 = r \\cdot cos \\alpha $$)
+
+![](http://latex.codecogs.com/png.latex? $$ y_0 = r \\cdot sin \\alpha $$)
+
+图例:
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6cpceme7lj308c0dwq30.jpg)
 
@@ -206,8 +212,8 @@ y\\\\
  = 
 \\left [ 
 \\begin{matrix} 
-cos(a) & -sin(a) & 0 \\\\
-sin(a) & cos(a)  & 0 \\\\
+cos(\\alpha) & -sin(\\alpha) & 0 \\\\
+sin(\\alpha) & cos(\\alpha)  & 0 \\\\
   0    &   0     & 1
 \\end{1} 
 \\right ] 
