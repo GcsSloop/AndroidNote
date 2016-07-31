@@ -319,7 +319,9 @@ y_0\\\\
 \\right ]
 $$)
 
+图例:
 
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f6dqiw20xoj308c0dw0su.jpg)
 
 
 
