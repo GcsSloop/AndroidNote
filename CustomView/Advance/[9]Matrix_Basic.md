@@ -6,7 +6,9 @@
 - [Matrix简介](#jianjie)
     - [概述](#gaishu) 
     - [常见误解](#wujie)
-- [Matrix详解](#xiangjie)
+- [Matrix基本原理](#jiben)
+- [Matrix复合原理](#fuhe)
+
 
 ******
 
@@ -51,12 +53,14 @@ $$)
 
 ******
 
-<p id="xiangjie" /> 
-## Matrix详解
+<p id="jiben" /> 
+## Matrix基本原理
 
 Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就看看几种常见变换的原理:
 
-常见的基本变换有4种: 平移(translate)、缩放(scale)、旋转(rotate) 和 错切(skew)。
+> 我们所用到的变换均属于仿射变换，仿射变换是 线性变换(缩放，旋转，错切) 和 平移变换(平移) 的复合，由于这些概念对于我们作用并不大，此处不过多介绍，有兴趣可自行了解。
+
+基本变换有4种: 平移(translate)、缩放(scale)、旋转(rotate) 和 错切(skew)。
 
 由于我们以下大部分的计算都是基于矩阵乘法规则，如果你已经把线性代数还给了老师，请参考一下这里:
 **[维基百科-矩阵乘法](https://zh.wikipedia.org/wiki/%E7%9F%A9%E9%99%A3%E4%B9%98%E6%B3%95)**
@@ -286,6 +290,9 @@ $$)
 
 ### 4.平移(Translate)
 
+> 
+此处也是使用齐次坐标的优点体现之一，实际上前面的三个操作使用 2x2 的矩阵也能满足需求，但是使用 2x2 的矩阵，无法将平移操作加入其中，而将坐标扩展为齐次坐标后，将矩阵扩展为 3x3 就可以将算法统一，四种算法均可以使用矩阵乘法完成。
+
 ![](http://latex.codecogs.com/png.latex?$$ x = x_0 + \\Delta x $$)
 
 ![](http://latex.codecogs.com/png.latex?$$ y = y_0 + \\Delta y $$)
@@ -324,6 +331,8 @@ $$)
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f6dqiw20xoj308c0dw0su.jpg)
 
 
+<p id="fuhe" /> 
+## Matrix复合原理
 
 
 
