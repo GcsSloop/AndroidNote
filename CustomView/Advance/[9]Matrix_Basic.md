@@ -3,13 +3,18 @@
 
 ## 目录
 
+- [前言](#qianyan)
 - [Matrix简介](#jianjie)
-    - [概述](#gaishu) 
-    - [常见误解](#wujie)
 - [Matrix基本原理](#jiben)
 - [Matrix复合原理](#fuhe)
 - [Matrix方法表](#fangfa)
 
+<p id="qianyan" /> 
+## 前言
+
+本文内容偏向理论，和 [画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 有重叠的部分，本文会让你更加深入的了解其中的原理。
+
+由于Google已经对这一部分已经做了很好的封装，所以跳过本部分对实际开发影响并不会太大，不想深究的粗略浏览即可，下一篇中将会详细讲解Matrix的具体用法和技巧。
 
 ******
 
@@ -339,7 +344,7 @@ $$)
 
 
 
-<p id="方法" /> 
+<p id="fangfa" /> 
 ## Matrix方法表
 
 方法类别   | 相关API                                                 | 摘要
