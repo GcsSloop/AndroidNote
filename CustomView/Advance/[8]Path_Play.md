@@ -536,7 +536,7 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
-<a href="https://github.com/GcsSloop/README/blob/master/README.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
+<a href="https://github.com/GcsSloop/AndroidNote/blob/magic-world/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
 
 ## 参考资料
 [PathMeasure](https://developer.android.com/reference/android/graphics/PathMeasure.html)<br/>
