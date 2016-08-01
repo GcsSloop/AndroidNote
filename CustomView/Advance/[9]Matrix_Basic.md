@@ -11,6 +11,9 @@
 - [Matrix基本原理](#jiben)
 - [Matrix复合原理](#fuhe)
 - [Matrix方法表](#fangfa)
+- [总结](#zongjie)
+- [关于作者](#about)
+- [参考资料](#ziliao)
 
 <p id="qianyan" /> 
 ## 前言
@@ -420,15 +423,18 @@ matrix.postScale(0.5f, 0.5f, pivotX, pivotY);
 特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
 矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
 
+<p id="zongjie" />
 ## 总结
 
 
+<p id="about" />
 ## About Me
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
 <a href="https://github.com/GcsSloop/AndroidNote/blob/magic-world/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
 
+<p id="ziliao" />
 ## 参考资料
 
 []()<br/>
