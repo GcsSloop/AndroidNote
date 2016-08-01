@@ -437,8 +437,12 @@ matrix.postScale(0.5f, 0.5f, pivotX, pivotY);
 <p id="ziliao" />
 ## 参考资料
 
-[]()<br/>
-[]()<br/>
-[]()<br/>
-[]()<br/>
+[Matrix](https://developer.android.com/reference/android/graphics/Matrix.html)<br/>
+[Android中图像变换Matrix的原理、代码验证和应用](http://biandroid.iteye.com/blog/1399462)<br/>
+[Android中关于矩阵（Matrix）前乘后乘的一些认识](http://blog.csdn.net/linmiansheng/article/details/18820599)<br/>
+[维基百科-仿射变换](https://zh.wikipedia.org/wiki/%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2)<br/>
+[维基百科-齐次坐标](https://zh.wikipedia.org/wiki/%E9%BD%90%E6%AC%A1%E5%9D%90%E6%A0%87)<br/>
+[维基百科-线性映射](https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84)<br/>
+[齐次坐标系入门级思考](https://oncemore2020.github.io/blog/homogeneous/)<br/>
+[仿射变换与齐次坐标](https://guangchun.wordpress.com/2011/10/12/affineandhomogeneous/)<br/>
 []()<br/>
