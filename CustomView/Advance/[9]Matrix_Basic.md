@@ -426,6 +426,10 @@ matrix.postScale(0.5f, 0.5f, pivotX, pivotY);
 <p id="zongjie" />
 ## 总结
 
+对于Matrix重在理解，理解了其中的原理之后用起来将会更加得心应手。
+
+**学完了本篇之后，推荐配合鸿洋大大的视频课程 [
+打造个性的图片预览与多点触控](http://www.imooc.com/learn/239) 食用，定然能够让你对Matrix对理解更上一层楼。**
 
 <p id="about" />
 ## About Me
