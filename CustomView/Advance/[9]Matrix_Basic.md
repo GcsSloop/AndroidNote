@@ -1,4 +1,4 @@
-# Matrix基础篇
+# Matrix原理
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
