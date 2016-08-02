@@ -423,6 +423,107 @@ matrix.postScale(0.5f, 0.5f, pivotX, pivotY);
 
 **组合操作构造Matrix时，个人建议尽量全部使用后乘或者全部使用前乘，这样操作顺序容易确定，出现问题也比较容易排查。<br/>当然，由于矩阵乘法不满足交换律，前乘和后乘的结果是不同的，使用时应结合具体情景分析使用。**
 
+### Pre与Post的区别
+
+主要区别其实就是矩阵的乘法顺序不同，pre相当于矩阵的右乘，而post相当于矩阵的左乘，在图像处理中，越靠近右边的矩阵越先执行，所以pre操作会先执行，而post操作会后执行。
+
+**假设我们需要先缩放再平移:**
+
+pre：
+
+```
+Matrix m ＝ new Matrix();
+m.reset();
+m.preTranslate(tx, ty); //使用pre，越靠后越先执行。
+m.preScale(sx, sy);
+```
+
+用矩阵表示:
+
+![](http://latex.codecogs.com/png.latex?
+$$
+\\left [ 
+\\begin{matrix} 
+ & &\\\\
+ & Result Matrix &\\\\
+ & &
+\\end{1} 
+\\right ] 
+ = 
+ \\left [ 
+\\begin{matrix} 
+ & &\\\\
+ & Empty Matrix &\\\\
+ & &
+\\end{1} 
+\\right ] 
+\\cdot 
+\\left [ 
+\\begin{matrix} 
+1 & 0 & \\Delta x \\\\
+0 & 1 & \\Delta y \\\\
+0 & 0 & 1
+\\end{1} 
+\\right ] 
+\\cdot 
+\\left [ 
+\\begin{matrix} 
+sx & 0 & 0\\\\
+0 & sy & 0\\\\
+0 & 0 & 1
+\\end{1} 
+\\right ]
+$$)
+
+post:
+
+```
+Matrix m ＝ new Matrix();
+m.reset();
+m.postScale(sx, sy);  //使用post，越靠前越先执行。
+m.postTranslate(tx, ty);
+```
+
+用矩阵表示:
+
+![](http://latex.codecogs.com/png.latex?
+$$
+\\left [ 
+\\begin{matrix} 
+ & &\\\\
+ & Result Matrix &\\\\
+ & &
+\\end{1} 
+\\right ] 
+ = 
+\\left [ 
+\\begin{matrix} 
+1 & 0 & \\Delta x \\\\
+0 & 1 & \\Delta y \\\\
+0 & 0 & 1
+\\end{1} 
+\\right ] 
+\\cdot 
+\\left [ 
+\\begin{matrix} 
+sx & 0 & 0\\\\
+0 & sy & 0\\\\
+0 & 0 & 1
+\\end{1} 
+\\right ]
+\\cdot 
+ \\left [ 
+\\begin{matrix} 
+ & &\\\\
+ & Empty Matrix &\\\\
+ & &
+\\end{1} 
+\\right ] 
+$$)
+
+**由于矩阵乘法不满足交换律，请保证初始矩阵为空，如果初始矩阵不为空，则可能导致两次运算结果不同。**
+
+
 <p id="fangfa" /> 
 ## Matrix方法表
 
