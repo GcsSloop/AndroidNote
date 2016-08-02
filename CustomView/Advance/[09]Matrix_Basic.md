@@ -427,9 +427,14 @@ matrix.postScale(0.5f, 0.5f, pivotX, pivotY);
 
 主要区别其实就是矩阵的乘法顺序不同，pre相当于矩阵的右乘，而post相当于矩阵的左乘，在图像处理中，越靠近右边的矩阵越先执行，所以pre操作会先执行，而post操作会后执行。
 
-**假设我们需要先缩放再平移:**
 
-pre：
+
+**假设我们需要先缩放再平移,下面我们用不同对方式来构造这一个矩阵:**
+
+>
+**注意: 由于矩阵乘法不满足交换律，请保证初始矩阵为空，如果初始矩阵不为空，则可能导致两次运算结果不同。**
+
+#### 1.pre：
 
 ```
 Matrix m ＝ new Matrix();
@@ -475,7 +480,7 @@ sx & 0 & 0\\\\
 \\right ]
 $$)
 
-post:
+#### 2.post:
 
 ```
 Matrix m ＝ new Matrix();
@@ -521,7 +526,65 @@ sx & 0 & 0\\\\
 \\right ] 
 $$)
 
-**由于矩阵乘法不满足交换律，请保证初始矩阵为空，如果初始矩阵不为空，则可能导致两次运算结果不同。**
+#### 3.混合:
+
+```
+Matrix m ＝ new Matrix();
+m.reset();
+m.preScale(sx, sy);  
+m.postTranslate(tx, ty);
+```
+
+或:
+
+```
+Matrix m ＝ new Matrix();
+m.reset();
+m.postTranslate(tx, ty);
+m.preScale(sx, sy);  
+```
+
+> 由于此处只有两步操作，且指定了先后，所以代码上交换并不会影响结果。
+
+用矩阵表示:
+
+![](http://latex.codecogs.com/png.latex?
+$$
+\\left [ 
+\\begin{matrix} 
+ & &\\\\
+ & Result Matrix &\\\\
+ & &
+\\end{1} 
+\\right ] 
+ = 
+\\left [ 
+\\begin{matrix} 
+1 & 0 & \\Delta x \\\\
+0 & 1 & \\Delta y \\\\
+0 & 0 & 1
+\\end{1} 
+\\right ] 
+\\cdot 
+ \\left [ 
+\\begin{matrix} 
+ & &\\\\
+ & Empty Matrix &\\\\
+ & &
+\\end{1} 
+\\right ] 
+\\cdot 
+\\left [ 
+\\begin{matrix} 
+sx & 0 & 0\\\\
+0 & sy & 0\\\\
+0 & 0 & 1
+\\end{1} 
+\\right ]
+$$)
+
+
+**注意: 由于矩阵乘法不满足交换律，请保证初始矩阵为空，如果初始矩阵不为空，则可能导致两次运算结果不同。**
 
 
 <p id="fangfa" /> 
