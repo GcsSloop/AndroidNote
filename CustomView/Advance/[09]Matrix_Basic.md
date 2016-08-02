@@ -432,11 +432,13 @@ matrix.postScale(0.5f, 0.5f, pivotX, pivotY);
 **假设我们需要先缩放再平移,下面我们用不同对方式来构造这一个矩阵:**
 
 >
-**注意: 由于矩阵乘法不满足交换律，请保证初始矩阵为空，如果初始矩阵不为空，则可能导致两次运算结果不同。**
+**注意: 由于矩阵乘法不满足交换律，请保证初始矩阵为空，如果初始矩阵不为空，则可能导致运算结果不同。<br/>**
+**注意: 由于矩阵乘法不满足交换律，请保证初始矩阵为空，如果初始矩阵不为空，则可能导致运算结果不同。<br/>**
+**注意: 由于矩阵乘法不满足交换律，请保证初始矩阵为空，如果初始矩阵不为空，则可能导致运算结果不同。<br/>**
 
-#### 1.pre：
+#### 1.仅用pre：
 
-```
+``` java
 Matrix m ＝ new Matrix();
 m.reset();
 m.preTranslate(tx, ty); //使用pre，越靠后越先执行。
@@ -480,9 +482,9 @@ sx & 0 & 0\\\\
 \\right ]
 $$)
 
-#### 2.post:
+#### 2.仅用post:
 
-```
+``` java
 Matrix m ＝ new Matrix();
 m.reset();
 m.postScale(sx, sy);  //使用post，越靠前越先执行。
@@ -528,7 +530,7 @@ $$)
 
 #### 3.混合:
 
-```
+``` java
 Matrix m ＝ new Matrix();
 m.reset();
 m.preScale(sx, sy);  
@@ -537,7 +539,7 @@ m.postTranslate(tx, ty);
 
 或:
 
-```
+``` java
 Matrix m ＝ new Matrix();
 m.reset();
 m.postTranslate(tx, ty);
