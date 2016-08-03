@@ -1,9 +1,14 @@
 # Matrix方法
 
-本篇正式讲解Matrix中各个方法的用途，以及Matrix的部分实用技巧。
+
+## 前言
+
+在上一篇文章中，我们对Matrix做了一个简单的了解，偏向理论，在本文中则会详细的讲解Matrix的具体用法，以及Matrix的一些实用技巧。
 
 <p id="method" />
-## Matrix 方法表
+## Matrix方法表
+
+按照惯例，先放方法表做概览。
 
 方法类别   | 相关API                                                 | 摘要
 -----------|---------------------------------------------------------|------------------------
@@ -15,4 +20,23 @@
 后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
 特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
 矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
+
+
+## Matrix方法详解
+
+### 基本方法
+
+### 数值操作
+
+### 数值计算
+
+### set pre 与 post
+
+### 特殊方法
+
+### 矩阵相关
+
+## Matrix实用技巧
+
+
 
