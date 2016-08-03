@@ -41,7 +41,7 @@
 ## [教程类](https://github.com/GcsSloop/AndroidNote/tree/master/Course/README.md)
 
 * [在AndroidStudio中使用PlantUML(Win)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/HowToUsePlantUMLInAS.md)
-* [在AndroidStudio中使用PlantUML(Mac)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/HowToUsePlantUMLInAS(Mac).md)
+* [在AndroidStudio中使用PlantUML(Mac)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/HowToUsePlantUMLInAS%5BMac%5D.md)
 * [优雅的发布Android开源库(论JitPack的优越性)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/ReleaseLibraryByJitPack.md)
 
 ******
