@@ -72,16 +72,58 @@ Matrix matrix = new Matrix(src);
 
 基本方法内容比较简单，在此处简要介绍一下。
 
-方法 | 简介
----|---
-equals        | 比较两个Matrix的数值是否相同
-hashCode      | 获取Matrix的哈希值
-toString      | 将Matrix转换为字符串<br/>`Matrix{[1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]}`
-toShortString | 将Matrix转换为短字符串<br/>`[1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]`
+**1.equals**
+
+比较两个Matrix的数值是否相同。
+
+**2.hashCode**
+
+获取Matrix的哈希值。
+
+**3.toString**
+
+将Matrix转换为字符串: `Matrix{[1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]}`
+
+**4.toShortString**
+
+将Matrix转换为短字符串: `[1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]`
 
 
 ### 数值操作
 
+数值操作这一组方法可以帮助我们直接控制Matrix里面的数值。
+
+**1.set**
+
+```
+void set (Matrix src)
+```
+
+没有返回值，有一个参数，作用是将参数Matrix的数值复制到当前Matrix中。如果参数为空，则重置当前Matrix，相当于`reset()`。
+
+**2.reset**
+
+```
+void reset ()
+```
+
+重置当前Matrix(将当前Matrix重置为单位矩阵)。
+
+**3.setValues**
+
+```
+void setValues (float[] values)
+```
+
+setValues的参数是浮点型的一维数组，长度需要大于9，拷贝数组中的前9位数值赋值给当前Matrix。
+
+**4.getValues**
+
+```
+void getValues (float[] values)
+```
+
+很显然，getValues和setValues是一对方法，参数也是浮点型的一维数组，长度需要大于9，将Matrix中的数值拷贝进参数的前9位中。
 
 ### 数值计算
 
