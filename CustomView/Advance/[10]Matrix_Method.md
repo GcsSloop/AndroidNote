@@ -59,7 +59,7 @@ $$)
 Matrix (Matrix src)
 ```
 
-这种方法则需要一个已经存在的矩阵作为参数，如下:
+这种方法则需要一个已经存在的矩阵作为参数，使用格式如下:
 
 ```
 Matrix matrix = new Matrix(src);
@@ -126,6 +126,22 @@ void getValues (float[] values)
 很显然，getValues和setValues是一对方法，参数也是浮点型的一维数组，长度需要大于9，将Matrix中的数值拷贝进参数的前9位中。
 
 ### 数值计算
+
+**1.mapPoints**
+
+```
+
+```
+
+**2.mapRadius**
+
+
+
+**3.mapRect**
+
+
+
+**4.mapVectors**
 
 ### set pre 与 post
 
