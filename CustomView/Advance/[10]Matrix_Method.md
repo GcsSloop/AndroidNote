@@ -130,8 +130,21 @@ void getValues (float[] values)
 **1.mapPoints**
 
 ```
+void mapPoints (float[] pts)
 
+void mapPoints (float[] dst, float[] src)
+
+void mapPoints (float[] dst, int dstIndex,float[] src, int srcIndex, int pointCount)
 ```
+
+计算一组点基于当前Matrix变换后的位置，(由于是计算点，所以参数中的float数组长度一般都是偶数的)。
+
+它有三个重载方法:
+
+
+
+
+
 
 **2.mapRadius**
 
