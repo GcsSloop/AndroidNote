@@ -141,9 +141,11 @@ void mapPoints (float[] dst, int dstIndex,float[] src, int srcIndex, int pointCo
 
 它有三个重载方法:
 
+(1) `void mapPoints (float[] pts)` 方法仅有一个参数，pts数组作为参数传递原始数值，计算结果仍存放在pts中。
 
+(2) `void mapPoints (float[] dst, float[] src)` ，src作为参数传递原始数值，计算结果存放在dst中。
 
-
+(3) `void mapPoints (float[] dst, int dstIndex,float[] src, int srcIndex, int pointCount)` 可以指定只计算一部分数值。
 
 
 **2.mapRadius**
