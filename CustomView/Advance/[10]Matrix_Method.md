@@ -236,7 +236,7 @@ pointCount | 计算的点个数
 	Log.i(TAG, "before: src="+ Arrays.toString(src));
 	Log.i(TAG, "before: dst="+ Arrays.toString(dst));
 	
-	// 调用map方法计算
+	// 调用map方法计算(最后一个2表示两个点,并非两个数值)
 	matrix.mapPoints(dst, 0, src, 2, 2);
 	
 	// 输出计算之后数据
