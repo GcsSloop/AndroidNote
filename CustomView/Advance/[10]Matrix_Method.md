@@ -209,6 +209,15 @@ after : dst=[0.0, 0.0, 40.0, 100.0, 200.0, 300.0]
 
 (3) `void mapPoints (float[] dst, int dstIndex,float[] src, int srcIndex, int pointCount)` 可以指定只计算一部分数值。
 
+参数 | 摘要
+---|---
+dst        | 目标数据
+dstIndex   | 目标数据存储位置起始下标
+src        | 源数据
+srcIndex   | 源数据存储位置起始下标
+pointCount | 计算的点个数
+
+
 示例:
 
 ``` java
