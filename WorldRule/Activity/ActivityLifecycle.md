@@ -47,42 +47,25 @@
      </tr>
 
      <tr><td align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onPause()">onPause()</a></code></td>
-         <td>Called when the system is about to start resuming a previous
-             activity.  This is typically used to commit unsaved changes to
-             persistent data, stop animations and other things that may be consuming
-             CPU, etc.  Implementations of this method must be very quick because
-             the next activity will not be resumed until this method returns.
-             <p>Followed by either <code>onResume()</code> if the activity
-             returns back to the front, or <code>onStop()</code> if it becomes
-             invisible to the user.</td>
-         <td align="center"><font color="#800000"><strong>Pre-<code><a href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#HONEYCOMB">HONEYCOMB</a></code></strong></font></td>
-         <td align="center"><code>onResume()</code> or<br>
+         <td>当启动一个新的界面时调用，表示当前Activity正在停止。
+           	可以在这个方法中保存一些数据，停止动画和一些其他操作，可能会占用大量CPU。不能在这个方法中执行耗时操作，因为只有这个方法执行后才会执行新Activity的<code>onResume()</code>。             <br/>如果快速返回当前Activity则会执行<code>onResume()</code>，如果新Activity启动完成则接着执行<code>onStop()</code></td>
+         <td align="center"><font color="#800000"><strong><code><a href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#HONEYCOMB">HONEYCOMB</a></code>之前</strong></font></td>
+         <td align="center"><code>onResume()</code> 或者<br>
                  <code>onStop()</code></td>
      </tr>
 
      <tr><td colspan="2" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onStop()">onStop()</a></code></td>
-         <td>Called when the activity is no longer visible to the user, because
-             another activity has been resumed and is covering this one.  This
-             may happen either because a new activity is being started, an existing
-             one is being brought in front of this one, or this one is being
-             destroyed.
-             <p>Followed by either <code>onRestart()</code> if
-             this activity is coming back to interact with the user, or
-             <code>onDestroy()</code> if this activity is going away.</td>
-         <td align="center"><font color="#800000"><strong>Yes</strong></font></td>
-         <td align="center"><code>onRestart()</code> or<br>
+         <td>当Activity对用户不可见时调用，此时新的Activity已经启动完成并遮挡了该界面。此时可做清廉几回手工作，同样不要太耗时。
+             <p>如果之后返回当前Activity则接着调用 <code>onRestart()</code>, 或者被销毁调用<code>onDestroy()</code>。</td>
+         <td align="center"><font color="#800000"><strong>允许</strong></font></td>
+         <td align="center"><code>onRestart()</code> 或者<br>
                  <code>onDestroy()</code></td>
      </tr>
 
      <tr><td colspan="3" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onDestroy()">onDestroy()</a></code></td>
-         <td>The final call you receive before your
-             activity is destroyed.  This can happen either because the
-             activity is finishing (someone called <code><a href="https://developer.android.com/reference/android/app/Activity.html#finish()">finish()</a></code> on
-             it, or because the system is temporarily destroying this
-             instance of the activity to save space.  You can distinguish
-             between these two scenarios with the <code><a href="https://developer.android.com/reference/android/app/Activity.html#isFinishing()">isFinishing()</a></code> method.</td>
-         <td align="center"><font color="#800000"><strong>Yes</strong></font></td>
-         <td align="center"><em>nothing</em></td>
+         <td>Activity被销毁时调用的最后一个函数.  可能是因为 <code><a href="https://developer.android.com/reference/android/app/Activity.html#finish()">finish()</a></code> 方法被调用，或者是系统回收资源释放空间。你可以用 <code><a href="https://developer.android.com/reference/android/app/Activity.html#isFinishing()">isFinishing()</a></code> 方法用于区分是哪种情况。<br>可以在这个方法中进行最后的回收工作与资源释放。</td>
+         <td align="center"><font color="#800000"><strong>允许</strong></font></td>
+         <td align="center"><em>无</em></td>
      </tr>
      </tbody>
 </table>
