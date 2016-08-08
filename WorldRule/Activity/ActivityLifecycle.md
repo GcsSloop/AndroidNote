@@ -55,7 +55,7 @@
      </tr>
 
      <tr><td colspan="2" align="left" border="0"><code><a href="https://developer.android.com/reference/android/app/Activity.html#onStop()">onStop()</a></code></td>
-         <td>当Activity对用户不可见时调用，此时新的Activity已经启动完成并遮挡了该界面。此时可做清廉几回手工作，同样不要太耗时。
+         <td>当Activity对用户不可见时调用，此时新的Activity已经启动完成并遮挡了该界面。
              <p>如果之后返回当前Activity则接着调用 <code>onRestart()</code>, 或者被销毁调用<code>onDestroy()</code>。</td>
          <td align="center"><font color="#800000"><strong>允许</strong></font></td>
          <td align="center"><code>onRestart()</code> 或者<br>
@@ -69,3 +69,21 @@
      </tr>
      </tbody>
 </table>
+
+******
+
+## Tip
+
+### 1.不要在`onPause()`中执行耗时操作，耗时操作尽量放在`onStop()`中执行。
+
+### 2.异常终止会在`onStop()`之前调用`onSaveInstanceState()`方法，用于保存Activity数据，数据存储在Bundle对象中。
+
+### 3.异常终止的Activity重新启动后会调用`onRestoreInstanceState()`方法来获取存储在Bundle对象中的数据(你也可以在`onCreate()`中获取到这个Bundle对象)。
+
+### 4.View也有对应的`onSaveInstanceState()`和`onRestoreInstanceState()`来保存和回复View状态，和Activity类似。
+
+### 5.异常状态下Activity重建流程
+
+![](./elements/abnormal_destory_and_restart.png)
+
+<br/><br/><br/>
