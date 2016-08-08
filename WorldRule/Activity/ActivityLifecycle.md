@@ -74,15 +74,15 @@
 
 ## Tip
 
-### 1.不要在`onPause()`中执行耗时操作，耗时操作尽量放在`onStop()`中执行。
+#### 1.不要在`onPause()`中执行耗时操作，耗时操作尽量放在`onStop()`中执行。
 
-### 2.异常终止会在`onStop()`之前调用`onSaveInstanceState()`方法，用于保存Activity数据，数据存储在Bundle对象中。
+#### 2.异常终止会在`onStop()`之前调用`onSaveInstanceState()`方法，用于保存Activity数据，数据存储在Bundle对象中。
 
-### 3.异常终止的Activity重新启动后会调用`onRestoreInstanceState()`方法来获取存储在Bundle对象中的数据(你也可以在`onCreate()`中获取到这个Bundle对象)。
+#### 3.异常终止的Activity重新启动后会调用`onRestoreInstanceState()`方法来获取存储在Bundle对象中的数据(你也可以在`onCreate()`中获取到这个Bundle对象)。
 
-### 4.View也有对应的`onSaveInstanceState()`和`onRestoreInstanceState()`来保存和回复View状态，和Activity类似。
+#### 4.View也有对应的`onSaveInstanceState()`和`onRestoreInstanceState()`来保存和回复View状态，和Activity类似。
 
-### 5.异常状态下Activity重建流程
+#### 5.异常状态下Activity重建流程
 
 ![](./elements/abnormal_destory_and_restart.png)
 
