@@ -236,7 +236,7 @@ pointCount | 计算的点个数
 	Log.i(TAG, "before: src="+ Arrays.toString(src));
 	Log.i(TAG, "before: dst="+ Arrays.toString(dst));
 	
-	// 调用map方法计算(最后一个2表示两个点,并非两个数值)
+	// 调用map方法计算(最后一个2表示两个点，即四个数值,并非两个数值)
 	matrix.mapPoints(dst, 0, src, 2, 2);
 	
 	// 输出计算之后数据
@@ -251,7 +251,6 @@ before: src=[0.0, 0.0, 80.0, 100.0, 400.0, 300.0]
 before: dst=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 after : src=[0.0, 0.0, 80.0, 100.0, 400.0, 300.0]
 after : dst=[40.0, 100.0, 200.0, 300.0, 0.0, 0.0]
-
 ```
 
 **2.mapRadius**
