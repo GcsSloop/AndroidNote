@@ -137,7 +137,7 @@ void mapPoints (float[] dst, float[] src)
 void mapPoints (float[] dst, int dstIndex,float[] src, int srcIndex, int pointCount)
 ```
 
-计算一组点基于当前Matrix变换后的位置，(由于是计算点，所以参数中的float数组长度一般都是偶数的)。
+计算一组点基于当前Matrix变换后的位置，(由于是计算点，所以参数中的float数组长度一般都是偶数的,若为奇数，则最后一个数值不参与计算)。
 
 它有三个重载方法:
 
@@ -171,14 +171,55 @@ before: [0.0, 0.0, 80.0, 100.0, 400.0, 300.0]
 after : [0.0, 0.0, 40.0, 100.0, 200.0, 300.0]
 ```
 
-(2) `void mapPoints (float[] dst, float[] src)` ，src作为参数传递原始数值，计算结果存放在dst中。
+(2) `void mapPoints (float[] dst, float[] src)` ，src作为参数传递原始数值，计算结果存放在dst中，src不变。
+
+如果原始数据需要保留则一般使用这种方法。
+
+示例:
+
+``` java
+    // 初始数据为三个点 (0, 0) (80, 100) (400, 300)
+    float[] src = new float[]{0, 0, 80, 100, 400, 300};
+    float[] dst = new float[6];
+
+    // 构造一个matrix，x坐标缩放0.5
+    Matrix matrix = new Matrix();
+    matrix.setScale(0.5f, 1f);
+
+    // 输出计算之前数据
+    Log.i(TAG, "before: src="+ Arrays.toString(src));
+    Log.i(TAG, "before: dst="+ Arrays.toString(dst));
+
+    // 调用map方法计算
+    matrix.mapPoints(dst,src);
+
+    // 输出计算之后数据
+    Log.i(TAG, "after : src="+ Arrays.toString(src));
+    Log.i(TAG, "after : dst="+ Arrays.toString(dst));
+```
+
+结果:
 
 ```
+before: src=[0.0, 0.0, 80.0, 100.0, 400.0, 300.0]
+before: dst=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+after : src=[0.0, 0.0, 80.0, 100.0, 400.0, 300.0]
+after : dst=[0.0, 0.0, 40.0, 100.0, 200.0, 300.0]
 ```
-
 
 (3) `void mapPoints (float[] dst, int dstIndex,float[] src, int srcIndex, int pointCount)` 可以指定只计算一部分数值。
 
+示例:
+
+``` java
+
+```
+
+结果:
+
+```
+
+```
 
 **2.mapRadius**
 
