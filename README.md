@@ -10,11 +10,11 @@
 
 <div style="height: 50px; background: linear-gradient(to bottom, white, black); align: center"></div>
 
-<div style="height: 200px; background: black; text-align: center;">
+<p align="center", width="200px", background="black">
 <a href="https://github.com/GcsSloop/AndroidNote/tree/master">
-<img style="height: 200px;", src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f6mqjunn3vg30b408ctu7.gif"/>
+<img height=200px, src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f6mqjunn3vg30b408ctu7.gif"/>
 </a>
-</div>
+</p>
 
 <div style="height: 50px; background: linear-gradient(to bottom, black, white); align: center"></div>
 
