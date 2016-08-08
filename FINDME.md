@@ -1,4 +1,4 @@
-# 资料卡[GcsSloop]
+## GcsSloop
 
 ## 个人简介
 
