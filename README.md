@@ -4,6 +4,9 @@
 
 欢迎突破重重阻隔来到这里，来到这个与由混沌和魔法构成的神奇世界，在这里，你可以通过与自然的交流来感受这个世界的奥秘。
 
+## 传送门
+
+[![传送门](http://ww3.sinaimg.cn/large/005Xtdi2jw1f6n7ned83zg30rs0b47o8.gif)](https://github.com/GcsSloop/AndroidNote/tree/master)
 
 ## 关于我
 
