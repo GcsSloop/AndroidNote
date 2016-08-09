@@ -6,6 +6,8 @@
 
 ## 传送门
 
+通往现界的传送门，请谨慎使用。
+
 [![传送门](http://ww3.sinaimg.cn/large/005Xtdi2jw1f6n7ned83zg30rs0b47o8.gif)](https://github.com/GcsSloop/AndroidNote/tree/master)
 
 ## 关于我
