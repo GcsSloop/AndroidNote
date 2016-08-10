@@ -255,10 +255,36 @@ after : dst=[40.0, 100.0, 200.0, 300.0, 0.0, 0.0]
 
 **2.mapRadius**
 
+测量半径，此处测量的是平均半径。
+
+示例:
+
+```
+	float radius = 100;
+	float result = 0;
+	
+	// 构造一个matrix，x坐标缩放0.5
+	Matrix matrix = new Matrix();
+	matrix.setScale(0.5f, 1f);
+	
+	Log.i(TAG, "mapRadius: "+radius);
+	
+	result = matrix.mapRadius(radius);
+	
+	Log.i(TAG, "mapRadius: "+result);
+```
+
+结果:
+
+```
+mapRadius: 100.0
+mapRadius: 70.71068
+```
 
 
 **3.mapRect**
 
+测量矩形变换后位置。
 
 
 **4.mapVectors**
