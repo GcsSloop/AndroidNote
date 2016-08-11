@@ -30,12 +30,12 @@
 
 **无参构造**
 
-```
+``` java
 Matrix ()
 ```
 创建一个全新的Matrix，使用格式如下：
 
-```
+``` java
 Matrix matrix = new Matrix();
 ```
 
@@ -55,13 +55,13 @@ $$)
 
 **有参构造**
 
-```
+``` java
 Matrix (Matrix src)
 ```
 
 这种方法则需要一个已经存在的矩阵作为参数，使用格式如下:
 
-```
+``` java
 Matrix matrix = new Matrix(src);
 ```
 
@@ -95,7 +95,7 @@ Matrix matrix = new Matrix(src);
 
 **1.set**
 
-```
+``` java
 void set (Matrix src)
 ```
 
@@ -103,7 +103,7 @@ void set (Matrix src)
 
 **2.reset**
 
-```
+``` java
 void reset ()
 ```
 
@@ -111,7 +111,7 @@ void reset ()
 
 **3.setValues**
 
-```
+``` java
 void setValues (float[] values)
 ```
 
@@ -119,7 +119,7 @@ setValues的参数是浮点型的一维数组，长度需要大于9，拷贝数�
 
 **4.getValues**
 
-```
+``` java
 void getValues (float[] values)
 ```
 
@@ -129,7 +129,7 @@ void getValues (float[] values)
 
 **1.mapPoints**
 
-```
+``` java
 void mapPoints (float[] pts)
 
 void mapPoints (float[] dst, float[] src)
@@ -255,11 +255,15 @@ after : dst=[40.0, 100.0, 200.0, 300.0, 0.0, 0.0]
 
 **2.mapRadius**
 
+``` java
+float mapRadius (float radius)
+```
+
 测量半径，由于圆可能会因为画布变换变成椭圆，所以此处测量的是平均半径。
 
 示例:
 
-```
+``` java
 	float radius = 100;
 	float result = 0;
 	
@@ -283,6 +287,9 @@ mapRadius: 70.71068
 
 
 **3.mapRect**
+
+``` java
+```
 
 测量矩形变换后位置。
 
