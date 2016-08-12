@@ -296,30 +296,36 @@ boolean mapRect (RectF dst, RectF src)
 
 测量矩形变换后位置。
 
-(1) `boolean mapRect (RectF rect)` 测量rect并将测量结果放入rect中，返回值是判断矩形(Rect)变换后是否仍为矩形。
+(1) `boolean mapRect (RectF rect)` 测量rect并将测量结果放入rect中，返回值是判断矩形经过变换后是否仍为矩形。
 
 示例：
 
 ``` java
-        RectF rect = new RectF(400, 400, 1000, 800);
-
-        // 构造一个matrix，x坐标缩放0.5
-        Matrix matrix = new Matrix();
-        matrix.setScale(0.5f, 1f);
-
-        Log.i(TAG, "mapRadius: "+rect.toString());
-
-        matrix.mapRect(rect);
-
-        Log.i(TAG, "mapRadius: "+rect.toString());
+	RectF rect = new RectF(400, 400, 1000, 800);
+	
+	// 构造一个matrix
+	Matrix matrix = new Matrix();
+	matrix.setScale(0.5f, 1f);
+	matrix.postSkew(1,0);
+	
+	Log.i(TAG, "mapRadius: "+rect.toString());
+	
+	boolean result = matrix.mapRect(rect);
+	
+	Log.i(TAG, "mapRadius: "+rect.toString());
+	Log.e(TAG, "isRect: "+ result);
 ```
 
 结果：
 
 ```
-RectF(400.0, 400.0, 1000.0, 800.0)
-RectF(200.0, 400.0, 500.0, 800.0)
+mapRadius: RectF(400.0, 400.0, 1000.0, 800.0)
+mapRadius: RectF(600.0, 400.0, 1300.0, 800.0)
+isRect: false
 ```
+
+>
+由于使用了错切，所以返回结果为false。
 
 
 **4.mapVectors**
