@@ -288,6 +288,18 @@ mapRadius: 70.71068
 
 **3.mapRect**
 
+```
+boolean mapRect (RectF rect)
+
+boolean mapRect (RectF dst, RectF src)
+```
+
+测量矩形变换后位置。
+
+(1) `boolean mapRect (RectF rect)` 测量rect并将测量结果放入rect中，返回值是判断矩形(Rect)变换后是否仍为矩形。
+
+示例：
+
 ``` java
         RectF rect = new RectF(400, 400, 1000, 800);
 
@@ -302,7 +314,12 @@ mapRadius: 70.71068
         Log.i(TAG, "mapRadius: "+rect.toString());
 ```
 
-测量矩形变换后位置。
+结果：
+
+```
+RectF(400.0, 400.0, 1000.0, 800.0)
+RectF(200.0, 400.0, 500.0, 800.0)
+```
 
 
 **4.mapVectors**
