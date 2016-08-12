@@ -289,6 +289,17 @@ mapRadius: 70.71068
 **3.mapRect**
 
 ``` java
+        RectF rect = new RectF(400, 400, 1000, 800);
+
+        // 构造一个matrix，x坐标缩放0.5
+        Matrix matrix = new Matrix();
+        matrix.setScale(0.5f, 1f);
+
+        Log.i(TAG, "mapRadius: "+rect.toString());
+
+        matrix.mapRect(rect);
+
+        Log.i(TAG, "mapRadius: "+rect.toString());
 ```
 
 测量矩形变换后位置。
