@@ -146,22 +146,21 @@ void mapPoints (float[] dst, int dstIndex,float[] src, int srcIndex, int pointCo
 示例:
 
 ``` java
+// 初始数据为三个点 (0, 0) (80, 100) (400, 300) 
+float[] pts = new float[]{0, 0, 80, 100, 400, 300};
 
-	// 初始数据为三个点 (0, 0) (80, 100) (400, 300) 
-	float[] pts = new float[]{0, 0, 80, 100, 400, 300};
-	
-	// 构造一个matrix，x坐标缩放0.5
-	Matrix matrix = new Matrix();
-	matrix.setScale(0.5f, 1f);
-	
-	// 输出pts计算之前数据
-	Log.i(TAG, "before: "+ Arrays.toString(pts));
-	
-	// 调用map方法计算
-	matrix.mapPoints(pts);
-	
-	// 输出pts计算之后数据
-	Log.i(TAG, "after : "+ Arrays.toString(pts));
+// 构造一个matrix，x坐标缩放0.5
+Matrix matrix = new Matrix();
+matrix.setScale(0.5f, 1f);
+
+// 输出pts计算之前数据
+Log.i(TAG, "before: "+ Arrays.toString(pts));
+
+// 调用map方法计算
+matrix.mapPoints(pts);
+
+// 输出pts计算之后数据
+Log.i(TAG, "after : "+ Arrays.toString(pts));
 ```
 
 结果:
@@ -178,24 +177,24 @@ after : [0.0, 0.0, 40.0, 100.0, 200.0, 300.0]
 示例:
 
 ``` java
-    // 初始数据为三个点 (0, 0) (80, 100) (400, 300)
-    float[] src = new float[]{0, 0, 80, 100, 400, 300};
-    float[] dst = new float[6];
+// 初始数据为三个点 (0, 0) (80, 100) (400, 300)
+float[] src = new float[]{0, 0, 80, 100, 400, 300};
+float[] dst = new float[6];
 
-    // 构造一个matrix，x坐标缩放0.5
-    Matrix matrix = new Matrix();
-    matrix.setScale(0.5f, 1f);
+// 构造一个matrix，x坐标缩放0.5
+Matrix matrix = new Matrix();
+matrix.setScale(0.5f, 1f);
 
-    // 输出计算之前数据
-    Log.i(TAG, "before: src="+ Arrays.toString(src));
-    Log.i(TAG, "before: dst="+ Arrays.toString(dst));
+// 输出计算之前数据
+Log.i(TAG, "before: src="+ Arrays.toString(src));
+Log.i(TAG, "before: dst="+ Arrays.toString(dst));
 
-    // 调用map方法计算
-    matrix.mapPoints(dst,src);
+// 调用map方法计算
+matrix.mapPoints(dst,src);
 
-    // 输出计算之后数据
-    Log.i(TAG, "after : src="+ Arrays.toString(src));
-    Log.i(TAG, "after : dst="+ Arrays.toString(dst));
+// 输出计算之后数据
+Log.i(TAG, "after : src="+ Arrays.toString(src));
+Log.i(TAG, "after : dst="+ Arrays.toString(dst));
 ```
 
 结果:
@@ -224,24 +223,24 @@ pointCount | 计算的点个数
 将第二、三个点计算后存储进dst最开始位置。
 
 ``` java
-	// 初始数据为三个点 (0, 0) (80, 100) (400, 300)
-	float[] src = new float[]{0, 0, 80, 100, 400, 300};
-	float[] dst = new float[6];
-	
-	// 构造一个matrix，x坐标缩放0.5
-	Matrix matrix = new Matrix();
-	matrix.setScale(0.5f, 1f);
-	
-	// 输出计算之前数据
-	Log.i(TAG, "before: src="+ Arrays.toString(src));
-	Log.i(TAG, "before: dst="+ Arrays.toString(dst));
-	
-	// 调用map方法计算(最后一个2表示两个点，即四个数值,并非两个数值)
-	matrix.mapPoints(dst, 0, src, 2, 2);
-	
-	// 输出计算之后数据
-	Log.i(TAG, "after : src="+ Arrays.toString(src));
-	Log.i(TAG, "after : dst="+ Arrays.toString(dst));
+// 初始数据为三个点 (0, 0) (80, 100) (400, 300)
+float[] src = new float[]{0, 0, 80, 100, 400, 300};
+float[] dst = new float[6];
+
+// 构造一个matrix，x坐标缩放0.5
+Matrix matrix = new Matrix();
+matrix.setScale(0.5f, 1f);
+
+// 输出计算之前数据
+Log.i(TAG, "before: src="+ Arrays.toString(src));
+Log.i(TAG, "before: dst="+ Arrays.toString(dst));
+
+// 调用map方法计算(最后一个2表示两个点，即四个数值,并非两个数值)
+matrix.mapPoints(dst, 0, src, 2, 2);
+
+// 输出计算之后数据
+Log.i(TAG, "after : src="+ Arrays.toString(src));
+Log.i(TAG, "after : dst="+ Arrays.toString(dst));
 ```
 
 结果:
@@ -264,18 +263,18 @@ float mapRadius (float radius)
 示例:
 
 ``` java
-	float radius = 100;
-	float result = 0;
-	
-	// 构造一个matrix，x坐标缩放0.5
-	Matrix matrix = new Matrix();
-	matrix.setScale(0.5f, 1f);
-	
-	Log.i(TAG, "mapRadius: "+radius);
-	
-	result = matrix.mapRadius(radius);
-	
-	Log.i(TAG, "mapRadius: "+result);
+float radius = 100;
+float result = 0;
+
+// 构造一个matrix，x坐标缩放0.5
+Matrix matrix = new Matrix();
+matrix.setScale(0.5f, 1f);
+
+Log.i(TAG, "mapRadius: "+radius);
+
+result = matrix.mapRadius(radius);
+
+Log.i(TAG, "mapRadius: "+result);
 ```
 
 结果:
@@ -301,19 +300,19 @@ boolean mapRect (RectF dst, RectF src)
 示例：
 
 ``` java
-	RectF rect = new RectF(400, 400, 1000, 800);
-	
-	// 构造一个matrix
-	Matrix matrix = new Matrix();
-	matrix.setScale(0.5f, 1f);
-	matrix.postSkew(1,0);
-	
-	Log.i(TAG, "mapRadius: "+rect.toString());
-	
-	boolean result = matrix.mapRect(rect);
-	
-	Log.i(TAG, "mapRadius: "+rect.toString());
-	Log.e(TAG, "isRect: "+ result);
+RectF rect = new RectF(400, 400, 1000, 800);
+
+// 构造一个matrix
+Matrix matrix = new Matrix();
+matrix.setScale(0.5f, 1f);
+matrix.postSkew(1,0);
+
+Log.i(TAG, "mapRadius: "+rect.toString());
+
+boolean result = matrix.mapRect(rect);
+
+Log.i(TAG, "mapRadius: "+rect.toString());
+Log.e(TAG, "isRect: "+ result);
 ```
 
 结果：
