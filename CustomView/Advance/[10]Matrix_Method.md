@@ -330,7 +330,46 @@ isRect: false
 
 **4.mapVectors**
 
+测量向量。
 
+``` java
+void mapVectors (float[] vecs)
+
+void mapVectors (float[] dst, float[] src)
+
+void mapVectors (float[] dst, int dstIndex, float[] src, int srcIndex, int vectorCount)
+```
+
+`mapVectors` 与 `mapPoints` 基本上是相同的，可以直接参照上面的`mapPoints`使用方法。
+
+而两者唯一的区别就是`mapVectors`不会受到位移的影响，这符合向量的定律，如果你不了解的话，请找到以前教过你的老师然后把学费要回来。
+
+区别:
+
+``` java
+float[] src = new float[]{1000, 800};
+float[] dst = new float[2];
+
+// 构造一个matrix
+Matrix matrix = new Matrix();
+matrix.setScale(0.5f, 1f);
+matrix.postTranslate(100,100);
+
+// 计算向量, 不受位移影响
+matrix.mapVectors(dst, src);
+Log.i(TAG, "mapVectors: "+Arrays.toString(dst));
+
+// 计算点
+matrix.mapPoints(dst, src);
+Log.i(TAG, "mapPoints: "+Arrays.toString(dst));
+```
+
+结果:
+
+```
+mapVectors: [500.0, 800.0]
+mapPoints: [600.0, 900.0]
+```
 
 ### set pre 与 post
 
