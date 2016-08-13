@@ -326,8 +326,11 @@ isRect: false
 >
 由于使用了错切，所以返回结果为false。
 
+(2) `boolean mapRect (RectF dst, RectF src)` 测量src并将测量结果放入dst中，返回值是判断矩形经过变换后是否仍为矩形,和之前没有什么太大区别，此处就不啰嗦了。
 
 **4.mapVectors**
+
+
 
 ### set pre 与 post
 
