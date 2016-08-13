@@ -371,7 +371,9 @@ mapVectors: [500.0, 800.0]
 mapPoints: [600.0, 900.0]
 ```
 
-### set pre 与 post
+### set、pre 与 post
+
+这一部分是Matrix的重点，
 
 ### 特殊方法
 
