@@ -77,6 +77,12 @@
 
 ******
 
+## 传送门
+
+通往异世界的传送门，空间折跃准备完毕，[点击开始传送](https://github.com/GcsSloop/AndroidNote/tree/magic-world)。
+
+******
+
 ## 版权声明
 
 * 所有原创文章(未进行特殊标识的均属于原创) 的著作权属于 **GcsSloop**。
