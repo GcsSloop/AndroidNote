@@ -75,11 +75,13 @@
 * [LeafLoading － 进度条](https://github.com/GcsSloop/LeafLoading)
 * [Rotate3dAnimation - 3D旋转动画(修正版)](https://github.com/GcsSloop/Rotate3dAnimation)
 
-******
+[![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6t21eozlyj305k01vjra.jpg)](https://github.com/GcsSloop/AndroidNote/blob/magic-world/CONTRIBUTE.md)
 
 ## 传送门
 
-通往异世界的传送门，空间折跃准备完毕，[点击开始传送](https://github.com/GcsSloop/AndroidNote/tree/magic-world)。
+通往异世界的传送门，请谨慎使用。
+
+时空折跃准备完毕，[点击开始传送](https://github.com/GcsSloop/AndroidNote/tree/magic-world)。
 
 ******
 
