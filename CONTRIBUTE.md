@@ -6,8 +6,10 @@
 
 当然了，你可以送我一些晶石来帮助我，让我可以换取魔法书，魔法卷轴或者突破结界用的道具，以便让我能够制造出更高级的魔法卷轴，研究出更多魔法的秘密和大家分享。
 
-![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f6sdowuhfxj308c0a0jsl.jpg)
-![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6sdp5o9rtj308c0a0wfq.jpg)
+可以扫描下面二维码或者支付宝转账到 `GcsSloop@gmail.com` 来给我捐助晶石。
+
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f6sdowuhfxj308c0a0jsl.jpg) ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6sdp5o9rtj308c0a0wfq.jpg)
+
 
 ## Q&A
 
