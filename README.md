@@ -106,6 +106,6 @@
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
-<a href="https://github.com/GcsSloop/AndroidNote/blob/magic-world/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
+<a href="http://www.gcssloop.com/1970/01/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
 
 [▲ 回到顶部](#top)
