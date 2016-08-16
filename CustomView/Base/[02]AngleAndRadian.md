@@ -1,7 +1,7 @@
 # 角度与弧度
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
+### [【本系列相关文章】](http://www.gcssloop.com/1970/01/CustomViewIndex/)
 
 安卓中角度(angle)与弧度(radian)的有关问题。
 
@@ -64,6 +64,7 @@ C = 2πr;
 
 
 ## 四.一些细节问题
+
 由于默认屏幕坐标系和常见数学坐标系的小差别([坐标系问题点这里](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md))，所以在角上必然也会存在一些区别，例如：
 
 **在常见的数学坐标系中角度增大方向为逆时针，**
@@ -73,9 +74,10 @@ C = 2πr;
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f1s2wnsewfj308c0dwt94.jpg)
 
 ## About Me
+
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
 
-<a href="https://github.com/GcsSloop/AndroidNote/blob/magic-world/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
+<a href="http://www.gcssloop.com/1970/01/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
 
 
 

@@ -1,7 +1,8 @@
 # 颜色
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
+
+### [【本系列相关文章】](http://www.gcssloop.com/1970/01/CustomViewIndex/)
 
 简要介绍安卓中的颜色相关内容，包括颜色的定义，创建颜色的几种方式，以及颜色的混合模式等。
 
@@ -38,18 +39,25 @@ RGB 从0x00到0xff表示颜色从浅到深。
 **当RGB全取最小值(0或0x000000)时颜色为黑色，全取最大值(255或0xffffff)时颜色为白色**
 
 ## 二.几种创建或使用颜色的方式
+
 ### 1.java中定义颜色
+
 ``` java
   int color = Color.GRAY;     //灰色
 ```
+
   由于Color类提供的颜色仅为有限的几个，通常还是用ARGB值进行表示。
+
 ``` java
   int color = Color.argb(127, 255, 0, 0);   //半透明红色
   
   int color = 0xaaff0000;                   //带有透明度的红色
 ```
+
 ### 2.在xml文件中定义颜色
+
 在/res/values/color.xml 文件中如下定义：
+
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -57,9 +65,11 @@ RGB 从0x00到0xff表示颜色从浅到深。
     <color name="green">#00ff00</color>
 </resources>
 ```
+
 详解： 在以上xml文件中定义了两个颜色，红色和蓝色，是没有alpha（透明）通道的。
 
 定义颜色以‘#’开头，后面跟十六进制的值，有如下几种定义方式：
+
 ``` java
   #f00            //低精度 - 不带透明通道红色
   #af00           //低精度 - 带透明通道红色
@@ -69,16 +79,20 @@ RGB 从0x00到0xff表示颜色从浅到深。
 ```
 
 ### 3.在java文件中引用xml中定义的颜色：
+
 ``` java
   int color = getResources().getColor(R.color.mycolor);
 ```
+
 ### 4.在xml文件(layout或style)中引用或者创建颜色
+
 ``` xml
     <!--在style文件中引用-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/red</item>
     </style>
 ```
+
 ``` java
   android:background="@color/red"     //引用在/res/values/color.xml 中定义的颜色
   
@@ -86,19 +100,22 @@ RGB 从0x00到0xff表示颜色从浅到深。
 ```
 
 ## 三.取色工具
+
 颜色都是用RGB值定义的，而我们一般是无法直观的知道自己需要颜色的值，需要借用取色工具直接从图片或者其他地方获取颜色的RGB值。
 
 ### 1.屏幕取色工具
+
 取色调色工具，可以从屏幕取色或者使用调色板调制颜色，非常小而精简。
 
-<b>[点击这里获取屏幕取色工具](http://pan.baidu.com/s/1gdWkN0B)</b>
+**[点击这里获取屏幕取色工具](http://pan.baidu.com/s/1gdWkN0B)**
 
 ### 2.Picpick
+
 功能更加强大的工具：PicPick。
 
 PicPick具备了截取全屏、活动窗口、指定区域、固定区域、手绘区域功能，支持滚动截屏，屏幕取色，支持双显示器，具备白板、屏幕标尺、直角座标或极座标显示与测量，具备强大的图像编辑和标注功能。
 
-<b>[点击这里获取PicPick](http://ngwin.com/picpick)</b>
+**[点击这里获取PicPick](http://ngwin.com/picpick)**
 
 ## 四.颜色混合模式(Alpha通道相关)
 
@@ -110,7 +127,7 @@ PicPick具备了截取全屏、活动窗口、指定区域、固定区域、手�
 
 **(RGB通道) 最终颜色 = 绘制的颜色 + (1 - 绘制颜色的透明度) × Canvas上的原有颜色。**
 
-<b>注意：</b>
+**注意：**
 
 1.这里我们一般把每个通道的取值从0(ox00)到255(0xff)映射到0到1的浮点数表示。
 
@@ -152,8 +169,9 @@ XOR      | [Sa + Da - 2 * Sa * Da, Sc * (1 - Da) + (1 - Sa) * Dc]
 [【安卓图形动画】](http://www.cnblogs.com/zhucai/p/android-graphics-animation.html)
 
 ## About Me
+
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
 
-<a href="https://github.com/GcsSloop/AndroidNote/blob/magic-world/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
+<a href="http://www.gcssloop.com/1970/01/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
 
 
