@@ -378,7 +378,11 @@ mapPoints: [600.0, 900.0]
 
 对于四种基本变换 平移(translate)、缩放(scale)、旋转(rotate)、 错切(skew) 它们每一种都三种操作方法，分别为 设置(set)、 前乘(pre) 和 后乘 (post)。
 
-关于四种基本变换的知识和三种对应操作的区别，可以参考 []() 和 []() 这两篇文章的内容来。
+**关于四种基本变换的知识和三种对应操作的区别，详细可以参考 [Canvas之画布操作](http://www.gcssloop.com/2015/02/Canvas_Convert/) 和 [Matrix原理](http://www.gcssloop.com/2015/02/Matrix_Basic/) 这两篇文章的内容。**
+
+
+
+
 
 
 
