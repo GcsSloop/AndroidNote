@@ -9,13 +9,13 @@
 
 按照惯例，先放方法表做概览。
 
-| 方法类别     | 相关API                                    | 摘要                         |
-| -------- | ---------------------------------------- | -------------------------- |
+|   方法类别   | 相关API                                    | 摘要                         |
+| :------: | ---------------------------------------- | :------------------------- |
 | 设置(set)  | setConcat setRotate setScale setSkew setTranslate | 设置变换                       |
 | 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate | 前乘变换                       |
 | 后乘(post) | postConcat postRotate postScale postSkew postTranslate | 后乘变换                       |
-| 特殊方法    | setPolyToPoly setRectToRect rectStaysRect setSinCos | 一些特殊操作                     |
-| 矩阵相关     | invert isAffine isIdentity               | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
+|   特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos | 一些特殊操作                     |
+|   矩阵相关   | invert isAffine isIdentity               | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
 
 
 ## Matrix方法详解
@@ -37,14 +37,14 @@ Matrix matrix = new Matrix();
 
 通过这种方式创建出来的并不是一个数值全部为空的矩阵，而是一个单位矩阵,如下:
 
-![](http://latex.codecogs.com/png.latex?$$ 
-\\left [ 
-\\begin{matrix} 
-1 & 0 & 0 \\\\
-0 & 1 & 0 \\\\
+![](http://latex.codecogs.com/png.latex?$$
+\left [ 
+\begin{matrix} 
+1 & 0 & 0 \\\
+0 & 1 & 0 \\\
 0 & 0 & 1 
-\\end{1} 
-\\right ] 
+\end{1} 
+\right ]
 $$)
 
 
@@ -372,9 +372,17 @@ mapPoints: [600.0, 900.0]
 
 **关于四种基本变换的知识和三种对应操作的区别，详细可以参考 [Canvas之画布操作](http://www.gcssloop.com/2015/02/Canvas_Convert/) 和 [Matrix原理](http://www.gcssloop.com/2015/02/Matrix_Basic/) 这两篇文章的内容。**
 
+由于之前的文章已经详细的讲解过了它们的原理与用法，所以此处就简要的介绍一下:
 
+| 方法   | 简介                                   |
+| ---- | ------------------------------------ |
+| set  | 设置，会覆盖掉之前的数值，导致之前的操作失效。              |
+| pre  | 前乘，相当于矩阵的右乘， `M' = M * S`  (S指为特殊矩阵) |
+| post | 后乘，相当于矩阵的左乘，`M' = S * M` （S指为特殊矩阵）   |
 
-dd
+**Matrix 相关的一些坑：**
+
+- 1.一开始从Canvas中获取到到Matrix并不是初始矩阵，而是经过偏移后到矩阵。
 
 
 
