@@ -38,13 +38,13 @@ Matrix matrix = new Matrix();
 通过这种方式创建出来的并不是一个数值全部为空的矩阵，而是一个单位矩阵,如下:
 
 ![](http://latex.codecogs.com/png.latex?$$
-\left [ 
-\begin{matrix} 
-1 & 0 & 0 \\\
-0 & 1 & 0 \\\
+\\left [ 
+\\begin{matrix} 
+1 & 0 & 0 \\\\
+0 & 1 & 0 \\\\
 0 & 0 & 1 
-\end{1} 
-\right ]
+\\end{1} 
+\\right ]
 $$)
 
 
@@ -380,13 +380,41 @@ mapPoints: [600.0, 900.0]
 | pre  | 前乘，相当于矩阵的右乘， `M' = M * S`  (S指为特殊矩阵) |
 | post | 后乘，相当于矩阵的左乘，`M' = S * M` （S指为特殊矩阵）   |
 
-**Matrix 相关的一些坑：**
+**Matrix 相关的重要知识：**
 
-- 1.一开始从Canvas中获取到到Matrix并不是初始矩阵，而是经过偏移后到矩阵。
+- 1.一开始从Canvas中获取到到Matrix并不是初始矩阵，而是经过偏移后到矩阵，且偏移距离就是距离屏幕左上角的位置。
 
+- > 这个可以用于判定View在屏幕上的绝对位置，View可以根据所处位置做出调整。
+
+- 2.构造Matrix时使用的是矩阵乘法，前乘(pre)与后乘(post)结果差别很大。
+
+- > 这个直接参见上一篇文章 [Matrix原理](http://www.gcssloop.com/2015/02/Matrix_Basic/) 即可。
+
+- 3.受矩阵乘法影响，后面的执行的操作可能会影响到之前的操作。
+
+- > 使用时需要注意构造顺序。
 
 
 ### 特殊方法
+
+这一类方法看似不起眼，但拿来稍微加工一下就可能制作意想不到的效果。
+
+**1.setPolyToPoly**
+
+```java
+boolean setPolyToPoly (
+        float[] src, 
+        int srcIndex, 
+        float[] dst, 
+        int dstIndex, 
+        int pointCount)
+```
+
+
+
+
+
+
 
 ### 矩阵相关
 
