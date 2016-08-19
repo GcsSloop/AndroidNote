@@ -166,6 +166,7 @@ public void drawPicture (Picture picture, RectF dst)
 和使用Picture的draw方法不同，Canvas的drawPicture不会影响Canvas状态。
 
 **简单示例:**
+
 ``` java
     canvas.drawPicture(mPicture,new RectF(0,0,mPicture.getWidth(),200));
 ```
@@ -175,6 +176,7 @@ public void drawPicture (Picture picture, RectF dst)
  **PS:对照上一张图片，可以比较明显的看出，绘制的内容根据选区进行了缩放。 **
 
 **3.将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。**
+
 ```
         // 包装成为Drawable
         PictureDrawable drawable = new PictureDrawable(mPicture);
