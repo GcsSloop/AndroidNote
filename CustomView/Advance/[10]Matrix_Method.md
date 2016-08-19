@@ -3,26 +3,19 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### 相关文章: [自定义View目录](http://www.gcssloop.com/1970/01/CustomViewIndex/)
 
-
-## 前言
-
 在上一篇文章中，我们对Matrix做了一个简单的了解，偏向理论，在本文中则会详细的讲解Matrix的具体用法，以及Matrix的一些实用技巧。
 
-<p id="method" />
 ## Matrix方法表
 
 按照惯例，先放方法表做概览。
 
-方法类别   | 相关API                                                 | 摘要
------------|---------------------------------------------------------|------------------------
-基本方法   | equals hashCode toString toShortString                  | 比较、 获取哈希值、 转换为字符串
-数值操作   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值
-数值计算   | mapPoints mapRadius mapRect mapVectors                  | 计算变换后的数值
-设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
-前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
-后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
-特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
-矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
+| 方法类别     | 相关API                                    | 摘要                         |
+| -------- | ---------------------------------------- | -------------------------- |
+| 设置(set)  | setConcat setRotate setScale setSkew setTranslate | 设置变换                       |
+| 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate | 前乘变换                       |
+| 后乘(post) | postConcat postRotate postScale postSkew postTranslate | 后乘变换                       |
+| 特殊方法    | setPolyToPoly setRectToRect rectStaysRect setSinCos | 一些特殊操作                     |
+| 矩阵相关     | invert isAffine isIdentity               | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
 
 
 ## Matrix方法详解
@@ -44,8 +37,7 @@ Matrix matrix = new Matrix();
 
 通过这种方式创建出来的并不是一个数值全部为空的矩阵，而是一个单位矩阵,如下:
 
-![](http://latex.codecogs.com/png.latex?
-$$
+![](http://latex.codecogs.com/png.latex?$$ 
 \\left [ 
 \\begin{matrix} 
 1 & 0 & 0 \\\\
@@ -211,19 +203,19 @@ after : dst=[0.0, 0.0, 40.0, 100.0, 200.0, 300.0]
 
 (3) `void mapPoints (float[] dst, int dstIndex,float[] src, int srcIndex, int pointCount)` 可以指定只计算一部分数值。
 
-参数       | 摘要
------------|---
-dst        | 目标数据
-dstIndex   | 目标数据存储位置起始下标
-src        | 源数据
-srcIndex   | 源数据存储位置起始下标
-pointCount | 计算的点个数
+| 参数         | 摘要           |
+| ---------- | ------------ |
+| dst        | 目标数据         |
+| dstIndex   | 目标数据存储位置起始下标 |
+| src        | 源数据          |
+| srcIndex   | 源数据存储位置起始下标  |
+| pointCount | 计算的点个数       |
 
 
 示例:
 
 >
-将第二、三个点计算后存储进dst最开始位置。
+>将第二、三个点计算后存储进dst最开始位置。
 
 ``` java
 // 初始数据为三个点 (0, 0) (80, 100) (400, 300)
@@ -327,7 +319,7 @@ isRect: false
 ```
 
 >
-由于使用了错切，所以返回结果为false。
+>由于使用了错切，所以返回结果为false。
 
 (2) `boolean mapRect (RectF dst, RectF src)` 测量src并将测量结果放入dst中，返回值是判断矩形经过变换后是否仍为矩形,和之前没有什么太大区别，此处就不啰嗦了。
 
@@ -382,7 +374,7 @@ mapPoints: [600.0, 900.0]
 
 
 
-
+dd
 
 
 
