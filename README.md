@@ -6,14 +6,9 @@
 
 > #### PS:点击分类标题可以查看该分类的详细信息。 
 
-## 目录
+## [博客](http://www.gcssloop.com/#blog)
 
-- [自定义View](#custom_view)
-- [教程类](#教程类)
-- [速查表](#速查表)
-- [混沌水晶](#混沌水晶)
-- [开源库](#开源库)
-- [版权声明](#版权声明)
+<a href="http://www.gcssloop.com/#blog" target="_blank"> <img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f70uy1873sj315o0dwae0.jpg" width=300 height=100 /> </a>
 
 ******
 
