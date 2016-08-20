@@ -410,9 +410,7 @@ boolean setPolyToPoly (
         int pointCount)
 ```
 
-
-
-
+这个可以用于制作一些很特殊的效果。
 
 
 
