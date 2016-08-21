@@ -128,4 +128,21 @@ com.gcssloop.alltest I/Time: ForEach-LinkedList：5ms
 
 ## 总结:
 
-推荐使用迭代器(Iterator)和ForEach遍历List，不要使用传统的For循环。
+### 性能比较:
+
+测试处理10000条数据性能:
+
+> 数值仅供参考，与运行环境相关，每次测试结果都可能稍有差别。
+
+|    迭代方式    | ArrayList | LinkedList |
+| :--------: | :-------: | :--------: |
+|   For循环    |   20ms    |   648ms    |
+|  Iterator  |    4ms    |    6ms     |
+| for-each循环 |    5ms    |    5ms     |
+
+
+
+**推荐使用迭代器(Iterator)和ForEach遍历List，不要使用传统的For循环。**
+
+
+
