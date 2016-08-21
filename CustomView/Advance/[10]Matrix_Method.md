@@ -403,14 +403,18 @@ mapPoints: [600.0, 900.0]
 
 ```java
 boolean setPolyToPoly (
-        float[] src, 
-        int srcIndex, 
-        float[] dst, 
-        int dstIndex, 
-        int pointCount)
+        float[] src, 	// 原始数组 src [x,y]，存储内容为一组点
+        int srcIndex, 	// 原始数组开始位置
+        float[] dst, 	// 目标数组 dst [x,y]，存储内容为一组点
+        int dstIndex, 	// 目标数组开始位置
+        int pointCount)	// 要使用点的数量 取值范围是: 0到4
 ```
 
-这个可以用于制作一些很特殊的效果。
+Poly全称是Polygon，多边形的意思，了解了意思大致就能知道这个方法是做什么用的了，应该与PS中自由变换差不多。
+
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f71ppx7q0lg30go0b44ga.gif)
+
+> 从参数我们可以了解到setPolyToPoly最多可以支持4个点，也就是图形的四个角，可以通过这四个角将图片变换成其他形状。
 
 
 
