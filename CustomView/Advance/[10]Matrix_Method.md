@@ -414,7 +414,9 @@ Poly全称是Polygon，多边形的意思，了解了意思大致就能知道这
 
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f71ppx7q0lg30go0b44ga.gif)
 
-> 从参数我们可以了解到setPolyToPoly最多可以支持4个点，也就是图形的四个角，可以通过这四个角将图片变换成其他形状。
+> 从参数我们可以了解到setPolyToPoly最多可以支持4个点，也就是图形的四个角，可以通过这四个角将视图从矩形变换成其他形状。
+
+简单示例:
 
 
 
