@@ -72,7 +72,8 @@
 * [LeafLoading － 进度条](https://github.com/GcsSloop/LeafLoading)
 * [Rotate3dAnimation - 3D旋转动画(修正版)](https://github.com/GcsSloop/Rotate3dAnimation)
 
-[![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6t21eozlyj305k01vjra.jpg)](https://github.com/GcsSloop/AndroidNote/blob/magic-world/CONTRIBUTE.md)
+[![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f72pfdbrh5j305k01vt8m.jpg)](http://www.gcssloop.com/1970/01/contribute/)
+
 
 ## 传送门
 
