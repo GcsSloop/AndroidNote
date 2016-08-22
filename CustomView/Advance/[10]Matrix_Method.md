@@ -410,13 +410,60 @@ boolean setPolyToPoly (
         int pointCount)	// 要使用点的数量 取值范围是: 0到4
 ```
 
-Poly全称是Polygon，多边形的意思，了解了意思大致就能知道这个方法是做什么用的了，应该与PS中自由变换差不多。
+Poly全称是Polygon，多边形的意思，了解了意思大致就能知道这个方法是做什么用的了，应该与PS中自由变换中的扭曲有点类似。
 
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f71ppx7q0lg30go0b44ga.gif)
 
 > 从参数我们可以了解到setPolyToPoly最多可以支持4个点，也就是图形的四个角，可以通过这四个角将视图从矩形变换成其他形状。
 
 简单示例:
+
+```java
+public class MstrixSetPolyToPolyTest extends View {
+
+    private Bitmap mBitmap;             // 要绘制的图片
+    private Matrix mPolyMatrix;         // 测试setPolyToPoly用的Matrix
+
+    public MstrixSetPolyToPolyTest(Context context) {
+        super(context);
+
+        initBitmapAndMatrix();
+    }
+
+    private void initBitmapAndMatrix() {
+        mBitmap = BitmapFactory.decodeResource(getResources(),
+                R.drawable.poly_test);
+
+        mPolyMatrix = new Matrix();
+
+
+        float[] src = {0, 0,                                    // 左上
+                mBitmap.getWidth(), 0,                          // 右上
+                mBitmap.getWidth(), mBitmap.getHeight(),        // 右下
+                0, mBitmap.getHeight()};                        // 左下
+
+        float[] dst = {0, 0,                                    // 左上
+                mBitmap.getWidth(), 400,                        // 右上
+                mBitmap.getWidth(), mBitmap.getHeight() - 200,  // 右下
+                0, mBitmap.getHeight()};                        // 左下
+
+        // 核心要点
+        mPolyMatrix.setPolyToPoly(src, 0, dst, 0, src.length >> 1); // src.length >> 1 为位移运算 相当于处以2
+
+        // 此处为了更好的显示对图片进行了等比缩放和平移
+        mPolyMatrix.postScale(0.26f, 0.26f);
+        mPolyMatrix.postTranslate(0,200);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        // 根据Matrix绘制一个变换后的图片
+        canvas.drawBitmap(mBitmap, mPolyMatrix, null);
+    }
+}
+```
 
 
 
