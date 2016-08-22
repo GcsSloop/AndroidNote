@@ -9,13 +9,16 @@
 
 按照惯例，先放方法表做概览。
 
-|   方法类别   | 相关API                                    | 摘要                         |
-| :------: | ---------------------------------------- | :------------------------- |
+| 方法类别     | 相关API                                    | 摘要                         |
+| -------- | ---------------------------------------- | -------------------------- |
+| 基本方法     | equals hashCode toString toShortString   | 比较、 获取哈希值、 转换为字符串          |
+| 数值操作     | set reset setValues getValues            | 设置、 重置、 设置数值、 获取数值         |
+| 数值计算     | mapPoints mapRadius mapRect mapVectors   | 计算变换后的数值                   |
 | 设置(set)  | setConcat setRotate setScale setSkew setTranslate | 设置变换                       |
 | 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate | 前乘变换                       |
 | 后乘(post) | postConcat postRotate postScale postSkew postTranslate | 后乘变换                       |
-|   特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos | 一些特殊操作                     |
-|   矩阵相关   | invert isAffine isIdentity               | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
+| 特殊方法     | setPolyToPoly setRectToRect rectStaysRect setSinCos | 一些特殊操作                     |
+| 矩阵相关     | invert isAffine isIdentity               | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
 
 
 ## Matrix方法详解
@@ -419,12 +422,12 @@ Poly全称是Polygon，多边形的意思，了解了意思大致就能知道这
 简单示例:
 
 ```java
-public class MstrixSetPolyToPolyTest extends View {
+public class MatrixSetPolyToPolyTest extends View {
 
     private Bitmap mBitmap;             // 要绘制的图片
     private Matrix mPolyMatrix;         // 测试setPolyToPoly用的Matrix
 
-    public MstrixSetPolyToPolyTest(Context context) {
+    public MatrixSetPolyToPolyTest(Context context) {
         super(context);
 
         initBitmapAndMatrix();
@@ -450,7 +453,7 @@ public class MstrixSetPolyToPolyTest extends View {
         // 核心要点
         mPolyMatrix.setPolyToPoly(src, 0, dst, 0, src.length >> 1); // src.length >> 1 为位移运算 相当于处以2
 
-        // 此处为了更好的显示对图片进行了等比缩放和平移
+        // 此处为了更好的显示对图片进行了等比缩放和平移(图片本身有点大)
         mPolyMatrix.postScale(0.26f, 0.26f);
         mPolyMatrix.postTranslate(0,200);
     }
@@ -465,11 +468,118 @@ public class MstrixSetPolyToPolyTest extends View {
 }
 ```
 
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f730v51dowj308c0etgm0.jpg)
 
+
+
+> **用setPolyToPoly这个方法可以制造类似于3D的透视效果。**
+
+
+
+**2.setRectToRect**
+
+```JAVA
+boolean setRectToRect (RectF src, 			// 源区域
+                RectF dst, 					// 目标区域
+                Matrix.ScaleToFit stf)		// 缩放适配模式
+```
+
+简单来说就是将源矩形的内容填充到目标矩形中，然而在大多数的情况下，源矩形和目标矩形的长宽比是不一致的，到底该如何填充呢，这个填充的模式就由第三个参数 `stf` 来确定。
+
+ScaleToFit 是一个枚举类型，共包含了四种模式:
+
+| 模式     | 摘要                         |
+| ------ | -------------------------- |
+| CENTER | 居中，对src等比例缩放，将其居中放置在dst中。  |
+| START  | 顶部，对src等比例缩放，将其放置在dst的左上角。 |
+| END    | 底部，对src等比例缩放，将其放置在dst的右下角。 |
+| FILL   | 充满，拉伸src的宽和高，使其完全填充满dst。   |
+
+下面我们看一下不同宽高比的src与dst在不同模式下是怎样的。
+
+> 假设灰色部分是dst，橙色部分是src，由于是测试不同宽高比，示例中让dst保持不变，看两种宽高比的src在不同模式下填充的位置。
+
+| 状态 src | ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f737xedthmj308c050glf.jpg) |
+| ------- | :--------------------------------------: |
+| CENTER  | ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f737xqulh9j308c050t8k.jpg) |
+| START   | ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f737y0ts9oj308c050glg.jpg) |
+| END     | ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f737zi7tm1j308c050a9w.jpg) |
+| FILL    | ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f737yj8pcrj308c0500sl.jpg) |
+
+
+
+下面用代码演示一下居中的示例:
+
+```java
+public class MatrixSetRectToRectTest extends View {
+
+    private static final String TAG = "MatrixSetRectToRectTest";
+
+    private int mViewWidth, mViewHeight;
+
+    private Bitmap mBitmap;             // 要绘制的图片
+    private Matrix mRectMatrix;         // 测试etRectToRect用的Matrix
+
+    public MatrixSetRectToRectTest(Context context) {
+        super(context);
+
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.rect_test);
+        mRectMatrix = new Matrix();
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        mViewWidth = w;
+        mViewHeight = h;
+
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        RectF src= new RectF(0, 0, mBitmap.getWidth(), mBitmap.getHeight() );
+        RectF dst = new RectF(0, 0, mViewWidth, mViewHeight );
+
+        // 核心要点
+        mRectMatrix.setRectToRect(src,dst, Matrix.ScaleToFit.CENTER);
+
+        // 根据Matrix绘制一个变换后的图片
+        canvas.drawBitmap(mBitmap, mRectMatrix, new Paint());
+    }
+}
+```
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f7385r77wmj308c0etgm8.jpg)
+
+
+
+**3.rectStaysRect**
+
+判断矩形经过变换后是否仍为矩形，假如Matrix进行了平移、缩放则画布仅仅是位置和大小改变，矩形变换后仍然为矩形，但Matrix进行了非90度倍数的旋转或者错切，则矩形变换后就不再是矩形了，这个很好理解，不过多赘述，顺便说一下，前面的`mapRect`方法的返回值就是`rectStaysRect`的返回值。
+
+
+
+**4.setSinCos**
+
+设置sinCos值，这个是控制Matrix旋转的，由于Matrix已经封装好了Rotate方法，所以这个并不常用，也不过多讲解。
 
 ### 矩阵相关
 
+矩阵相关的函数就属于哪一种非常靠近底层的东西了，向我们做App的一般不需要直接接触到这些东西，想要弄明白这个可以回去请教你们的线性代数老师，这里仅作概述。
+
+| 方法         | 摘要             |
+| ---------- | -------------- |
+| invert     | 求矩阵的逆矩阵        |
+| isAffine   | 判断当前矩阵是否为仿射矩阵。 |
+| isIdentity | 判断当前矩阵是否为单位矩阵。 |
+
 ## Matrix实用技巧
+
+通过前面的代码和示例，我们已经了解了Matrix大部分方法是如何使用的，这些基本的原理和方法通过组合可能会创造出神奇的东西，下面我就简要介绍几种我想到的小技巧，更多的大家可以开启自己的脑洞来发挥。
+
+### 1.根据位置绘制不同的内容
 
 ## About
 
