@@ -499,12 +499,12 @@ ScaleToFit 是一个枚举类型，共包含了四种模式:
 
 > 假设灰色部分是dst，橙色部分是src，由于是测试不同宽高比，示例中让dst保持不变，看两种宽高比的src在不同模式下填充的位置。
 
-| 状态 src | ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f737xedthmj308c050glf.jpg) |
-| ------- | :--------------------------------------: |
-| CENTER  | ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f737xqulh9j308c050t8k.jpg) |
-| START   | ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f737y0ts9oj308c050glg.jpg) |
-| END     | ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f737zi7tm1j308c050a9w.jpg) |
-| FILL    | ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f737yj8pcrj308c0500sl.jpg) |
+| src(原始状态) | ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f737xedthmj308c050glf.jpg) |
+| :-------: | :--------------------------------------: |
+|  CENTER   | ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f737xqulh9j308c050t8k.jpg) |
+|   START   | ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f737y0ts9oj308c050glg.jpg) |
+|    END    | ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f737zi7tm1j308c050a9w.jpg) |
+|   FILL    | ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f737yj8pcrj308c0500sl.jpg) |
 
 
 
