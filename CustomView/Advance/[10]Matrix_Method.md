@@ -1,4 +1,4 @@
-# Matrix方法
+# Matrix详解
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### 相关文章: [自定义View目录](http://www.gcssloop.com/1970/01/CustomViewIndex/)
