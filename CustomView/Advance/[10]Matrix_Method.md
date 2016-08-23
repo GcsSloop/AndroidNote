@@ -18,7 +18,7 @@
 | 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate | 前乘变换                       |
 | 后乘(post) | postConcat postRotate postScale postSkew postTranslate | 后乘变换                       |
 | 特殊方法     | setPolyToPoly setRectToRect rectStaysRect setSinCos | 一些特殊操作                     |
-| 矩阵相关     | invert isAffine isIdentity               | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
+| 矩阵相关     | invert isAffine(API21) isIdentity        | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
 
 
 ## Matrix方法详解
@@ -371,7 +371,7 @@ mapPoints: [600.0, 900.0]
 
 ### set、pre 与 post
 
-对于四种基本变换 平移(translate)、缩放(scale)、旋转(rotate)、 错切(skew) 它们每一种都三种操作方法，分别为 设置(set)、 前乘(pre) 和 后乘 (post)。
+对于四种基本变换 平移(translate)、缩放(scale)、旋转(rotate)、 错切(skew) 它们每一种都三种操作方法，分别为 设置(set)、 前乘(pre) 和 后乘 (post)。而它们的基础是Concat，通过先构造出特殊矩阵然后用原始矩阵Concat特殊矩阵，达到变换的结果。
 
 **关于四种基本变换的知识和三种对应操作的区别，详细可以参考 [Canvas之画布操作](http://www.gcssloop.com/2015/02/Canvas_Convert/) 和 [Matrix原理](http://www.gcssloop.com/2015/02/Matrix_Basic/) 这两篇文章的内容。**
 
@@ -557,30 +557,238 @@ public class MatrixSetRectToRectTest extends View {
 
 **3.rectStaysRect**
 
-判断矩形经过变换后是否仍为矩形，假如Matrix进行了平移、缩放则画布仅仅是位置和大小改变，矩形变换后仍然为矩形，但Matrix进行了非90度倍数的旋转或者错切，则矩形变换后就不再是矩形了，这个很好理解，不过多赘述，顺便说一下，前面的`mapRect`方法的返回值就是`rectStaysRect`的返回值。
+判断矩形经过变换后是否仍为矩形，假如Matrix进行了平移、缩放则画布仅仅是位置和大小改变，矩形变换后仍然为矩形，但Matrix进行了非90度倍数的旋转或者错切，则矩形变换后就不再是矩形了，这个很好理解，不过多赘述，顺便说一下，前面的`mapRect`方法的返回值就是根据`rectStaysRect`来判断的。
 
 
 
 **4.setSinCos**
 
-设置sinCos值，这个是控制Matrix旋转的，由于Matrix已经封装好了Rotate方法，所以这个并不常用，也不过多讲解。
+设置sinCos值，这个是控制Matrix旋转的，由于Matrix已经封装好了Rotate方法，所以这个并不常用，在此仅作概述。
+
+```java
+// 方法一
+void setSinCos (float sinValue, 	// 旋转角度的sin值
+                float cosValue)		// 旋转角度的cos值
+
+// 方法二
+void setSinCos (float sinValue, 	// 旋转角度的sin值
+                float cosValue, 	// 旋转角度的cos值
+                float px, 			// 中心位置x坐标
+                float py)			// 中心位置y坐标
+```
+
+简单测试:
+
+```java
+Matrix matrix = new Matrix();
+// 旋转90度
+// sin90=1
+// cos90=0
+matrix.setSinCos(1f, 0f);
+
+Log.i(TAG, "setSinCos:"+matrix.toShortString());
+
+// 重置
+matrix.reset();
+
+// 旋转90度
+matrix.setRotate(90);
+
+Log.i(TAG, "setRotate:"+matrix.toShortString());
+```
+
+结果:
+
+```shell
+setSinCos:[0.0, -1.0, 0.0][1.0, 0.0, 0.0][0.0, 0.0, 1.0]
+setRotate:[0.0, -1.0, 0.0][1.0, 0.0, 0.0][0.0, 0.0, 1.0]
+```
+
+
 
 ### 矩阵相关
 
-矩阵相关的函数就属于哪一种非常靠近底层的东西了，向我们做App的一般不需要直接接触到这些东西，想要弄明白这个可以回去请教你们的线性代数老师，这里仅作概述。
+矩阵相关的函数就属于哪一种非常靠近底层的东西了，大部分开发者很少直接接触这些东西，想要弄明白这个可以回去请教你们的线性代数老师，这里也仅作概述。
 
-| 方法         | 摘要             |
-| ---------- | -------------- |
-| invert     | 求矩阵的逆矩阵        |
-| isAffine   | 判断当前矩阵是否为仿射矩阵。 |
-| isIdentity | 判断当前矩阵是否为单位矩阵。 |
+| 方法         | 摘要                              |
+| ---------- | ------------------------------- |
+| invert     | 求矩阵的逆矩阵                         |
+| isAffine   | 判断当前矩阵是否为仿射矩阵，API21(5.0)才添加的方法。 |
+| isIdentity | 判断当前矩阵是否为单位矩阵。                  |
+
+**1.invert**
+
+求矩阵的逆矩阵，简而言之就是计算与之前相反的矩阵，如果之前是平移200px，则求的矩阵为反向平移200px，如果之前是缩小到0.5f，则结果是放大到2倍。
+
+```java
+boolean invert (Matrix inverse)
+```
+
+简单测试:
+
+```java
+Matrix matrix = new Matrix();
+Matrix invert = new Matrix();
+matrix.setTranslate(200,500);
+
+Log.e(TAG, "before - matrix "+matrix.toShortString() );
+
+Boolean result = matrix.invert(invert);
+
+Log.e(TAG, "after  - result "+result );
+Log.e(TAG, "after  - matrix "+matrix.toShortString() );
+Log.e(TAG, "after  - invert "+invert.toShortString() );
+```
+
+结果：
+
+```shell
+before - matrix [1.0, 0.0, 200.0][0.0, 1.0, 500.0][0.0, 0.0, 1.0]
+after  - result true
+after  - matrix [1.0, 0.0, 200.0][0.0, 1.0, 500.0][0.0, 0.0, 1.0]
+after  - invert [1.0, 0.0, -200.0][0.0, 1.0, -500.0][0.0, 0.0, 1.0]
+```
+
+
+
+**2.isAffine**
+
+判断矩阵是否是仿射矩阵, 貌似并没有太大卵用，因为你无论如何操作结果始终都为true。
+
+这是为什么呢？因为迄今为止我们使用的所有变换都是仿射变换，那变换出来的矩阵自然是仿射矩阵喽。
+
+判断是否是仿射矩阵最重要的一点就是，直线是否仍为直线，简单想一下就知道，不论平移，旋转，错切，缩放，直线变换后最终仍为直线，要想让`isAffine`的结果变为false，除非你能把直线掰弯，我目前还没有找到能够掰弯的方法，所以我仍是直男(就算找到了，我依旧是直男)。
+
+简单测试:
+
+```java
+Matrix matrix = new Matrix();
+Log.i(TAG,"isAffine="+matrix.isAffine());
+
+matrix.postTranslate(200,0);
+matrix.postScale(0.5f, 1);
+matrix.postSkew(0,1);
+matrix.postRotate(56);
+
+Log.i(TAG,"isAffine="+matrix.isAffine());
+```
+
+结果:
+
+```shell
+isAffine=true
+isAffine=true
+```
+
+
+
+**3.isIdentity**
+
+判断是否为单位矩阵，什么是单位矩阵呢，就是文章一开始的那个:
+
+![](http://latex.codecogs.com/png.latex?$$
+\\left [ 
+\\begin{matrix} 
+1 & 0 & 0 \\\\
+0 & 1 & 0 \\\\
+0 & 0 & 1 
+\\end{1} 
+\\right ]
+$$)
+
+新创建的Matrix和重置后的Matrix都是单位矩阵，不过，只要随意操作一步，就不在是单位矩阵了。
+
+简单测试：
+
+```java
+Matrix matrix = new Matrix();
+Log.i(TAG,"isIdentity="+matrix.isIdentity());
+
+matrix.postTranslate(200,0);
+
+Log.i(TAG,"isIdentity="+matrix.isIdentity());
+```
+
+结果：
+
+```shell
+isIdentity=true
+isIdentity=false
+```
+
+
 
 ## Matrix实用技巧
 
-通过前面的代码和示例，我们已经了解了Matrix大部分方法是如何使用的，这些基本的原理和方法通过组合可能会创造出神奇的东西，下面我就简要介绍几种我想到的小技巧，更多的大家可以开启自己的脑洞来发挥。
+通过前面的代码和示例，我们已经了解了Matrix大部分方法是如何使用的，这些基本的原理和方法通过组合可能会创造出神奇的东西，网上有很多教程讲Bitmap利用Matrix变换来制作镜像倒影等，这都属于Matrix的基本应用，我就不在赘述了，下面我简要介绍几种然并卵的小技巧，更多的大家可以开启自己的脑洞来发挥。
 
-### 1.根据位置绘制不同的内容
+### 1.获取View在屏幕上的绝对位置
 
-## About
+在之前的文章[Matrix原理](http://www.gcssloop.com/2015/02/Matrix_Basic/)中我们提到过Matrix最根本的作用就是坐标映射，将View的相对坐标映射为屏幕的绝对坐标，也提到过我们在onDraw函数的canvas中获取到到Matrix并不是单位矩阵，结合这两点，聪明的你肯定想到了我们可以从canvas的Matrix入手取得View在屏幕上的绝对位置。
+
+不过，这也仅仅是一个然并卵的小技巧而已，使用`getLocationOnScreen`同样可以获取View在屏幕的位置，但如果你是想让下一任接盘侠弄不明白你在做什么或者是被同事打死的话，尽管这么做。
+
+简单示例:
+
+```java
+@Override
+protected void onDraw(Canvas canvas) {
+    float[] values = new float[9];
+    int[] location1 = new int[2];
+
+    Matrix matrix = canvas.getMatrix();
+    matrix.getValues(values);
+
+    location1[0] = (int) values[2];
+    location1[1] = (int) values[5];
+    Log.i(TAG, "location1 = " + Arrays.toString(location1));
+
+    int[] location2 = new int[2];
+    this.getLocationOnScreen(location2);
+    Log.i(TAG, "location2 = " + Arrays.toString(location2));
+}
+```
+
+结果:
+
+```shell
+location1 = [0, 243]
+location2 = [0, 243]
+```
+
+### 2.利用setPolyToPoly制造3D效果
+
+这个全凭大家想象力啦，不过我搜了一下还真搜到了好东西，之前鸿洋大大发过一篇博文详细讲解了利用setPolyToPoly制造的折叠效果布局，大家直接到他的博客去看吧，我就不写了。
+
+> 图片引用自鸿洋大大的博客，稍作了一下处理。
+
+![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f74bvmz52mg308c0bbb29.gif)
+
+博文链接:
+
+**[Android FoldingLayout 折叠布局 原理及实现（一）](http://blog.csdn.net/lmj623565791/article/details/44278417)**
+
+**[Android FoldingLayout 折叠布局 原理及实现（二）](http://blog.csdn.net/lmj623565791/article/details/44283093)**
+
+## 总结
+
+本篇基本讲解了Matrix相关的所有方法，应该是目前对Matrix讲解最全面的一篇中文文章了，建议配合上一篇[Matrix原理](http://www.gcssloop.com/2015/02/Matrix_Basic/)食用效果更佳。
+
+由于本人水平有限，可能出于误解或者笔误难免出错，如果发现有问题或者对文中内容存在疑问欢迎在下面评论区告诉我，请对问题描述尽量详细，以帮助我可以快速找到问题根源。
+
+## About Me
+
+### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
+
+<a href="https://github.com/GcsSloop/AndroidNote/blob/magic-world/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
 
 ## 参考资料
+
+[Matrix](https://developer.android.com/reference/android/graphics/Matrix.html)
+
+[Matrix.ScaleToFit](https://developer.android.com/reference/android/graphics/Matrix.ScaleToFit.html)
+
+[Android中图像变换Matrix的原理、代码验证和应用](http://biandroid.iteye.com/blog/1399462)
+
+[Understanding Affine Transformations With Matrix Mathematics](http://code.tutsplus.com/tutorials/understanding-affine-transformations-with-matrix-mathematics--active-10884)
+
