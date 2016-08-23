@@ -35,6 +35,12 @@
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B09%5DMatrix_Basic.md" target="_blank"><img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f6f0xhz3foj30rs0dwacx.jpg" width=285 /></a>
 </p>
 
+*******
+
+<p align="center">
+<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B10%5DMatrix_Method.md" target="_blank"><img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f74cxajh7mj30rs0dwwhc.jpg" width=285 /></a>
+</p>
+
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
 <a href="http://www.gcssloop.com/1970/01/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
