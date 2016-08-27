@@ -27,7 +27,7 @@
 
 构造方法没有在上面表格中列出。
 
-**无参构造**
+#### 无参构造
 
 ``` java
 Matrix ()
@@ -51,7 +51,7 @@ Matrix matrix = new Matrix();
 $$)
 
 
-**有参构造**
+#### 有参构造
 
 ``` java
 Matrix (Matrix src)
@@ -70,19 +70,19 @@ Matrix matrix = new Matrix(src);
 
 基本方法内容比较简单，在此处简要介绍一下。
 
-**1.equals**
+#### 1.equals
 
 比较两个Matrix的数值是否相同。
 
-**2.hashCode**
+#### 2.hashCode
 
 获取Matrix的哈希值。
 
-**3.toString**
+#### 3.toString
 
 将Matrix转换为字符串: `Matrix{[1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]}`
 
-**4.toShortString**
+#### 4.toShortString
 
 将Matrix转换为短字符串: `[1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]`
 
@@ -91,7 +91,7 @@ Matrix matrix = new Matrix(src);
 
 数值操作这一组方法可以帮助我们直接控制Matrix里面的数值。
 
-**1.set**
+#### 1.set
 
 ``` java
 void set (Matrix src)
@@ -99,7 +99,7 @@ void set (Matrix src)
 
 没有返回值，有一个参数，作用是将参数Matrix的数值复制到当前Matrix中。如果参数为空，则重置当前Matrix，相当于`reset()`。
 
-**2.reset**
+#### 2.reset
 
 ``` java
 void reset ()
@@ -107,7 +107,7 @@ void reset ()
 
 重置当前Matrix(将当前Matrix重置为单位矩阵)。
 
-**3.setValues**
+#### 3.setValues
 
 ``` java
 void setValues (float[] values)
@@ -115,7 +115,7 @@ void setValues (float[] values)
 
 setValues的参数是浮点型的一维数组，长度需要大于9，拷贝数组中的前9位数值赋值给当前Matrix。
 
-**4.getValues**
+#### 4.getValues
 
 ``` java
 void getValues (float[] values)
@@ -125,7 +125,7 @@ void getValues (float[] values)
 
 ### 数值计算
 
-**1.mapPoints**
+#### 1.mapPoints
 
 ``` java
 void mapPoints (float[] pts)
@@ -250,7 +250,7 @@ after : src=[0.0, 0.0, 80.0, 100.0, 400.0, 300.0]
 after : dst=[40.0, 100.0, 200.0, 300.0, 0.0, 0.0]
 ```
 
-**2.mapRadius**
+#### 2.mapRadius
 
 ``` java
 float mapRadius (float radius)
@@ -283,7 +283,7 @@ mapRadius: 70.71068
 ```
 
 
-**3.mapRect**
+#### 3.mapRect
 
 ```
 boolean mapRect (RectF rect)
@@ -326,7 +326,7 @@ isRect: false
 
 (2) `boolean mapRect (RectF dst, RectF src)` 测量src并将测量结果放入dst中，返回值是判断矩形经过变换后是否仍为矩形,和之前没有什么太大区别，此处就不啰嗦了。
 
-**4.mapVectors**
+#### 4.mapVectors
 
 测量向量。
 
@@ -492,11 +492,13 @@ public class MatrixSetPolyToPolyTest extends View {
 >
 > 只列一个表格就算交代完毕了显得诚意不足，为了彰显诚意，接下来详细的讲解一下。
 
+
+
 魔力不足，正在蓄力中...
 
 
 
-**2.setRectToRect**
+#### 2.setRectToRect
 
 ```JAVA
 boolean setRectToRect (RectF src, 			// 源区域
@@ -575,13 +577,13 @@ public class MatrixSetRectToRectTest extends View {
 
 
 
-**3.rectStaysRect**
+#### 3.rectStaysRect
 
 判断矩形经过变换后是否仍为矩形，假如Matrix进行了平移、缩放则画布仅仅是位置和大小改变，矩形变换后仍然为矩形，但Matrix进行了非90度倍数的旋转或者错切，则矩形变换后就不再是矩形了，这个很好理解，不过多赘述，顺便说一下，前面的`mapRect`方法的返回值就是根据`rectStaysRect`来判断的。
 
 
 
-**4.setSinCos**
+#### 4.setSinCos
 
 设置sinCos值，这个是控制Matrix旋转的，由于Matrix已经封装好了Rotate方法，所以这个并不常用，在此仅作概述。
 
@@ -636,7 +638,7 @@ setRotate:[0.0, -1.0, 0.0][1.0, 0.0, 0.0][0.0, 0.0, 1.0]
 | isAffine   | 判断当前矩阵是否为仿射矩阵，API21(5.0)才添加的方法。 |
 | isIdentity | 判断当前矩阵是否为单位矩阵。                  |
 
-**1.invert**
+#### 1.invert
 
 求矩阵的逆矩阵，简而言之就是计算与之前相反的矩阵，如果之前是平移200px，则求的矩阵为反向平移200px，如果之前是缩小到0.5f，则结果是放大到2倍。
 
@@ -671,7 +673,7 @@ after  - invert [1.0, 0.0, -200.0][0.0, 1.0, -500.0][0.0, 0.0, 1.0]
 
 
 
-**2.isAffine**
+#### 2.isAffine
 
 判断矩阵是否是仿射矩阵, 貌似并没有太大卵用，因为你无论如何操作结果始终都为true。
 
@@ -702,7 +704,7 @@ isAffine=true
 
 
 
-**3.isIdentity**
+#### 3.isIdentity
 
 判断是否为单位矩阵，什么是单位矩阵呢，就是文章一开始的那个:
 
