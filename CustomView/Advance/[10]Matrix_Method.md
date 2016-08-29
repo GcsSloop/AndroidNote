@@ -560,6 +560,8 @@ if (1 == count) {
 
 上面已经用图例比较详细的展示了不同操控点个数的情况，如果你依旧存在疑问，可以获取代码自己试一下。
 
+#### [点击此处查看setPolyToPoly测试代码](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/Code/SetPolyToPoly.md)
+
 #### 2.setRectToRect
 
 ```JAVA
