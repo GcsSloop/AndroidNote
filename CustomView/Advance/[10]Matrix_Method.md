@@ -508,7 +508,7 @@ public class MatrixSetPolyToPolyTest extends View {
 
 *****
 
-**一下用示例演示一下，所有示例的src均为图片大小，dst根据手势变化。**
+**接下来用示例演示一下，所有示例的src均为图片大小，dst根据手势变化。**
 
 **pointCount为0**
 
