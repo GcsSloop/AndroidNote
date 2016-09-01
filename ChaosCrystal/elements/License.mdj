@@ -687,6 +687,52 @@
 							},
 							"lineStyle": 1,
 							"points": "513:395;591:397"
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAFW5zBlK7b8qC8=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;18;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 680,
+							"top": 424,
+							"width": 164,
+							"height": 30,
+							"autoResize": false,
+							"text": "www.gcssloop.com",
+							"wordWrap": true
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAFW5zIYWbcE4Mk=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;12;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 704,
+							"top": 448,
+							"width": 137,
+							"height": 25,
+							"autoResize": false,
+							"text": "Cc-By-SA-4.0  2016/09",
+							"wordWrap": true
 						}
 					]
 				},
