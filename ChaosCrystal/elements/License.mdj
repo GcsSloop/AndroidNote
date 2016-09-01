@@ -1,0 +1,789 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "License",
+	"ownedElements": [
+		{
+			"_type": "FCFlowchart",
+			"_id": "AAAAAAFW5vsZBnHARAc=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "快速选择",
+			"ownedElements": [
+				{
+					"_type": "FCFlowchartDiagram",
+					"_id": "AAAAAAFW5vsZBnHB/Go=",
+					"_parent": {
+						"$ref": "AAAAAAFW5vsZBnHARAc="
+					},
+					"name": "quick_choose",
+					"visible": true,
+					"defaultDiagram": false,
+					"ownedViews": [
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFW5vxcqXHKnlc=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5vxcqHHIKd4="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFW5vxcqXHLP58=",
+									"_parent": {
+										"$ref": "AAAAAAFW5vxcqXHKnlc="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ebb9a0",
+									"fontColor": "#000000",
+									"font": "Arial;15;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 138,
+									"top": 186,
+									"width": 173,
+									"height": 30,
+									"autoResize": false,
+									"underline": false,
+									"text": "我只想安心的写代码 别人爱怎么搞就怎么搞吧",
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ebb9a0",
+							"fontColor": "#000000",
+							"font": "Arial;15;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 128,
+							"top": 176,
+							"width": 193,
+							"height": 50,
+							"autoResize": false,
+							"nameLabel": {
+								"$ref": "AAAAAAFW5vxcqXHLP58="
+							},
+							"wordWrap": true
+						},
+						{
+							"_type": "FCTerminatorView",
+							"_id": "AAAAAAFW5v0WAnHUCdA=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5v0WAnHSe4I="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFW5v0WA3HVaME=",
+									"_parent": {
+										"$ref": "AAAAAAFW5v0WAnHUCdA="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#bdda66",
+									"fontColor": "#000000",
+									"font": "Arial;16;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 410,
+									"top": 194,
+									"width": 93,
+									"height": 16,
+									"autoResize": false,
+									"underline": false,
+									"text": "MIT协议",
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#bdda66",
+							"fontColor": "#000000",
+							"font": "Arial;16;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 400,
+							"top": 184,
+							"width": 113,
+							"height": 36,
+							"autoResize": false,
+							"nameLabel": {
+								"$ref": "AAAAAAFW5v0WA3HVaME="
+							},
+							"wordWrap": true
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFW5v12V3HeqWE=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5v12VnHc07Q="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFW5v12V3HfJjU=",
+									"_parent": {
+										"$ref": "AAAAAAFW5v12V3HeqWE="
+									},
+									"model": {
+										"$ref": "AAAAAAFW5v12VnHc07Q="
+									},
+									"visible": false,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ffffff",
+									"fontColor": "#000000",
+									"font": "Arial;13;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 50,
+									"top": 178,
+									"width": 606,
+									"height": 13,
+									"autoResize": false,
+									"alpha": -4.275762368016544,
+									"distance": 16.55294535724685,
+									"hostEdge": {
+										"$ref": "AAAAAAFW5v12V3HeqWE="
+									},
+									"edgePosition": 1,
+									"underline": false,
+									"text": "允许别人以任何方式使用同时署名作者， 但原作者不承担代码使用后的风险， 也没有义务提供技术支持。",
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"head": {
+								"$ref": "AAAAAAFW5v0WAnHUCdA="
+							},
+							"tail": {
+								"$ref": "AAAAAAFW5vxcqXHKnlc="
+							},
+							"lineStyle": 2,
+							"points": "320:200;400:200",
+							"nameLabel": {
+								"$ref": "AAAAAAFW5v12V3HfJjU="
+							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFW5v9AHnHrFxg=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#0082d7",
+							"font": "Arial;14;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 592,
+							"top": 168,
+							"width": 257,
+							"height": 65,
+							"autoResize": false,
+							"text": "1.允许别人以任何方式使用。 2.署名作者。 3.原作者不承担代码使用后的风险。",
+							"wordWrap": true
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFW5v9AInHuSH8=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"head": {
+								"$ref": "AAAAAAFW5v9AHnHrFxg="
+							},
+							"tail": {
+								"$ref": "AAAAAAFW5v0WAnHUCdA="
+							},
+							"lineStyle": 1,
+							"points": "513:201;591:200"
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFW5wDM8HH8D7s=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5wDM7XH6QZI="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFW5wDM8XH99K8=",
+									"_parent": {
+										"$ref": "AAAAAAFW5wDM8HH8D7s="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ebb9a9",
+									"fontColor": "#000000",
+									"font": "Arial;15;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 138,
+									"top": 282,
+									"width": 173,
+									"height": 30,
+									"autoResize": false,
+									"underline": false,
+									"text": "我想保有专利 但你们可以随便用",
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ebb9a9",
+							"fontColor": "#000000",
+							"font": "Arial;15;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 128,
+							"top": 272,
+							"width": 193,
+							"height": 50,
+							"autoResize": false,
+							"nameLabel": {
+								"$ref": "AAAAAAFW5wDM8XH99K8="
+							},
+							"wordWrap": true
+						},
+						{
+							"_type": "FCTerminatorView",
+							"_id": "AAAAAAFW5wFojnIGUO8=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5wFojnIE+1Y="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFW5wFoj3IHB48=",
+									"_parent": {
+										"$ref": "AAAAAAFW5wFojnIGUO8="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#bdda66",
+									"fontColor": "#000000",
+									"font": "Arial;16;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 410,
+									"top": 290,
+									"width": 93,
+									"height": 16,
+									"autoResize": false,
+									"underline": false,
+									"text": "Apache协议",
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#bdda66",
+							"fontColor": "#000000",
+							"font": "Arial;16;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 400,
+							"top": 280,
+							"width": 113,
+							"height": 36,
+							"autoResize": false,
+							"nameLabel": {
+								"$ref": "AAAAAAFW5wFoj3IHB48="
+							},
+							"wordWrap": true
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFW5wMSkHIQbrY=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5wMSj3IOZuo="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFW5wMSkHIRbjg=",
+									"_parent": {
+										"$ref": "AAAAAAFW5wMSkHIQbrY="
+									},
+									"model": {
+										"$ref": "AAAAAAFW5wMSj3IOZuo="
+									},
+									"visible": false,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ffffff",
+									"fontColor": "#000000",
+									"font": "Arial;13;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 360,
+									"top": 275,
+									"width": 0,
+									"height": 13,
+									"autoResize": false,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFW5wMSkHIQbrY="
+									},
+									"edgePosition": 1,
+									"underline": false,
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"head": {
+								"$ref": "AAAAAAFW5wFojnIGUO8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFW5wDM8HH8D7s="
+							},
+							"lineStyle": 2,
+							"points": "320:296;400:296",
+							"nameLabel": {
+								"$ref": "AAAAAAFW5wMSkHIRbjg="
+							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFW5wM1nXIXWn8=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#0082d7",
+							"font": "Arial;14;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 592,
+							"top": 256,
+							"width": 256,
+							"height": 89,
+							"autoResize": false,
+							"text": "1.授权使用者免费使用个人专利。 2.使用者必须放置协议说明。 3.使用者需要对修改部分声明。 4.禁止使用作者的名号进行商业广告。 5.原作者不承担代码使用后风险。",
+							"wordWrap": true
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFW5wM1oXIaLQM=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"head": {
+								"$ref": "AAAAAAFW5wM1nXIXWn8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFW5wFojnIGUO8="
+							},
+							"lineStyle": 1,
+							"points": "513:298;591:299"
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFW5wpHK3IvsQI=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5wpHK3ItDgs="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFW5wpHLHIwwls=",
+									"_parent": {
+										"$ref": "AAAAAAFW5wpHK3IvsQI="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ebb9a0",
+									"fontColor": "#000000",
+									"font": "Arial;15;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 138,
+									"top": 378,
+									"width": 173,
+									"height": 30,
+									"autoResize": false,
+									"underline": false,
+									"text": "我希望我的代码能 生根发芽，遍地开花",
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ebb9a0",
+							"fontColor": "#000000",
+							"font": "Arial;15;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 128,
+							"top": 368,
+							"width": 193,
+							"height": 50,
+							"autoResize": false,
+							"nameLabel": {
+								"$ref": "AAAAAAFW5wpHLHIwwls="
+							},
+							"wordWrap": true
+						},
+						{
+							"_type": "FCTerminatorView",
+							"_id": "AAAAAAFW5wsjzXI7beQ=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5wsjzHI5q9I="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFW5wsjznI8Bkg=",
+									"_parent": {
+										"$ref": "AAAAAAFW5wsjzXI7beQ="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#bdda66",
+									"fontColor": "#000000",
+									"font": "Arial;16;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 410,
+									"top": 386,
+									"width": 93,
+									"height": 16,
+									"autoResize": false,
+									"underline": false,
+									"text": "GPL协议",
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#bdda66",
+							"fontColor": "#000000",
+							"font": "Arial;16;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 400,
+							"top": 376,
+							"width": 113,
+							"height": 36,
+							"autoResize": false,
+							"nameLabel": {
+								"$ref": "AAAAAAFW5wsjznI8Bkg="
+							},
+							"wordWrap": true
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFW5wtS9nJERg0=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"model": {
+								"$ref": "AAAAAAFW5wtS9XJCz90="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFW5wtS9nJFNmc=",
+									"_parent": {
+										"$ref": "AAAAAAFW5wtS9nJERg0="
+									},
+									"model": {
+										"$ref": "AAAAAAFW5wtS9XJCz90="
+									},
+									"visible": false,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ffffff",
+									"fontColor": "#000000",
+									"font": "Arial;13;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 360,
+									"top": 371,
+									"width": 0,
+									"height": 13,
+									"autoResize": false,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFW5wtS9nJERg0="
+									},
+									"edgePosition": 1,
+									"underline": false,
+									"horizontalAlignment": 2,
+									"verticalAlignment": 5
+								}
+							],
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"head": {
+								"$ref": "AAAAAAFW5wsjzXI7beQ="
+							},
+							"tail": {
+								"$ref": "AAAAAAFW5wpHK3IvsQI="
+							},
+							"lineStyle": 2,
+							"points": "320:392;400:392",
+							"nameLabel": {
+								"$ref": "AAAAAAFW5wtS9nJFNmc="
+							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFW5wteL3JLzn4=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#0082d7",
+							"font": "Arial;14;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 592,
+							"top": 376,
+							"width": 257,
+							"height": 49,
+							"autoResize": false,
+							"text": "1.必须遵循相同的协议进行开源。 2.原作者不承担代码使用后风险。",
+							"wordWrap": true
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAFW5wteM3JOKq4=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vsZBnHB/Go="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"head": {
+								"$ref": "AAAAAAFW5wteL3JLzn4="
+							},
+							"tail": {
+								"$ref": "AAAAAAFW5wsjzXI7beQ="
+							},
+							"lineStyle": 1,
+							"points": "513:395;591:397"
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFW5vxcqHHIKd4=",
+					"_parent": {
+						"$ref": "AAAAAAFW5vsZBnHARAc="
+					},
+					"name": "我只想安心的写代码 别人爱怎么搞就怎么搞吧",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFW5v12VnHc07Q=",
+							"_parent": {
+								"$ref": "AAAAAAFW5vxcqHHIKd4="
+							},
+							"source": {
+								"$ref": "AAAAAAFW5vxcqHHIKd4="
+							},
+							"target": {
+								"$ref": "AAAAAAFW5v0WAnHSe4I="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCTerminator",
+					"_id": "AAAAAAFW5v0WAnHSe4I=",
+					"_parent": {
+						"$ref": "AAAAAAFW5vsZBnHARAc="
+					},
+					"name": "MIT协议"
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFW5wDM7XH6QZI=",
+					"_parent": {
+						"$ref": "AAAAAAFW5vsZBnHARAc="
+					},
+					"name": "我想保有专利 但你们可以随便用",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFW5wMSj3IOZuo=",
+							"_parent": {
+								"$ref": "AAAAAAFW5wDM7XH6QZI="
+							},
+							"source": {
+								"$ref": "AAAAAAFW5wDM7XH6QZI="
+							},
+							"target": {
+								"$ref": "AAAAAAFW5wFojnIE+1Y="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCTerminator",
+					"_id": "AAAAAAFW5wFojnIE+1Y=",
+					"_parent": {
+						"$ref": "AAAAAAFW5vsZBnHARAc="
+					},
+					"name": "Apache协议"
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFW5wpHK3ItDgs=",
+					"_parent": {
+						"$ref": "AAAAAAFW5vsZBnHARAc="
+					},
+					"name": "我希望我的代码能 生根发芽，遍地开花",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFW5wtS9XJCz90=",
+							"_parent": {
+								"$ref": "AAAAAAFW5wpHK3ItDgs="
+							},
+							"source": {
+								"$ref": "AAAAAAFW5wpHK3ItDgs="
+							},
+							"target": {
+								"$ref": "AAAAAAFW5wsjzHI5q9I="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCTerminator",
+					"_id": "AAAAAAFW5wsjzHI5q9I=",
+					"_parent": {
+						"$ref": "AAAAAAFW5vsZBnHARAc="
+					},
+					"name": "GPL协议"
+				}
+			]
+		}
+	]
+}
