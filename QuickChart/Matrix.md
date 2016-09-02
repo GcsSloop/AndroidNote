@@ -9,8 +9,9 @@
 | 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate | 前乘变换                       |
 | 后乘(post) | postConcat postRotate postScale postSkew postTranslate | 后乘变换                       |
 | 特殊方法     | setPolyToPoly setRectToRect rectStaysRect setSinCos | 一些特殊操作                     |
-| 矩阵相关     | invert isAffine isIdentity               | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
+| 矩阵相关     | invert isAffine(API21) isIdentity        | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
 
 ## 相关文章
 
-* [Matrix原理](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B09%5DMatrix_Basic.md)
+* [Matrix原理](http://www.gcssloop.com/2015/02/Matrix_Basic/)
+* [Matrix详解](http://www.gcssloop.com/2015/02/Matrix_Method/)
