@@ -73,9 +73,6 @@
 * [LeafLoading － 进度条](https://github.com/GcsSloop/LeafLoading)
 * [Rotate3dAnimation - 3D旋转动画(修正版)](https://github.com/GcsSloop/Rotate3dAnimation)
 
-[![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f72pfdbrh5j305k01vt8m.jpg)](http://www.gcssloop.com/1970/01/contribute/)
-
-
 ## 传送门
 
 通往异世界的传送门，请谨慎使用。
@@ -105,6 +102,6 @@
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
-<a href="http://www.gcssloop.com/1970/01/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
+<a href="http://www.gcssloop.com/info/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
 
 [▲ 回到顶部](#top)
