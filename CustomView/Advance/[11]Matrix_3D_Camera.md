@@ -3,7 +3,7 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### 相关文章: [自定义View目录](http://www.gcssloop.com/1970/01/CustomViewIndex/)
 
-前面用了两篇文章帮助大家了解了Matrix的作用、原理以及用法。本文继续讲解Matrix相关的知识，如题，本文的主角是Camera，翻译过来叫做相机，但这个并不是我们拍照用的相机。
+看标题就知道本篇依旧属于Matrix，不过后面多了一个Camera，Camera我们都知道是相机的意思，不过本文中的相机并不是现实中的相机，而是专业给Matrix拍照的相机。
 
 
 ## About Me
