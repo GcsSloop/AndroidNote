@@ -1,6 +1,6 @@
-# 用JitPack发布时添加文档和源码
+# 用JitPack发布时附加文档和源码
 
-很早之前写过一篇[用JitPack发布Android开源库](http://www.gcssloop.com/course/PublishLibraryByJitPack/)的文章，有小伙伴反应说**发到JitPack上的开源库没有文档注释，使用起来很不方便**，这算是我的失误，上一篇文章只是讲解了如何使用JitPack发布开源库，最终发布的只有arr(即编译好的动态链接库)，不仅没有文档注释(Javadoc)，也没有源码(sources)，本次就教大家如何在发布同时添加上注释和源码。
+很早之前写过一篇[用JitPack发布Android开源库](http://www.gcssloop.com/course/PublishLibraryByJitPack/)的文章，有小伙伴反馈说**发布到JitPack上的开源库没有文档注释，使用起来很不方便**，这是我的失误，上一篇文章只是讲解了如何使用JitPack发布开源库，最终发布的只有arr(即编译好的动态链接库)，不仅没有文档注释(Javadoc)，也没有源码(sources)，本次就教大家如何在发布同时添加上注释和源码。
 
 **由于JitPack本身就是一个自定义Maven仓库，所以配置方式与Maven基本一样。**
 
