@@ -93,7 +93,7 @@ artifacts {
 
 ### 查看在线文档
 
-如果你在JitPack配置了文档支持，你可以在线查看。
+如果你在JitPack配置了文档和源码支持，在引用同时就能看到源码的文档，不仅如此，你也可以在线查看。
 
 查看地址是 `https://jitpack.io/com/github/USER/REPO/VERSION/javadoc/`
 
