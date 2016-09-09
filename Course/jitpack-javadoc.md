@@ -1,4 +1,4 @@
-# 让JitPack支持Javadoc
+# 让JitPack支持Javadoc和源码
 
 很早之前写过一篇[用JitPack发布Android开源库](http://www.gcssloop.com/course/PublishLibraryByJitPack/)的文章，有小伙伴反应说**发到JitPack上的开源库没有文档注释，使用起来很不方便。** 
 
