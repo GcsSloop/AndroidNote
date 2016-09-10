@@ -99,3 +99,5 @@ artifacts {
 
 例如我的一个开源库： https://jitpack.io/com/github/GcsSloop/ViewSupport/v1.2.2/javadoc/
 
+在线API文档样式：
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f7o8gabelfj31400mbjy0.jpg)
