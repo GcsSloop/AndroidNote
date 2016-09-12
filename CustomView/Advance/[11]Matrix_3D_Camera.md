@@ -3,7 +3,7 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### 相关文章: [自定义View目录](http://www.gcssloop.com/customview/CustomViewIndex/)
 
-本篇依旧属于Matrix，主要讲解Camera，Android下有很相机应用，其中的美颜相机更是不少，不过今天这个Camera可不是我们平时拍照的那个相机，而是graphic包下的Camera，专业给Matrix拍照的相机，不过既然是相机，作用都是类似的，主要是将3D的内容拍扁变成2D的内容。
+本篇依旧属于Matrix，主要讲解Camera，Android下有很多相机应用，其中的美颜相机更是不少，不过今天这个Camera可不是我们平时拍照的那个相机，而是graphic包下的Camera，专业给Matrix拍照的相机，不过既然是相机，作用都是类似的，主要是将3D的内容拍扁变成2D的内容。
 
 众所周知，我们的手机屏幕是一个2D的平面，所以也没办法直接显示3D的信息，因此我们看到的所有3D效果都是3D在2D平面的投影而已，而本文中的Camera主要作用就是这个，将3D信息转换为2D平面上的投影，实际上这个类更像是一个操作Matrix的工具类，使用Camera和Matrix可以在不使用OpenGL的情况下制作出简单的3D效果。
 
@@ -11,12 +11,12 @@
 
 ## Camera常用方法表
 
-| 方法类别 | 相关                                       | 简介             |
+| 方法类别 | 相关API                                    | 简介             |
 | ---- | ---------------------------------------- | -------------- |
 | 基本方法 | save、restore                             | 保存、 回滚         |
 | 常用方法 | getMatrix、applyToCanvas                  | 获取Matrix、应用到画布 |
 | 平移   | translate                                | 位移             |
-| 旋转   | rotat (API 21)、rotateX、rotateY、rotateZ   | 各种旋转           |
+| 旋转   | rotat (API 12)、rotateX、rotateY、rotateZ   | 各种旋转           |
 | 相机位置 | setLocation (API 12)、getLocationX (API 16)、getLocationY (API 16)、getLocationZ  (API 16) | 设置与获取相机位置      |
 
 > Camera的方法并不是特别多，很多内容与之前的讲解的Canvas和Matrix类似，不过又稍有不同，之前的画布操作和Matrix主要是作用于2D空间，而Camera则主要作用于3D空间。
@@ -175,9 +175,9 @@ Matrix: [1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]
 
 
 
-我知道，这样说你们肯定是蒙逼的，话说为啥远离摄像机的时候会接近摄像机在屏幕投影位置，而接近摄像机的时候会远离摄像机在屏幕投影位置 (´･_･`)，肯定觉得我在逗你们玩，完全是前后矛盾，逻辑都不通，不过这个在这里的确是不矛盾的，因为远离是在3D空间里的情况，而接近只是在2D空间的投影，看下图。
+我知道，这样说你们肯定是蒙逼的，话说为啥远离摄像机的时候会接近摄像机在屏幕投影位置(´･_･`)，肯定觉得我在逗你们玩，完全是前后矛盾，逻辑都不通，不过这个在这里的确是不矛盾的，因为远离是在3D空间里的情况，而接近只是在2D空间的投影，看下图。
 
-> 假设大矩形是手机屏幕，摄像机位于屏幕左上角，请注意上面View与摄像机的距离以及下方View的大小以及距离左上角的距离。
+> 假设大矩形是手机屏幕，白色小矩形是View，摄像机位于屏幕左上角，请注意上面View与摄像机的距离以及下方View的大小以及距离左上角(摄像机在屏幕投影位置)的距离。
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f7qerbksn4g30dc0ct7vt.gif)
 
@@ -199,7 +199,21 @@ Matrix: [1.0, 0.0, 0.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]
 
 ## 旋转
 
-旋转是Camera制作3D效果的核心，不过它制作出来的并不能算是真正的3D，而是伪3D，因为View是没有厚度的，想要展示出立体效果一般需要两个View进行配合，
+旋转是Camera制作3D效果的核心，不过它制作出来的并不能算是真正的3D，而是伪3D，因为View是没有厚度的。
+
+```java
+// (API 12) 可以控制View同时绕x，y，z轴旋转，可以由下面几种方法复合而来。
+void rotate (float x, float y, float z);
+
+// 控制View绕单个坐标轴旋转
+void rotateX (float deg);
+void rotateY (float deg);
+void rotateZ (float deg);
+```
+
+这个东西说理论也不好理解，直接上图:
+
+
 
 
 
