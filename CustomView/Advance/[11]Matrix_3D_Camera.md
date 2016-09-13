@@ -313,7 +313,7 @@ public class Rotate3dAnimation extends Animation {
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f7sk60825wg308c0ea1kx.gif)
 
-可以看到，图片不仅因为形变失真，而且在中间一段因为形变过大导致图片无法显示，当然了，单个手机失真，你可以用`depthZ`忽悠过去，当 `depthZ` 设置的数值比较大大时候，图像在翻转同时会远离摄像头，距离远离，失真就不会显得很严重，不过这仍掩盖不了在不同手机上显示效果不同。
+可以看到，图片不仅因为形变失真，而且在中间一段因为形变过大导致图片无法显示，当然了，单个手机失真，你可以用`depthZ`忽悠过去，当 `depthZ` 设置的数值比较大大时候，图像在翻转同时会远离摄像头，距离比较远，失真就不会显得很严重，但这仍掩盖不了在不同手机上显示效果不同。
 
 **如何解决这一问题呢？**
 
@@ -524,4 +524,12 @@ translate: [1.0, 0.0, -72.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
 
 <a href="https://github.com/GcsSloop/AndroidNote/blob/magic-world/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300/> </a>
+
+
+
+## 参考资料
+
+[Camera](https://developer.android.com/reference/android/graphics/Camera.html)<br/>
+[FlipShare](https://github.com/JeasonWong/FlipShare)<br/>
+[从零开始打造一个Android 3D立体旋转容器](http://blog.csdn.net/mr_immortalz/article/details/51918560)<br/>
 
