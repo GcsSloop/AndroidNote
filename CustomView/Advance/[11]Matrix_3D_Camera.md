@@ -1,4 +1,4 @@
-# Matrix-Camera
+# Matrix Camera
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### 相关文章: [自定义View目录](http://www.gcssloop.com/customview/CustomViewIndex/)
@@ -213,6 +213,11 @@ void rotateZ (float deg);
 
 这个东西说理论也不好理解，直接上图:
 
+<p align="center">
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f7sg375gbgg308c0eak4l.gif" width="240" />
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f7sgtl0nryg308c0eatm8.gif" width="240" />
+<img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f7sgtxp6awg308c0eah5h.gif" width="240" />
+</p>
 
 
 
