@@ -211,7 +211,7 @@ void rotateY (float deg);
 void rotateZ (float deg);
 ```
 
-这个东西说理论也不好理解，直接上图:
+这个东西瞎扯理论也不好理解，直接上图:
 
 <p align="center">
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f7sg375gbgg308c0eak4l.gif" width="240" />
@@ -219,10 +219,303 @@ void rotateZ (float deg);
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f7sgtxp6awg308c0eah5h.gif" width="240" />
 </p>
 
+**以上三张图分别为，绕x轴，y轴，z轴旋转的情况，至于为什么没有显示z轴，是因为z轴是垂直于手机屏幕的，在屏幕上的投影就是一个点。**
+
+关于旋转，有以下几点需要注意:
+
+#### 默认旋转中心
+
+旋转中心默认是坐标原点，对于图片来说就是左上角位置。
+
+#### 如何控制旋转中心
+
+我们都知道，在2D中，不论是旋转，错切还是缩放都是能够指定操作中心点位置的，但是在3D中却没有默认的方法，如果我们想要让图片围绕中心点旋转怎么办? 这就要使用到我们在[Matrix原理](http://www.gcssloop.com/customview/Matrix_Basic)提到过的方法，虽然当时因为有更好的选择方案，并不提倡这样做:
+
+```java
+Matrix temp = new Matrix();					// 临时Matrix变量
+this.getMatrix(temp);						// 获取Matrix
+temp.preTranslate(-centerX, -centerY);		// 使用pre将旋转中心移动到和Camera位置相同。
+temp.postTranslate(centerX, centerY);		// 使用post将图片(View)移动到原来的位置
+```
+
+#### 官方示例
+
+说到3D旋转，最经典的应该就是ApiDemo里面的 [Rotate3dAnimation](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/animation/Rotate3dAnimation.java) 了，见过不少博文都是根据Rotate3dAnimation修改的效果，这是一个非常经典的例子，鉴于代码也不长，就贴在这里和大家一起品鉴一下。
+
+```java
+public class Rotate3dAnimation extends Animation {
+    private final float mFromDegrees;
+    private final float mToDegrees;
+    private final float mCenterX;
+    private final float mCenterY;
+    private final float mDepthZ;
+    private final boolean mReverse;
+    private Camera mCamera;
+    /**
+     * 创建一个绕y轴旋转的3D动画效果，旋转过程中具有深度调节，可以指定旋转中心。
+     * 
+     * @param fromDegrees	起始时角度
+     * @param toDegrees 	结束时角度
+     * @param centerX 		旋转中心x坐标
+     * @param centerY 		旋转中心y坐标
+     * @param depthZ		最远到达的z轴坐标
+     * @param reverse 		true 表示由从0到depthZ，false相反
+     */
+    public Rotate3dAnimation(float fromDegrees, float toDegrees,
+            float centerX, float centerY, float depthZ, boolean reverse) {
+        mFromDegrees = fromDegrees;
+        mToDegrees = toDegrees;
+        mCenterX = centerX;
+        mCenterY = centerY;
+        mDepthZ = depthZ;
+        mReverse = reverse;
+    }
+    @Override
+    public void initialize(int width, int height, int parentWidth, int parentHeight) {
+        super.initialize(width, height, parentWidth, parentHeight);
+        mCamera = new Camera();
+    }
+    @Override
+    protected void applyTransformation(float interpolatedTime, Transformation t) {
+        final float fromDegrees = mFromDegrees;
+        float degrees = fromDegrees + ((mToDegrees - fromDegrees) * interpolatedTime);
+        final float centerX = mCenterX;
+        final float centerY = mCenterY;
+        final Camera camera = mCamera;
+        final Matrix matrix = t.getMatrix();
+        camera.save();
+      
+      	// 调节深度
+        if (mReverse) {
+            camera.translate(0.0f, 0.0f, mDepthZ * interpolatedTime);
+        } else {
+            camera.translate(0.0f, 0.0f, mDepthZ * (1.0f - interpolatedTime));
+        }
+      
+      	// 绕y轴旋转
+        camera.rotateY(degrees);
+      
+        camera.getMatrix(matrix);
+        camera.restore();
+      	
+      	// 调节中心点
+        matrix.preTranslate(-centerX, -centerY);
+        matrix.postTranslate(centerX, centerY);
+    }
+}
+```
 
 
 
-## 核心要点
+可以看到，短短的几十行代码就完成了，而核心代码(有注释部分)仅仅几行而已，简洁易懂。不过呢，这一份代码依旧是一份未完成的代码(不然怎么叫ApiDemo呢?)，并且很多人不知道怎么修改。
+
+不知诸位在使用的时候可否发现了一个问题，同一份代码在不同手机上显示效果也是不同的，在像素密度较低的手机上，旋转效果比较正常，但是在像素密度较高的手机上显示效果则会很夸张，具体会怎样的，下面就来看一下具体效果。
+
+![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f7sk60825wg308c0ea1kx.gif)
+
+可以看到，图片不仅因为形变失真，而且在中间一段因为形变过大导致图片无法显示，当然了，单个手机失真，你可以用`depthZ`忽悠过去，当 `depthZ` 设置的数值比较大大时候，图像在翻转同时会远离摄像头，距离远离，失真就不会显得很严重，不过这仍掩盖不了在不同手机上显示效果不同。
+
+**如何解决这一问题呢？**
+
+想要解决其实也不难，只要修改两个数值就可以了，这两个数值就是在Matrix中一直被众多开发者忽略的 `MPERSP_0` 和 `MPERSP_1`
+
+![](http://latex.codecogs.com/png.latex?
+$$
+\\left [ 
+\\begin{matrix} 
+MSCALE\\_X & MSKEW\\_X & MTRANS\\_X \\\\
+\\\\
+MSKEW\\_Y & MSCALE\\_Y & MTRANS\\_Y \\\\
+\\\\
+MPERSP\\_0 & MPERSP\\_1 & MPERSP\\_2 
+\\end{1} 
+\\right ] 
+$$)
+
+下面是修改后的代码(重点部分都已经标注出来了):
+
+```java
+public class Rotate3dAnimation extends Animation {
+    private final float mFromDegrees;
+    private final float mToDegrees;
+    private final float mCenterX;
+    private final float mCenterY;
+    private final float mDepthZ;
+    private final boolean mReverse;
+    private Camera mCamera;
+    float scale = 1;    // <------- 像素密度
+
+    /**
+     * 创建一个绕y轴旋转的3D动画效果，旋转过程中具有深度调节，可以指定旋转中心。
+     * @param context     <------- 添加上下文,为获取像素密度准备
+     * @param fromDegrees 起始时角度
+     * @param toDegrees   结束时角度
+     * @param centerX     旋转中心x坐标
+     * @param centerY     旋转中心y坐标
+     * @param depthZ      最远到达的z轴坐标
+     * @param reverse     true 表示由从0到depthZ，false相反
+     */
+    public Rotate3dAnimation(Context context, float fromDegrees, float toDegrees,
+                             float centerX, float centerY, float depthZ, boolean reverse) {
+        mFromDegrees = fromDegrees;
+        mToDegrees = toDegrees;
+        mCenterX = centerX;
+        mCenterY = centerY;
+        mDepthZ = depthZ;
+        mReverse = reverse;
+
+        // 获取手机像素密度 （即dp与px的比例）
+        scale = context.getResources().getDisplayMetrics().density;
+    }
+
+    @Override
+    public void initialize(int width, int height, int parentWidth, int parentHeight) {
+        super.initialize(width, height, parentWidth, parentHeight);
+        mCamera = new Camera();
+    }
+
+    @Override
+    protected void applyTransformation(float interpolatedTime, Transformation t) {
+        final float fromDegrees = mFromDegrees;
+        float degrees = fromDegrees + ((mToDegrees - fromDegrees) * interpolatedTime);
+        final float centerX = mCenterX;
+        final float centerY = mCenterY;
+        final Camera camera = mCamera;
+        final Matrix matrix = t.getMatrix();
+        camera.save();
+
+        // 调节深度
+        if (mReverse) {
+            camera.translate(0.0f, 0.0f, mDepthZ * interpolatedTime);
+        } else {
+            camera.translate(0.0f, 0.0f, mDepthZ * (1.0f - interpolatedTime));
+        }
+
+        // 绕y轴旋转
+        camera.rotateY(degrees);
+
+        camera.getMatrix(matrix);
+        camera.restore();
+
+        // 修正失真，主要修改 MPERSP_0 和 MPERSP_1
+        float[] mValues = new float[9];
+        matrix.getValues(mValues);			    //获取数值
+        mValues[6] = mValues[6]/scale;			//数值修正
+      	mValues[7] = mValues[7]/scale;			//数值修正
+        matrix.setValues(mValues);			    //重新赋值
+
+        // 调节中心点
+        matrix.preTranslate(-centerX, -centerY);
+        matrix.postTranslate(centerX, centerY);
+    }
+}
+```
+
+修改后效果：
+
+![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f7sksrhraog308c0ea4qi.gif)
+
+
+
+上下对比差别还是很大的，顺便附上测试代码吧，layout文件就不写了，随便放一个ImageView就行了。
+
+```java
+setContentView(R.layout.activity_test_camera_rotate2);
+ImageView view = (ImageView) findViewById(R.id.img);
+assert view != null;
+view.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // 计算中心点（这里是使用view的中心作为旋转的中心点）
+        final float centerX = v.getWidth() / 2.0f;
+        final float centerY = v.getHeight() / 2.0f;
+
+        //括号内参数分别为（上下文，开始角度，结束角度，x轴中心点，y轴中心点，深度，是否扭曲）
+        final Rotate3dAnimation rotation = new Rotate3dAnimation(MainActivity.this, 0, 180, centerX, centerY, 0f, true, 2);
+
+        rotation.setDuration(3000);                         //设置动画时长
+        rotation.setFillAfter(true);                        //保持旋转后效果
+        rotation.setInterpolator(new LinearInterpolator());	//设置插值器
+        v.startAnimation(rotation);
+    }
+});
+```
+
+
+
+## 相机位置
+
+我们可以使用translate和rotate来控制拍摄对象，也可以移动相机自身的位置，不过这些方法并不常用(看添加时间就知道啦)。
+
+```java
+void setLocation (float x, float y, float z); // (API 12) 设置相机位置，默认位置是(0, 0, -8)
+
+float getLocationX ();	// (API 16) 获取相机位置的x坐标，下同
+float getLocationY ();
+float getLocationZ ();
+```
+
+我们知道近大远小，而物体之间的距离是相对的，让物体远离相机和让相机远离物体结果是一样的，实际上设置相机位置基本可以使用`translate`替代。
+
+虽然设置相机位置用处并不大，但还是要提几点注意事项:
+
+#### 相机和View的z轴距离不能为0
+
+这个比较容易理解，当你把一个物体和相机放在同一个位置的时候，相机是拍摄不到这个物体的，正如你拿一张卡片放在手机侧面，摄像头是拍摄不到的。
+
+#### 虚拟相机前后均可以拍摄
+
+当View不断接近摄像机并越过摄像机位置时，仍能看到View，并且View大小会随着距离摄像机的位置越来越远而逐渐变小，你可以理解为它有前置摄像头和后置摄像头。
+
+#### 摄像机右移等于View左移
+
+View的状态只取决于View和摄像机之间的相对位置，不过由于单位不同，摄像机平移一个单位等于View平移72个像素。下面两段代码是等价的:
+
+```java
+Camera camera = new Camera();
+camera.setLocation(1,0,-8);		// 摄像机默认位置是(0, 0, -8)
+Matrix matrix = new Matrix();
+camera.getMatrix(matrix);
+Log.e(TAG, "location: "+matrix.toShortString() );
+
+Camera camera2 = new Camera();
+camera2.translate(-72,0,0);
+Matrix matrix2 = new Matrix();
+camera2.getMatrix(matrix2);
+Log.e(TAG, "translate: "+matrix2.toShortString() );
+```
+
+结果:
+
+```
+location: [1.0, 0.0, -72.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0]
+translate: [1.0, 0.0, -72.0][0.0, 1.0, 0.0][0.0, 0.0, 1.0
+```
+
+#### 要点
+
+* View显示状态取决于View和摄像机之间的相对位置
+* View和相机的Z轴距离不能为0
+
+
+
+**小技巧:关于摄像机和View的位置，你可以打开手机后置摄像头，拿一张卡片来回的转动平移或者移动手机位置，观察卡片在屏幕上的变化，**
+
+
+
+## 总结
+
+本篇主要讲解了关于Camera和Matrix的一些基础知识，Camera运用得当的话是能够制造出很多炫酷的效果的，我这里算是抛砖引玉，推荐一些比较炫酷的控件。
+
+#### [从零开始打造一个Android 3D立体旋转容器](http://blog.csdn.net/mr_immortalz/article/details/51918560)
+
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f7sm4xoh4ig308c0enx3p.gif)
+
+
+
+#### [FlipShare](https://github.com/JeasonWong/FlipShare)
+
+![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f7sm7ak62pg308c0et4qp.gif)
 
 
 
