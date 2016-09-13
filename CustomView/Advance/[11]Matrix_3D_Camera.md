@@ -3,7 +3,7 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### 相关文章: [自定义View目录](http://www.gcssloop.com/customview/CustomViewIndex/)
 
-本篇依旧属于Matrix，主要讲解Camera，Android下有很多相机应用，其中的美颜相机更是不少，不过今天这个Camera可不是我们平时拍照的那个相机，而是graphic包下的Camera，专业给Matrix拍照的相机，不过既然是相机，作用都是类似的，主要是将3D的内容拍扁变成2D的内容。
+本篇依旧属于Matrix，主要讲解Camera，Android下有很多相机应用，其中的美颜相机更是不少，不过今天这个Camera可不是我们平时拍照的那个相机，而是graphic包下的Camera，专业给View拍照的相机，不过既然是相机，作用都是类似的，主要是将3D的内容拍扁变成2D的内容。
 
 众所周知，我们的手机屏幕是一个2D的平面，所以也没办法直接显示3D的信息，因此我们看到的所有3D效果都是3D在2D平面的投影而已，而本文中的Camera主要作用就是这个，将3D信息转换为2D平面上的投影，实际上这个类更像是一个操作Matrix的工具类，使用Camera和Matrix可以在不使用OpenGL的情况下制作出简单的3D效果。
 
