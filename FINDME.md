@@ -13,11 +13,7 @@
 * [提交Issues](https://github.com/GcsSloop/AndroidNote/issues)
 * 发邮件到: GcsSloop@gmail.com
 
-## 捐助
 
-如果你觉得我的哪个文章或者作品不错，欢迎捐助支持我写出更好的内容。
-
-[![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f6t21eozlyj305k01vjra.jpg)](https://github.com/GcsSloop/AndroidNote/blob/magic-world/CONTRIBUTE.md)
 
 
 ## 我活动的平台
