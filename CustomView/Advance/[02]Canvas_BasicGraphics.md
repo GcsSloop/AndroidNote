@@ -279,7 +279,7 @@ useCenter   // 是否使用中心
 相比于使用椭圆，我们还是使用正圆比较多的，使用正圆展示一下效果：
 
 ```
-        RectF rectF = new RectF(100,100,800,400);
+        RectF rectF = new RectF(100,100,600,600);
         // 绘制背景矩形
         mPaint.setColor(Color.GRAY);
         canvas.drawRect(rectF,mPaint);
@@ -290,7 +290,7 @@ useCenter   // 是否使用中心
 
         //-------------------------------------
 
-        RectF rectF2 = new RectF(100,600,800,900);
+        RectF rectF2 = new RectF(100,700,600,1200);
         // 绘制背景矩形
         mPaint.setColor(Color.GRAY);
         canvas.drawRect(rectF2,mPaint);
