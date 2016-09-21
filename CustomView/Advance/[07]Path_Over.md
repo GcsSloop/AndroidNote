@@ -3,32 +3,32 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
-经历过前两篇 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md) 和 [Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md) 的讲解，本篇终于进入Path的收尾篇，本篇结束后Path的大部分相关方法都已经讲解完了，但Path还有一些更有意思的玩法，应该会在后续的文章中出现吧，嗯，应该会的ˊ_>ˋ
+经历过前两篇 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B05%5DPath_Basic.md) 和 [Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B06%5DPath_Bezier.md) 的讲解，本篇终于进入Path的收尾篇，本篇结束后Path的大部分相关方法都已经讲解完了，但Path还有一些更有意思的玩法，应该会在后续的文章中出现吧，嗯，应该会的ˊ_>ˋ
 
 ******
 
 ## 一.Path常用方法表
 > 为了兼容性(_偷懒_) 本表格中去除了在API21(即安卓版本5.0)以上才添加的方法。忍不住吐槽一下，为啥看起来有些顺手就能写的重载方法要等到API21才添加上啊。宝宝此刻内心也是崩溃的。
 
-作用            | 相关方法        | 备注
-----------------|-----------------|------------------------------------------
-移动起点        | moveTo          | 移动下一次操作的起点位置
-设置终点        | setLastPoint    | 重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同
-连接直线        | lineTo          | 添加上一个点到当前点之间的直线到Path
-闭合路径        | close           | 连接第一个点连接到最后一个点，形成一个闭合区域
-添加内容        | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)
-是否为空        | isEmpty         | 判断Path是否为空
-是否为矩形      | isRect          | 判断path是否是一个矩形
-替换路径        | set             | 用新的路径替换到当前路径所有内容
-偏移路径        | offset          | 对当前路径之前的操作进行偏移(不会影响之后的操作)
-贝塞尔曲线      | quadTo, cubicTo | 分别为二次和三次贝塞尔曲线的方法
-rXxx方法        | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于原点的坐标系(偏移量)， rXxx方法是基于当前点坐标系(偏移量)**
-填充模式        | setFillType, getFillType, isInverseFillType, toggleInverseFillType   | 设置,获取,判断和切换填充模式
-提示方法        | incReserve      | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)**
-布尔操作(API19) | op              | 对两个Path进行布尔运算(即取交集、并集等操作)
-计算边界        | computeBounds   | 计算Path的边界
-重置路径        | reset, rewind   | 清除Path中的内容<br/> **reset不保留内部数据结构，但会保留FillType.**<br/> **rewind会保留内部的数据结构，但不保留FillType**
-矩阵操作        | transform       | 矩阵变换
+| 作用          | 相关方法                                     | 备注                                       |
+| ----------- | ---------------------------------------- | ---------------------------------------- |
+| 移动起点        | moveTo                                   | 移动下一次操作的起点位置                             |
+| 设置终点        | setLastPoint                             | 重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同   |
+| 连接直线        | lineTo                                   | 添加上一个点到当前点之间的直线到Path                     |
+| 闭合路径        | close                                    | 连接第一个点连接到最后一个点，形成一个闭合区域                  |
+| 添加内容        | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别) |
+| 是否为空        | isEmpty                                  | 判断Path是否为空                               |
+| 是否为矩形       | isRect                                   | 判断path是否是一个矩形                            |
+| 替换路径        | set                                      | 用新的路径替换到当前路径所有内容                         |
+| 偏移路径        | offset                                   | 对当前路径之前的操作进行偏移(不会影响之后的操作)                |
+| 贝塞尔曲线       | quadTo, cubicTo                          | 分别为二次和三次贝塞尔曲线的方法                         |
+| rXxx方法      | rMoveTo, rLineTo, rQuadTo, rCubicTo      | **不带r的方法是基于原点的坐标系(偏移量)， rXxx方法是基于当前点坐标系(偏移量)** |
+| 填充模式        | setFillType, getFillType, isInverseFillType, toggleInverseFillType | 设置,获取,判断和切换填充模式                          |
+| 提示方法        | incReserve                               | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)** |
+| 布尔操作(API19) | op                                       | 对两个Path进行布尔运算(即取交集、并集等操作)                |
+| 计算边界        | computeBounds                            | 计算Path的边界                                |
+| 重置路径        | reset, rewind                            | 清除Path中的内容<br/> **reset不保留内部数据结构，但会保留FillType.**<br/> **rewind会保留内部的数据结构，但不保留FillType** |
+| 矩阵操作        | transform                                | 矩阵变换                                     |
 
 
 ## 二、Path方法详解
@@ -79,10 +79,10 @@ rXxx方法        | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是�
 
 > PS：此处所有的图形均为封闭图形，不包括图形不封闭这种情况。
 
-方法           | 判定条件                                      | 解释
----------------|-----------------------------------------------|----------------
-奇偶规则       | 奇数表示在图形内，偶数表示在图形外            | 从任意位置p作一条射线， 若与该射线相交的图形边的数目为奇数，则p是图形内部点，否则是外部点。
-非零环绕数规则 | 若环绕数为0表示在图形外，非零表示在图形内     | 首先使图形的边变为矢量。将环绕数初始化为零。再从任意位置p作一条射线。当从p点沿射线方向移动时，对在每个方向上穿过射线的边计数，每当图形的边从右到左穿过射线时，环绕数加1，从左到右时，环绕数减1。处理完图形的所有相关边之后，若环绕数为非零，则p为内部点，否则，p是外部点。
+| 方法      | 判定条件                  | 解释                                       |
+| ------- | --------------------- | ---------------------------------------- |
+| 奇偶规则    | 奇数表示在图形内，偶数表示在图形外     | 从任意位置p作一条射线， 若与该射线相交的图形边的数目为奇数，则p是图形内部点，否则是外部点。 |
+| 非零环绕数规则 | 若环绕数为0表示在图形外，非零表示在图形内 | 首先使图形的边变为矢量。将环绕数初始化为零。再从任意位置p作一条射线。当从p点沿射线方向移动时，对在每个方向上穿过射线的边计数，每当图形的边从右到左穿过射线时，环绕数加1，从左到右时，环绕数减1。处理完图形的所有相关边之后，若环绕数为非零，则p为内部点，否则，p是外部点。 |
 
 接下来我们先了解一下两种判断方法是如何工作的。
 
@@ -95,16 +95,16 @@ rXxx方法        | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是�
 在上图中有一个四边形，我们选取了三个点来判断这些点是否在图形内部。
 
 >
-P1: 从P1发出一条射线，发现图形与该射线相交边数为0，偶数，故P1点在图形外部。<br/>
-P2: 从P2发出一条射线，发现图形与该射线相交边数为1，奇数，故P2点在图形内部。<br/>
-P3: 从P3发出一条射线，发现图形与该射线相交边数为2，偶数，故P3点在图形外部。<br/>
+>P1: 从P1发出一条射线，发现图形与该射线相交边数为0，偶数，故P1点在图形外部。<br/>
+>P2: 从P2发出一条射线，发现图形与该射线相交边数为1，奇数，故P2点在图形内部。<br/>
+>P3: 从P3发出一条射线，发现图形与该射线相交边数为2，偶数，故P3点在图形外部。<br/>
 
 
 #### 非零环绕数规则(Non-Zero Winding Number Rule)
 
 非零环绕数规则相对来说比较难以理解一点。
 
-我们在之前的文章 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md) 中我们了解到，在给Path中添加图形时需要指定图形的添加方式，是用顺时针还是逆时针，另外我们不论是使用lineTo，quadTo，cubicTo还是其他连接线的方法，都是从一个点连接到另一个点，换言之，**Path中任何线段都是有方向性的**，这也是使用非零环绕数规则的基础。
+我们在之前的文章 [Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B05%5DPath_Basic.md) 中我们了解到，在给Path中添加图形时需要指定图形的添加方式，是用顺时针还是逆时针，另外我们不论是使用lineTo，quadTo，cubicTo还是其他连接线的方法，都是从一个点连接到另一个点，换言之，**Path中任何线段都是有方向性的**，这也是使用非零环绕数规则的基础。
 
 我们依旧用一个简单的例子来说明非零环绕数规则的用法:
 
@@ -113,9 +113,9 @@ P3: 从P3发出一条射线，发现图形与该射线相交边数为2，偶数�
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f42368af2jj308c0dwt8z.jpg)
 
 >
-P1: 从P1点发出一条射线，沿射线防线移动，并没有与边相交点部分，环绕数为0，故P1在图形外边。<br/>
-P2: 从P2点发出一条射线，沿射线方向移动，与图形点左侧边相交，该边从左到右穿过穿过射线，环绕数－1，最终环绕数为－1，故P2在图形内部。<br/>
-P3: 从P3点发出一条射线，沿射线方向移动，在第一个交点处，底边从右到左穿过射线，环绕数＋1，在第二个交点处，右侧边从左到右穿过射线，环绕数－1，最终环绕数为0，故P3在图形外部。<br/>
+>P1: 从P1点发出一条射线，沿射线防线移动，并没有与边相交点部分，环绕数为0，故P1在图形外边。<br/>
+>P2: 从P2点发出一条射线，沿射线方向移动，与图形点左侧边相交，该边从左到右穿过穿过射线，环绕数－1，最终环绕数为－1，故P2在图形内部。<br/>
+>P3: 从P3点发出一条射线，沿射线方向移动，在第一个交点处，底边从右到左穿过射线，环绕数＋1，在第二个交点处，右侧边从左到右穿过射线，环绕数－1，最终环绕数为0，故P3在图形外部。<br/>
 
 通常，这两种方法的判断结果是相同的，但也存在两种方法判断结果不同的情况，如下面这种情况：
 
@@ -135,12 +135,12 @@ P3: 从P3点发出一条射线，沿射线方向移动，在第一个交点处�
 
 Android中的填充模式有四种，是封装在Path中的一个枚举。
 
-模式             | 简介
------------------|-----------------------
-EVEN_ODD         | 奇偶规则
-INVERSE_EVEN_ODD | 反奇偶规则
-WINDING          | 非零环绕数规则
-INVERSE_WINDING  | 反非零环绕数规则
+| 模式               | 简介       |
+| ---------------- | -------- |
+| EVEN_ODD         | 奇偶规则     |
+| INVERSE_EVEN_ODD | 反奇偶规则    |
+| WINDING          | 非零环绕数规则  |
+| INVERSE_WINDING  | 反非零环绕数规则 |
 
 我们可以看到上面有四种模式，分成两对，例如 "奇偶规则" 与 "反奇偶规则" 是一对，它们之间有什么关系呢？
 
@@ -150,12 +150,12 @@ Inverse 和含义是“相反，对立”，说明反奇偶规则刚好与奇偶
 
 > 这些都是Path中的方法。
 
-方法                    | 作用
-------------------------|----------------------------
-setFillType             | 设置填充规则
-getFillType             | 获取当前填充规则
-isInverseFillType       | 判断是否是反向(INVERSE)规则
-toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之间相互切换)
+| 方法                    | 作用                       |
+| --------------------- | ------------------------ |
+| setFillType           | 设置填充规则                   |
+| getFillType           | 获取当前填充规则                 |
+| isInverseFillType     | 判断是否是反向(INVERSE)规则       |
+| toggleInverseFillType | 切换填充规则(即原有规则与反向规则之间相互切换) |
 
 #### 示例演示：
 
@@ -247,13 +247,13 @@ toggleInverseFillType   | 切换填充规则(即原有规则与反向规则之�
 
 Path的布尔运算有五种逻辑，如下:
 
-逻辑名称           | 类比 | 说明                                   | 示意图
--------------------|------|----------------------------------------|-------------------------
-DIFFERENCE         | 差集 | Path1中减去Path2后剩下的部分           | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43j85gcaqj305k03c0sn.jpg)
-REVERSE_DIFFERENCE | 差集 | Path2中减去Path1后剩下的部分           | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43jbaaw80j305k03c0sn.jpg)
-INTERSECT          | 交集 | Path1与Path2相交的部分                 | ![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f43jbj4iddj305k03c746.jpg)
-UNION              | 并集 | 包含全部Path1和Path2                   | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43jbqk8rbj305k03cmx4.jpg)
-XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部分 | ![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f43jby8c60j305k03c0sp.jpg)
+| 逻辑名称               | 类比   | 说明                       | 示意图                                      |
+| ------------------ | ---- | ------------------------ | ---------------------------------------- |
+| DIFFERENCE         | 差集   | Path1中减去Path2后剩下的部分      | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43j85gcaqj305k03c0sn.jpg) |
+| REVERSE_DIFFERENCE | 差集   | Path2中减去Path1后剩下的部分      | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43jbaaw80j305k03c0sn.jpg) |
+| INTERSECT          | 交集   | Path1与Path2相交的部分         | ![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f43jbj4iddj305k03c746.jpg) |
+| UNION              | 并集   | 包含全部Path1和Path2          | ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f43jbqk8rbj305k03cmx4.jpg) |
+| XOR                | 异或   | 包含Path1与Path2但不包括两者相交的部分 | ![](http://ww3.sinaimg.cn/large/005Xtdi2gw1f43jby8c60j305k03c0sp.jpg) |
 
 #### 布尔运算方法
 
@@ -282,7 +282,7 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
 
 代码：
 
-``` java
+​``` java
     int x = 80;
     int r = 100;
 
@@ -331,10 +331,10 @@ XOR                | 异或 | 包含Path1与Path2但不包括两者相交的部�
 
 它有两个参数：
 
-参数   | 作用
--------|--------
-bounds | 测量结果会放入这个矩形
-exact  | 是否精确测量，目前这一个参数作用已经废弃，一般写true即可。
+| 参数     | 作用                              |
+| ------ | ------------------------------- |
+| bounds | 测量结果会放入这个矩形                     |
+| exact  | 是否精确测量，目前这一个参数作用已经废弃，一般写true即可。 |
 
 关于exact如有疑问可参见Google官方的提交记录[Path.computeBounds()](https://code.google.com/p/android/issues/detail?id=4070)
 
@@ -371,10 +371,10 @@ exact  | 是否精确测量，目前这一个参数作用已经废弃，一般�
 
 重置Path有两个方法，分别是reset和rewind，两者区别主要有一下两点：
 
-方法   | 是否保留FillType设置 | 是否保留原有数据结构
--------|:--------------------:|:--------------------:
-reset  | 是                   | 否
-rewind | 否                   | 是
+| 方法     | 是否保留FillType设置 | 是否保留原有数据结构 |
+| ------ | :------------: | :--------: |
+| reset  |       是        |     否      |
+| rewind |       否        |     是      |
 
 **这个两个方法应该何时选择呢？**
 
@@ -384,7 +384,7 @@ _因为“FillType”影响的是显示效果，而“数据结构”影响的�
 
 
 ## 总结
- 
+
 Path中常用的方法到此已经结束，希望能够帮助大家加深对Path对理解运用，让大家能够用Path愉快的玩耍。(￣▽￣)
 
 (,,• ₃ •,,)

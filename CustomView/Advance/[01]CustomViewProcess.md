@@ -16,17 +16,17 @@
 ## 一.自定义View分类
 
 **我将自定义View分为了两类(sloop个人分类法，非官方)：**
-  
+
 ###  1.自定义ViewGroup
-  
+
   **自定义ViewGroup一般是利用现有的组件根据特定的布局方式来组成新的组件，大多继承自ViewGroup或各种Layout，包含有子View。**
-  
+
 > 例如：应用底部导航条中的条目，一般都是上面图标(ImageView)，下面文字(TextView)，那么这两个就可以用自定义ViewGroup组合成为一个Veiw，提供两个属性分别用来设置文字和图片，使用起来会更加方便。
-    
+
 ###  2.自定义View
-  
+
   **在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View，不包含子View。**
-  
+
 > 例如：制作一个支持自动加载网络图片的ImageView，制作图表等。
 
 **PS： 自定义View在大多数情况下都有替代方案，利用图片或者组合动画来实现，但是使用后者可能会面临内存耗费过大，制作麻烦更诸多问题。**
@@ -47,9 +47,9 @@ View的构造函数有四种重载分别如下:
   public void SloopView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {}
 ```
   可以看出，关于View构造函数的参数有多有少，先排除几个不常用的，留下常用的再研究。
-  
+
   **有四个参数的构造函数在API21的时候才添加上，暂不考虑。**
-  
+
 有三个参数的构造函数中第三个参数是默认的Style，这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，且只有在明确调用的时候才会生效，以系统中的ImageButton为例说明：
 ``` java
     public ImageButton(Context context, AttributeSet attrs) {
@@ -111,21 +111,21 @@ View的构造函数有四种重载分别如下:
 
 **测量模式一共有三种， 被定义在 Android 中的 View 类的一个内部类View.MeasureSpec中：**
 
-模式        | 二进制数值 | 描述 
------------ |:----------:| --- 
-UNSPECIFIED | 00         | 默认值，父控件没有给子view任何限制，子View可以设置为任意大小。
-EXACTLY     | 01         | 表示父控件已经确切的指定了子View的大小。 
-AT_MOST     | 10         | 表示子View具体大小没有尺寸限制，但是存在上限，上限一般为父View大小。
+| 模式          | 二进制数值 | 描述                                     |
+| ----------- | :---: | -------------------------------------- |
+| UNSPECIFIED |  00   | 默认值，父控件没有给子view任何限制，子View可以设置为任意大小。    |
+| EXACTLY     |  01   | 表示父控件已经确切的指定了子View的大小。                 |
+| AT_MOST     |  10   | 表示子View具体大小没有尺寸限制，但是存在上限，上限一般为父View大小。 |
 
 **在int类型的32位二进制位中，31-30这两位表示测量模式,29~0这三十位表示宽和高的实际值，实际上如下：**
 
 以数值1080(二进制为: 1111011000)为例(其中模式和实际数值是连在一起的，为了展示我将他们分开了)：
 
-模式名称    | 模式数值 | 实际数值
-------------| --------:| ---
-UNSPECIFIED | 00       | 000000000000000000001111011000
-EXACTLY     | 01       | 000000000000000000001111011000
-AT_MOST     | 10       | 000000000000000000001111011000
+| 模式名称        | 模式数值 | 实际数值                           |
+| ----------- | ---: | ------------------------------ |
+| UNSPECIFIED |   00 | 000000000000000000001111011000 |
+| EXACTLY     |   01 | 000000000000000000001111011000 |
+| AT_MOST     |   10 | 000000000000000000001111011000 |
 
 **PS: 实际上关于上面的东西了解即可，在实际运用之中只需要记住有三种模式，用 MeasureSpec 的 getSize是获取数值， getMode是获取模式即可。**
 
@@ -136,7 +136,7 @@ AT_MOST     | 10       | 000000000000000000001111011000
 
 ### 3.确定View大小(onSizeChanged)
   这个函数在视图大小发生改变时调用。
-  
+
 **Q: 在测量完View并使用setMeasuredDimension函数之后View的大小基本上已经确定了，那么为什么还要再次确定View的大小呢？**
 
 **A: 这是因为View的大小不仅由View本身控制，而且受父控件的影响，所以我们在确定View大小的时候最好使用系统提供的onSizeChanged回调函数。**
@@ -157,32 +157,32 @@ onSizeChanged如下：
 ### 4.确定子View布局位置(onLayout)
 
 **确定布局的函数是onLayout，它用于确定子View的位置，在自定义ViewGroup中会用到，他调用的是子View的layout函数。**
-  
+
   在自定义ViewGroup中，onLayout一般是循环取出子View，然后经过计算得出各个子View位置的坐标值，然后用以下函数设置子View位置。
-  
+
 ``` java
   child.layout(l, t, r, b);
 ```
 四个参数分别为：
 
-名称 |  说明                      | 对应的函数
----- | -------------------------- | ---
-l    | View左侧距父View左侧的距离 | getLeft();
-t    | View顶部距父View顶部的距离 | getTop();
-r    | View右侧距父View左侧的距离 | getRight();
-b    | View底部距父View顶部的距离 | getBottom(); 
+| 名称   | 说明                | 对应的函数        |
+| ---- | ----------------- | ------------ |
+| l    | View左侧距父View左侧的距离 | getLeft();   |
+| t    | View顶部距父View顶部的距离 | getTop();    |
+| r    | View右侧距父View左侧的距离 | getRight();  |
+| b    | View底部距父View顶部的距离 | getBottom(); |
 
-具体可以参考 [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B1%5DCoordinateSystem.md) 这篇文章。
+具体可以参考 [坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B01%5DCoordinateSystem.md) 这篇文章。
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2gw1f1qzqwvkkbj308c0dwgm9.jpg)
 
   PS：关于onLayout这个函数在讲解自定义ViewGroup的时候会详细讲解。
-  
-  
+
+
 ========
 
 ### 5.绘制内容(onDraw)
- 
+
  onDraw是实际绘制的部分，也就是我们真正关心的部分，使用的是Canvas绘图。
 ``` java
     @Override
@@ -196,7 +196,7 @@ b    | View底部距父View顶部的距离 | getBottom();
 
 ### 6.对外提供操作方法和监听回调
   自定义完View之后，一般会对外暴露一些接口，用于控制View的状态等，或者监听View的变化.
-  
+
   本内容会在后续文章中以实例的方式进讲解。
 
 ************
@@ -207,20 +207,20 @@ b    | View底部距父View顶部的距离 | getBottom();
 
 > PS ：实际上ViewGroup是View的一个子类。
 
-类别      | 继承自                | 特点
---------- | --------------------- | ------------
-View      | View  SurfaceView 等  | 不含子View
-ViewGroup | ViewGroup xxLayout等  | 包含子View
+| 类别        | 继承自                 | 特点      |
+| --------- | ------------------- | ------- |
+| View      | View  SurfaceView 等 | 不含子View |
+| ViewGroup | ViewGroup xxLayout等 | 包含子View |
 
 ### 自定义View流程：
-步骤 | 关键字        | 作用
----- | ------------- | -------------
-  1  | 构造函数      | View初始化
-  2  | onMeasure     | 测量View大小
-  3  | onSizeChanged | 确定View大小
-  4  | onLayout      | 确定子View布局(自定义View包含子View时有用)
-  5  | onDraw        | 实际绘制内容
-  6  | 提供接口      | 控制View或监听View某些状态。
+| 步骤   | 关键字           | 作用                           |
+| ---- | ------------- | ---------------------------- |
+| 1    | 构造函数          | View初始化                      |
+| 2    | onMeasure     | 测量View大小                     |
+| 3    | onSizeChanged | 确定View大小                     |
+| 4    | onLayout      | 确定子View布局(自定义View包含子View时有用) |
+| 5    | onDraw        | 实际绘制内容                       |
+| 6    | 提供接口          | 控制View或监听View某些状态。           |
 
 
 

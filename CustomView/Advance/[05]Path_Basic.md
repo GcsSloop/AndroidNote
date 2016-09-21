@@ -4,32 +4,32 @@
 
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
-在上一篇[Canvas之图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B4%5DCanvas_PictureText.md)中我们了解了如何使用Canvas中绘制图片文字，结合前几篇文章，Canvas的基本操作已经差不多完结了，然而Canvas不仅仅具有这些基本的操作，还可以更加炫酷，本次会了解到path(路径)这个Canvas中的神器，有了这个神器，就能创造出更多**炫(zhuang)酷(B)**的东东了。
+在上一篇[Canvas之图片文字](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B04%5DCanvas_PictureText.md)中我们了解了如何使用Canvas中绘制图片文字，结合前几篇文章，Canvas的基本操作已经差不多完结了，然而Canvas不仅仅具有这些基本的操作，还可以更加炫酷，本次会了解到path(路径)这个Canvas中的神器，有了这个神器，就能创造出更多**炫(zhuang)酷(B)**的东东了。
 
 ******
 
 # 一.Path常用方法表
 > 为了兼容性(_偷懒_) 本表格中去除了部分API21(即安卓版本5.0)以上才添加的方法。
 
-作用            | 相关方法        | 备注
-----------------|-----------------|------------------------------------------
-移动起点        | moveTo          | 移动下一次操作的起点位置
-设置终点        | setLastPoint    | 重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同
-连接直线        | lineTo          | 添加上一个点到当前点之间的直线到Path
-闭合路径        | close           | 连接第一个点连接到最后一个点，形成一个闭合区域
-添加内容        | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)
-是否为空        | isEmpty         | 判断Path是否为空
-是否为矩形      | isRect          | 判断path是否是一个矩形
-替换路径        | set             | 用新的路径替换到当前路径所有内容
-偏移路径        | offset          | 对当前路径之前的操作进行偏移(不会影响之后的操作)
-贝塞尔曲线      | quadTo, cubicTo | 分别为二次和三次贝塞尔曲线的方法
-rXxx方法        | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于原点的坐标系(偏移量)， rXxx方法是基于当前点坐标系(偏移量)**
-填充模式        | setFillType, getFillType, isInverseFillType, toggleInverseFillType   | 设置,获取,判断和切换填充模式
-提示方法        | incReserve      | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)**
-布尔操作(API19) | op              | 对两个Path进行布尔运算(即取交集、并集等操作)
-计算边界        | computeBounds   | 计算Path的边界
-重置路径        | reset, rewind   | 清除Path中的内容<br/> **reset不保留内部数据结构，但会保留FillType.**<br/> **rewind会保留内部的数据结构，但不保留FillType**
-矩阵操作        | transform       | 矩阵变换
+| 作用          | 相关方法                                     | 备注                                       |
+| ----------- | ---------------------------------------- | ---------------------------------------- |
+| 移动起点        | moveTo                                   | 移动下一次操作的起点位置                             |
+| 设置终点        | setLastPoint                             | 重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同   |
+| 连接直线        | lineTo                                   | 添加上一个点到当前点之间的直线到Path                     |
+| 闭合路径        | close                                    | 连接第一个点连接到最后一个点，形成一个闭合区域                  |
+| 添加内容        | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别) |
+| 是否为空        | isEmpty                                  | 判断Path是否为空                               |
+| 是否为矩形       | isRect                                   | 判断path是否是一个矩形                            |
+| 替换路径        | set                                      | 用新的路径替换到当前路径所有内容                         |
+| 偏移路径        | offset                                   | 对当前路径之前的操作进行偏移(不会影响之后的操作)                |
+| 贝塞尔曲线       | quadTo, cubicTo                          | 分别为二次和三次贝塞尔曲线的方法                         |
+| rXxx方法      | rMoveTo, rLineTo, rQuadTo, rCubicTo      | **不带r的方法是基于原点的坐标系(偏移量)， rXxx方法是基于当前点坐标系(偏移量)** |
+| 填充模式        | setFillType, getFillType, isInverseFillType, toggleInverseFillType | 设置,获取,判断和切换填充模式                          |
+| 提示方法        | incReserve                               | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)** |
+| 布尔操作(API19) | op                                       | 对两个Path进行布尔运算(即取交集、并集等操作)                |
+| 计算边界        | computeBounds                            | 计算Path的边界                                |
+| 重置路径        | reset, rewind                            | 清除Path中的内容<br/> **reset不保留内部数据结构，但会保留FillType.**<br/> **rewind会保留内部的数据结构，但不保留FillType** |
+| 矩阵操作        | transform                                | 矩阵变换                                     |
 
 
 # 二.Path详解
@@ -59,12 +59,12 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 
 
 另外路径有开放和封闭的区别。
-  
-图像 | 名称 | 备注
- --- | --- | ---
- ![](http://ww4.sinaimg.cn/thumbnail/005Xtdi2jw1f0zx9g9gggj30f00aiwek.jpg) | 封闭路径 | 首尾相接形成了一个封闭区域
- ![](http://ww1.sinaimg.cn/thumbnail/005Xtdi2jw1f0zxg8ilpxj30f00aimx8.jpg) | 开放路径 | 没有首位相接形成封闭区域
-  
+
+| 图像                                       | 名称   | 备注            |
+| ---------------------------------------- | ---- | ------------- |
+| ![](http://ww4.sinaimg.cn/thumbnail/005Xtdi2jw1f0zx9g9gggj30f00aiwek.jpg) | 封闭路径 | 首尾相接形成了一个封闭区域 |
+| ![](http://ww1.sinaimg.cn/thumbnail/005Xtdi2jw1f0zxg8ilpxj30f00aimx8.jpg) | 开放路径 | 没有首位相接形成封闭区域  |
+
 > 这个是我随便画的，仅为展示一下区别，请无视我灵魂画师一般的绘图水准。
 
 **与Path相关的还有一些比较神奇的概念，不过暂且不说，等接下来需要用到的时候再详细说明。**
@@ -76,18 +76,18 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f19mncfcirj305i02j744.jpg)
 
 ### 第1组: moveTo、 setLastPoint、 lineTo 和 close
-  
+
 由于Path的有些知识点无法单独来讲，所以本次采取了一次讲一组方法。
-  
+
 按照惯例，先创建画笔：
-  
+
 ``` java
         Paint mPaint = new Paint();             // 创建画笔
         mPaint.setColor(Color.BLACK);           // 画笔颜色 - 黑色
         mPaint.setStyle(Paint.Style.STROKE);    // 填充模式 - 描边
         mPaint.setStrokeWidth(10);              // 边框宽度 - 10
 ```
-  
+
 #### lineTo：
 方法预览：
 ```
@@ -95,9 +95,9 @@ public void lineTo (float x, float y)
 ```
 
   首先讲解的的LineTo，为啥先讲解这个呢？
-  
+
   是因为moveTo、 setLastPoint、 close都无法直接看到效果，借助有具现化效果的lineTo才能让这些方法现出原形。
-  
+
 
 
 lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾名思义就是一条线。
@@ -143,10 +143,10 @@ lineTo很简单，只有一个方法，作用也很容易理解，line嘛，顾�
 
 这两个方法虽然在作用上有相似之处，但实际上却是完全不同的两个东东，具体参照下表：
 
-方法名 | 简介  | 是否影响之前的操作 | 是否影响之后操作
---- | --- | --- | ---
-moveTo | 移动下一次操作的起点位置 | 否 | 是
-setLastPoint | 设置之前操作的最后一个点位置 | 是 | 是
+| 方法名          | 简介             | 是否影响之前的操作 | 是否影响之后操作 |
+| ------------ | -------------- | --------- | -------- |
+| moveTo       | 移动下一次操作的起点位置   | 否         | 是        |
+| setLastPoint | 设置之前操作的最后一个点位置 | 是         | 是        |
 
 废话不多说，直接上代码：
 ``` java
@@ -243,19 +243,19 @@ close方法用于连接当前最后一个点和最初的一个点(如果两个�
 
 Direction的意思是 方向，趋势。 点进去看一下会发现Direction是一个枚举(Enum)类型，里面只有两个枚举常量，如下：
 
-类型 | 解释              | 翻译
------|-------------------|-------
-CW   | clockwise         | 顺时针
-CCW  | counter-clockwise | 逆时针
+| 类型   | 解释                | 翻译   |
+| ---- | ----------------- | ---- |
+| CW   | clockwise         | 顺时针  |
+| CCW  | counter-clockwise | 逆时针  |
 
 > **瞬间懵逼，我只是想添加一个基本的形状啊，搞什么顺时针和逆时针, (╯‵□′)╯︵┻━┻**
 
 **稍安勿躁，┬─┬ ノ( ' - 'ノ) {摆好摆好） 既然存在肯定是有用的，先偷偷剧透一下这个顺时针和逆时针的作用。**
 
-序号 | 作用 
------|--------------------------------------------------- 
-  1  | 在添加图形时确定闭合顺序(各个点的记录顺序)
-  2  | 对图形的渲染结果有影响(是判断图形渲染的重要条件)
+| 序号   | 作用                        |
+| ---- | ------------------------- |
+| 1    | 在添加图形时确定闭合顺序(各个点的记录顺序)    |
+| 2    | 对图形的渲染结果有影响(是判断图形渲染的重要条件) |
 
 这个先剧透这么多，至于对闭合顺序有啥影响，自相交图形的渲染等问题等请慢慢看下去
 
@@ -275,7 +275,7 @@ CCW  | counter-clockwise | 逆时针
 **将上面代码的CW改为CCW再运行一次。接下来就是见证奇迹的时刻，两次运行结果一模一样，有木有很神奇！**
 
 > **(╯°Д°)╯︵ ┻━┻(再TM掀一次) 
-坑人也不带这样的啊，一毛一样要它干嘛。**
+> 坑人也不带这样的啊，一毛一样要它干嘛。**
 
 **其实啊，这个东东是自带隐身技能的，想要让它现出原形，就要用到咱们刚刚学到的setLastPoint(重置当前最后一个点的位置)。**
 
@@ -384,10 +384,10 @@ CCW  | counter-clockwise | 逆时针
 
 从名字就可以看出，这两个方法都是与圆弧相关的，作用都是添加一个圆弧到path中，但既然存在两个方法，两者之间肯定是有区别的：
 
-名称 | 作用 | 区别
- --- | --- | ---
- addArc | 添加一个圆弧到path | 直接添加一个圆弧到path中
- arcTo | 添加一个圆弧到path | 添加一个圆弧到path，如果圆弧的起点和上次最后一个坐标点不相同，就连接两个点
+| 名称     | 作用          | 区别                                      |
+| ------ | ----------- | --------------------------------------- |
+| addArc | 添加一个圆弧到path | 直接添加一个圆弧到path中                          |
+| arcTo  | 添加一个圆弧到path | 添加一个圆弧到path，如果圆弧的起点和上次最后一个坐标点不相同，就连接两个点 |
 
 可以看到addArc有1个方法(_实际上是两个的，但另一个重载方法是API21添加的_), 而arcTo有2个方法，其中一个最后多了一个布尔类型的变量forceMoveTo。
 
@@ -395,10 +395,10 @@ CCW  | counter-clockwise | 逆时针
 
 这个变量意思为“是否强制使用moveTo”，也就是说，是否使用moveTo将变量移动到圆弧的起点位移，也就意味着：
 
-forceMoveTo | 含义 | 等价方法
- --- | --- | ---
- true  | 将最后一个点移动到圆弧起点，即不连接最后一个点与圆弧起点 | public void addArc (RectF oval, float startAngle, float sweepAngle)
- false | 不移动，而是连接最后一个点与圆弧起点 | public void arcTo (RectF oval, float startAngle, float sweepAngle)
+| forceMoveTo | 含义                           | 等价方法                                     |
+| ----------- | ---------------------------- | ---------------------------------------- |
+| true        | 将最后一个点移动到圆弧起点，即不连接最后一个点与圆弧起点 | public void addArc (RectF oval, float startAngle, float sweepAngle) |
+| false       | 不移动，而是连接最后一个点与圆弧起点           | public void arcTo (RectF oval, float startAngle, float sweepAngle) |
 
 **示例(addArc)：**
 ``` java
@@ -526,10 +526,10 @@ log 输出结果:
 
 其实第二个方法中最后的参数das是存储平移后的path的。
 
-dst状态        | 效果
- --------------|---------------------------------
- dst不为空     | 将当前path平移后的状态存入dst中，不会影响当前path
- dat为空(null) | 平移将作用于当前path，相当于第一种方法
+| dst状态       | 效果                             |
+| ----------- | ------------------------------ |
+| dst不为空      | 将当前path平移后的状态存入dst中，不会影响当前path |
+| dat为空(null) | 平移将作用于当前path，相当于第一种方法          |
 
 示例：
 ``` java

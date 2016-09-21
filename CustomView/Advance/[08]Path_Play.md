@@ -5,9 +5,9 @@
 
 
 可以看到，在经过 
-[Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)
-[Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B6%5DPath_Bezier.md) 和 
-[Path之完结篇(伪)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B7%5DPath_Over.md) 后， Path中各类方法基本上都讲完了，表格中还没有讲解到到方法就是矩阵变换了，难道本篇终于要讲矩阵了？
+[Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B05%5DPath_Basic.md)
+[Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B06%5DPath_Bezier.md) 和 
+[Path之完结篇(伪)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B07%5DPath_Over.md) 后， Path中各类方法基本上都讲完了，表格中还没有讲解到到方法就是矩阵变换了，难道本篇终于要讲矩阵了？
 非也，矩阵这一部分仍在后面单独讲解，本篇主要讲解 PathMeasure 这个类与 Path 的一些使用技巧。
 
 > PS：不要问我为什么不讲 PathEffect，因为这个方法在后面的Paint系列中。
@@ -24,22 +24,22 @@
 
 ### 构造方法
 
-方法名 | 释义
----|---
-PathMeasure() | 创建一个空的PathMeasure
-PathMeasure(Path path, boolean forceClosed) | 创建 PathMeasure 并关联一个指定的Path(Path需要已经创建完成)。
+| 方法名                                      | 释义                                       |
+| ---------------------------------------- | ---------------------------------------- |
+| PathMeasure()                            | 创建一个空的PathMeasure                        |
+| PathMeasure(Path path, boolean forceClosed) | 创建 PathMeasure 并关联一个指定的Path(Path需要已经创建完成)。 |
 
 ### 公共方法
 
-返回值  | 方法名                                                                   | 释义
---------|--------------------------------------------------------------------------|-------------------
-void    | setPath(Path path, boolean forceClosed)                                  | 关联一个Path
-boolean | isClosed()                                                               | 是否闭合
-float   | getLength()                                                              | 获取Path的长度
-boolean |	nextContour()                                                            | 跳转到下一个轮廓
-boolean | getSegment(float startD, float stopD, Path dst, boolean startWithMoveTo) | 截取片段
-boolean | getPosTan(float distance, float[] pos, float[] tan)                      | 获取指定长度的位置坐标及该点切线值
-boolean | getMatrix(float distance, Matrix matrix, int flags)                      | 获取指定长度的位置坐标及该点Matrix
+| 返回值     | 方法名                                      | 释义                   |
+| ------- | ---------------------------------------- | -------------------- |
+| void    | setPath(Path path, boolean forceClosed)  | 关联一个Path             |
+| boolean | isClosed()                               | 是否闭合                 |
+| float   | getLength()                              | 获取Path的长度            |
+| boolean | nextContour()                            | 跳转到下一个轮廓             |
+| boolean | getSegment(float startD, float stopD, Path dst, boolean startWithMoveTo) | 截取片段                 |
+| boolean | getPosTan(float distance, float[] pos, float[] tan) | 获取指定长度的位置坐标及该点切线值    |
+| boolean | getMatrix(float distance, Matrix matrix, int flags) | 获取指定长度的位置坐标及该点Matrix |
 
 PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
@@ -138,13 +138,13 @@ getSegment 用于获取Path的一个片段，方法如下：
 
 方法各个参数释义：
 
-参数            | 作用                             | 备注
-----------------|----------------------------------|--------------------------------------------
-返回值(boolean) | 判断截取是否成功                 | true 表示截取成功，结果存入dst中，false 截取失败，不会改变dst中内容
-startD          | 开始截取位置距离 Path 起点的长度 | 取值范围: 0 <= startD < stopD <= Path总长度
-stopD           | 结束截取位置距离 Path 起点的长度 | 取值范围: 0 <= startD < stopD <= Path总长度
-dst             | 截取的 Path 将会添加到 dst 中    | 注意: 是添加，而不是替换
-startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取的 Path 第一个点位置不变
+| 参数              | 作用                   | 备注                                       |
+| --------------- | -------------------- | ---------------------------------------- |
+| 返回值(boolean)    | 判断截取是否成功             | true 表示截取成功，结果存入dst中，false 截取失败，不会改变dst中内容 |
+| startD          | 开始截取位置距离 Path 起点的长度  | 取值范围: 0 <= startD < stopD <= Path总长度     |
+| stopD           | 结束截取位置距离 Path 起点的长度  | 取值范围: 0 <= startD < stopD <= Path总长度     |
+| dst             | 截取的 Path 将会添加到 dst 中 | 注意: 是添加，而不是替换                            |
+| startWithMoveTo | 起始点是否使用 moveTo       | 用于保证截取的 Path 第一个点位置不变                    |
 
 > 
 * 如果 startD、stopD 的数值不在取值范围 [0, getLength] 内，或者 startD == stopD 则返回值为 false，不会改变 dst 内容。
@@ -230,10 +230,10 @@ startWithMoveTo | 起始点是否使用 moveTo            | 用于保证截取�
 
 从而我们可以用以下规则来判断 startWithMoveTo 的取值：
 
-取值  | 主要功用
-------|------------------
-true  | 保证截取得到的 Path 片段不会发生形变
-false | 保证存储截取片段的 Path(dst) 的连续性
+| 取值    | 主要功用                     |
+| ----- | ------------------------ |
+| true  | 保证截取得到的 Path 片段不会发生形变    |
+| false | 保证存储截取片段的 Path(dst) 的连续性 |
 
 
 
@@ -296,12 +296,12 @@ log输出结果:
 
 方法各个参数释义：
 
-参数            | 作用                             | 备注
-----------------|----------------------------------|--------------------------------------------
-返回值(boolean) | 判断获取是否成功                 | true表示成功，数据会存入 pos 和 tan 中，<br/>false 表示失败，pos 和 tan 不会改变
-distance        | 距离 Path 起点的长度             | 取值范围: 0 <= distance <= getLength
-pos             | 该点的坐标值                     | 坐标值: (x==[0], y==[1])
-tan             | 该点的正切值                     | 正切值: (x==[0], y==[1])
+| 参数           | 作用            | 备注                                       |
+| ------------ | ------------- | ---------------------------------------- |
+| 返回值(boolean) | 判断获取是否成功      | true表示成功，数据会存入 pos 和 tan 中，<br/>false 表示失败，pos 和 tan 不会改变 |
+| distance     | 距离 Path 起点的长度 | 取值范围: 0 <= distance <= getLength         |
+| pos          | 该点的坐标值        | 坐标值: (x==[0], y==[1])                    |
+| tan          | 该点的正切值        | 正切值: (x==[0], y==[1])                    |
 
 这个方法也不难理解，除了其中 `tan` 这个东东，这个东西是干什么的呢？
 
@@ -387,12 +387,12 @@ boolean getMatrix (float distance, Matrix matrix, int flags)
 
 方法各个参数释义：
 
-参数            | 作用                             | 备注
-----------------|----------------------------------|--------------------------------------------
-返回值(boolean) | 判断获取是否成功                 | true表示成功，数据会存入matrix中，false 失败，matrix内容不会改变
-distance        | 距离 Path 起点的长度             | 取值范围: 0 <= distance <= getLength
-matrix          | 根据 falgs 封装好的matrix        | 会根据 flags 的设置而存入不同的内容
-flags           | 规定哪些内容会存入到matrix中     | 可选择<br/>POSITION_MATRIX_FLAG(位置) <br/>ANGENT_MATRIX_FLAG(正切)
+| 参数           | 作用                  | 备注                                       |
+| ------------ | ------------------- | ---------------------------------------- |
+| 返回值(boolean) | 判断获取是否成功            | true表示成功，数据会存入matrix中，false 失败，matrix内容不会改变 |
+| distance     | 距离 Path 起点的长度       | 取值范围: 0 <= distance <= getLength         |
+| matrix       | 根据 falgs 封装好的matrix | 会根据 flags 的设置而存入不同的内容                    |
+| flags        | 规定哪些内容会存入到matrix中   | 可选择<br/>POSITION_MATRIX_FLAG(位置) <br/>ANGENT_MATRIX_FLAG(正切) |
 
 其实这个方法就相当于我们在前一个例子中封装 `matrix` 的过程由 `getMatrix` 替我们做了，我们可以直接得到一个封装好到 `matrix`，岂不快哉。 
 
@@ -447,17 +447,17 @@ measure.getMatrix(distance, matrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasur
 我们知道，用Path可以创建出各种个样的图形，但如果图形过于复杂时，用代码写就不现实了，不仅麻烦，而且容易出错，所以在绘制复杂的图形时我们一般是将 SVG 图像转换为 Path。
 
 **你说什么是 SVG?**
- 
+
 SVG 是一种矢量图，内部用的是 xml 格式化存储方式存储这操作和数据，你完全可以将 SVG 看作是 Path 的各项操作简化书写后的存储格式。 
- 
+
 Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4g87vfjbeg30690b4go8.gif)
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4g89vqhqwg30690b4mzu.gif)
 
 >
-**该图片来自这个开源库 ->[PathView](https://github.com/geftimov/android-pathview)** <br/>
-**SVG 转 Path 的解析可以用这个库 -> [AndroidSVG](https://bigbadaboom.github.io/androidsvg/)**
+>**该图片来自这个开源库 ->[PathView](https://github.com/geftimov/android-pathview)** <br/>
+>**SVG 转 Path 的解析可以用这个库 -> [AndroidSVG](https://bigbadaboom.github.io/androidsvg/)**
 
 限于篇幅以及本人精力，这一部分就暂不详解了，感兴趣的可以直接看源码，或者搜索一些相关的解析文章。
 
@@ -468,7 +468,7 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 **话说本篇文章的名字不是叫 玩出花样么？怎么只见前面啰啰嗦嗦的扯了一大堆不明所以的东西，花样在哪里？**
 
 >
-**前面的内容虽然啰嗦繁杂，但却是重中之重的基础，如果在修仙界，这叫根基，而下面讲述的内容的是招式，有了根基才能演化出千变万化的招式，而没有根基只学招式则是徒有其表，只能学一样会一样，很难适应千变万化的需求。**
+>**前面的内容虽然啰嗦繁杂，但却是重中之重的基础，如果在修仙界，这叫根基，而下面讲述的内容的是招式，有了根基才能演化出千变万化的招式，而没有根基只学招式则是徒有其表，只能学一样会一样，很难适应千变万化的需求。**
 
 先放一个效果图，然后分析一下实现过程:
 
@@ -476,12 +476,12 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 
 这是一个搜索的动效图，通过分析可以得到它应该有四种状态，分别如下:
 
-状态     |概述
----------|--------------------------------------------------
-初始状态 | 初始状态，没有任何动效，只显示一个搜索标志 :mag:
-准备搜索 | 放大镜图标逐渐变化为一个点
-正在搜索 | 围绕这一个圆环运动，并且线段长度会周期性变化
-准备结束 | 从一个点逐渐变化成为放大镜图标
+| 状态   | 概述                          |
+| ---- | --------------------------- |
+| 初始状态 | 初始状态，没有任何动效，只显示一个搜索标志 :mag: |
+| 准备搜索 | 放大镜图标逐渐变化为一个点               |
+| 正在搜索 | 围绕这一个圆环运动，并且线段长度会周期性变化      |
+| 准备结束 | 从一个点逐渐变化成为放大镜图标             |
 
 这些状态是有序转换的，转换流程以及转换条件如下：
 

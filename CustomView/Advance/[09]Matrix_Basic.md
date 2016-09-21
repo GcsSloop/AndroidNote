@@ -18,12 +18,12 @@
 <p id="qianyan" /> 
 ## 前言
 
-本文内容偏向理论，和 [画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md) 有重叠的部分，本文会让你更加深入的了解其中的原理。
+本文内容偏向理论，和 [画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B03%5DCanvas_Convert.md) 有重叠的部分，本文会让你更加深入的了解其中的原理。
 
 本篇的主角Matrix，是一个一直在后台默默工作的劳动模范，虽然我们所有看到View背后都有着Matrix的功劳，但我们却很少见到它，本篇我们就看看它是何方神圣吧。
 
 >
-由于Google已经对这一部分已经做了很好的封装，所以跳过本部分对实际开发影响并不会太大，不想深究的粗略浏览即可，下一篇中将会详细讲解Matrix的具体用法和技巧。
+>由于Google已经对这一部分已经做了很好的封装，所以跳过本部分对实际开发影响并不会太大，不想深究的粗略浏览即可，下一篇中将会详细讲解Matrix的具体用法和技巧。
 
 ******
 
@@ -138,13 +138,13 @@ y_0 \\\\
 \\right ]
 $$)
 
-> 
-你可能注意到了，我们坐标多了一个1，这是使用了齐次坐标系的缘故，在数学中我们的点和向量都是这样表示的(x, y)，两者看起来一样，计算机无法区分，为此让计算机也可以区分它们，增加了一个标志位，增加之后看起来是这样: <br/>
 >
-(x, y, 1) - 点<br/>
-(x, y, 0) - 向量<br/>
+> 你可能注意到了，我们坐标多了一个1，这是使用了齐次坐标系的缘故，在数学中我们的点和向量都是这样表示的(x, y)，两者看起来一样，计算机无法区分，为此让计算机也可以区分它们，增加了一个标志位，增加之后看起来是这样: <br/>
 >
-另外，齐次坐标具有等比的性质，(2,3,1)、(4,6,2)...(2N,3N,N)表示的均是(2,3)这一个点。(**将MPERSP_2解释为scale这一误解就源于此**)。
+> (x, y, 1) - 点<br/>
+> (x, y, 0) - 向量<br/>
+>
+> 另外，齐次坐标具有等比的性质，(2,3,1)、(4,6,2)...(2N,3N,N)表示的均是(2,3)这一个点。(**将MPERSP_2解释为scale这一误解就源于此**)。
 
 图例：
 
@@ -328,8 +328,8 @@ $$)
 
 ### 4.平移(Translate)
 
-> 
-此处也是使用齐次坐标的优点体现之一，实际上前面的三个操作使用 2x2 的矩阵也能满足需求，但是使用 2x2 的矩阵，无法将平移操作加入其中，而将坐标扩展为齐次坐标后，将矩阵扩展为 3x3 就可以将算法统一，四种算法均可以使用矩阵乘法完成。
+>
+> 此处也是使用齐次坐标的优点体现之一，实际上前面的三个操作使用 2x2 的矩阵也能满足需求，但是使用 2x2 的矩阵，无法将平移操作加入其中，而将坐标扩展为齐次坐标后，将矩阵扩展为 3x3 就可以将算法统一，四种算法均可以使用矩阵乘法完成。
 
 ![](http://latex.codecogs.com/png.latex?$$ x = x_0 + \\Delta x $$)
 
@@ -616,16 +616,16 @@ $$)
 
 这个方法表，暂时放到这里让大家看看，方法的使用讲解放在下一篇文章中。
 
-方法类别   | 相关API                                                 | 摘要
------------|---------------------------------------------------------|------------------------
-基本方法   | equals hashCode toString toShortString                  | 比较、 获取哈希值、 转换为字符串
-数值操作   | set reset setValues getValues                           | 设置、 重置、 设置数值、 获取数值
-数值计算   | mapPoints mapRadius mapRect mapVectors                  | 计算变换后的数值
-设置(set)  | setConcat setRotate setScale setSkew setTranslate       | 设置变换
-前乘(pre)  | preConcat preRotate preScale preSkew preTranslate       | 前乘变换
-后乘(post) | postConcat postRotate postScale postSkew postTranslate  | 后乘变换
-特殊方法   | setPolyToPoly setRectToRect rectStaysRect setSinCos     | 一些特殊操作
-矩阵相关   | invert isAffine isIdentity                              | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ...
+| 方法类别     | 相关API                                    | 摘要                         |
+| -------- | ---------------------------------------- | -------------------------- |
+| 基本方法     | equals hashCode toString toShortString   | 比较、 获取哈希值、 转换为字符串          |
+| 数值操作     | set reset setValues getValues            | 设置、 重置、 设置数值、 获取数值         |
+| 数值计算     | mapPoints mapRadius mapRect mapVectors   | 计算变换后的数值                   |
+| 设置(set)  | setConcat setRotate setScale setSkew setTranslate | 设置变换                       |
+| 前乘(pre)  | preConcat preRotate preScale preSkew preTranslate | 前乘变换                       |
+| 后乘(post) | postConcat postRotate postScale postSkew postTranslate | 后乘变换                       |
+| 特殊方法     | setPolyToPoly setRectToRect rectStaysRect setSinCos | 一些特殊操作                     |
+| 矩阵相关     | invert isAffine isIdentity               | 求逆矩阵、 是否为仿射矩阵、 是否为单位矩阵 ... |
 
 <p id="zongjie" />
 ## 总结

@@ -3,22 +3,22 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
-在上一篇文章[Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B3%5DCanvas_Convert.md)中我们了解了画布的一些基本操作方法，本次了解一些绘制图片文字相关的内容。如果你对前几篇文章讲述的内容熟练掌握的话，那么恭喜你，本篇结束之后，大部分的自定义View已经难不倒你了，当然了，这并不是终点，接下来还会有更加炫酷的技能。
+在上一篇文章[Canvas之画布操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B03%5DCanvas_Convert.md)中我们了解了画布的一些基本操作方法，本次了解一些绘制图片文字相关的内容。如果你对前几篇文章讲述的内容熟练掌握的话，那么恭喜你，本篇结束之后，大部分的自定义View已经难不倒你了，当然了，这并不是终点，接下来还会有更加炫酷的技能。
 
 ## 一.Canvas的常用操作速查表
 
-操作类型 | 相关API | 备注
----------|---------|-----------
-绘制颜色 | drawColor, drawRGB, drawARGB | 使用单一颜色填充整个画布
-绘制基本形状 | drawPoint, drawPoints, drawLine, drawLines, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧
-绘制图片 | drawBitmap, drawPicture | 绘制位图和图片
-绘制文本 | drawText,    drawPosText, drawTextOnPath | 依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字
-绘制路径 | drawPath | 绘制路径，绘制贝塞尔曲线时也需要用到该函数
-顶点操作 | drawVertices, drawBitmapMesh | 通过对顶点操作可以使图像形变，drawVertices直接对画布作用、 drawBitmapMesh只对绘制的Bitmap作用
-画布剪裁 | clipPath,    clipRect | 设置画布的显示区域
-画布快照 | save, restore, saveLayerXxx, restoreToCount, getSaveCount | 依次为 保存当前状态、 回滚到上一次保存的状态、 保存图层状态、 回滚到指定状态、 获取保存次数
-画布变换 | translate, scale, rotate, skew | 依次为 位移、缩放、 旋转、错切
-Matrix(矩阵) | getMatrix, setMatrix, concat | 实际上画布的位移，缩放等操作的都是图像矩阵Matrix， 只不过Matrix比较难以理解和使用，故封装了一些常用的方法。
+| 操作类型       | 相关API                                    | 备注                                       |
+| ---------- | ---------------------------------------- | ---------------------------------------- |
+| 绘制颜色       | drawColor, drawRGB, drawARGB             | 使用单一颜色填充整个画布                             |
+| 绘制基本形状     | drawPoint, drawPoints, drawLine, drawLines, drawRect, drawRoundRect, drawOval, drawCircle, drawArc | 依次为 点、线、矩形、圆角矩形、椭圆、圆、圆弧                  |
+| 绘制图片       | drawBitmap, drawPicture                  | 绘制位图和图片                                  |
+| 绘制文本       | drawText,    drawPosText, drawTextOnPath | 依次为 绘制文字、绘制文字时指定每个文字位置、根据路径绘制文字          |
+| 绘制路径       | drawPath                                 | 绘制路径，绘制贝塞尔曲线时也需要用到该函数                    |
+| 顶点操作       | drawVertices, drawBitmapMesh             | 通过对顶点操作可以使图像形变，drawVertices直接对画布作用、 drawBitmapMesh只对绘制的Bitmap作用 |
+| 画布剪裁       | clipPath,    clipRect                    | 设置画布的显示区域                                |
+| 画布快照       | save, restore, saveLayerXxx, restoreToCount, getSaveCount | 依次为 保存当前状态、 回滚到上一次保存的状态、 保存图层状态、 回滚到指定状态、 获取保存次数 |
+| 画布变换       | translate, scale, rotate, skew           | 依次为 位移、缩放、 旋转、错切                         |
+| Matrix(矩阵) | getMatrix, setMatrix, concat             | 实际上画布的位移，缩放等操作的都是图像矩阵Matrix， 只不过Matrix比较难以理解和使用，故封装了一些常用的方法。 |
 
 ******
 # 二.Canvas基本操作详解
@@ -68,15 +68,15 @@ A Picture records drawing calls (via the canvas returned by beginRecording) and 
 
 了解了Picture的概念之后，我们再了解一下Picture的相关方法。
 
-相关方法                                                    | 简介
-------------------------------------------------------------|--------------------
-public int getWidth ()                                      | 获取宽度
-public int getHeight ()                                     | 获取高度
-public Canvas beginRecording (int width, int height)        | 开始录制 (返回一个Canvas，在Canvas中所有的绘制都会存储在Picture中)
-public void endRecording ()                                 | 结束录制
-public void draw (Canvas canvas)                            | 将Picture中内容绘制到Canvas中
-public static Picture createFromStream (InputStream stream) | (已废弃)通过输入流创建一个Picture
-public void writeToStream (OutputStream stream)             | (已废弃)将Picture中内容写出到输出流中
+| 相关方法                                     | 简介                                       |
+| ---------------------------------------- | ---------------------------------------- |
+| public int getWidth ()                   | 获取宽度                                     |
+| public int getHeight ()                  | 获取高度                                     |
+| public Canvas beginRecording (int width, int height) | 开始录制 (返回一个Canvas，在Canvas中所有的绘制都会存储在Picture中) |
+| public void endRecording ()              | 结束录制                                     |
+| public void draw (Canvas canvas)         | 将Picture中内容绘制到Canvas中                    |
+| public static Picture createFromStream (InputStream stream) | (已废弃)通过输入流创建一个Picture                    |
+| public void writeToStream (OutputStream stream) | (已废弃)将Picture中内容写出到输出流中                  |
 
 上面表格中基本上已经列出了Picture的所有方法，其中getWidth和getHeight没什么好说的，最后两个已经废弃也自然就不用关注了，排除了这些方法之后，只剩三个方法了，接下来我们就比较详细的了解一下：
 
@@ -127,19 +127,19 @@ public void writeToStream (OutputStream stream)             | (已废弃)将Pict
 
 Picture虽然方法就那么几个，但是具体使用起来还是分很多情况的，由于录制的内容不会直接显示，就像存储的视频不点击播放不会自动播放一样，同样，想要将Picture中的内容显示出来就需要手动调用播放(绘制)，将Picture中的内容绘制出来可以有以下几种方法：
 
-序号 | 简介
------|-----------
-  1  | 使用Picture提供的draw方法绘制。
-  2  | 使用Canvas提供的drawPicture方法绘制。
-  3  | 将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。
+| 序号   | 简介                                       |
+| ---- | ---------------------------------------- |
+| 1    | 使用Picture提供的draw方法绘制。                    |
+| 2    | 使用Canvas提供的drawPicture方法绘制。              |
+| 3    | 将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。 |
 
 
 以上几种方法主要区别：
 
-主要区别           |               分类                | 简介
--------------------|-----------------------------------|------------------
-是否对Canvas有影响 | 1有影响<br/>2,3不影响             | 此处指绘制完成后是否会影响Canvas的状态(Matrix clip等)
-可操作性强弱       | 1可操作性较弱<br/>2,3可操作性较强 | 此处的可操作性可以简单理解为对绘制结果可控程度。
+| 主要区别         | 分类                    | 简介                                   |
+| ------------ | --------------------- | ------------------------------------ |
+| 是否对Canvas有影响 | 1有影响<br/>2,3不影响       | 此处指绘制完成后是否会影响Canvas的状态(Matrix clip等) |
+| 可操作性强弱       | 1可操作性较弱<br/>2,3可操作性较强 | 此处的可操作性可以简单理解为对绘制结果可控程度。             |
 
 几种方法简介和主要区别基本就这么多了，接下来对于各种使用方法一一详细介绍：
 
@@ -170,9 +170,9 @@ public void drawPicture (Picture picture, RectF dst)
 ``` java
     canvas.drawPicture(mPicture,new RectF(0,0,mPicture.getWidth(),200));
 ```
- 
+
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2kwzseqawj30u01hc74o.jpg" width = "300"/>  
- 
+
  **PS:对照上一张图片，可以比较明显的看出，绘制的内容根据选区进行了缩放。 **
 
 **3.将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制。**
@@ -197,15 +197,15 @@ public void drawPicture (Picture picture, RectF dst)
  > 其实一开始知道要讲Bitmap我是拒绝的，为什么呢？因为Bitmap就是很多问题的根源啊有木有，Bitmap可能导致内存不足，内存泄露，ListView中的复用混乱等诸多问题。想完美的掌控Bitmap还真不是一件容易的事情。限于篇幅**本文对于Bitmap不会过多的展开，只讲解一些常用的功能**，关于Bitmap详细内容，以后开专题讲解QAQ。
 
  既然要绘制Bitmap，就要先获取一个Bitmap，那么如何获取呢？
- 
+
  **获取Bitmap方式:**
- 
- 序号 |         获取方式          | 备注
- -----|---------------------------|-----------------------------------------
-   1  | 通过Bitmap创建            | 复制一个已有的Bitmap(_新Bitmap状态和原有的一致_) 或者 创建一个空白的Bitmap(_内容可改变_)
-   2  | 通过BitmapDrawable获取    | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap
-   3  | 通过BitmapFactory获取     | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap
-  
+
+| 序号   | 获取方式               | 备注                                       |
+| ---- | ------------------ | ---------------------------------------- |
+| 1    | 通过Bitmap创建         | 复制一个已有的Bitmap(_新Bitmap状态和原有的一致_) 或者 创建一个空白的Bitmap(_内容可改变_) |
+| 2    | 通过BitmapDrawable获取 | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap    |
+| 3    | 通过BitmapFactory获取  | 从资源文件 内存卡 网络等地方获取一张图片并转换为内容不可变的Bitmap    |
+
 **通常来说，我们绘制Bitmap都是读取已有的图片转换为Bitmap绘制到Canvas上。**<br/>
 很明显，第1种方式不能满足我们的要求，暂时排除。<br/>
 第2种方式虽然也可满足我们的要求，但是我不推荐使用这种方式，至于为什么在后续详细讲解Drawable的时候会说明,暂时排除。<br/>
@@ -282,10 +282,10 @@ PS:图片左上角位置默认为坐标原点。
 
 第三种方法比较有意思，上面多了两个矩形区域(src,dst),这两个矩形选区是干什么用的？
 
-名称                      | 作用
---------------------------|---------------------
-Rect src                  | 指定绘制图片的区域
-Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
+| 名称                  | 作用                |
+| ------------------- | ----------------- |
+| Rect src            | 指定绘制图片的区域         |
+| Rect dst 或RectF dst | 指定图片在屏幕上显示(绘制)的区域 |
 
 示例：
 ``` java
@@ -372,14 +372,14 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
 
 **Paint文本相关常用方法表**
 
-标题 | 相关方法                  | 备注
------|---------------------------|----------------------
-色彩 | setColor setARGB setAlpha | 设置颜色，透明度
-大小 | setTextSize               | 设置文本字体大小
-字体 | setTypeface               | 设置或清除字体样式
-样式 | setStyle                  | 填充(FILL),描边(STROKE),填充加描边(FILL_AND_STROKE)
-对齐 | setTextAlign              | 左对齐(LEFT),居中对齐(CENTER),右对齐(RIGHT)
-测量 | measureText               | 测量文本大小(注意，请在设置完文本各项参数后调用)
+| 标题   | 相关方法                      | 备注                                       |
+| ---- | ------------------------- | ---------------------------------------- |
+| 色彩   | setColor setARGB setAlpha | 设置颜色，透明度                                 |
+| 大小   | setTextSize               | 设置文本字体大小                                 |
+| 字体   | setTypeface               | 设置或清除字体样式                                |
+| 样式   | setStyle                  | 填充(FILL),描边(STROKE),填充加描边(FILL_AND_STROKE) |
+| 对齐   | setTextAlign              | 左对齐(LEFT),居中对齐(CENTER),右对齐(RIGHT)        |
+| 测量   | measureText               | 测量文本大小(注意，请在设置完文本各项参数后调用)                |
 
 为了绘制文本，我们先创建一个文本画笔：
 ``` java
@@ -411,9 +411,9 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
 
 以上一个例子使用的字符串为例，它的下标是这样的(wait，我为啥要说这个，算了，不管了，就这样吧(๑•́ ₃ •̀๑)):
 
-字符 | A | B | C | D | E | F | G | H | I | J | K
-  ---|---|---|---|---|---|---|---|---|---|---|---
-下标 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+| 字符   | A    | B    | C    | D    | E    | F    | G    | H    | I    | J    | K    |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 下标   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   |
 
 假设我我们指定star为1，end为3，那么最终截取的字符串就是"BC"。
 
@@ -465,11 +465,11 @@ Rect dst 或RectF dst      | 指定图片在屏幕上显示(绘制)的区域
 
 不过嘛，虽然虽然这个方法也比较容易理解，但是关于这个方法我个人是不推荐使用的，因为坑比较多，主要有一下几点：
 
-序号 | 反对理由
------|----------------------
-  1  | 必须指定所有字符位置，否则直接crash掉，反人类设计
-  2  | 性能不佳，在大量使用的时候可能导致卡顿
-  3  | 不支持emoji等特殊字符，不支持字形组合与分解
+| 序号   | 反对理由                        |
+| ---- | --------------------------- |
+| 1    | 必须指定所有字符位置，否则直接crash掉，反人类设计 |
+| 2    | 性能不佳，在大量使用的时候可能导致卡顿         |
+| 3    | 不支持emoji等特殊字符，不支持字形组合与分解    |
 
 关于第二类的第二种方法：
 

@@ -3,7 +3,7 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
-在上一篇[自定义View分类与流程](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B1%5DCustomViewProcess.md)中我们了解自定义View相关的基本知识，不过，这些东西依旧还是理论，并不能**拿来(zhuang)用(B)**, 这一次我们就了解一些**能(zhaung)用(B)**的东西。
+在上一篇[自定义View分类与流程](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B01%5DCustomViewProcess.md)中我们了解自定义View相关的基本知识，不过，这些东西依旧还是理论，并不能**拿来(zhuang)用(B)**, 这一次我们就了解一些**能(zhaung)用(B)**的东西。
 
 在本篇文章中，我们先了解Canvas的基本用法，最后用一个小示例来结束本次教程。
 
@@ -50,7 +50,7 @@ Canvas我们可以称之为画布，能够在上面绘制各种东西，是安�
 
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f2742437w3j30u01hcjrq.jpg" width = "300" />  
 
-> 关于颜色的更多资料请参考[基础篇_颜色](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B3%5DColor.md)
+> 关于颜色的更多资料请参考[基础篇_颜色](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B03%5DColor.md)
 
 ******
 
@@ -90,7 +90,7 @@ Canvas我们可以称之为画布，能够在上面绘制各种东西，是安�
 ```
 关于坐标原点默认在左上角，水平向右为x轴增大方向，竖直向下为y轴增大方向。
 
-> 更多参考这里 [基础篇_坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B1%5DCoordinateSystem.md)
+> 更多参考这里 [基础篇_坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B01%5DCoordinateSystem.md)
 
 <img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f2743rkifnj30u01hc74n.jpg" width = "300" />
 
@@ -274,7 +274,7 @@ useCenter   // 是否使用中心
 
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f274d1smwej30u01hc3z4.jpg" width = "300" /> 
 
-可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则是圆弧起始点和结束点之间的连线加上圆弧围成的图形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇文章： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B2%5DAngleAndRadian.md)
+可以发现使用了中心点之后绘制出来类似于一个扇形，而不使用中心点则是圆弧起始点和结束点之间的连线加上圆弧围成的图形。这样中心点这个参数的作用就很明显了，不必多说想必大家试一下就明白了。 另外可以关于角度可以参考一下这篇文章： [角度与弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView%2FBase%2F%5B02%5DAngleAndRadian.md)
 
 相比于使用椭圆，我们还是使用正圆比较多的，使用正圆展示一下效果：
 

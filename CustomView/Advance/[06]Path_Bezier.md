@@ -3,33 +3,32 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
-在上一篇文章[Path之基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_BasicGraphics.md)中我们了解了Path的基本使用方法，本次了解Path中非常非常非常重要的内容-贝塞尔曲线。
-
+在上一篇文章[Path之基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B05%5DPath_BasicGraphics.md)中我们了解了Path的基本使用方法，本次了解Path中非常非常非常重要的内容-贝塞尔曲线。
 
 ******
 
 ## 一.Path常用方法表
 > 为了兼容性(_偷懒_) 本表格中去除了在API21(即安卓版本5.0)以上才添加的方法。忍不住吐槽一下，为啥看起来有些顺手就能写的重载方法要等到API21才添加上啊。宝宝此刻内心也是崩溃的。
 
-作用            | 相关方法        | 备注
-----------------|-----------------|------------------------------------------
-移动起点        | moveTo          | 移动下一次操作的起点位置
-设置终点        | setLastPoint    | 重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同
-连接直线        | lineTo          | 添加上一个点到当前点之间的直线到Path
-闭合路径        | close           | 连接第一个点连接到最后一个点，形成一个闭合区域
-添加内容        | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)
-是否为空        | isEmpty         | 判断Path是否为空
-是否为矩形      | isRect          | 判断path是否是一个矩形
-替换路径        | set             | 用新的路径替换到当前路径所有内容
-偏移路径        | offset          | 对当前路径之前的操作进行偏移(不会影响之后的操作)
-贝塞尔曲线      | quadTo, cubicTo | 分别为二次和三次贝塞尔曲线的方法
-rXxx方法        | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是基于原点的坐标系(偏移量)， rXxx方法是基于当前点坐标系(偏移量)**
-填充模式        | setFillType, getFillType, isInverseFillType, toggleInverseFillType   | 设置,获取,判断和切换填充模式
-提示方法        | incReserve      | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)**
-布尔操作(API19) | op              | 对两个Path进行布尔运算(即取交集、并集等操作)
-计算边界        | computeBounds   | 计算Path的边界
-重置路径        | reset, rewind   | 清除Path中的内容<br/> **reset不保留内部数据结构，但会保留FillType.**<br/> **rewind会保留内部的数据结构，但不保留FillType**
-矩阵操作        | transform       | 矩阵变换
+| 作用          | 相关方法                                     | 备注                                       |
+| ----------- | ---------------------------------------- | ---------------------------------------- |
+| 移动起点        | moveTo                                   | 移动下一次操作的起点位置                             |
+| 设置终点        | setLastPoint                             | 重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同   |
+| 连接直线        | lineTo                                   | 添加上一个点到当前点之间的直线到Path                     |
+| 闭合路径        | close                                    | 连接第一个点连接到最后一个点，形成一个闭合区域                  |
+| 添加内容        | addRect, addRoundRect,  addOval, addCircle, 	addPath, addArc, arcTo | 添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别) |
+| 是否为空        | isEmpty                                  | 判断Path是否为空                               |
+| 是否为矩形       | isRect                                   | 判断path是否是一个矩形                            |
+| 替换路径        | set                                      | 用新的路径替换到当前路径所有内容                         |
+| 偏移路径        | offset                                   | 对当前路径之前的操作进行偏移(不会影响之后的操作)                |
+| 贝塞尔曲线       | quadTo, cubicTo                          | 分别为二次和三次贝塞尔曲线的方法                         |
+| rXxx方法      | rMoveTo, rLineTo, rQuadTo, rCubicTo      | **不带r的方法是基于原点的坐标系(偏移量)， rXxx方法是基于当前点坐标系(偏移量)** |
+| 填充模式        | setFillType, getFillType, isInverseFillType, toggleInverseFillType | 设置,获取,判断和切换填充模式                          |
+| 提示方法        | incReserve                               | 提示Path还有多少个点等待加入**(这个方法貌似会让Path优化存储结构)** |
+| 布尔操作(API19) | op                                       | 对两个Path进行布尔运算(即取交集、并集等操作)                |
+| 计算边界        | computeBounds                            | 计算Path的边界                                |
+| 重置路径        | reset, rewind                            | 清除Path中的内容<br/> **reset不保留内部数据结构，但会保留FillType.**<br/> **rewind会保留内部的数据结构，但不保留FillType** |
+| 矩阵操作        | transform                                | 矩阵变换                                     |
 
 ## 二.Path详解
 
@@ -64,14 +63,14 @@ rXxx方法        | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是�
 以上几种类型中比较有用的就是基础型和实战型，但两者各有不足，本文会综合两者内容，从零开始学习贝塞尔曲线。
 
 ### 第一步.理解贝塞尔曲线的原理
- 
+
 此处理解贝塞尔曲线并非是学会公式的推导过程(不是推倒(ﾉ*･ω･)ﾉ)，而是要了解贝塞尔曲线是如何生成的。
 贝塞尔曲线是用一系列点来控制曲线状态的，我将这些点简单分为两类：
 
- 类型  | 作用 
--------|------
-数据点 | 确定曲线的起始和结束位置
-控制点 | 确定曲线的弯曲程度
+| 类型   | 作用           |
+| ---- | ------------ |
+| 数据点  | 确定曲线的起始和结束位置 |
+| 控制点  | 确定曲线的弯曲程度    |
 
 > 此处暂时仅作了解概念，接下来就会讲解其中详细的含义。
 
@@ -101,7 +100,7 @@ rXxx方法        | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是�
 <img src="http://chart.googleapis.com/chart?cht=tx&chl=%5Cfrac%7BAD%7D%7BAB%7D%20%3D%20%5Cfrac%7BBE%7D%7BBC%7D" style="border:none;" />
 
 ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f361oje6h1j308c0dwdg0.jpg)
- 
+
 连接DE，取点F，使得: 
 <img src="http://chart.googleapis.com/chart?cht=tx&chl=%5Cfrac%7BAD%7D%7BAB%7D%20%3D%20%5Cfrac%7BBE%7D%7BBC%7D%20%3D%20%5Cfrac%7BDF%7D%7BDE%7D" style="border:none;" />
 
@@ -131,7 +130,7 @@ rXxx方法        | rMoveTo, rLineTo, rQuadTo, rCubicTo | **不带r的方法是�
 
 #### 一阶曲线：
 
-一阶曲线是一条线段，非常简单，可以参见上一篇文章[Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md)，此处就不详细讲解了。
+一阶曲线是一条线段，非常简单，可以参见上一篇文章[Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/5%5DPath_Basic.md)，此处就不详细讲解了。
 
 #### 二阶曲线：
 
@@ -331,10 +330,10 @@ public class Bezier2 extends View {
 
 #### 降阶与升阶
 
-类型 | 释义 | 变化
------|---|---
-降阶 | 在保持曲线形状与方向不变的情况下，减少控制点数量，即降低曲线阶数 | 方法变得简单，数据点变多，控制点可能减少，灵活性变弱
-升阶 | 在保持曲线形状与方向不变的情况下，增加控制点数量，即升高曲线阶数 | 方法更加复杂，数据点不变，控制点增加，灵活性变强
+| 类型   | 释义                               | 变化                         |
+| ---- | -------------------------------- | -------------------------- |
+| 降阶   | 在保持曲线形状与方向不变的情况下，减少控制点数量，即降低曲线阶数 | 方法变得简单，数据点变多，控制点可能减少，灵活性变弱 |
+| 升阶   | 在保持曲线形状与方向不变的情况下，增加控制点数量，即升高曲线阶数 | 方法更加复杂，数据点不变，控制点增加，灵活性变强   |
 
 ### 第三步.贝塞尔曲线使用实例
 
@@ -342,12 +341,12 @@ public class Bezier2 extends View {
 
 > 需要绘制不规则图形时？ 当然不是！目前来说，我觉得使用贝塞尔曲线主要有以下几个方面(仅个人拙见，可能存在错误，欢迎指正)
 
-序号 | 内容                                          | 用例
------|-----------------------------------------------|---------
- 1   | 事先不知道曲线状态，需要实时计算时            | 天气预报气温变化的平滑折线图
- 2   | 显示状态会根据用户操作改变时                  | QQ小红点，仿真翻书效果
- 3   | 一些比较复杂的运动状态(配合PathMeasure使用)   | 复杂运动状态的动画效果 
- 
+| 序号   | 内容                           | 用例             |
+| ---- | ---------------------------- | -------------- |
+| 1    | 事先不知道曲线状态，需要实时计算时            | 天气预报气温变化的平滑折线图 |
+| 2    | 显示状态会根据用户操作改变时               | QQ小红点，仿真翻书效果   |
+| 3    | 一些比较复杂的运动状态(配合PathMeasure使用) | 复杂运动状态的动画效果    |
+
 至于只需要一个静态的曲线图形的情况，用图片岂不是更好，大量的计算会很不划算。
 
 如果是显示SVG矢量图的话，已经有相关的解析工具了(内部依旧运用的有贝塞尔曲线)，不需要手动计算。
@@ -375,15 +374,15 @@ public class Bezier2 extends View {
 #### 核心难点：
 
 ##### 1.如何得到数据点和控制点的位置？
- 
+
  关于使用绘制圆形的数据点与控制点早就已经有人详细的计算好了，可以参考stackoverflow的一个回答[How to create circle with Bézier curves?](http://stackoverflow.com/questions/1734745/how-to-create-circle-with-b%C3%A9zier-curves)其中的数据只需要拿来用即可。
- 
+
  而对于心形的数据点和控制点，可以由圆形的部分数据点和控制点平移后得到，具体参数可以自己慢慢调整到一个满意的效果。
- 
+
 ##### 2.如何达到渐变效果？
- 
+
  渐变其实就是每次对数据点和控制点稍微移动一点，然后重绘界面，在短时间多次的调整数据点与控制点，使其逐渐接近目标值，通过不断的重绘界面达到一种渐变的效果。过程可以参照下图动态效果：
- 
+
  ![](http://ww2.sinaimg.cn/large/005Xtdi2jw1f3ch74ewiig308c0e8wic.gif)
 
 #### 代码：
