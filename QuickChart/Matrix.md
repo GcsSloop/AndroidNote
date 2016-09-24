@@ -13,5 +13,7 @@
 
 ## 相关文章
 
-* [Matrix原理](http://www.gcssloop.com/2015/02/Matrix_Basic/)
-* [Matrix详解](http://www.gcssloop.com/2015/02/Matrix_Method/)
+* [安卓自定义View进阶 - Matrix原理](http://www.gcssloop.com/customview/Matrix_Basic/)
+* [安卓自定义View进阶 - Matrix详解](http://www.gcssloop.com/customview/Matrix_Method/)
+* [安卓自定义View进阶 - Matrix Camera](http://www.gcssloop.com/customview/matrix-3d-camera)
+
