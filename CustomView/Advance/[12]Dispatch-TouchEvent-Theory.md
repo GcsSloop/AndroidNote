@@ -3,9 +3,9 @@
 
 之前讲解了很多与View绘图相关的知识，你可以在 [安卓自定义View教程目录](http://www.gcssloop.com/customview/CustomViewIndex) 中查看到这些文章，如果你理解了这些文章，那么至少2D绘图部分不是难题了，大部分的需求都能满足，但是关于View还有很多知识点，例如: `让绘图更加炫酷的Paint`，`让View动起来的动画`，`与用户交互的触控事件` 等一系列内容。**本次就带大家简单的了解一下与交互息息相关的东西－事件分发原理**。
 
-> 本次魔法小火车的终点站是事件分发与拦截，请各位魔法师带好装备，准备登车启程。
+> 本次魔法小火车的终点站是事件分发，请各位魔法师带好装备，准备登车启程。
 
-**注意：本文中所有源码分析部分来源均基于 API23(Android 6.0) 版本，由于安卓系统源码改变很多，可能与之前版本有所不同，但基本流程都是一致的。**
+**注意：本文中所有源码分析部分均基于 API23(Android 6.0) 版本，由于安卓系统源码改变很多，可能与之前版本有所不同，但基本流程都是一致的。**
 
 
 
@@ -62,7 +62,7 @@
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f87juodlepj308q09ut8v.jpg)
 
-**可以看到在上面的View结构中莫名多出来的两个东西，`PhoneWindow` 和 `DockerView` ，这两个我们并没有在Layout文件中定义过，但是为什么会存在呢？**
+**可以看到在上面的View结构中莫名多出来的两个东西，`PhoneWindow` 和 `DecorView` ，这两个我们并没有在Layout文件中定义过，但是为什么会存在呢？**
 
 > 仔细观察上面的 layout 文件，你会发现一个问题，我在 layout 文件中的最顶层 View(Group) 的大小并不是填满父窗体的，留下了大量的空白区域，由于我们的手机屏幕不能透明，所以这些空白区域肯定要显示一些东西，那么应该显示什么呢？
 >
@@ -76,9 +76,8 @@
 
 > 要了解 PhoneWindow 是干啥的，首先要了解啥是 Window ，看官方说明：
 >
-> ````
 > Abstract base class for a top-level window look and behavior policy. An instance of this class should be used as the top-level view added to the window manager. It provides standard UI policies such as a background, title area, default key processing, etc.
-> ````
+>
 >
 > 简单来说，Window是一个抽象类，是所有视图的最顶层容器，视图的外观和行为都归他管，不论是背景显示，标题栏还是事件处理都是他管理的范畴，它其实就像是View界的太上皇(虽然能管的事情看似很多，但是没实权，因为抽象类不能直接使用)。
 >
@@ -87,8 +86,7 @@
 > 而上面说的 DecorView 是 PhoneWindow 的一个内部类，其职位相当于小太监，就是跟在 PhoneWindow 身边专业为 PhoneWindow 服务的，除了自己要干活之外，也负责消息的传递，PhoneWindow 的指示通过 DecorView 传递给下面的 View，而下面 View 的信息也通过 DecorView 回传给 PhoneWindow。
 
 
-
- ## 事件分发、拦截与消费
+## 事件分发、拦截与消费
 
 下表省略了 PhoneWidow 和 DecorView。
 
@@ -105,7 +103,7 @@
 
 这个三个方法均有一个 boolean(布尔) 类型的返回值，通过返回 true 和 false 来控制事件传递的流程。
 
-PS: 从上表可以看到 Activity 和 View 都是没有时间拦截机制的，这是因为：
+PS: 从上表可以看到 Activity 和 View 都是没有事件拦截的，这是因为：
 
 > Activity 作为原始的事件分发者，如果 Activity 拦截了事件会导致整个屏幕都无法响应事件，这肯定不是我们想要的效果。
 >
@@ -131,7 +129,7 @@ Activity －> PhoneWindow －> DecorView －> ViewGroup －> ... －> View
 Activity <－ PhoneWindow <－ DecorView <－ ViewGroup <－ ... <－ View
 ```
 
-**看到这里，我不禁微微一皱眉，这个东西咋看起来那么熟悉呢？再仔细一看，这不就是一个非常经典的[责任链模式](https://zh.wikipedia.org/wiki/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F)么？** 如果我能处理就拦截下来自己干，如果自己不能处理或者不确定就交给责任链中下一个对象，只不过责任链一般是单向的，而这个提供了一个反向的反馈机制。
+**看到这里，我不禁微微一皱眉，这个东西咋看起来那么熟悉呢？再仔细一看，这不就是一个非常经典的[责任链模式](https://zh.wikipedia.org/wiki/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F)吗，** 如果我能处理就拦截下来自己干，如果自己不能处理或者不确定就交给责任链中下一个对象。
 
 **这种设计是非常精巧的，上层View既可以直接拦截该事件，自己处理，也可以先询问(分发给)子View，如果子View需要就交给子View处理，如果子View不需要还能继续交给上层View处理。既保证了事件的有序性，又非常的灵活。在我第一次将这个逻辑弄清楚的时候，看着这样精妙的设计，简直想欢呼庆贺一下。**
 
@@ -172,7 +170,7 @@ Activity <－ PhoneWindow <－ DecorView <－ ViewGroup <－ ... <－ View
 >
 > 1. 事件返回时 `dispatchTouchEvent` 直接指向了父View的 `onTouchEvent` 这一部分是不合理的，实际上它仅仅是给了父View的 `dispatchTouchEvent` 一个 false 返回值，父View根据返回值来调用自身的 `onTouchEvent`。
 > 2. ViewGroup 是根据 `onInterceptTouchEvent` 的返回值来确定是调用子View的 `dispatchTouchEvent` 还是自身的 `onTouchEvent`， 并没有将调用交给 `onInterceptTouchEvent`。
-> 3. ViewGroup 的事件分发机制伪代码如下，可以看出事件分发的顺序。
+> 3. ViewGroup 的事件分发机制伪代码如下，可以看出调用的顺序。
 >
 > ```java
 > public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -204,7 +202,7 @@ RootView     [经理]: dispatchTouchEvent     呼叫技术部,老板要做�
 RootView     [经理]: onInterceptTouchEvent  (老板可能疯了,但又不是我做.)
 ViewGroupA   [组长]: dispatchTouchEvent     老板要做淘宝,下周上线?
 ViewGroupA   [组长]: onInterceptTouchEvent  (看着不太靠谱,先问问小王怎么看)
-View1        [码农]: onInterceptTouchEvent  做淘宝???
+View1        [码农]: dispatchTouchEvent     做淘宝???
 View1        [码农]: onTouchEvent           这个真心做不了啊.
 ViewGroupA   [组长]: onTouchEvent           小王说做不了.
 RootView     [经理]: onTouchEvent           报告老板, 技术部说做不了.
@@ -225,7 +223,7 @@ MainActivity [老板]: onTouchEvent           这么简单都做不了,你们�
 
 > **情景：老板: 我觉得咱们这个app按钮不好看，做的有光泽一点，要让人有一种想点的欲望。**
 >
-> **事件顺序，老板(MainActivity)要做改界面，这个事件通过各个部门(ViewGroup)一层一层的往下传，传到最底层的时候，码农小王(View1)发现很容易，就在按钮上添加了一道光。**
+> **事件顺序，老板(MainActivity)要做改界面，这个事件通过各个部门(ViewGroup)一层一层的往下传，传到最底层的时候，码农小王(View1)就在按钮上添加了一道光(为啥是小王呢？因为公司没有设计师)。**
 >
 > 可以看出，事件一旦被消费就意味着消息传递的结束，上层View知道了事件已经被消费掉，就不再处理了。
 
@@ -235,7 +233,7 @@ RootView     [经理]: dispatchTouchEvent     技术部,老板说按钮不�
 RootView     [经理]: onInterceptTouchEvent  
 ViewGroupA   [组长]: dispatchTouchEvent     给按钮加上一道光.
 ViewGroupA   [组长]: onInterceptTouchEvent  
-View1        [码农]: onInterceptTouchEvent  加一道光.
+View1        [码农]: dispatchTouchEvent     加一道光.
 View1        [码农]: onTouchEvent           做好了.
 ```
 
@@ -257,7 +255,7 @@ View1        [码农]: onTouchEvent           做好了.
 
 > **情景：老板: 报告一下项目进度。**
 >
-> **事件顺序，老板(MainActivity)要知道项目进度，这个事件通过各个部门(ViewGroup)一层一层的往下传，传到技术组组长的时候，组长上报任务即可。**
+> **事件顺序，老板(MainActivity)要知道项目进度，这个事件通过各个部门(ViewGroup)一层一层的往下传，传到技术组组长(ViewGroupA)的时候，组长(ViewGroupA)上报任务即可。无需告知码农小王(View1)。**
 
 ```
 MainActivity [老板]: dispatchTouchEvent     现在项目做到什么程度了?
@@ -268,7 +266,7 @@ ViewGroupA   [组长]: onInterceptTouchEvent
 ViewGroupA   [组长]: onTouchEvent           正在测试,明天就测试完了
 ```
 
-### 其他情形
+### 其他情况
 
 事件分发机制设计到到情形非常多，这里就不一一列举了，记住以下几条原则就行了。
 
@@ -287,9 +285,9 @@ View的事件分发机制实际上就是一个非常经典的责任链模式，�
 >
 >  当有多个对象均可以处理同一请求的时候，将这些对象串联成一条链，并沿着这条链传递改请求，直到有对象处理它为止。
 
-Android 中事件分发机制原理虽然非常简单，但由于实际运用场景非常复杂，一旦具体到某个场景中变得很麻烦，而本文仅仅是带你简单的了解一下事件分发机制，更详细的内容和具体的一些特殊情形处理会在后续文章中进行讲解。
+Android 中事件分发机制原理虽然非常简单，但由于实际场景非常复杂，一旦具体到某个场景中变得很麻烦，而本文仅仅是带你简单的了解一下事件分发机制，更详细的内容和具体的一些特殊情形处理会在后续文章中进行讲解。
 
-最后，由于个人水平有限，文章中可能会出现错误，如果你觉得哪一部分有错误，或者发现了错别字等内容，欢迎在评论区告诉我，另外，据说关注[作者微博](http://weibo.com/GcsSloop)不仅能第一时间收到新文章消息，还能变帅哦。
+由于个人水平有限，文章中可能会出现错误，如果你觉得哪一部分有错误，或者发现了错别字等内容，欢迎在评论区告诉我，另外，据说关注[作者微博](http://weibo.com/GcsSloop)不仅能第一时间收到新文章消息，还能变帅哦。
 
 
 
@@ -304,7 +302,7 @@ Android 中事件分发机制原理虽然非常简单，但由于实际运用场
 [ Android事件分发机制完全解析，带你从源码的角度彻底理解(上)](http://blog.csdn.net/guolin_blog/article/details/9097463)<br/>
 [ Android事件分发机制完全解析，带你从源码的角度彻底理解(下)](http://blog.csdn.net/sinyu890807/article/details/9153747)<br/>
 [更简单的学习Android事件分发](http://www.idtkm.com/customview/customview11/)<br/>
-
+《安卓开发艺术探索》
 
 
 
