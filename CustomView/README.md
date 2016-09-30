@@ -40,6 +40,7 @@
 <p align="center">
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B10%5DMatrix_Method.md" target="_blank"><img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f74cxajh7mj30rs0dwwhc.jpg" width=285 /></a>
 <a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B11%5DMatrix_3D_Camera.md" target="_blank"><img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f7tsr18hbjj30rs0dwn01.jpg" width=285 /></a>
+<a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B12%5DDispatch-TouchEvent-Theory.md" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2jw1f8c631ysrej30rs0dwn03.jpg" width=285 /></a>
 </p>
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
