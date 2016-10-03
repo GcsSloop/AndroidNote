@@ -45,6 +45,12 @@
 * [用JitPack发布时附加文档和源码](https://github.com/GcsSloop/AndroidNote/blob/master/Course/jitpack-javadoc.md)
 
 ******
+
+## Tips
+
+* [ArrayList与LinkedList遍历性能比较](https://github.com/GcsSloop/AndroidNote/blob/magic-world/ChaosCrystal/List%E9%81%8D%E5%8E%86%E6%80%A7%E8%83%BD.md)
+
+******
  
 ## [速查表](https://github.com/GcsSloop/AndroidNote/tree/master/QuickChart/README.md)
 
