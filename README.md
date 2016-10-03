@@ -49,6 +49,7 @@
 ## Tips
 
 * [ArrayList与LinkedList遍历性能比较](https://github.com/GcsSloop/AndroidNote/blob/magic-world/ChaosCrystal/List%E9%81%8D%E5%8E%86%E6%80%A7%E8%83%BD.md)
+* [程序员不可不知的版权协议](https://github.com/GcsSloop/AndroidNote/blob/magic-world/ChaosCrystal/%E5%BC%80%E6%BA%90%E5%85%B1%E4%BA%AB%E5%8D%8F%E8%AE%AE.md)
 
 ******
  
