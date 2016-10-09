@@ -1,5 +1,7 @@
 ## CheckView源代码
 
+[下载代码 ( 右键 -> 另存为 )](https://raw.githubusercontent.com/GcsSloop/AndroidNote/master/CustomView/Advance/Code/CheckView.java)
+
 ``` java
 package com.sloop.canvas;
 
