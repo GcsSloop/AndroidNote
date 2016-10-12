@@ -2,6 +2,8 @@
 
 ## SetPolyToPoly.java
 
+[下载代码 (右键 -> 另存为)](https://raw.githubusercontent.com/GcsSloop/AndroidNote/master/CustomView/Advance/Code/SetPolyToPoly.java)
+
 ```java
 public class SetPolyToPoly extends View{
     private static final String TAG = "SetPolyToPoly";
