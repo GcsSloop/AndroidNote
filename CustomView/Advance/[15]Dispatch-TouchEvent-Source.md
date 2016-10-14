@@ -63,7 +63,7 @@ A: **如果不去看源码，想一下让自己设计会怎样？**
 
 * 单击事件(onClickListener) 需要两个两个事件(ACTION_DOWN 和 ACTION_UP )才能触发，如果先分配给onClick判断，等它判断完，用户手指已经离开屏幕，黄花菜都凉了，定然造成 View 无法响应其他事件，应该最后调用。(最后)
 * 长按事件(onLongClickListener) 同理，也是需要长时间等待才能出结果，肯定不能排到前面，但因为不需要ACTION_UP，应该排在 onClick 前面。(onLongClickListener > onClickListener)
-* 触摸事件(onTouchListener) 如果用户注册了触摸事件，说明用户要自己处理触摸时间了，这个应该排在最前面。(最前)
+* 触摸事件(onTouchListener) 如果用户注册了触摸事件，说明用户要自己处理触摸事件了，这个应该排在最前面。(最前)
 * View自身处理(onTouchEvent) 提供了一种默认的处理方式，如果用户已经处理好了，也就不需要了，所以应该排在 onClickListener 后面。(onClickListener > onTouchListener)
 
 **所以事件的调度顺序应该是 `onTouchListener > onTouchEvent > onLongClickListener > onClickListener`**。
