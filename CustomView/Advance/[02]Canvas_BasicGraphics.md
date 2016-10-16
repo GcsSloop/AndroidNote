@@ -476,12 +476,12 @@ public class PieView extends View {
     // 设置数据
     public void setData(ArrayList<PieData> mData) {
         this.mData = mData;
-        initDate(mData);
+        initData(mData);
         invalidate();   // 刷新
     }
 
     // 初始化数据
-    private void initDate(ArrayList<PieData> mData) {
+    private void initData(ArrayList<PieData> mData) {
         if (null == mData || mData.size() == 0)   // 数据有问题 直接返回
             return;
 
