@@ -82,6 +82,8 @@ RGB 从0x00到0xff表示颜色从浅到深。
 
 ``` java
   int color = getResources().getColor(R.color.mycolor);
+  int color = getColor(R.color.myColor);  //23及以上支持这个方法,不顾考虑国内的情况,并没有什么卵用,说一下.
+	
 ```
 
 ### 4.在xml文件(layout或style)中引用或者创建颜色
