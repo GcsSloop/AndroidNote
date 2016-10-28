@@ -45,6 +45,9 @@
 * [优雅的发布Android开源库(论JitPack的优越性)](https://github.com/GcsSloop/AndroidNote/blob/master/Course/ReleaseLibraryByJitPack.md)
 * [用JitPack发布时附加文档和源码](https://github.com/GcsSloop/AndroidNote/blob/master/Course/jitpack-javadoc.md)
 
+* [Markdown 快速入门](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-start.md)
+* [Markdown 基础语法](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-grammar.md)
+
 ******
 
 ## Tips
