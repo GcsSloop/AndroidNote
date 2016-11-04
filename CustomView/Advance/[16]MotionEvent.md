@@ -1,4 +1,4 @@
-#  Android MotionEvent 详解
+# MotionEvent 详解
 
 Android MotionEvent 详解，之前用了两篇文章 [事件分发机制原理][customview/dispatch-touchevent-theory] 和 [事件分发机制详解][customview/dispatch-touchevent-source] 来讲解事件分发，而作为事件分发主角之一的 MotionEvent 并没有过多的说明，本文就带大家了解 MotionEvent 的相关内容，简要介绍触摸事件，主要包括 单点触控、多点触控、鼠标事件 以及 getAction() 和 getActionMasked() 的区别。
 
@@ -47,8 +47,8 @@ MotionEvent 负责集中处理所有类型设备的输入事件，但是由于�
 
 **手指落下(ACTION_DOWN) －> 多次移动(ACTION_MOVE) －> 离开(ACTION_UP)**  
 
-> - 本次事例中 ACTION_MOVE 有多次触发。
-> - 如果仅仅是单击(手指按下再抬起)，不会触发 ACTION_MOVE。
+> * 本次事例中 ACTION_MOVE 有多次触发。
+> * 如果仅仅是单击(手指按下再抬起)，不会触发 ACTION_MOVE。
 
 ![单点触摸事件流程](http://ww4.sinaimg.cn/large/005Xtdi2jw1f8oz1704ylg30bo0jqgmx.gif)
 
@@ -83,6 +83,8 @@ public boolean onTouchEvent(MotionEvent event) {
 
 但其中有两个比较特殊的事件:  `ACTION_CANCEL` 和  `ACTION_OUTSIDE` 。  
 为什么说特殊呢，因为它们是由程序触发而产生的，而且触发条件也非常特殊，通常情况下即便不处理这两个事件也没有什么问题。接下来我们就扒一扒它们的真面目:
+
+
 
 ### ACTION_CANCEL
 
@@ -188,6 +190,21 @@ int类型共32位(0x00000000)，他们用最低8位(0x000000**ff**)表示事件�
 **2、单点触控时由于事件数值不变，使用 `getAction()` 和 `getActionMasked()` 两个方法都可以。**  
 **3、使用 getActionIndex() 可以获取到这个index数值。不过请注意，getActionIndex() 只在 down 和 up 时有效，move 时是无效的。**
 
+目前来说获取事件类型使用 `getActionMasked()` 就行了，但是如果一定要编译时兼容古董版本的话，可以考虑使用这样的写法:
+
+```java
+final int action = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO)
+                ? event.getActionMasked()
+                : event.getAction();
+switch (action){
+    case MotionEvent.ACTION_DOWN:
+        // TODO
+        break;
+}
+```
+
+
+
 ### PointId
 
 虽然前面刚刚说了一个 actionIndex，可以使用 getActionIndex() 获得，但通过 actionIndex 字面意思知道，这个只表示事件的序号，而且根据其说明文档解释，这个 ActionIndex 只有在手指按下(down)和抬起(up)时是有用的，在移动(move)时是没有用的，事件追踪非常重要的一环就是移动(move)，然而它却没卵用，这也太不实在了 (￣Д￣)ﾉ
@@ -240,6 +257,50 @@ void printSamples(MotionEvent ev) {
 ```
 
 
+
+## 获取事件发生的时间
+
+获取事件发生的时间。
+
+| 方法                              | 简介           |
+| ------------------------------- | ------------ |
+| getDownTime()                   | 获取手指按下时的时间。  |
+| getEventTime()                  | 获取当前事件发生的时间。 |
+| getHistoricalEventTime(int pos) | 获取历史事件发生的时间。 |
+
+> 1. pos 表示历史数据中的第几个数据。( pos < getHistorySize() )
+> 2. 返回值类型为 long，单位是毫秒。
+
+## 获取压力(接触面积大小)
+
+MotionEvent支持获取某些输入设备(手指或触控笔)的与屏幕的接触面积和压力大小，主要有以下方法：
+
+> 描述中使用了手指，触控笔也是一样的。
+
+| 方法                                       | 简介                           |
+| ---------------------------------------- | ---------------------------- |
+| getSize ()                               | 获取第1个手指与屏幕接触面积的大小            |
+| getSize (int pin)                        | 获取第pin个手指与屏幕接触面积的大小          |
+| getHistoricalSize (int pos)              | 获取历史数据中第1个手指在第pos次事件中的接触面积   |
+| getHistoricalSize (int pin, int pos)     | 获取历史数据中第pin个手指在第pos次事件中的接触面积 |
+| getPressure ()                           | 获取第一个手指的压力大小                 |
+| getPressure (int pin)                    | 获取第pin个手指的压力大小               |
+| getHistoricalPressure (int pos)          | 获取历史数据中第1个手指在第pos次事件中的压力大小   |
+| getHistoricalPressure (int pin, int pos) | 获取历史数据中第pin个手指在第pos次事件中的压力大小 |
+
+> 1. pin 全称是 pointerIndex，表示第几个手指。(pin < getPointerCount() )
+> 2. pos 表示历史数据中的第几个数据。( pos < getHistorySize() )
+
+**注意：**
+
+**1、获取接触面积大小和获取压力大小是需要硬件支持的。**  
+**2、非常不幸的是大部分设备所使用的电容屏不支持压力检测，但能够大致检测出接触面积。**  
+**3、大部分设备的 `getPressure()` 是使用接触面积来模拟的。**  
+**4、由于某些未知的原因(可能系统版本和硬件问题)，某些设备不支持该方法。**
+
+我用不同的设备对这两个方法进行了测试，然而不同设备测试出来的结果不相同，之后经过我多方查证，发现是系统问题，有的设备上只有 `getSize()` 能用，有的设备上只有 `getPressure()` 能用，而有的则两个都不能用。
+
+**由于获取接触面积和获取压力大小受系统和硬件影响，使用的时候一定要进行数据检测，以防因为设备问题而导致程序出错。**
 
 
 
