@@ -92,7 +92,7 @@ public boolean onTouchEvent(MotionEvent event) {
 
 **事实上，只有上层 View 回收事件处理权的时候，ChildView 才会收到一个 `ACTION_CANCEL` 事件。**
 
-这样说可能不太容易不理解，咱举个例子? 
+这样说可能不太容易理解，咱举个例子? 
 
 ![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f9auctayt4j302s03o744.jpg)
 
