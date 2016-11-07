@@ -6,7 +6,7 @@
 
 > #### PS:点击分类标题可以查看该分类的详细信息。 
 
-## [博客](http://www.gcssloop.com/#blog)
+## [博客](http://www.gcssloop.com/#blog "GcsSloop的博客")
 
 新开的博客，在博客中可以获得更好的阅读体验，同时在博客的评论区可以更及时的向我反馈文章中的问题。
 
