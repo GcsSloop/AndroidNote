@@ -21,6 +21,33 @@ public class SearchView extends View {
     private int mViewWidth;
     private int mViewHeight;
 
+    public SearchView(Context context) {
+        this(context,null);
+    }
+
+    public SearchView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initAll();
+    }
+
+    public void initAll() {
+
+        initPaint();
+
+        initPath();
+
+        initListener();
+
+        initHandler();
+
+        initAnimator();
+
+        // 进入开始动画
+        mCurrentState = State.STARTING;
+        mStartingAnimator.start();
+
+    }
+
     // 这个视图拥有的状态
     public static enum State {
         NONE,
@@ -62,24 +89,7 @@ public class SearchView extends View {
 
     private int count = 0;
 
-    public SearchView(Context context) {
-        super(context);
 
-        initPaint();
-
-        initPath();
-
-        initListener();
-
-        initHandler();
-
-        initAnimator();
-
-        // 进入开始动画
-        mCurrentState = State.STARTING;
-        mStartingAnimator.start();
-
-    }
 
     private void initPaint() {
         mPaint = new Paint();
