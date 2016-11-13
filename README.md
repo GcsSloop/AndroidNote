@@ -16,7 +16,7 @@
 
 <p id="custom_view" />
 ## [自定义View](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
- 
+
 * 基础篇
     * [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B01%5DCoordinateSystem.md)
     * [安卓自定义View基础 - 角度弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B02%5DAngleAndRadian.md)
@@ -53,6 +53,7 @@
 
 * [Markdown 快速入门](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-start.md)  
 * [Markdown 基础语法](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-grammar.md)
+* [Markdown 基础语法](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-grammar.md)
 
 ******
 
@@ -62,7 +63,7 @@
 * [程序员不可不知的版权协议](https://github.com/GcsSloop/AndroidNote/blob/magic-world/ChaosCrystal/%E5%BC%80%E6%BA%90%E5%85%B1%E4%BA%AB%E5%8D%8F%E8%AE%AE.md)
 
 ******
- 
+
 ## [速查表](https://github.com/GcsSloop/AndroidNote/tree/master/QuickChart/README.md)
 
 * [Canvas常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Canvas.md)
