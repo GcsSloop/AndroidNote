@@ -36,6 +36,7 @@
     * [安卓自定义View进阶 - 事件分发机制原理](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B12%5DDispatch-TouchEvent-Theory.md)
     * [安卓自定义View进阶 - 事件分发机制详解](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B15%5DDispatch-TouchEvent-Source.md)
     * [安卓自定义View进阶 - MotionEvent详解](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B16%5DMotionEvent.md)
+    * [安卓自定义View进阶 - 特殊形状控件事件处理方案](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B17%5Dtouch-matrix-region.md)
 
 
 ******
