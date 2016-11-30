@@ -22,15 +22,16 @@ AtomicFile 在 `android.support.v4.util` 包下，**是一个与文件相关的�
 
 ## 主要方法
 
-|        ~         | AtomicFile(File baseName) <br/> 构造方法，通过File创建AtomicFile |
-| :--------------: | ---------------------------------------- |
-| FileOutputStream | startWrite() <br/> 准备写文件，获得一个向文件写入的字节流(FileOutputStream)。 |
-|       void       | finishWrite(FileOutputStream str) <br/> 写入完毕时调用。 |
-|       void       | failWrite(FileOutputStream str) <br/> 写入失败时调用。 |
-| FileInputStream  | openRead() <br/> 准备读取文件，获得一个从文件读取的字节流(FileInputStream)。 |
-|      byte[]      | readFully() <br/> 将文件中所有内容读取出来用 byte 数组返回，相当于更方便的 openRead 方法。 |
-|       File       | getBaseFile() <br/> 获得原文件地址。             |
-|       void       | delete() <br/> 删除 AtomicFile，包括原文件和备份文件。 |
+|         返回值          | 方法名称和简介                                  |
+| :------------------: | ---------------------------------------- |
+|                      | **AtomicFile(File baseName)** <br/> 构造方法，通过File创建AtomicFile |
+| **FileOutputStream** | **startWrite()** <br/> 准备写文件，获得一个向文件写入的字节流(FileOutputStream)。 |
+|       **void**       | **finishWrite(FileOutputStream str)** <br/> 写入完毕时调用。 |
+|       **void**       | **failWrite(FileOutputStream str)** <br/> 写入失败时调用。 |
+| **FileInputStream**  | **openRead()** <br/> 准备读取文件，获得一个从文件读取的字节流(FileInputStream)。 |
+|      **byte[]**      | **readFully()** <br/> 将文件中所有内容读取出来用 byte 数组返回，相当于更方便的 openRead 方法。 |
+|       **File**       | **getBaseFile()** <br/> 获得原文件地址。         |
+|       **void**       | **delete()** <br/> 删除 AtomicFile，包括原文件和备份文件。 |
 
 ## AtomicFile 原理
 
