@@ -21,7 +21,8 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 ```
 **监听返回按钮事件**
 
-> 它的 id 是 home，可以使用重载 `onOptionsItemSelected` 的方式进行监听。
+> 它的 id 是 home，可以使用重载 `onOptionsItemSelected` 的方式进行监听。  
+> 让点击按钮的时候不是重新打开父 Activity，而是结束当前 Activity。
 
 ``` java
 @Override
