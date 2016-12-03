@@ -13,7 +13,7 @@
 ```
 在 onCrate 中设置
 
-```
+``` java
 // 3.0+ 
 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // If your minSdkVersion is 11 or higher, instead use:
