@@ -1,6 +1,6 @@
 # 为 ActionBar 添加返回按钮
 
-在 AndroidManifest.xml 文件中配置
+**在 AndroidManifest.xml 文件中配置**
 
 ``` xml
 <activity android:name="com.gcssloop.test.viewsupport.TestCustomViewActivity"
@@ -11,7 +11,7 @@
     android:value="com.gcssloop.test.MainActivity" />
 </activity>
 ```
-在 onCrate 中设置
+**在 onCrate 中设置**
 
 ``` java
 // 3.0+ 
@@ -19,7 +19,7 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // If your minSdkVersion is 11 or higher, instead use:
 // getActionBar().setDisplayHomeAsUpEnabled(true);
 ```
-监听返回按钮事件
+**监听返回按钮事件**
 
 > 它的 id 是 home，可以使用重载 `onOptionsItemSelected` 的方式进行监听。
 
