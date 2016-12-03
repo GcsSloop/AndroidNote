@@ -22,6 +22,7 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 监听返回按钮事件
 
 > 它的 id 是 home，可以使用重载 `onOptionsItemSelected` 的方式进行监听。
+
 ``` java
 @Override
 public boolean onOptionsItemSelected(MenuItem item)
