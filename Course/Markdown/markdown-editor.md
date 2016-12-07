@@ -1,6 +1,6 @@
 # Markdown实用技巧－编辑器(Typora)
 
-本次的安利对象是一个 Markdown 编辑器，是会长[^1]见过的最简单，最优雅的编辑器，先来看一下它的界面吧：
+本次的安利对象是一个 Markdown 编辑器，是会长见过的最简单，最优雅的编辑器，先来看一下它的界面吧：
 
 ![QQ20161207-0](http://ww3.sinaimg.cn/large/006y8lVajw1fahmo8d9udj30ph0brgo0.jpg)
 
@@ -28,7 +28,7 @@
 
 虽然上面的内容在其他编辑器上也可以见到，但做到这么完善的并不多，想要尝试的小伙伴赶紧来试试吧，相信你也会爱上它的。
 
-#### [点击这里进入 Typora 官网](http://www.typora.io/){:target="_blank"} 
+#### [点击这里进入 Typora 官网](http://www.typora.io/) 
 
 既然 Typora 这么好，为什么不在一开始就推荐呢，这是因为在 Markdown 系列文章第一篇发布的时候，Typora 还有一些小瑕疵(HTML语法兼容部分)让会长不满意，所以只是放在了推荐首位，在最近更新了新版本之后，这一部分已经修复完善了，基本算是完美了，所以会长我才特地写一篇文章来推荐。
 
@@ -66,7 +66,7 @@ Trpora 也用到了这一特性，点击 `File > Revert To > Browse All Versions
 
 但是，当一篇文章需要插入很多图片的时候，一次次的上传，一次次的复制链接，一次次的粘贴，也是很麻烦的，虽然有一些脚本可以通过快捷键进行上传，但终归还是多了一些步骤，很不方便，而且对新手很不友好，更何况很多新手根本不知道图床所谓何物。
 
-这时候就要祭出 Mac 上另一个神器了: iPic [(点击此处进行下载)](https://itunes.apple.com/cn/app/ipic-tu-chuang-shen-qi-zhong/id1101244278?mt=12){:target="_blank"}，它是一个专业图床管理工具，貌似出来还没多久，目前免费版只能上传到微博图床，专业版支持大部分图床，专业版一年 30RMB，如果经常使用的话，倒也不算贵。
+这时候就要祭出 Mac 上另一个神器了: iPic [(点击此处进行下载)](https://itunes.apple.com/cn/app/ipic-tu-chuang-shen-qi-zhong/id1101244278?mt=12)，它是一个专业图床管理工具，貌似出来还没多久，目前免费版只能上传到微博图床，专业版支持大部分图床，专业版一年 30RMB，如果经常使用的话，倒也不算贵。
 
 **话说不还是要用图床么？**
 
@@ -93,11 +93,11 @@ Trpora 也用到了这一特性，点击 `File > Revert To > Browse All Versions
 * 如果图床上的图片丢失，可以从快速从本地备份中找到并恢复。
 
 
-关于 Typora 的推荐内容暂时就到这里结束啦，更多关于 Typora 的多详情请参阅 [Support](http://support.typora.io/){:target="_blank"}。关于 Markdown 的更多内容请参见之前的文章:
+关于 Typora 的推荐内容暂时就到这里结束啦，更多关于 Typora 的多详情请参阅 [Support](http://support.typora.io/)。关于 Markdown 的更多内容请参见之前的文章:
 
-[Markdown实用技巧－快速入门](https://www.gcssloop.com/markdown/markdown-start){:target="_blank"}  
-[Markdown实用技巧－基础语法](https://www.gcssloop.com/markdown/markdown-grammar){:target="_blank"}  
-[Markdown实用技巧－链接和图片](https://www.gcssloop.com/markdown/markdown-links){:target="_blank"}   
+[Markdown实用技巧－快速入门](https://www.gcssloop.com/markdown/markdown-start)  
+[Markdown实用技巧－基础语法](https://www.gcssloop.com/markdown/markdown-grammar)  
+[Markdown实用技巧－链接和图片](https://www.gcssloop.com/markdown/markdown-links)   
 
 ## 结语
 
@@ -107,18 +107,14 @@ Trpora 也用到了这一特性，点击 `File > Revert To > Browse All Versions
 
 本文中涉及到的两个软件下载地址：
 
-[**Typora**](http://www.typora.io/){:target="_blank"}  
-[**iPic**](https://itunes.apple.com/cn/app/id1101244278?ls=1&mt=12){:target="_blank"}
+[**Typora**](http://www.typora.io/)  
+[**iPic**](https://itunes.apple.com/cn/app/id1101244278?ls=1&mt=12)
 
-**最后留一个课后作业，关注会长的 [新浪微博](http://weibo.com/GcsSloop){:target="_blank"} 。**
+**最后留一个课后作业，关注会长的 [新浪微博](http://weibo.com/GcsSloop) 。**
 
 ## About Me
 
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
 
 <a href="http://www.gcssloop.com/info/about" target="_blank"><img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width="300" style="display:inline;" /></a>
-
-[^1]: 会长，就是 GcsSloop 我啦，因为创建了一个名为魔法师协会的交流群，所以自称会长，想要加入魔法师协会的魔法师可以加我的微信 `GcsSloop`，备注加群或者私信我，我会邀请你加入魔法师的大家庭。
-
-
 
