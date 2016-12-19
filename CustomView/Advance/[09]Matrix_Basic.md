@@ -471,7 +471,7 @@ Log.e(TAG, "MatrixTest" + matrix.toShortString());
 
 他们结果相同是因为最终化简公式是相同的，都是 S*T
 
-之所以平移距离是 MTRANS\\_X = 500，MTRANS\\_Y = 800，那是因为执行 Translate 之前 Matrix 已经具有了一个缩放比例。在右乘的时候影响到了具体的数值计算，可以用矩阵乘法计算一下。
+之所以平移距离是 MTRANS\_X = 500，MTRANS\_Y = 800，那是因为执行 Translate 之前 Matrix 已经具有了一个缩放比例。在右乘的时候影响到了具体的数值计算，可以用矩阵乘法计算一下。
 
 ![](http://latex.codecogs.com/png.latex?$$
 \\left [ 
@@ -488,8 +488,7 @@ Log.e(TAG, "MatrixTest" + matrix.toShortString());
 0 & 1 & 1000 \\\\
 0 & 0 & 1
 \\end{1} 
-\\right ] 
-= 
+\\right ] = 
 \\left [ 
 \\begin{matrix} 
 0.5*1+0*0+0*0 & 0.5*0+0*1+0*0 & 0.5*1000+0*1000+0*1\\\\
