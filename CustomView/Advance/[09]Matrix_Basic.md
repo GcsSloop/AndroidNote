@@ -269,11 +269,7 @@ y\\\\
 \\begin{matrix} 
 cos(\\theta) & -sin(\\theta) &  0 \\\\
 sin(\\theta) & cos(\\theta)  &  0 \\\\
-
-```
   0      &       0       &  1
-```
-
 \\end{1} 
 \\right ] 
  . 
@@ -461,61 +457,61 @@ M‘ = T*(M*R) = T*M*R = (T*M)*R
 > ~~在上面例子中，计算顺序是没有问题的，先计算的缩放，然后计算的平移，而缩放影响到平移则是因为前一步缩放后的结果矩阵右乘了平移矩阵，这是符合矩阵乘法的运算规律的，也就是说缩放操作虽然在前却影响到了平移操作，**相当于先执行了平移操作，然后执行的缩放操作，因此才有pre操作会先执行，而post操作会后执行这一说法**。~~
 >
 > ------
->
-> 上面的论证是完全错误的，因为可以轻松举出反例：
->
-> ```java
-> Matrix matrix = new Matrix();
-> matrix.preScale(0.5f, 0.8f);
-> matrix.preTranslate(1000, 1000);
-> Log.e(TAG, "MatrixTest" + matrix.toShortString());
-> ```
->
-> 反例中，虽然将 `postScale` 改为了 `preScale` ，但两者结果是完全相同的，所以先后论根本就是错误的。
->
-> 他们结果相同是因为最终化简公式是相同的，都是 S*T
->
-> 之所以平移距离是 MTRANS\\_X = 500，MTRANS\\_Y = 800，那是因为执行 Translate 之前 Matrix 已经具有了一个缩放比例。在右乘的时候影响到了具体的数值计算，可以用矩阵乘法计算一下。
->
-> ![](http://latex.codecogs.com/png.latex?$$
-> \\left [ 
-> \\begin{matrix} 
-> 0.5 & 0 & 0 \\\\
-> 0 & 0.8 & 0 \\\\
-> 0 & 0 & 1
-> \\end{1} 
-> \\right ]  
-> \\cdot 
-> \\left [ 
-> \\begin{matrix} 
-> 1 & 0 & 1000 \\\\
-> 0 & 1 & 1000 \\\\
-> 0 & 0 & 1
-> \\end{1} 
-> \\right ] 
-> = 
-> \\left [ 
-> \\begin{matrix} 
-> 0.5*1+0*0+0*0 & 0.5*0+0*1+0*0 & 0.5*1000+0*1000+0*1\\\\
-> 0*1+0.8*0+0*0 & 0*0+0.8*1+0*1 & 0*1000+0.8*1000+0*1\\\\
-> 0*1+0*0+1*0   & 0*0+0*1+1*0   & 0*1000+0*1000+1*1
-> \\end{1} 
-> \\right ]
-> $$)
->
-> 最终结果为：
->
-> ![](http://latex.codecogs.com/png.latex?$$
-> \\left [ 
-> \\begin{matrix} 
-> 0.5 & 0   & 500\\\\
-> 0   & 0.8 & 800\\\\
-> 0   & 0   & 1
-> \\end{1} 
-> \\right ]
-> $$)
->
-> 当 T*S 的时候，缩放比例则不会影响到 MTRANS\\_X 和 MTRANS\\_Y ，具体可以使用矩阵乘法自己计算一遍。
+
+上面的论证是完全错误的，因为可以轻松举出反例：
+
+```java
+Matrix matrix = new Matrix();
+matrix.preScale(0.5f, 0.8f);
+matrix.preTranslate(1000, 1000);
+Log.e(TAG, "MatrixTest" + matrix.toShortString());
+```
+
+反例中，虽然将 `postScale` 改为了 `preScale` ，但两者结果是完全相同的，所以先后论根本就是错误的。
+
+他们结果相同是因为最终化简公式是相同的，都是 S*T
+
+之所以平移距离是 MTRANS\\_X = 500，MTRANS\\_Y = 800，那是因为执行 Translate 之前 Matrix 已经具有了一个缩放比例。在右乘的时候影响到了具体的数值计算，可以用矩阵乘法计算一下。
+
+![](http://latex.codecogs.com/png.latex?$$
+\\left [ 
+\\begin{matrix} 
+0.5 & 0 & 0 \\\\
+0 & 0.8 & 0 \\\\
+0 & 0 & 1
+\\end{1} 
+\\right ]  
+\\cdot 
+\\left [ 
+\\begin{matrix} 
+1 & 0 & 1000 \\\\
+0 & 1 & 1000 \\\\
+0 & 0 & 1
+\\end{1} 
+\\right ] 
+= 
+\\left [ 
+\\begin{matrix} 
+0.5*1+0*0+0*0 & 0.5*0+0*1+0*0 & 0.5*1000+0*1000+0*1\\\\
+0*1+0.8*0+0*0 & 0*0+0.8*1+0*1 & 0*1000+0.8*1000+0*1\\\\
+0*1+0*0+1*0   & 0*0+0*1+1*0   & 0*1000+0*1000+1*1
+\\end{1} 
+\\right ]
+$$)
+
+最终结果为：
+
+![](http://latex.codecogs.com/png.latex?$$
+\\left [ 
+\\begin{matrix} 
+0.5 & 0   & 500\\\\
+0   & 0.8 & 800\\\\
+0   & 0   & 1
+\\end{1} 
+\\right ]
+$$)
+
+当 T*S 的时候，缩放比例则不会影响到 MTRANS\\_X 和 MTRANS\\_Y ，具体可以使用矩阵乘法自己计算一遍。
 
 ## 如何理解和使用 pre 和 post ？
 
