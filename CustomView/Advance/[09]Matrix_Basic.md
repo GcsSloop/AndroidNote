@@ -15,7 +15,7 @@
 ![](http://latex.codecogs.com/png.latex?$$
 \\left [ 
 \\begin{matrix} 
-MSCALE\\_X & MSKEW\\_X & MTRANS\\_X \\
+MSCALE\\_X & MSKEW\\_X & MTRANS\\_X \\\\
 \\
 MSKEW\\_Y & MSCALE\\_Y & MTRANS\\_Y \\
 \\
