@@ -17,7 +17,7 @@
 \\begin{matrix} 
 MSCALE\\_X & MSKEW\\_X & MTRANS\\_X \\\\
 \\
-MSKEW\\_Y & MSCALE\\_Y & MTRANS\\_Y \\
+MSKEW\\_Y & MSCALE\\_Y & MTRANS\\_Y \\\\
 \\
 MPERSP\\_0 & MPERSP\\_1 & MPERSP\\_2 
 \\end{1} 
