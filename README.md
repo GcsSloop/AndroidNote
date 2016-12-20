@@ -8,7 +8,7 @@
 
 ## [博客](http://www.gcssloop.com/#blog "GcsSloop的博客")
 
-新开的博客，在博客中可以获得更好的阅读体验，同时在博客的评论区可以更及时的向我反馈文章中的问题。
+我的个人博客，在博客中可以获得更好的阅读体验，同时在博客的评论区可以更及时的向我反馈文章中的问题。
 
 <a href="http://www.gcssloop.com/#blog" target="_blank"> <img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f70uy1873sj315o0dwae0.jpg" width="300"/> </a>
 
