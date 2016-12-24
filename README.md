@@ -39,6 +39,8 @@
     * [安卓自定义View进阶 - 特殊形状控件事件处理方案](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B17%5Dtouch-matrix-region.md)
 
 
+* [ViewSupport - 自定义View工具包](https://github.com/GcsSloop/ViewSupport)
+
 ******
 
 ## [教程类](https://github.com/GcsSloop/AndroidNote/tree/master/Course/README.md)
@@ -90,7 +92,6 @@
 ## 开源库
 
 * [FontsManager - 快速替换字体](https://github.com/GcsSloop/FontsManager)
-* [ViewSupport - 自定义View工具包](https://github.com/GcsSloop/ViewSupport)
 * [Rocker － 自定义摇杆](https://github.com/GcsSloop/Rocker)
 * [LeafLoading － 进度条](https://github.com/GcsSloop/LeafLoading)
 * [Rotate3dAnimation - 3D旋转动画(修正版)](https://github.com/GcsSloop/Rotate3dAnimation)
