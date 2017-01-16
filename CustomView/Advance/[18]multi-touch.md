@@ -144,7 +144,7 @@ int action = event.getAction() & MotionEvent.ACTION_MASK;
 这个非常简单，ACTION_MASK=0x000000ff， 与 getAction() 进行按位与操作后保留最后8位内容(十六进制每一个字符转化为二进制是4位)。 
 
 例如：  
-0x000001**05** & 0x000000ff = 0x000000**01**
+0x000001**05** & 0x000000ff = 0x000000**05**
 
 **取得事件索引(index)**
 
