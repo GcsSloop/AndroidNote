@@ -132,6 +132,11 @@
 * 商业用途请点击最下面图片联系本人。
 * 微信公众号转载一律不授权 `原创` 标志。
 
+## 交流群
+
+QQ群：612310796
+微信群：加我个人微信 GcsSloop，备注加群。
+
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
 <a href="http://www.gcssloop.com/info/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width="300"/> </a>
