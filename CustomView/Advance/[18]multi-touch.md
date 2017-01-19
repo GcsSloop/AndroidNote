@@ -568,7 +568,7 @@ public class DragView extends CustomView {
 }
 ```
 
-可以看到，比起上一个版本并么有多多少代码，但是更加“智能”了，可以准确识别某一个手指，不会因为手指抬起而认错手指。
+可以看到，比起上一个版本，只添加了少量代码，就变得更加“智能”了，可以准确识别某一个手指，不会因为手指抬起而认错手指。
 
 ![dragview2](http://ww2.sinaimg.cn/large/006y8lVagw1fbs1vmwpu4g308c0d4nf9.gif)
 
