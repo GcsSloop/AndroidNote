@@ -97,6 +97,12 @@
 * [LeafLoading － 进度条](https://github.com/GcsSloop/LeafLoading)
 * [Rotate3dAnimation - 3D旋转动画(修正版)](https://github.com/GcsSloop/Rotate3dAnimation)
 
+------
+
+## 源码解析
+
+- [AtomicFile 源码解析](https://github.com/GcsSloop/AndroidNote/blob/master/SourceAnalysis/AtomicFile.md)
+
 ## 传送门
 
 通往异世界的传送门，请谨慎使用。
