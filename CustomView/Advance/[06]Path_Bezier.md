@@ -122,7 +122,7 @@
 
 > **PS: 三阶曲线对应的方法是cubicTo**
 
-#### [贝塞尔曲线速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bessel.md)
+#### [贝塞尔曲线速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bezier.md)
 
 #### 强烈推荐[点击这里](http://bezier.method.ac/)练习贝塞尔曲线，可以加深对贝塞尔曲线的理解程度。
 
