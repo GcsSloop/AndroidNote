@@ -12,7 +12,7 @@
 
 它看起来大概是下面这样:
 
-![](https://ww1.sinaimg.cn/large/006tKfTcly1fdz72rjfnjj30ak01yglo.jpg)
+![](http://ww1.sinaimg.cn/large/006tKfTcly1fdz72rjfnjj30ak01yglo.jpg)
 
 **Matrix作用就是坐标映射，那么为什么需要Matrix呢? 举一个简单的例子:**
 
@@ -65,11 +65,11 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 ### 1.缩放(Scale)
 
-![](https://ww2.sinaimg.cn/large/006tKfTcly1fdz7baj17gj302h01rdfr.jpg)
+![](http://ww2.sinaimg.cn/large/006tKfTcly1fdz7baj17gj302h01rdfr.jpg)
 
 用矩阵表示: 
 
-![](https://ww3.sinaimg.cn/large/006tKfTcly1fdz7busaiej3062020mx4.jpg)
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fdz7busaiej3062020mx4.jpg)
 
 >  你可能注意到了，我们坐标多了一个1，这是使用了齐次坐标系的缘故，在数学中我们的点和向量都是这样表示的(x, y)，两者看起来一样，计算机无法区分，为此让计算机也可以区分它们，增加了一个标志位，增加之后看起来是这样: <br/>
 >
@@ -88,11 +88,11 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 #### 水平错切
 
-![](https://ww3.sinaimg.cn/large/006tKfTcly1fdz7d0niaqj303601mglj.jpg)
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fdz7d0niaqj303601mglj.jpg)
 
 用矩阵表示:
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1fdz7dryrfcj305m020glk.jpg)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fdz7dryrfcj305m020glk.jpg)
 
 图例:
 
@@ -100,11 +100,11 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 #### 垂直错切
 
-![](https://ww3.sinaimg.cn/large/006tKfTcly1fdz7esq5j4j303701pdfr.jpg)
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fdz7esq5j4j303701pdfr.jpg)
 
 用矩阵表示:
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1fdz7ffdxauj305n024glk.jpg)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fdz7ffdxauj305n024glk.jpg)
 
 图例:
 
@@ -114,11 +114,11 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 > 水平错切和垂直错切的复合。
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1fdz7g0lmcaj303801mq2v.jpg)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fdz7g0lmcaj303801mq2v.jpg)
 
 用矩阵表示:
 
-![](https://ww2.sinaimg.cn/large/006tKfTcly1fdz7gkg5dej3062021mx4.jpg)
+![](http://ww2.sinaimg.cn/large/006tKfTcly1fdz7gkg5dej3062021mx4.jpg)
 
 图例:
 
@@ -128,11 +128,11 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 假定一个点 A(x<sub>0</sub>, y<sub>0</sub>) ,距离原点距离为 r, 与水平轴夹角为 α 度, 绕原点旋转 θ 度, 旋转后为点 B(x, y) 如下:
 
-![](https://ww3.sinaimg.cn/large/006tKfTcly1fdz7h61ddsj30gm03twel.jpg)
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fdz7h61ddsj30gm03twel.jpg)
 
 用矩阵表示:
 
-![](https://ww2.sinaimg.cn/large/006tKfTcly1fdz7hn7pbdj308i0240sq.jpg)
+![](http://ww2.sinaimg.cn/large/006tKfTcly1fdz7hn7pbdj308i0240sq.jpg)
 
 图例:
 
@@ -142,11 +142,11 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 >  此处也是使用齐次坐标的优点体现之一，实际上前面的三个操作使用 2x2 的矩阵也能满足需求，但是使用 2x2 的矩阵，无法将平移操作加入其中，而将坐标扩展为齐次坐标后，将矩阵扩展为 3x3 就可以将算法统一，四种算法均可以使用矩阵乘法完成。
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1fdz7igi28cj302w01kdfr.jpg)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fdz7igi28cj302w01kdfr.jpg)
 
 用矩阵表示:
 
-![](https://ww2.sinaimg.cn/large/006tKfTcly1fdz7izsq8hj306b022mx4.jpg)
+![](http://ww2.sinaimg.cn/large/006tKfTcly1fdz7izsq8hj306b022mx4.jpg)
 
 图例:
 
@@ -299,11 +299,11 @@ Log.e(TAG, "MatrixTest" + matrix.toShortString());
 
 之所以平移距离是 MTRANS\_X = 500，MTRANS\_Y = 800，那是因为执行 Translate 之前 Matrix 已经具有了一个缩放比例。在右乘的时候影响到了具体的数值计算，可以用矩阵乘法计算一下。
 
-![](https://ww3.sinaimg.cn/large/006tKfTcly1fdz7lhb20fj30lz01zgm8.jpg)
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fdz7lhb20fj30lz01zgm8.jpg)
 
 最终结果为：
 
-![](https://ww2.sinaimg.cn/large/006tKfTcly1fdz7m2pgyuj303o022wef.jpg)
+![](http://ww2.sinaimg.cn/large/006tKfTcly1fdz7m2pgyuj303o022wef.jpg)
 
 当 T*S 的时候，缩放比例则不会影响到 MTRANS\\_X 和 MTRANS\\_Y ，具体可以使用矩阵乘法自己计算一遍。
 
@@ -415,7 +415,7 @@ m.preScale(sx, sy);
 ```
 
 用矩阵表示:
-![](https://ww4.sinaimg.cn/large/006tKfTcly1fdz7mv29jhj30gg02374b.jpg)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fdz7mv29jhj30gg02374b.jpg)
 
 #### 2.仅用post:
 
@@ -429,7 +429,7 @@ m.postTranslate(tx, ty);
 
 用矩阵表示:
 
-![](https://ww1.sinaimg.cn/large/006tKfTcly1fdz7nde6gcj30gh020dfv.jpg)
+![](http://ww1.sinaimg.cn/large/006tKfTcly1fdz7nde6gcj30gh020dfv.jpg)
 
 #### 3.混合:
 
