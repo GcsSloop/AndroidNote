@@ -71,7 +71,7 @@ public AtomicFile(File baseName) {
 
 ```java
 public FileOutputStream startWrite() throws IOException {
-    // 如果备份文件不存在，将原文件重命名为备份文件，并删除原文件
+    // 当原文件存在，备份文件不存在的时候，原文件更名为备份文件
     if (mBaseName.exists()) {
         if (!mBackupName.exists()) {
           	// 如果原文件存在且备份文件不存在，直接将原文件重命名为备份文件
