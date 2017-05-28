@@ -15,6 +15,7 @@
 ******
 
 <p id="custom_view" />
+
 ## [自定义View](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
 * 基础篇
