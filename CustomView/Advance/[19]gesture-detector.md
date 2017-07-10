@@ -370,6 +370,8 @@ detector.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener() {
 
 关于手势检测部分的 GestureDetector 相关内容基本就这么多了，其实手势检测还有一个 ScaleGestureDetector 也是为手势检测服务的，限于篇幅，本次就讲这么多吧。
 
+其实手势检测辅助类 GestureDetector 本身并不是很复杂，带上注释等内容才不到1000行，感兴趣的可以自己研究一下实现方式。
+
 ## About Me
 
 ### 作者微博: <a href="http://weibo.com/GcsSloop" target="_blank">@GcsSloop</a>
@@ -378,4 +380,5 @@ detector.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener() {
 
 ## 参考资料
 
-[GestureDetector ](https://developer.android.com/reference/android/view/GestureDetector.html)  
+[文档 · GestureDetector ](https://developer.android.com/reference/android/view/GestureDetector.html)   
+[源码 · GestureDetector](https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/java/android/view/GestureDetector.java)
