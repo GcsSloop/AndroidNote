@@ -94,6 +94,8 @@
 
 ## 开源库
 
+* [encrypt - 加密工具包](https://github.com/GcsSloop/encrypt)
+* [rclayout - 通用圆角布局](https://github.com/GcsSloop/rclayout)
 * [FontsManager - 快速替换字体](https://github.com/GcsSloop/FontsManager)
 * [Rocker － 自定义摇杆](https://github.com/GcsSloop/Rocker)
 * [LeafLoading － 进度条](https://github.com/GcsSloop/LeafLoading)
