@@ -154,6 +154,7 @@
 
 QQ群：612310796  
 微信群：加我个人微信 GcsSloop，备注加群。
+![](https://ww4.sinaimg.cn/large/006tKfTcly1fl7d6wy91dj30p005k0ue.jpg)
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
