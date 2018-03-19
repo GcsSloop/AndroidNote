@@ -48,8 +48,10 @@
 
 ## 雕虫晓技
 
-* [雕虫晓技(一) 组件化](http://mp.weixin.qq.com/s/A2yd7DO1NvT0CEmzh_VwsQ)
-* [雕虫晓技(二) 编码](http://mp.weixin.qq.com/s/70l0u-3WQeAkCDp6Nau3CQ)
+* [雕虫晓技(一) 组件化](http://www.gcssloop.com/gebug/componentr)
+* [雕虫晓技(二) 编码](http://www.gcssloop.com/gebug/coding)
+* [雕虫晓技(三) 通用圆角布局全解析](http://www.gcssloop.com/gebug/rclayout)
+* [雕虫晓技(四) 搭建私有Maven仓库(带容灾备份)](http://www.gcssloop.com/gebug/maven-private)
 
 ******
 
