@@ -52,6 +52,7 @@
 * [雕虫晓技(二) 编码](http://www.gcssloop.com/gebug/coding)
 * [雕虫晓技(三) 通用圆角布局全解析](http://www.gcssloop.com/gebug/rclayout)
 * [雕虫晓技(四) 搭建私有Maven仓库(带容灾备份)](http://www.gcssloop.com/gebug/maven-private)
+* [雕虫晓技(五) 网格分页布局源码解析(上) (付费)](https://xiaozhuanlan.com/topic/5841730926)
 
 ******
 
