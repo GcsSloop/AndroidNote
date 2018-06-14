@@ -54,6 +54,7 @@
 * [雕虫晓技(四) 搭建私有Maven仓库(带容灾备份)](http://www.gcssloop.com/gebug/maven-private)
 * [雕虫晓技(五) 网格分页布局源码解析(上) (付费)](https://xiaozhuanlan.com/topic/5841730926)
 * [雕虫晓技(六) 网格分页布局源码解析(下) (付费)](https://xiaozhuanlan.com/topic/1456397082)
+* [雕虫晓技(七) 用旧Android手机做远程摄像头](http://www.gcssloop.com/gebug/internet-ip-webcam)
 
 ******
 
