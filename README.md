@@ -40,6 +40,7 @@
     * [安卓自定义View进阶 - 特殊形状控件事件处理方案](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B17%5Dtouch-matrix-region.md)  
     * [安卓自定义View进阶 - 多点触控详解](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B18%5Dmulti-touch.md)
     * [安卓自定义View进阶 - 手势检测(GestureDetector)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B19%5Dgesture-detector.md)
+    * [安卓自定义View进阶 - 缩放手势检测(ScaleGestureDetector)](http://www.gcssloop.com/customview/scalegesturedetector)
 
 
 * [ViewSupport - 自定义View工具包](https://github.com/GcsSloop/ViewSupport)
