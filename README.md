@@ -58,6 +58,7 @@
 * [雕虫晓技(七) 用旧Android手机做远程摄像头](http://www.gcssloop.com/gebug/internet-ip-webcam)
 * [雕虫晓技(八) Android与数据流的斗争](http://www.gcssloop.com/gebug/android-stream)
 * [雕虫晓技(九) Netty与私有协议框架](http://www.gcssloop.com/gebug/netty-private-protocol)
+* [雕虫晓技(十) Android超简单气泡效果](http://www.gcssloop.com/gebug/bubble-sample)
 
 ******
 
@@ -109,6 +110,7 @@
 
 ## 开源库
 
+* [arc-seekbar - 弧形SeekBar](https://github.com/GcsSloop/arc-seekbar)
 * [encrypt - 加密工具包](https://github.com/GcsSloop/encrypt)
 * [rclayout - 通用圆角布局](https://github.com/GcsSloop/rclayout)
 * [FontsManager - 快速替换字体](https://github.com/GcsSloop/FontsManager)
