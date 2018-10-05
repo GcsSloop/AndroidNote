@@ -36,7 +36,7 @@
 
 **请关闭硬件加速，以免引起不必要的问题！<br/>请关闭硬件加速，以免引起不必要的问题！<br/>请关闭硬件加速，以免引起不必要的问题！**
 
-**在AndroidMenifest文件中application节点下添上 android:hardwareAccelerated="false"以关闭整个应用的硬件加速。 <br/>更多请参考这里：[Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
+**在AndroidMainfest文件中application节点下添上 android:hardwareAccelerated="false"以关闭整个应用的硬件加速。 <br/>更多请参考这里：[Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
 
 ## Path作用
 本次特地开了一篇详细讲解Path，为什么要单独摘出来呢，这是因为Path在2D绘图中是一个很重要的东西。
@@ -60,10 +60,10 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 
 另外路径有开放和封闭的区别。
 
-| 图像                                       | 名称   | 备注            |
-| ---------------------------------------- | ---- | ------------- |
+| 图像                                                         | 名称     | 备注                       |
+| ------------------------------------------------------------ | -------- | -------------------------- |
 | ![](http://ww4.sinaimg.cn/thumbnail/005Xtdi2jw1f0zx9g9gggj30f00aiwek.jpg) | 封闭路径 | 首尾相接形成了一个封闭区域 |
-| ![](http://ww1.sinaimg.cn/thumbnail/005Xtdi2jw1f0zxg8ilpxj30f00aimx8.jpg) | 开放路径 | 没有首位相接形成封闭区域  |
+| ![](http://ww1.sinaimg.cn/thumbnail/005Xtdi2jw1f0zxg8ilpxj30f00aimx8.jpg) | 开放路径 | 没有首尾相接形成封闭区域   |
 
 > 这个是我随便画的，仅为展示一下区别，请无视我灵魂画师一般的绘图水准。
 
