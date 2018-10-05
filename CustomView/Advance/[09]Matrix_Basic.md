@@ -168,7 +168,7 @@ Matrix 是一个矩阵，最根本的作用就是坐标转换，下面我们就�
 
 ### 后乘(post)
 
-前乘相当于矩阵的左乘：
+后乘相当于矩阵的左乘：
 
 ![](https://ww3.sinaimg.cn/large/006tKfTcgy1fhe1vta7ooj302s00pq2u.jpg)
 
