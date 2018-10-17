@@ -3,7 +3,7 @@
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 ### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
 
-在上一篇文章[Path之基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B05%5DPath_BasicGraphics.md)中我们了解了Path的基本使用方法，本次了解Path中非常非常非常重要的内容-贝塞尔曲线。
+在上一篇文章[Path之基本图形](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B05%5DPath_Basic.md)中我们了解了Path的基本使用方法，本次了解Path中非常非常非常重要的内容-贝塞尔曲线。
 
 ******
 
@@ -122,7 +122,7 @@
 
 > **PS: 三阶曲线对应的方法是cubicTo**
 
-#### [贝塞尔曲线速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bessel.md)
+#### [贝塞尔曲线速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Bezier.md)
 
 #### 强烈推荐[点击这里](http://bezier.method.ac/)练习贝塞尔曲线，可以加深对贝塞尔曲线的理解程度。
 

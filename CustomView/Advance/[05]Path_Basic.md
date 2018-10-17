@@ -36,7 +36,7 @@
 
 **请关闭硬件加速，以免引起不必要的问题！<br/>请关闭硬件加速，以免引起不必要的问题！<br/>请关闭硬件加速，以免引起不必要的问题！**
 
-**在AndroidMenifest文件中application节点下添上 android:hardwareAccelerated="false"以关闭整个应用的硬件加速。 <br/>更多请参考这里：[Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
+**在AndroidMainfest文件中application节点下添上 android:hardwareAccelerated="false"以关闭整个应用的硬件加速。 <br/>更多请参考这里：[Android的硬件加速及可能导致的问题](https://github.com/GcsSloop/AndroidNote/issues/7)**
 
 ## Path作用
 本次特地开了一篇详细讲解Path，为什么要单独摘出来呢，这是因为Path在2D绘图中是一个很重要的东西。
@@ -60,10 +60,10 @@ _The Path class encapsulates compound (multiple contour) geometric paths consist
 
 另外路径有开放和封闭的区别。
 
-| 图像                                       | 名称   | 备注            |
-| ---------------------------------------- | ---- | ------------- |
+| 图像                                                         | 名称     | 备注                       |
+| ------------------------------------------------------------ | -------- | -------------------------- |
 | ![](http://ww4.sinaimg.cn/thumbnail/005Xtdi2jw1f0zx9g9gggj30f00aiwek.jpg) | 封闭路径 | 首尾相接形成了一个封闭区域 |
-| ![](http://ww1.sinaimg.cn/thumbnail/005Xtdi2jw1f0zxg8ilpxj30f00aimx8.jpg) | 开放路径 | 没有首位相接形成封闭区域  |
+| ![](http://ww1.sinaimg.cn/thumbnail/005Xtdi2jw1f0zxg8ilpxj30f00aimx8.jpg) | 开放路径 | 没有首尾相接形成封闭区域   |
 
 > 这个是我随便画的，仅为展示一下区别，请无视我灵魂画师一般的绘图水准。
 
@@ -239,7 +239,7 @@ close方法用于连接当前最后一个点和最初的一个点(如果两个�
 
 **这一类就是在path中添加一个基本形状，基本形状部分和前面所讲的绘制基本形状并无太大差别，详情参考[Canvas(1)颜色与基本形状](https://github.com/GcsSloop/AndroidNote/blob/master/%E9%97%AE%E9%A2%98/Canvas/Canvas(1).md), 本次只将其中不同的部分摘出来详细讲解一下。**
 
-**仔细观察一下第一类是方法，无一例外，在最后都有一个_Path.Direction_，这是一个什么神奇的东东？**
+**仔细观察一下第一类的方法，无一例外，在最后都有一个_Path.Direction_，这是一个什么神奇的东东？**
 
 Direction的意思是 方向，趋势。 点进去看一下会发现Direction是一个枚举(Enum)类型，里面只有两个枚举常量，如下：
 
@@ -369,7 +369,7 @@ Direction的意思是 方向，趋势。 点进去看一下会发现Direction是
 
 <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f4iylko7zzj30u01hc0tm.jpg" width = "270" height = "480"/> 
 
-首先我们新建地方两个Path(矩形和圆形)中心都是坐标原点，我们在将包含圆形的path添加到包含矩形的path之前将其进行移动了一段距离，最终绘制出来的效果就如上面所示。
+首先我们新建的两个Path(矩形和圆形)中心都是坐标原点，我们在将包含圆形的path添加到包含矩形的path之前将其进行移动了一段距离，最终绘制出来的效果就如上面所示。
 
 #### 第三类(addArc与arcTo)
 方法预览：
@@ -524,12 +524,12 @@ log 输出结果:
 
 **但是第二个方法最后怎么会有一个path作为参数？**
 
-其实第二个方法中最后的参数das是存储平移后的path的。
+其实第二个方法中最后的参数dst是存储平移后的path的。
 
 | dst状态       | 效果                             |
 | ----------- | ------------------------------ |
 | dst不为空      | 将当前path平移后的状态存入dst中，不会影响当前path |
-| dat为空(null) | 平移将作用于当前path，相当于第一种方法          |
+| dst为空(null) | 平移将作用于当前path，相当于第一种方法          |
 
 示例：
 ``` java

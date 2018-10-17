@@ -2,21 +2,22 @@
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
-我的安卓学习笔记，记录学习过程中遇到的问题,以及我的一些经验总结。如果出现链接失效等情况可以提交Issues提醒我修改相关内容。
+我的安卓学习笔记，记录学习过程中遇到的问题,以及我的一些经验总结。如果出现链接失效等情况可以提交 Issues 提醒我修改相关内容。
 
 > #### PS:点击分类标题可以查看该分类的详细信息。 
 
 ## [博客](http://www.gcssloop.com/#blog "GcsSloop的博客")
 
-新开的博客，在博客中可以获得更好的阅读体验，同时在博客的评论区可以更及时的向我反馈文章中的问题。
+我的个人博客，在博客中可以获得更好的阅读体验，同时在博客的评论区可以更及时的向我反馈文章中的问题。
 
-<a href="http://www.gcssloop.com/#blog" target="_blank"> <img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f70uy1873sj315o0dwae0.jpg" width=300 height=100 /> </a>
+<a href="http://www.gcssloop.com/#blog" target="_blank"> <img src="http://ww1.sinaimg.cn/large/005Xtdi2jw1f70uy1873sj315o0dwae0.jpg" width="300"/> </a>
 
 ******
 
 <p id="custom_view" />
+
 ## [自定义View](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
- 
+
 * 基础篇
     * [安卓自定义View基础 - 坐标系](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B01%5DCoordinateSystem.md)
     * [安卓自定义View基础 - 角度弧度](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Base/%5B02%5DAngleAndRadian.md)
@@ -36,7 +37,28 @@
     * [安卓自定义View进阶 - 事件分发机制原理](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B12%5DDispatch-TouchEvent-Theory.md)
     * [安卓自定义View进阶 - 事件分发机制详解](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B15%5DDispatch-TouchEvent-Source.md)
     * [安卓自定义View进阶 - MotionEvent详解](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B16%5DMotionEvent.md)
+    * [安卓自定义View进阶 - 特殊形状控件事件处理方案](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B17%5Dtouch-matrix-region.md)  
+    * [安卓自定义View进阶 - 多点触控详解](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B18%5Dmulti-touch.md)
+    * [安卓自定义View进阶 - 手势检测(GestureDetector)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B19%5Dgesture-detector.md)
+    * [安卓自定义View进阶 - 缩放手势检测(ScaleGestureDetector)](http://www.gcssloop.com/customview/scalegesturedetector)
 
+
+* [ViewSupport - 自定义View工具包](https://github.com/GcsSloop/ViewSupport)
+
+******
+
+## 雕虫晓技
+
+* [雕虫晓技(一) 组件化](http://www.gcssloop.com/gebug/componentr)
+* [雕虫晓技(二) 编码](http://www.gcssloop.com/gebug/coding)
+* [雕虫晓技(三) 通用圆角布局全解析](http://www.gcssloop.com/gebug/rclayout)
+* [雕虫晓技(四) 搭建私有Maven仓库(带容灾备份)](http://www.gcssloop.com/gebug/maven-private)
+* [雕虫晓技(五) 网格分页布局源码解析(上) (付费)](https://xiaozhuanlan.com/topic/5841730926)
+* [雕虫晓技(六) 网格分页布局源码解析(下) (付费)](https://xiaozhuanlan.com/topic/1456397082)
+* [雕虫晓技(七) 用旧Android手机做远程摄像头](http://www.gcssloop.com/gebug/internet-ip-webcam)
+* [雕虫晓技(八) Android与数据流的斗争](http://www.gcssloop.com/gebug/android-stream)
+* [雕虫晓技(九) Netty与私有协议框架](http://www.gcssloop.com/gebug/netty-private-protocol)
+* [雕虫晓技(十) Android超简单气泡效果](http://www.gcssloop.com/gebug/bubble-sample)
 
 ******
 
@@ -49,10 +71,12 @@
 
 ******
 
-## Markdown
+## [Markdown](https://github.com/GcsSloop/AndroidNote/tree/master/Course/Markdown)
 
 * [Markdown 快速入门](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-start.md)  
 * [Markdown 基础语法](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-grammar.md)
+* [Markdown 链接图片](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-link.md)
+* [Markdown 编辑器](https://github.com/GcsSloop/AndroidNote/blob/master/Course/Markdown/markdown-editor.md)
 
 ******
 
@@ -62,7 +86,7 @@
 * [程序员不可不知的版权协议](https://github.com/GcsSloop/AndroidNote/blob/magic-world/ChaosCrystal/%E5%BC%80%E6%BA%90%E5%85%B1%E4%BA%AB%E5%8D%8F%E8%AE%AE.md)
 
 ******
- 
+
 ## [速查表](https://github.com/GcsSloop/AndroidNote/tree/master/QuickChart/README.md)
 
 * [Canvas常用操作速查表](https://github.com/GcsSloop/AndroidNote/blob/master/QuickChart/Canvas.md)
@@ -86,17 +110,35 @@
 
 ## 开源库
 
+* [arc-seekbar - 弧形SeekBar](https://github.com/GcsSloop/arc-seekbar)
+* [encrypt - 加密工具包](https://github.com/GcsSloop/encrypt)
+* [rclayout - 通用圆角布局](https://github.com/GcsSloop/rclayout)
 * [FontsManager - 快速替换字体](https://github.com/GcsSloop/FontsManager)
-* [ViewSupport - 自定义View工具包](https://github.com/GcsSloop/ViewSupport)
 * [Rocker － 自定义摇杆](https://github.com/GcsSloop/Rocker)
 * [LeafLoading － 进度条](https://github.com/GcsSloop/LeafLoading)
 * [Rotate3dAnimation - 3D旋转动画(修正版)](https://github.com/GcsSloop/Rotate3dAnimation)
+
+------
+
+## 源码解析
+
+- [AtomicFile 源码解析](https://github.com/GcsSloop/AndroidNote/blob/master/SourceAnalysis/AtomicFile.md)
 
 ## 传送门
 
 通往异世界的传送门，请谨慎使用。
 
 时空折跃准备完毕，[点击开始传送](https://github.com/GcsSloop/AndroidNote/tree/magic-world)。
+
+*****
+
+## 博文修复计划
+
+由于自己的知识水平有限，书写的文章难免会出现一些问题。
+
+随着知识增长和知识面的扩大，发现了一些之前未曾注意到的问题，故有此博文修复计划，本次修复不仅会修复之前文章中的瑕疵和纰漏，甚至会对文章的知识结构稍作调整，所有修复的文章和调整后的内容都会在微博重新发布声明，点击下面关注我的微博可以第一时间了解到相关信息，另外据说关注我的微博会变帅哦。
+
+**本次博文修复计划主要针对 [个人博客](http://www.gcssloop.com/#blog) 和 [GitHub](https://github.com/GcsSloop)，由于博主精力有限以及某些平台自身限制，对于其他平台仅能修复部分内容。**
 
 ******
 
@@ -115,12 +157,24 @@
 * 保持文章原文，不作修改。
 * 明确署名，即至少注明 `作者：GcsSloop` 字样以及文章的原始链接，且不得使用 `rel="nofollow"` 标记。
 * 商业用途请点击最下面图片联系本人。
+* 微信公众号转载一律不授权 `原创` 标志。
 
+## 捐赠
 
-## About Me
+#### 如果你觉得我的文章有帮助的话，捐赠一些晶石，鼓励我继续研究! 🐾
+
+|                                          |                                          |
+| ---------------------------------------- | ---------------------------------------- |
+| ![](http://www.gcssloop.com/assets/images/wechat.png) | ![](http://www.gcssloop.com/assets/images/alipay.png) |
+
+## 交流群
+
+QQ群：612310796  
+微信群：加我个人微信 GcsSloop，备注加群。
+![](https://ww3.sinaimg.cn/large/006tNc79gy1fl8bemmtmxj30p005k406.jpg)
 
 ### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
 
-<a href="http://www.gcssloop.com/info/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
+<a href="http://www.gcssloop.com/info/about/" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width="300"/> </a>
 
 [▲ 回到顶部](#top)

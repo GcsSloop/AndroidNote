@@ -1,13 +1,9 @@
 # Path之玩出花样(PathMeasure)
 
-### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
-### [【本系列相关文章】](https://github.com/GcsSloop/AndroidNote/tree/master/CustomView/README.md)
-
-
 可以看到，在经过 
-[Path之基本操作](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B05%5DPath_Basic.md)
-[Path之贝塞尔曲线](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B06%5DPath_Bezier.md) 和 
-[Path之完结篇(伪)](https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B07%5DPath_Over.md) 后， Path中各类方法基本上都讲完了，表格中还没有讲解到到方法就是矩阵变换了，难道本篇终于要讲矩阵了？
+[Path之基本操作](http://www.gcssloop.com/customview/Path_Basic/)
+[Path之贝塞尔曲线](http://www.gcssloop.com/customview/Path_Bezier/) 和 
+[Path之完结篇](http://www.gcssloop.com/customview/Path_Over/) 后， Path中各类方法基本上都讲完了，表格中还没有讲解到到方法就是矩阵变换了，难道本篇终于要讲矩阵了？
 非也，矩阵这一部分仍在后面单独讲解，本篇主要讲解 PathMeasure 这个类与 Path 的一些使用技巧。
 
 > PS：不要问我为什么不讲 PathEffect，因为这个方法在后面的Paint系列中。
@@ -16,9 +12,9 @@
 
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4fp2myqo4g308c05k75k.gif)
 
-******
+------
 
-##  Path & PathMeasure
+## Path & PathMeasure
 
 顾名思义，PathMeasure是一个用来测量Path的类，主要有以下方法:
 
@@ -43,8 +39,7 @@
 
 PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
-******
-
+------
 
 ### 1.构造函数
 
@@ -52,7 +47,7 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
 **无参构造函数：**
 
-``` java
+```java
   PathMeasure ()
 ```
 
@@ -60,7 +55,7 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 
 **有参构造函数：**
 
-``` java
+```java
   PathMeasure (Path path, boolean forceClosed)
 ```
 
@@ -71,33 +66,35 @@ PathMeasure的方法也不多，接下来我们就逐一的讲解一下。
 **在这里有两点需要明确:**
 
 > 
-* 1. 不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，**即 Path 与 PathMeasure  关联之后，之前的的 Path 不会有任何改变。**
-* 2. forceClosed 的设置状态可能会影响测量结果，**如果 Path 未闭合但在与 PathMeasure 关联的时候设置 forceClosed 为 true 时，测量结果可能会比 Path 实际长度稍长一点，获取到到是该 Path 闭合时的状态。**
+
+- 1. 不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，**即 Path 与 PathMeasure  关联之后，之前的的 Path 不会有任何改变。**
+- 1. forceClosed 的设置状态可能会影响测量结果，**如果 Path 未闭合但在与 PathMeasure 关联的时候设置 forceClosed 为 true 时，测量结果可能会比 Path 实际长度稍长一点，获取到到是该 Path 闭合时的状态。**
 
 下面我们用一个例子来验证一下：
 
-```
-    canvas.translate(mViewWidth/2,mViewHeight/2);
+```java
+canvas.translate(mViewWidth/2,mViewHeight/2);
 
-    Path path = new Path();
+Path path = new Path();
 
-    path.lineTo(0,200);
-    path.lineTo(200,200);
-    path.lineTo(200,0);
+path.lineTo(0,200);
+path.lineTo(200,200);
+path.lineTo(200,0);
 
-    PathMeasure measure1 = new PathMeasure(path,false);
-    PathMeasure measure2 = new PathMeasure(path,true);
+PathMeasure measure1 = new PathMeasure(path,false);
+PathMeasure measure2 = new PathMeasure(path,true);
 
-    Log.e("TAG", "forceClosed=false---->"+measure1.getLength());
-    Log.e("TAG", "forceClosed=true----->"+measure2.getLength());
+Log.e("TAG", "forceClosed=false---->"+measure1.getLength());
+Log.e("TAG", "forceClosed=true----->"+measure2.getLength());
 
-    canvas.drawPath(path,mDeafultPaint);
+canvas.drawPath(path,mDeafultPaint);
 ```
 
 log如下:
-```
- 25521-25521/com.gcssloop.canvas E/TAG: forceClosed=false---->600.0
- 25521-25521/com.gcssloop.canvas E/TAG: forceClosed=true----->800.0
+
+```shell
+com.gcssloop.canvas E/TAG: forceClosed=false---->600.0
+com.gcssloop.canvas E/TAG: forceClosed=true----->800.0
 ```
 
 绘制在界面上的效果如下:
@@ -107,10 +104,9 @@ log如下:
 我们所创建的 Path 实际上是一个边长为 200 的正方形的三条边，通过上面的示例就能验证以上两个问题。
 
 > 
-* 1.我们将 Path 与两个的 PathMeasure 进行关联，并给 forceClosed 设置了不同的状态，之后绘制再绘制出来的 Path 没有任何变化，所以与 Path 与 PathMeasure进行关联并不会影响 Path 状态。
-* 2.我们可以看到，设置 forceClosed 为 true 的方法比设置为 false 的方法测量出来的长度要长一点，这是由于 Path 没有闭合的缘故，多出来的距离正是 Path 最后一个点与最开始一个点之间点距离。**forceClosed 为 false 测量的是当前 Path  状态的长度， forceClosed 为 true，则不论Path是否闭合测量的都是 Path 的闭合长度。**
 
-
+- 1.我们将 Path 与两个的 PathMeasure 进行关联，并给 forceClosed 设置了不同的状态，之后绘制再绘制出来的 Path 没有任何变化，所以与 Path 与 PathMeasure进行关联并不会影响 Path 状态。
+- 2.我们可以看到，设置 forceClosed 为 true 的方法比设置为 false 的方法测量出来的长度要长一点，这是由于 Path 没有闭合的缘故，多出来的距离正是 Path 最后一个点与最开始一个点之间点距离。**forceClosed 为 false 测量的是当前 Path  状态的长度， forceClosed 为 true，则不论Path是否闭合测量的都是 Path 的闭合长度。**
 
 
 
@@ -126,14 +122,12 @@ getLength 用于获取 Path 的总长度，在之前的测试中已经用过了�
 
 
 
-
-
 ### 3.getSegment
 
 getSegment 用于获取Path的一个片段，方法如下：
 
-``` java
-  boolean getSegment (float startD, float stopD, Path dst, boolean startWithMoveTo)
+```java
+boolean getSegment (float startD, float stopD, Path dst, boolean startWithMoveTo)
 ```
 
 方法各个参数释义：
@@ -147,8 +141,9 @@ getSegment 用于获取Path的一个片段，方法如下：
 | startWithMoveTo | 起始点是否使用 moveTo       | 用于保证截取的 Path 第一个点位置不变                    |
 
 > 
-* 如果 startD、stopD 的数值不在取值范围 [0, getLength] 内，或者 startD == stopD 则返回值为 false，不会改变 dst 内容。
-* 如果在安卓4.4或者之前的版本，在默认开启硬件加速的情况下，更改 dst 的内容后可能绘制会出现问题，请关闭硬件加速或者给 dst  添加一个单个操作，例如: dst.rLineTo(0, 0)
+
+- 如果 startD、stopD 的数值不在取值范围 [0, getLength] 内，或者 startD == stopD 则返回值为 false，不会改变 dst 内容。
+- 如果在安卓4.4或者之前的版本，在默认开启硬件加速的情况下，更改 dst 的内容后可能绘制会出现问题，请关闭硬件加速或者给 dst  添加一个单个操作，例如: dst.rLineTo(0, 0)
 
 我们先看看这个方法如何使用：
 
@@ -160,20 +155,20 @@ getSegment 用于获取Path的一个片段，方法如下：
 
 代码:
 
-``` java
-    canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
+```java
+canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
 
-    Path path = new Path();                                     // 创建Path并添加了一个矩形
-    path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+Path path = new Path();                                     // 创建Path并添加了一个矩形
+path.addRect(-200, -200, 200, 200, Path.Direction.CW);
 
-    Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
+Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
 
-    PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
+PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
 
-    // 截取一部分存入dst中，并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
-    measure.getSegment(200, 600, dst, true);                    
+// 截取一部分存入dst中，并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
+measure.getSegment(200, 600, dst, true);                    
 
-    canvas.drawPath(dst, mDeafultPaint);                        // 绘制 dst
+canvas.drawPath(dst, mDeafultPaint);                        // 绘制 dst
 ```
 
 结果如下：
@@ -182,20 +177,20 @@ getSegment 用于获取Path的一个片段，方法如下：
 
 从上图可以看到我们成功到将需要到片段截取了出来，然而当 dst 中有内容时会怎样呢？
 
-``` java
-    canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
+```java
+canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
 
-    Path path = new Path();                                     // 创建Path并添加了一个矩形
-    path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+Path path = new Path();                                     // 创建Path并添加了一个矩形
+path.addRect(-200, -200, 200, 200, Path.Direction.CW);
 
-    Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
-    dst.lineTo(-300, -300);                                     // <--- 在 dst 中添加一条线段
+Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
+dst.lineTo(-300, -300);                                     // <--- 在 dst 中添加一条线段
 
-    PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
+PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
 
-    measure.getSegment(200, 600, dst, true);                   // 截取一部分 并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
+measure.getSegment(200, 600, dst, true);                   // 截取一部分 并使用 moveTo 保持截取得到的 Path 第一个点的位置不变
 
-    canvas.drawPath(dst, mDeafultPaint);                        // 绘制 Path
+canvas.drawPath(dst, mDeafultPaint);                        // 绘制 Path
 ```
 
 结果如下:
@@ -206,20 +201,20 @@ getSegment 用于获取Path的一个片段，方法如下：
 
 前面两个例子中 startWithMoveTo 均为 true， 如果设置为false会怎样呢?
 
-``` java
-    canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
+```java
+canvas.translate(mViewWidth / 2, mViewHeight / 2);          // 平移坐标系
 
-    Path path = new Path();                                     // 创建Path并添加了一个矩形
-    path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+Path path = new Path();                                     // 创建Path并添加了一个矩形
+path.addRect(-200, -200, 200, 200, Path.Direction.CW);
 
-    Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
-    dst.lineTo(-300, -300);                                     // 在 dst 中添加一条线段
+Path dst = new Path();                                      // 创建用于存储截取后内容的 Path
+dst.lineTo(-300, -300);                                     // 在 dst 中添加一条线段
 
-    PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
+PathMeasure measure = new PathMeasure(path, false);         // 将 Path 与 PathMeasure 关联
 
-    measure.getSegment(200, 600, dst, false);                   // <--- 截取一部分 不使用 startMoveTo, 保持 dst 的连续性
+measure.getSegment(200, 600, dst, false);                   // <--- 截取一部分 不使用 startMoveTo, 保持 dst 的连续性
 
-    canvas.drawPath(dst, mDeafultPaint);                        // 绘制 Path
+canvas.drawPath(dst, mDeafultPaint);                        // 绘制 Path
 ```
 
 结果如下：
@@ -237,11 +232,9 @@ getSegment 用于获取Path的一个片段，方法如下：
 
 
 
-
-
 ### 4.nextContour
 
-我们知道 Path 可以由多条曲线构成，但不论是 getLength , getgetSegment 或者是其它方法，都只会在其中第一条线段上运行，而这个 `nextContour` 就是用于跳转到下一条曲线到方法，_如果跳转成功，则返回 true， 如果跳转失败，则返回 false。_
+我们知道 Path 可以由多条曲线构成，但不论是 getLength , getSegment 或者是其它方法，都只会在其中第一条线段上运行，而这个 `nextContour` 就是用于跳转到下一条曲线到方法，_如果跳转成功，则返回 true， 如果跳转失败，则返回 false。_
 
 如下，我们创建了一个 Path 并使其中包含了两个闭合的曲线，内部的边长是200，外面的边长是400，现在我们使用 PathMeasure 分别测量两条曲线的总长度。
 
@@ -249,49 +242,47 @@ getSegment 用于获取Path的一个片段，方法如下：
 
 代码：
 
-``` java
-    canvas.translate(mViewWidth / 2, mViewHeight / 2);      // 平移坐标系
+```java
+canvas.translate(mViewWidth / 2, mViewHeight / 2);      // 平移坐标系
 
-    Path path = new Path();
+Path path = new Path();
 
-    path.addRect(-100, -100, 100, 100, Path.Direction.CW);  // 添加小矩形
-    path.addRect(-200, -200, 200, 200, Path.Direction.CW);  // 添加大矩形
+path.addRect(-100, -100, 100, 100, Path.Direction.CW);  // 添加小矩形
+path.addRect(-200, -200, 200, 200, Path.Direction.CW);  // 添加大矩形
 
-    canvas.drawPath(path,mDeafultPaint);                    // 绘制 Path
-    
-    PathMeasure measure = new PathMeasure(path, false);     // 将Path与PathMeasure关联
+canvas.drawPath(path,mDeafultPaint);                    // 绘制 Path
 
-    float len1 = measure.getLength();                       // 获得第一条路径的长度
+PathMeasure measure = new PathMeasure(path, false);     // 将Path与PathMeasure关联
 
-    measure.nextContour();                                  // 跳转到下一条路径
+float len1 = measure.getLength();                       // 获得第一条路径的长度
 
-    float len2 = measure.getLength();                       // 获得第二条路径的长度
+measure.nextContour();                                  // 跳转到下一条路径
 
-    Log.i("LEN","len1="+len1);                              // 输出两条路径的长度
-    Log.i("LEN","len2="+len2);
+float len2 = measure.getLength();                       // 获得第二条路径的长度
+
+Log.i("LEN","len1="+len1);                              // 输出两条路径的长度
+Log.i("LEN","len2="+len2);
 ```
 
 log输出结果:
-```
-05-30 02:00:33.899 19879-19879/com.gcssloop.canvas I/LEN: len1=800.0
-05-30 02:00:33.899 19879-19879/com.gcssloop.canvas I/LEN: len2=1600.0
+
+```shell
+com.gcssloop.canvas I/LEN: len1=800.0
+com.gcssloop.canvas I/LEN: len2=1600.0
 ```
 
 通过测试，我们可以得到以下内容：
 
-* 1.曲线的顺序与 Path 中添加的顺序有关。
-* 2.getLength 获取到到是当前一条曲线分长度，而不是整个 Path 的长度。
-* 3.getLength 等方法是针对当前的曲线(其它方法请自行验证)。
-
-
-
-
+- 1.曲线的顺序与 Path 中添加的顺序有关。
+- 2.getLength 获取到到是当前一条曲线分长度，而不是整个 Path 的长度。
+- 3.getLength 等方法是针对当前的曲线(其它方法请自行验证)。
 
 #### 5.getPosTan
 
 这个方法是用于得到路径上某一长度的位置以及该位置的正切值：
-``` java
-  boolean getPosTan (float distance, float[] pos, float[] tan)
+
+```java
+boolean getPosTan (float distance, float[] pos, float[] tan)
 ```
 
 方法各个参数释义：
@@ -300,88 +291,140 @@ log输出结果:
 | ------------ | ------------- | ---------------------------------------- |
 | 返回值(boolean) | 判断获取是否成功      | true表示成功，数据会存入 pos 和 tan 中，<br/>false 表示失败，pos 和 tan 不会改变 |
 | distance     | 距离 Path 起点的长度 | 取值范围: 0 <= distance <= getLength         |
-| pos          | 该点的坐标值        | 坐标值: (x==[0], y==[1])                    |
-| tan          | 该点的正切值        | 正切值: (x==[0], y==[1])                    |
+| pos          | 该点的坐标值        | 当前点在画布上的位置，有两个数值，分别为x，y坐标。               |
+| tan          | 该点的正切值        | 当前点在曲线上的方向，使用  Math.atan2(tan[1], tan[0]) 获取到正切角的弧度值。 |
 
 这个方法也不难理解，除了其中 `tan` 这个东东，这个东西是干什么的呢？
 
-`tan` 是用来判断 Path 的趋势的，即在这个位置上曲线的走向，请看下图示例，注意箭头的方向:
+`tan` 是用来判断 Path 上趋势的，即在这个位置上曲线的走向，请看下图示例，注意箭头的方向:
 
 ![](http://ww4.sinaimg.cn/large/005Xtdi2jw1f4dtufydm4g308c0etmyl.gif)
 
 **[点击这里下载箭头图片](http://ww1.sinaimg.cn/large/005Xtdi2jw1f4gam21ktoj3069069jre.jpg)**
 
-可以看到 上图中箭头在沿着 Path 运动时，方向始终与 Path 走向保持一致，下面我们来看看代码是如何实现的:
+可以看到 上图中箭头在沿着 Path 运动时，方向始终与 Path 走向保持一致，保持方向主要就是依靠 `tan` 。
 
-首先我们需要定义几个必要的变量:
+下面我们来看看代码是如何实现的，首先我们需要定义几个必要的变量:
 
-``` java
-    private float currentValue = 0;     // 用于纪录当前的位置,取值范围[0,1]映射Path的整个长度
+```java
+private float currentValue = 0;     // 用于纪录当前的位置,取值范围[0,1]映射Path的整个长度
 
-    private float[] pos;                // 当前点的实际位置
-    private float[] tan;                // 当前点的tangent值,用于计算图片所需旋转的角度
-    private Bitmap mBitmap;             // 箭头图片
-    private Matrix mMatrix;             // 矩阵,用于对图片进行一些操作
+private float[] pos;                // 当前点的实际位置
+private float[] tan;                // 当前点的tangent值,用于计算图片所需旋转的角度
+private Bitmap mBitmap;             // 箭头图片
+private Matrix mMatrix;             // 矩阵,用于对图片进行一些操作
 ```
 
 初始化这些变量(在构造函数中调用这个方法):
 
-``` java
-    private void init(Context context) {
-        pos = new float[2];
-        tan = new float[2];
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 2;       // 缩放图片
-        mBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow, options);
-        mMatrix = new Matrix();
-    }
+```java
+private void init(Context context) {
+    pos = new float[2];
+    tan = new float[2];
+    BitmapFactory.Options options = new BitmapFactory.Options();
+    options.inSampleSize = 2;       // 缩放图片
+    mBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow, options);
+    mMatrix = new Matrix();
+}
 ```
 
 具体绘制:
 
-``` java
+```java
+canvas.translate(mViewWidth / 2, mViewHeight / 2);      // 平移坐标系
 
-    canvas.translate(mViewWidth / 2, mViewHeight / 2);      // 平移坐标系
+Path path = new Path();                                 // 创建 Path
 
-    Path path = new Path();                                 // 创建 Path
+path.addCircle(0, 0, 200, Path.Direction.CW);           // 添加一个圆形
 
-    path.addCircle(0, 0, 200, Path.Direction.CW);           // 添加一个圆形
+PathMeasure measure = new PathMeasure(path, false);     // 创建 PathMeasure
 
-    PathMeasure measure = new PathMeasure(path, false);     // 创建 PathMeasure
+currentValue += 0.005;                                  // 计算当前的位置在总长度上的比例[0,1]
+if (currentValue >= 1) {
+  currentValue = 0;
+}
 
-    currentValue += 0.005;                                  // 计算当前的位置在总长度上的比例[0,1]
-    if (currentValue >= 1) {
-        currentValue = 0;
-    }
+measure.getPosTan(measure.getLength() * currentValue, pos, tan);        // 获取当前位置的坐标以及趋势
 
-    measure.getPosTan(measure.getLength() * currentValue, pos, tan);        // 获取当前位置的坐标以及趋势
+mMatrix.reset();                                                        // 重置Matrix
+float degrees = (float) (Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI); // 计算图片旋转角度
 
-    mMatrix.reset();                                                        // 重置Matrix
-    float degrees = (float) (Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI); // 计算图片旋转角度
+mMatrix.postRotate(degrees, mBitmap.getWidth() / 2, mBitmap.getHeight() / 2);   // 旋转图片
+mMatrix.postTranslate(pos[0] - mBitmap.getWidth() / 2, pos[1] - mBitmap.getHeight() / 2);   // 将图片绘制中心调整到与当前点重合
 
-    mMatrix.postRotate(degrees, mBitmap.getWidth() / 2, mBitmap.getHeight() / 2);   // 旋转图片
-    mMatrix.postTranslate(pos[0] - mBitmap.getWidth() / 2, pos[1] - mBitmap.getHeight() / 2);   // 将图片绘制中心调整到与当前点重合
+canvas.drawPath(path, mDeafultPaint);                                   // 绘制 Path
+canvas.drawBitmap(mBitmap, mMatrix, mDeafultPaint);                     // 绘制箭头
 
-    canvas.drawPath(path, mDeafultPaint);                                   // 绘制 Path
-    canvas.drawBitmap(mBitmap, mMatrix, mDeafultPaint);                     // 绘制箭头
-
-    invalidate();                                                           // 重绘页面
+invalidate();                                                           // 重绘页面
 ```
 
 **核心要点:**
 
 > 
-* 1.**通过 `tan` 得值计算出图片旋转的角度**，tan 是 tangent 的缩写，即中学中常见的正切， 其中tan[0](x)是邻边边长，tan[1](y)是对边边长，而Math中 `atan2` 方法是根据正切是数值计算出该角度的大小,得到的单位是弧度，所以上面又将弧度转为了角度。
-* 2.**通过 `Matrix` 来设置图片对旋转角度和位移**，这里使用的方法与前面讲解过对 canvas操作 有些类似，对于 `Matrix` 会在后面专一进行讲解，敬请期待。
-* 3.**页面刷新**，页面刷新此处是在 onDraw 里面调用了 invalidate 方法来保持界面不断刷新，但并不提倡这么做，正确对做法应该是使用 线程 或者 ValueAnimator 来控制界面的刷新，关于控制页面刷新这一部分会在后续的 动画部分 详细讲解，同样敬请期待。
 
+- 1.**通过 `tan` 得值计算出图片旋转的角度**，tan 是 tangent 的缩写，即中学中常见的正切， 其中tan[0]是邻边边长，tan[1]是对边边长，而Math中 `atan2` 方法是根据正切是数值计算出该角度的大小,得到的单位是弧度(取值范围是 -pi 到 pi)，所以上面又将弧度转为了角度。
+- 2.**通过 `Matrix` 来设置图片对旋转角度和位移**，这里使用的方法与前面讲解过对 canvas操作 有些类似，对于 `Matrix` 会在后面专一进行讲解，敬请期待。
+- 3.**页面刷新**，页面刷新此处是在 onDraw 里面调用了 invalidate 方法来保持界面不断刷新，但并不提倡这么做，正确对做法应该是使用 线程 或者 ValueAnimator 来控制界面的刷新，关于控制页面刷新这一部分会在后续的 动画部分 详细讲解，同样敬请期待。
+
+关于`tan`这个参数有很多魔法师不理解，特此拉出来详述一下，`tan` 在数学中被称为正切，在直角三角形中，一个锐角的**正切**定义为它的对边(Opposite side)与邻边(Adjacent side)的比值(来自维基百科)：
+
+![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f8wyvmjf9gj307y01kdfr.jpg)
+
+我们此处用 `tan` 来描述 Path 上某一点的切线方向，**主要用了两个数值 tan[0] 和 tan[1] 来描述这个切线的方向(切线方向与x轴夹角)** ，看上面公式可知 `tan` 既可以用 `对边／邻边` 来表述，也可以用 `sin／cos` 来表述，此处用两种理解方式均可以(**注意下面等价关系**):
+
+> **tan[0] = cos = 邻边(单位圆x坐标)**   
+> **tan[1] = sin = 对边(单位圆y坐标)** 
+
+
+
+**以 `sin／cos`理解:**
+
+![](http://ww1.sinaimg.cn/large/005Xtdi2jw1f8wzrmz33tj308c0etq3c.jpg)
+
+
+
+在圆上最右侧点的切线方向向下(动图中小飞机朝向和切线朝向一致)，切线角度为90度.  
+sin90 = 1，cos90 = 0  
+tan[0] = cos = 0  
+tan[1] = sin = 1
+
+
+
+**以 `对边／邻边` 理解(单位圆上坐标):**
+
+按照这种理解方式需要借助一个单位圆，单位圆上任意一点到圆心到距离均为 1，以下图30度为例：  
+
+<img src="http://ww2.sinaimg.cn/large/005Xtdi2jw1f8x0h7l7epj30k00k0juo.jpg" width="500" />
+
+tan30 = 对边／邻边 = AB／OA = B点y坐标／B点x坐标
+
+> **另外根据单位圆性质同样可以证得:**  
+> sin30 = 对边／斜边 = AB／OB = AB = B点y坐标 (单位圆边上任意一点距离圆心距离均为1，故OB = 1)  
+> cos30 = 邻边／斜边 = OA／OB = OA = B点x坐标
+>
+> **化为通用公式即为:**  
+> sin = 该角度在单位圆上对应点的y坐标    
+> cos = 该角度在单位圆上对应点的x坐标
+>
+> 即 tan = sin／cos = y／x  
+> tan[0] = x  
+> tan[1] = y
+>
+> 另外注意，这个单位圆与小飞机路径没有半毛钱关系，例如上一个例子中的90度切线，不要在单位圆上找对应位置，**要找对应角度的位置，90度对应的位置是(0，1)**，所以:  
+> tan[0] = x = 0  
+> tan[1] = y = 1
+>
+> 其实绕来绕去全是等价的  (╯°Д°)╯︵ ┻━┻
+
+**PS: 使用 Math.atan2(tan[1], tan[0]) 将 `tan` 转化为角(单位为弧度)的时候要注意参数顺序。**
 
 
 
 ### 6.getMatrix
 
 这个方法是用于得到路径上某一长度的位置以及该位置的正切值的矩阵：
-``` java
+
+```java
 boolean getMatrix (float distance, Matrix matrix, int flags)
 ```
 
@@ -399,6 +442,7 @@ boolean getMatrix (float distance, Matrix matrix, int flags)
 但是我们看到最后到 `flags` 选项可以选择 `位置` 或者 `正切` ,如果我们两个选项都想选择怎么办？
 
 如果两个选项都想选择，可以将两个选项之间用 `|` 连接起来，如下：
+
 ```
 measure.getMatrix(distance, matrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasure.POSITION_MATRIX_FLAG);
 ```
@@ -407,40 +451,40 @@ measure.getMatrix(distance, matrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasur
 
 具体绘制: 
 
-``` java
-    Path path = new Path();                                 // 创建 Path
+```java
+Path path = new Path();                                 // 创建 Path
 
-    path.addCircle(0, 0, 200, Path.Direction.CW);           // 添加一个圆形
+path.addCircle(0, 0, 200, Path.Direction.CW);           // 添加一个圆形
 
-    PathMeasure measure = new PathMeasure(path, false);     // 创建 PathMeasure
+PathMeasure measure = new PathMeasure(path, false);     // 创建 PathMeasure
 
-    currentValue += 0.005;                                  // 计算当前的位置在总长度上的比例[0,1]
-    if (currentValue >= 1) {
-        currentValue = 0;
-    }
+currentValue += 0.005;                                  // 计算当前的位置在总长度上的比例[0,1]
+if (currentValue >= 1) {
+    currentValue = 0;
+}
 
-    // 获取当前位置的坐标以及趋势的矩阵
-    measure.getMatrix(measure.getLength() * currentValue, mMatrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasure.POSITION_MATRIX_FLAG);
-    
-    mMatrix.preTranslate(-mBitmap.getWidth() / 2, -mBitmap.getHeight() / 2);   // <-- 将图片绘制中心调整到与当前点重合(注意:此处是前乘pre)
+// 获取当前位置的坐标以及趋势的矩阵
+measure.getMatrix(measure.getLength() * currentValue, mMatrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasure.POSITION_MATRIX_FLAG);
 
-    canvas.drawPath(path, mDeafultPaint);                                   // 绘制 Path
-    canvas.drawBitmap(mBitmap, mMatrix, mDeafultPaint);                     // 绘制箭头
+mMatrix.preTranslate(-mBitmap.getWidth() / 2, -mBitmap.getHeight() / 2);   // <-- 将图片绘制中心调整到与当前点重合(注意:此处是前乘pre)
 
-    invalidate();                                                           // 重绘页面
+canvas.drawPath(path, mDeafultPaint);                                   // 绘制 Path
+canvas.drawBitmap(mBitmap, mMatrix, mDeafultPaint);                     // 绘制箭头
+
+invalidate();                                                           // 重绘页面
 ```
 
 > 由于此处代码运行结果与上面一样，便不再贴图片了，请参照上面一个示例的效果图。
 
 可以看到使用 getMatrix 方法的确可以节省一些代码，不过这里依旧需要注意一些内容:
 
->
-* 1.对 `matrix` 的操作必须要在 `getMatrix` 之后进行，否则会被 `getMatrix` 重置而导致无效。
-* 2.矩阵对旋转角度默认为图片的左上角，我们此处需要使用 `preTranslate` 调整为图片中心。
-* 3.pre(矩阵前乘) 与 post(矩阵后乘) 的区别，此处请等待后续的文章或者自行搜索。
+> 
 
-*****
+- 1.对 `matrix` 的操作必须要在 `getMatrix` 之后进行，否则会被 `getMatrix` 重置而导致无效。
+- 2.矩阵对旋转角度默认为图片的左上角，我们此处需要使用 `preTranslate` 调整为图片中心。
+- 3.pre(矩阵前乘) 与 post(矩阵后乘) 的区别，此处请等待后续的文章或者自行搜索。
 
+------
 
 ## Path & SVG
 
@@ -455,20 +499,18 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4g87vfjbeg30690b4go8.gif)
 ![](http://ww3.sinaimg.cn/large/005Xtdi2jw1f4g89vqhqwg30690b4mzu.gif)
 
->
->**该图片来自这个开源库 ->[PathView](https://github.com/geftimov/android-pathview)** <br/>
->**SVG 转 Path 的解析可以用这个库 -> [AndroidSVG](https://bigbadaboom.github.io/androidsvg/)**
+> **该图片来自这个开源库 ->[PathView](https://github.com/geftimov/android-pathview)** <br/>
+> **SVG 转 Path 的解析可以用这个库 -> [AndroidSVG](https://bigbadaboom.github.io/androidsvg/)**
 
 限于篇幅以及本人精力，这一部分就暂不详解了，感兴趣的可以直接看源码，或者搜索一些相关的解析文章。
 
-*****
+------
 
 ## Path使用技巧
 
 **话说本篇文章的名字不是叫 玩出花样么？怎么只见前面啰啰嗦嗦的扯了一大堆不明所以的东西，花样在哪里？**
 
->
->**前面的内容虽然啰嗦繁杂，但却是重中之重的基础，如果在修仙界，这叫根基，而下面讲述的内容的是招式，有了根基才能演化出千变万化的招式，而没有根基只学招式则是徒有其表，只能学一样会一样，很难适应千变万化的需求。**
+> **前面的内容虽然啰嗦繁杂，但却是重中之重的基础，如果在修仙界，这叫根基，而下面讲述的内容的是招式，有了根基才能演化出千变万化的招式，而没有根基只学招式则是徒有其表，只能学一样会一样，很难适应千变万化的需求。**
 
 先放一个效果图，然后分析一下实现过程:
 
@@ -476,12 +518,12 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 
 这是一个搜索的动效图，通过分析可以得到它应该有四种状态，分别如下:
 
-| 状态   | 概述                          |
-| ---- | --------------------------- |
-| 初始状态 | 初始状态，没有任何动效，只显示一个搜索标志 :mag: |
-| 准备搜索 | 放大镜图标逐渐变化为一个点               |
-| 正在搜索 | 围绕这一个圆环运动，并且线段长度会周期性变化      |
-| 准备结束 | 从一个点逐渐变化成为放大镜图标             |
+| 状态   | 概述                       |
+| ---- | ------------------------ |
+| 初始状态 | 初始状态，没有任何动效，只显示一个搜索标志 🔍 |
+| 准备搜索 | 放大镜图标逐渐变化为一个点            |
+| 正在搜索 | 围绕这一个圆环运动，并且线段长度会周期性变化   |
+| 准备结束 | 从一个点逐渐变化成为放大镜图标          |
 
 这些状态是有序转换的，转换流程以及转换条件如下：
 
@@ -525,28 +567,22 @@ Path 和 SVG 结合通常能诞生出一些奇妙的东西，如下:
 
 > PS: 本代码仅作为示例使用，还有诸多不足，如 自定义属性，视图大小， 点击事件， 监听回调 等，并不适合直接使用，有需要的可以自行补足相关内容。
 
-
 ## 总结
 
 **本文中虽然后面的内容看起来比较高大上一点，但前面"啰嗦"的废话才是真正的干货，把前面的东西学会了，后面的各种效果都能信手拈来，如果只研究后面的东西，则是取其形，而难以会其意。**
 
 #### PS: 由于本人水平有限，某些地方可能存在误解或不准确，如果你对此有疑问可以提交Issues进行反馈。
 
-## About Me
+## About
 
-### 作者微博: [@GcsSloop](http://weibo.com/GcsSloop)
+[本系列相关文章](http://www.gcssloop.com/customview/CustomViewIndex/)
 
-<a href="https://github.com/GcsSloop/AndroidNote/blob/magic-world/FINDME.md" target="_blank"> <img src="http://ww4.sinaimg.cn/large/005Xtdi2gw1f1qn89ihu3j315o0dwwjc.jpg" width=300 height=100 /> </a>
+作者微博: [GcsSloop](http://weibo.com/GcsSloop)
 
 ## 参考资料
+
 [PathMeasure](https://developer.android.com/reference/android/graphics/PathMeasure.html)<br/>
 [AndroidSVG](https://bigbadaboom.github.io/androidsvg/)<br/>
 [android-pathview](https://github.com/geftimov/android-pathview)<br/>
 [android Path 和 PathMeasure 进阶](http://blog.csdn.net/cquwentao/article/details/51436852)<br/>
-[]()<br/>
-
-
-
-
-
 
