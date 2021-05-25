@@ -16,7 +16,7 @@
 | 基本方法 | save、restore                             | 保存、 回滚         |
 | 常用方法 | getMatrix、applyToCanvas                  | 获取Matrix、应用到画布 |
 | 平移   | translate                                | 位移             |
-| 旋转   | rotat (API 12)、rotateX、rotateY、rotateZ   | 各种旋转           |
+| 旋转   | rotate (API 12)、rotateX、rotateY、rotateZ   | 各种旋转           |
 | 相机位置 | setLocation (API 12)、getLocationX (API 16)、getLocationY (API 16)、getLocationZ  (API 16) | 设置与获取相机位置      |
 
 > Camera的方法并不是特别多，很多内容与之前的讲解的Canvas和Matrix类似，不过又稍有不同，之前的画布操作和Matrix主要是作用于2D空间，而Camera则主要作用于3D空间。
